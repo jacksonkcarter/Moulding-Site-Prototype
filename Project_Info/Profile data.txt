@@ -1,0 +1,2340 @@
+"timtest","Crown","unknown","2",2,"4.25",4.25,4.01,""
+"CIS-HR107 3/12","Casing","CREATIVE INTERIOR SERVICES",".75",.75,"3.5",3.5,2.29,""
+"MD1052","Casing","SPECTIS","3.75",3.75,"6",6,11.27,""
+"MD1052","Stop","SPECTIS","3.75",3.75,"6",6,11.33,""
+"SSI-3310","Base","S&S",".75",.75,"7.375",7.375,4.73,""
+"ss3310","Base","ss",".75",.75,"7.375",7.375,4.81,""
+"cm0530","Crown","mimi","15/16",.9375,"4",4,1.68,""
+"cm0530","Crown","mimi","15/16",.9375,"4",4,1.68,""
+"28FTPOP","Base Cap","LAFAYETTE","9/16",.5625,"1 15/16",1.9375,.71,""
+"28FTPOP","Casing","LAFAYETTE","9/16",.5625,"1.9375",1.9375,.73,""
+"28FTPOP","Casing","LAFAYETTE",".5625",.5625,"1.9375",1.9375,.74,""
+"LRM8711","Base","LITTLE RIVER",".5625",.5625,"3.5",3.5,1.62,""
+"LRM8711","Casing","LITTLE RIVER",".5625",.5625,"3.5",3.5,1.6,""
+"JMLCR10","Crown","JIM MACKIE","1",1,"6.75",6.75,4.49,""
+"RM9877","Crown","UNKNOWN",".6875",.6875,"3.5",3.5,1.27,""
+"24224STB","Casing","HOLCOMB",".75",.75,"7",7,4.73,""
+"L8900","Casing","WHOLESALE MILLWORK",".5",.5,"1.1875",1.1875,.43,""
+"KW430SM","Casing","KOETTER",".5",.5,"4.25",4.25,2.05,""
+"2668MPPM","Casing","KOETTER",".8125",.8125,"2.125",2.125,.89,""
+"KW FIRELIGHT","Casing","KOETTER",".625",.625,"1.875",1.875,.78,""
+"KW FIRELIGHT","Casing","KOETTER","5/8",.625,"1-7/8",1.875,.77,""
+"24224STB","Casing","HOLCOMB","3/4",.75,"7",7,4.71,""
+"L8900","Casing","WHOLESALE","",0,"",0,.47,""
+"KW430SM","Casing","KOETTER","1/2",.5,"4-1/4",4.25,2.07,""
+"2668MPPM","Casing","UNK","13/16",.8125,"2-1/8",2.125,.89,""
+"24224STB","Casing","KOET","1/2",.5,"4-1/4",4.25,2.09,""
+"24224 STB","Casing","A",".75",.75,"7",7,4.59,""
+"C2","Casing","bosley","1.188",1.188,"6",6,3.22,""
+"CM47","Crown","Carter","9/16",.5625,"4 5/8",4.625,2.57,""
+"CM47","Crown","Carter","9/16",.5625,"4 5/8",4.625,2.01,""
+"CM47","Crown","Carter","9/16",.5625,"4 5/8",4.625,2.01,""
+"4650ABB","Back Band","koetter","1 7/16",1.4375,"1 9/16",1.5625,1.77,""
+"M134A","Panel Mold","","11/16",.6875,"1 3/4",1.75,.85,""
+"A134Mb","Stop","s&d","11/16",.6875,"1 3/4",1.75,.83,""
+"a134mc","Stop","s&d","11/16",.6875,"1.75",1.75,.85,""
+"tim","Stop","tim","11/16",.6875,"1.75",1.75,.85,""
+"tim","Stop","tim","11/16",.6875,"1.75",1.75,.82,""
+"tim","Stop","tim","11/16",.6875,"1.75",1.75,.82,""
+"tim","Casing","tim","11/16",.6875,"1-3/4",1.75,.82,""
+"test","Casing","test","5/16",.3125,"1-1/2",1.5,.39,""
+"CW1116SHOE","Base Shoe","CANWELL","7/16",.4375,"11/16",.6875,.27,""
+"CM940","Panel Mold","","7/16",.4375,"7/8",.875,.31,""
+"GSB725","Base","GARDEN STATE","3/4",.75,"7-1/4",7.25,3.94,""
+"2003CR","Crown","ITC","3/4",.75,"5-1/4",5.25,2.55,""
+"ALAN 2003CR","Crown","ITC","3/4",.75,"5-1/4",5.25,2.55,""
+"WM713","Base","NAPLES","3.5",3.5,"9/16",.5625,1.37
+"WM713","Base","NAPLES","3.5",3.5,"9/16",.5625,8.73
+"WM713","Base","NAPLES","3.5",3.5,"9/16",.5625,1.7
+"WM714","Base","NONE","3",3,"1/2",.5,1.29
+"WM714-2","Base","NONE","3",3,"1/2",.5,1.29
+"sample","Base","erica",".75",.75,"8.5",8.5,5.18
+"sample1","Base","erica","8.5",8.5,".75",.75,5.18
+"B34","Base Cap","Garden State","9/16",.5625,"3/4",.75,.29
+"B34","Base Cap","Garden State","3/4",.75,"9/16",.5625,.29
+"BMC B13","Casing","BMC",".75",.75,"6.5",6.5,3.9
+"BMC 329","Crown","BMC","1.1875",1.1875,"6.3125",6.3125,4.19
+"CM356","Casing","CARTER","11/16",.6875,"2-1/4",.5,.26
+"CM356","Casing","CARTER","11/16",.6875,"2 1/4",2.25,1.17
+"CM1","Casing","CARTER","1 1/16",1.0625,"3 1/2",3.5,2.01
+"CM444","Casing","CARTER","11/16",.6875,"3 1/4",3.25,1.65
+"CM445","Casing","CARTER","11/16",.6875,"3 1/4",3.25,1.63
+"CM45","Crown","CARTER","11/16",.6875,"5 1/4",5.25,2.58
+"CM47","Crown","CARTER","9/16",.5625,"4 5/8",4.625,1.82
+"BMC B13","Casing","BMC","9/16",.5625,"5 1/8",5.125,2.3
+"CM366","Casing","CARTER","11/16",.6875,"2 1/4",2.25,1.12
+"BMC 22","Crown","","11/16",.6875,"4 1/2",4.5,1.66
+"HMB 227","Base","","9/16",.5625,"7 1/4",7.25,3.56
+"HMB 227","Base","","7 1/4",7.25,"9/16",.5625,3.65
+"HMB 227","Base","","9/16",.5625,"7 1/4",7.25,3.53
+"MDF DYKE 47","Crown","DYKE","5/8",.625,"5 1/4",5.25,2.43
+"MM97","Casing","EAST COAST","1 1/16",1.0625,"3 7/16",3.4375,2.43
+"MS045","Crown","","1/2",.5,"5 1/4",5.25,1.73
+"BMC 50","Crown","BMC WEST","1 7/16",1.4375,"5 1/4",5.25,2.86
+"BMC 48","Crown","BMC WEST","9/16",.5625,"4 1/4",4.25,1.63
+"B 838","Base","PROBUILD","11/16",.6875,"8 3/8",8.375,4.99
+"B 838","Base","PROBUILD","8 3/8",8.375,"11/16",.6875,4.99
+"B695","Base","PROBUILD","6 1/2",6.5,"9/16",.5625,3.41
+"B695","Base","PROBUILD","9/16",.5625,"6 1/2",6.5,3.41
+"MS5180","Base","CARTER","9/16",.5625,"5 1/4",5.25,2.42
+"cm1","Casing","CARTER MILLWORK","1-1/16",.0625,"3-1/2",1.5,.05
+"CM1","Casing","CARTER MILLWORK","1 1/16",1.0625,"3 1/2",3.5,2.02
+"PBH B838","Base","PROBUILD HOUSTON","8 3/8",8.375,"11/16",.6875,5.1
+"GS8422","Shoe Mould","GARDEN STATE","3/4",.75,"1/2",.5,.32
+"GS8423","Shoe Mould","GARDEN STATE","3/4",.75,"1/2",.5,.24
+"GS8427","Shoe Mould","GARDEN STATE","3/4",.75,"5/8",.625,.31
+"GSCTSHOE","Shoe Mould","GARDEN STATE","1",1,"5/8",.625,.39
+"GSD693","Base","GARDEN STATE","3-1/4",.75,"9/16",.5625,.07
+"GSD693","Base","GARDEN STATE","3 1/4",3.25,"9/16",.5625,1.65
+"GSE693","Base","GARDEN STATE","3 1/2",3.5,"9/16",.5625,1.77
+"GSL724","Base","GARDEN STATE","3",3,"7/16",.4375,1.16
+"GSL8422","Shoe Mould","GARDEN STATE","11/16",.6875,"7/16",.4375,.25
+"GSL8423","Shoe Mould","GARDEN STATE","11/16",.6875,"7/16",.4375,.19
+"GSMCS1","Shoe Mould","GARDEN STATE","1",1,"5/8",.625,.45
+"GSSH1","Shoe Mould","GARDEN STATE","1",1,"1/2",.5,.39
+"GSWM714","Base","GARDEN STATE","3",3,"9/16",.5625,1.52
+"GS8712","Base","GARDEN STATE","3 1/2",3.5,"5/8",.625,2.04
+"GSB8712","Base","GARDEN STATE","3 1/4",3.25,"9/16",.5625,1.66
+"GSC8712","Base","GARDEN STATE","3 1/2",3.5,"9/16",.5625,1.8
+"GSL623","Base","GARDEN STATE","2 1/2",2.5,"11/16",.6875,1.52
+"GSL8712","Base","GARDEN STATE","3",3,"7/16",.4375,1.17
+"GSWM620","Base","GARDEN STATE","9/16",.5625,"4 1/4",4.25,2.24
+"GSWM620","Base","GARDEN STATE","4 1/4",4.25,"9/16",.5625,2.24
+"GSWM624","Base","GARDEN STATE","3",3,"9/16",.5625,1.53
+"GSWM662","Base","GARDEN STATE","3 1/2",3.5,"9/16",.5625,1.8
+"GSB412","Base","GARDEN STATE","4 1/2",4.5,"5/8",.625,2.43
+"GSBB514","Base","GARDEN STATE","5 1/4",5.25,"9/16",.5625,2.68
+"GSBB414","Base","GARDEN STATE","4 1/4",4.25,"9/16",.5625,2.17
+"GSBB458","Base","GARDEN STATE","4 5/8",4.625,"11/16",.6875,2.73
+"GSWM618","Base","GARDEN STATE","5 1/4",5.25,"9/16",.5625,2.69
+"GSB512","Base","GARDEN STATE","5 1/2",5.5,"5/8",.625,3.06
+"GSBB518","Base","GARDEN STATE","5 1/4",5.25,"11/16",.6875,3.28
+"GSMCB525","Base","GARDEN STATE","5 1/4",5.25,"9/16",.5625,2.54
+"GSNB514","Base","GARDEN STATE","5 1/4",5.25,"11/16",.6875,3.15
+"GSPLB8416","Base","GARDEN STATE","5 1/4",5.25,"5/8",.625,2.78
+"GSPLB8416","Base","GARDEN STATE","5 1/4",5.25,"5/8",.625,2.74
+"GSB534","Base","GARDEN STATE","5 3/4",5.75,"3/4",.75,3.53
+"GSBB6","Base","GARDEN STATE","6",6,"11/16",.6875,3.68
+"GSBB7","Base","GARDEN STATE","7",7,"11/16",.6875,4.01
+"GSBB714","Base","GARDEN STATE","7",7,"5/8",.625,4.09
+"GSPLB612","Base","GARDEN STATE","6 1/2",6.5,"3/4",.75,3.99
+"GSB725","Base","GARDEN STATE","7 1/4",7.25,"3/4",.75,4.48
+"GSBB738","Base","GARDEN STATE","7 3/8",7.375,"11/16",.6875,4.43
+"GSLWM903","Shoe Mould","GARDEN STATE","2 1/4",2.25,"9/16",.5625,1.1
+"GSLWP709","Base","GARDEN STATE","5 1/4",5.25,"9/16",.5625,2.63
+"GSMCB5","Base","GARDEN STATE","5",5,"11/16",.6875,2.88
+"GSDCBB5","Base","GARDEN STATE","5 1/2",5.5,"3/4",.75,3.28
+"GSMCB7","Base","GARDEN STATE","7 ",7,"11/16",.6875,4.19
+"GSBB738","Base","GARDEN STATE","7 3/8",7.375,"11/16",.6875,4.31
+"GSDCB714","Base","GARDEN STATE","7 1/4",7.25,"1",1,6.23
+"GSMCB725","Base","GARDEN STATE","7 1/4",7.25,"9/16",.5625,3.5
+"GSPLB714","Base","GARDEN STATE","7 1/4",7.25,"5/8",.625,3.85
+"GSDCB775","Base","GARDEN STATE","7 3/4",7.75,"1 1/16",1.0625,7.21
+"GSDCB8","Base","GARDEN STATE","8",8,"1",1,7.08
+"GSPLB8","Base","GARDEN STATE","8",8,"1",1,6.28
+"GSDCB825","Base","GARDEN STATE","8 1/4",8.25,"1 5/16",1.3125,7.84
+"GSDCB925","Base","GARDEN STATE","9 1/4",9.25,"7/8",.875,6.92
+"GSPLB9","Base","GARDEN STATE","9",9,"3/4",.75,5.39
+"GSBDB55","Base","GARDEN STATE","5 1/2",5.5,"5/8",.625,3.18
+"GSLWM412","Base","GARDEN STATE","3 1/2",3.5,"11/16",.6875,2.33
+"GSLWM432","Base","GARDEN STATE","3 1/2",3.5,"9/16",.5625,1.89
+"GSWM452","Base","GSWM452","2 1/2",2.5,"11/16",.6875,1.65
+"GSWM472","Base","GARDEN STATE","2 1/2",2.5,"9/16",.5625,1.35
+"GSBDB25","Base","GARDEN STATE","2 1/2",2.5,"3/4",.75,1.79
+"GSBDB35","Base","GARDEN STATE","3 1/2",3.5,"3/4",.75,2.51
+"GSLSAN725","Base","GARDEN STATE","7 1/4",7.25,"9/16",.5625,3.76
+"GSLWM410","Base","GARDEN STATE","4 1/4",4.25,"11/16",.6875,2.69
+"GSSAN414","Base","GARDEN STATE","4 1/4 ",4.25,"9/16",.5625,2.2
+"GSWM750","Base","GARDEN STATE","4 1/4",4.25,"9/16",.5625,2.25
+"GSWM753","Base","GARDEN STATE","3 1/4",3.25,"9/16",.5625,1.72
+"GSMCAP1","Base Cap","GARDEN STATE","1 1/16",1.0625,"3/4",.75,.7
+"GSMCB512","Base","GARDEN STATE","5 1/2",5.5,"9/16",.5625,2.83
+"GSMCB712","Base","GARDEN STATE","7 1/2",7.5,"9/16",.5625,3.86
+"GSMCB712","Base","GARDEN STATE","7 1/2",7.5,"9/16",.5625,3.73
+"GSMCC212","Casing","GARDEN STATE","2 1/2",2.5,"11/16",.6875,1.6
+"GSMCC312","Casing","GARDEN STATE","3 1/2 ",3.5,"11/16",.6875,2.21
+"GSMCC412","Casing","GARDEN STATE","4 1/2",4.5,"11/16",.6875,2.94
+"GS8753","Casing","GARDEN STATE","2 1/2",2.5,"11/16",.6875,1.17
+"BFB8753","Casing","GARDEN STATE","2 1/4",2.25,"11/16",.6875,1.06
+"GSB8753","Casing","GARDEN STATE","2 1/4",2.25,"11/16",.6875,1.06
+"GSL8753","Casing","GARDEN STATE","3 1/2",3.5,"11/16",.6875,1.62
+"GSLWM445","Casing","GARDEN STATE","3 1/2",3.5,"11/16",.6875,1.59
+"GSN8753","Casing","GARDEN STATE","2 1/4",2.25,"11/16",.6875,1.05
+"GSWM351","Casing","GARDEN STATE","2 1/2",2.5,"11/16",.6875,1.28
+"GSWM356","Casing","GARDEN STATE","2 1/4",2.25,"11/16",.6875,1.14
+"GSWM361","Casing","GARDEN STATE","2 1/2",2.5,"11/16",.6875,1.22
+"GSWM376","Casing","GARDEN STATE","2 1/4",2.25,"11/16",.6875,1.08
+"GSWM445","Casing","GARDEN STATE","3 1/4",3.25,"11/16",.6875,1.53
+"GS8711","Casing","GARDEN STATE","3 1/2",3.5,"11/16",.6875,1.83
+"GS8746","Casing","GARDEN STATE","4 1/4",4.25,"11/16",.6875,1.89
+"GSB8746","Casing","GARDEN STATE","3 5/8",3.625,"11/16",.6875,1.67
+"GSC103","Casing","GARDEN STATE","2 1/4",2.25,"9/16",.5625,.89
+"GSC105","Casing","GARDEN STATE","2 1/4",2.25,"5/8",.625,.97
+"GSC106","Casing","GARDEN STATE","2 1/4",2.25,"11/16",.6875,1.18
+"GSSTF1","Casing","GARDEN STATE","3 1/2",3.5,"11/16",.6875,1.51
+"GSWM444","Casing","GARDEN STATE","3 1/2",3.5,"11/16",.6875,1.79
+"GSWM315","Casing","GARDEN STATE","2 1/2",2.5,"11/16",.6875,1.23
+"GSWM327","Casing","GARDEN STATE","2 1/4",2.25,"11/16",.6875,1.1
+"GSLK3","Casing","GARDEN STATE","3",3,"7/8",.875,1.4
+"GSWC2","Casing","GARDEN STATE","2 1/2",2.5,"3/4",.75,1.07
+"GSES1","Casing","GARDEN STATE","3 1/2",3.5,"3/4",.75,1.88
+"GSES2","Casing","GARDEN STATE","3 1/4",3.25,"1 1/8",1.125,2.22
+"GS119","Casing","GARDEN STATE","3 1/2",3.5,"1",1,2.34
+"GS694","Casing","GARDEN STATE","3 1/2",3.5,"1",1,2.08
+"GSWC1","Casing","GARDEN STATE","3 1/2",3.5,"1 1/16",1.0625,2.04
+"GSWM97","Casing","GARDEN STATE","3 1/2",3.5,"1 1/16",1.0625,2.43
+"GSCGM31","Casing","GARDEN STATE","3 1/2",3.5,"1 1/16",1.0625,2.17
+"GSMCC334","Casing","GARDEN STATE","3 3/4",3.75,"1 1/8",1.125,2.24
+"GSMCC375","Casing","GARDEN STATE","3 3/4",3.75,"1 1/8",1.125,2.35
+"GSWC1CT","Casing","GARDEN STATE","3 1/2",3.5,"1 1/16",1.0625,2.29
+"GS400","Casing","GARDEN STATE","4",4,"1",1,2.88
+"GSLK4","Casing","GARDEN STATE","4",4,"1 1/8",1.125,2.53
+"GSPL378","Casing","GARDEN STATE","3 7/8",3.875,"1",1,2.49
+"GSPM2200","Casing","GARDEN STATE","3 3/4",3.75,"1 1/8",1.125,2.23
+"GS425","Casing","GARDEN STATE","4 1/4",4.25,"1 3/16",1.1875,2.9
+"GS425MDF","Casing","GARDEN STATE","4 1/4",4.25,"1 1/8",1.125,2.74
+"GS441","Casing","GARDEN STATE","4 1/4",4.25,"1 1/8",1.125,3.01
+"GSDC400","Casing","GARDEN STATE","4",4,"1 5/16",1.3125,2.9
+"GSDC400","Casing","GARDEN STATE","4",4,"1 5/16",1.3125,2.93
+"GSES4","Casing","GARDEN STATE","4 1/4",4.25,"1",1,3.21
+"GSES12","Casing","GARDEN STATE","4 1/2",4.5,"11/16",.6875,2.79
+"GS419","Casing","GARDEN STATE","4 1/2",4.5,"1 3/16",1.1875,3.6
+"GS419MDF","Casing","GARDEN STATE","4 1/2",4.5,"1 3/16",1.1875,3.6
+"GSES3","Casing","GARDEN STATE","4 1/2",4.5,"1 1/8",1.125,3.28
+"GSJC412","Casing","GARDEN STATE","4 1/2",4.5,"1 1/8",1.125,3.08
+"GSDC412","Casing","GARDEN STATE","4 1/2",4.5,"1 7/16",1.4375,3.66
+"GSPL458","Casing","GARDEN STATE","4 5/8",4.625,"1 3/16",1.1875,3.77
+"GS434","Casing","GARDEN STATE","4 3/4",4.75,"1",1,3.02
+"GSMCC434","Casing","GARDEN STATE","4 3/4",4.75,"1 3/8",1.375,3.42
+"GSMCC475","Casing","GARDEN STATE","4 3/4",4.75,"1 7/16",1.4375,3.79
+"GSDC499","Casing","GARDEN STATE","5",5,"1 5/8",1.625,4.65
+"GSDCWC5","Casing","GARDEN STATE","4 7/8",4.875,"1 1/2",1.5,4.1
+"GSDC512PP","Casing","GARDEN STATE","5 1/2",5.5,"1 3/4",1.75,5.32
+"GSDCAS5","Casing","GARDEN STATE","5 1/2",5.5,"1 3/4",1.75,4.63
+"GSPL514","Casing","GARDEN STATE","5 1/4",5.25,"1 3/16",1.1875,4
+"GSDC550","Casing","GARDEN STATE","5 1/2",5.5,"2",2,5.81
+"GSFR214RDD","Casing","GARDEN STATE","11/16",.6875,"2 1/4",2.25,1.43
+"GSFR314RDD","Casing","GARDEN STATE","11/16",.6875,"3 1/4",3.25,1.96
+"GSFR314FLTD","Casing","GARDEN STATE","11/16",.6875,"3 1/4",3.25,1.95
+"GSECBCAP","Back Band","GARDEN STATE","1 3/4",1.75,"1 3/8",1.375,1.74
+"GS8314","Back Band","GARDEN STATE","1 1/8",1.125,"11/16",.6875,.55
+"GSBBCAP12","Back Band","GARDEN STATE","1 1/2",1.5,"1 3/8",1.375,1.43
+"GSES13","Back Band","GARDEN STATE","1 3/4",1.75,"1 3/8",1.375,1.42
+"GSES14","Back Band","GARDEN STATE","1 11/16",1.6875,"1",1,1.23
+"GSES16","Back Band","GARDEN STATE","1 1/4",1.25,"1 1/2",1.5,1.51
+"GSMCBB1","Back Band","GARDEN STATE","1",1,"1 1/16",1.0625,.88
+"GSMCBB2","Back Band","GARDEN STATE","1 1/16",1.0625,"1 1/16",1.0625,.92
+"GSWM281","Back Band","GARDEN STATE","1 1/8",1.125,"11/16",.6875,.52
+"GSES5","Chair Rail","GARDEN STATE","5 1/4",5.25,"11/16",.6875,2.94
+"GSES6","Chair Rail","GARDEN STATE","2 5/8",2.625,"1",1,1.61
+"GSES7","Chair Rail","GARDEN STATE","3",3,"1",1,1.59
+"GSES8","Chair Rail","GARDEN STATE","3 1/2",3.5,"1 1/8",1.125,2.59
+"GSES8","Chair Rail","GARDEN STATE","3 1/2",3.5,"1 1/8",1.125,2.58
+"GSPLR334","Chair Rail","GARDEN STATE","3 3/4",3.75,"1 3/16",1.1875,2.47
+"GS8187","Chair Rail","GARDEN STATE","2 1/2",2.5,"9/16",.5625,1.15
+"GSLWM297","Chair Rail","GARDEN STATE","3",3,"11/16",.6875,1.22
+"GSLWM390","Chair Rail","GARDEN STATE","2 1/2",2.5,"11/16",.6875,1.16
+"GSWM390","Chair Rail","GARDEN STATE","2 5/8",2.625,"11/16",.6875,1
+"GS8027","Crown","GARDEN STATE","11/16",.6875,"5 1/4",5.25,2.38
+"GSL8009","Crown","GARDEN STATE","9/16",.5625,"3 1/2",3.5,1.44
+"GSL8010","Crown","GARDEN STATE","9/16",.5625,"2 1/2",2.5,1.05
+"GSL8013","Crown","GARDEN STATE","9/16",.5625,"4 1/2",4.5,1.73
+"GSL8027","Crown","GARDEN STATE","9/16",.5625,"5 1/4",5.25,1.94
+"GSLWM47","Crown","GARDEN STATE","9/16",.5625,"4 5/8",4.625,1.75
+"GSLWM49","Crown","GARDEN STATE","9/16",.5625,"3 5/8",3.625,1.49
+"GSWM53","Crown","GARDEN STATE","9/16",.5625,"2 5/8",2.625,1.04
+"GSCB312","Crown","GARDEN STATE","11/16",.6875,"3 1/2",3.5,1.86
+"GSCOV312","Crown","GARDEN STATE","3/4",.75,"3 1/2",3.5,1.34
+"GSUC31","Crown","GARDEN STATE","11/16",.6875,"3 5/8",3.625,1.53
+"GSCOV412","Crown","GARDEN STATE","1",1,"4 1/2",4.5,2.17
+"GSC412","Crown","GARDEN STATE","1",1,"4 1/2",4.5,2.83
+"GSMCOV5","Crown","GARDEN STATE","3/4",.75,"4 1/4",4.25,1.76
+"GSBC5","Crown","GARDEN STATE","1 1/16",1.0625,"5 1/4",5.25,2.7
+"GSSBC514","Crown","GARDEN STATE","5/8",.625,"5 3/8",5.375,2.32
+"GSUC41","Crown","GARDEN STATE","11/16",.6875,"4 5/8",4.625,2.07
+"GSUC41","Crown","GARDEN STATE","11/16",.6875,"4 5/8",4.625,2.06
+"GSMCOV6","Crown","GARDEN STATE","1 1/8",1.125,"5 1/4",5.25,2.95
+"GSMCR514","Crown","GARDEN STATE","1 1/16",1.0625,"5 1/4",5.25,2.67
+"GSDCR512","Crown","GARDEN STATE","13/16",.8125,"5 1/2",5.5,2.86
+"GSMCR550","Crown","GARDEN STATE","1",1,"5 1/2",5.5,2.85
+"GSC512","Crown","GARDEN STATE","1 3/16",1.1875,"5 1/2",5.5,3.35
+"DGSDCR558","Crown","GARDEN STATE","1 3/8",1.375,"5 5/8",5.625,3.63
+"GSUC51","Crown","GARDEN STATE","13/16",.8125,"5 5/8",5.625,3.14
+"GSC614","Crown","GARDEN STATE","1 3/16",1.1875,"6 1/4",6.25,3.62
+"GSPLC612","Crown","GARDEN STATE","3/4",.75,"6 1/2",6.5,3.6
+"GSMCR650","Crown","GARDEN STATE","1 1/8",1.125,"6 1/2",6.5,3.68
+"GSDCR634","Crown","GARDEN STATE","1 3/4",1.75,"6 3/4",6.75,4.66
+"GSPLC634","Crown","GARDEN STATE","1 3/16",1.1875,"6 3/4",6.75,4
+"GSUC71","Crown","GARDEN STATE","1 1/8",1.125,"7 1/4",7.25,5.47
+"GSMCOV8","Crown","GARDEN STATE","1 3/16",1.1875,"7 1/4",7.25,4.54
+"GSMCR714","Crown","GARDEN STATE","1 1/16",1.0625,"7 1/4",7.25,4.18
+"GSC738","Crown","GARDEN STATE","1 3/16",1.1875,"7 3/8",7.375,5.2
+"GSCOV7","Crown","GARDEN STATE","1 3/8",1.375,"7 1/4",7.25,4.94
+"GSDCR725","Crown","GARDEN STATE","1 5/16",1.3125,"7 1/4",7.25,4.34
+"GSMCR750","Crown","GARDEN STATE","1 3/16",1.1875,"7 1/2",7.5,4.36
+"GSPLC712","Crown","GARDEN STATE","1 3/16",1.1875,"7 1/2",7.5,5.81
+"GSDCR734","Crown","GARDEN STATE","1 3/4",1.75,"7 3/4",7.75,6.19
+"GSDCR814","Crown","GARDEN STATE","1 5/16",1.3125,"8 1/4",8.25,6.19
+"GSPLC1012","Crown","GARDEN STATE","1 3/16",1.1875,"10 1/2",10.5,7.97
+"GSBLC812","Crown","GARDEN STATE","1 3/16",1.1875,"8 1/2",8.5,6.66
+"GS8047","Casing","GARDEN STATE","2 1/2",2.5,"1 1/8",1.125,2
+"GSMSC175","Casing","GARDEN STATE","1 3/4",1.75,"7/8",.875,.92
+"GSMSC225","Casing","GARDEN STATE","2 1/4",2.25,"1 1/8",1.125,1.56
+"GSMSC275","Casing","GARDEN STATE","2 3/4",2.75,"1 3/8",1.375,2.28
+"GSSC134","Casing","GARDEN STATE","1 3/4",1.75,"11/16",.6875,.81
+"GSSC214","Casing","GARDEN STATE","2 1/4",2.25,"1 1/8",1.125,1.49
+"GSSC234","Casing","GARDEN STATE","2 3/4",2.75,"1 3/8",1.375,2.16
+"GSWM209","Rake Mould","GARDEN STATE","2",2,"11/16",.6875,1.05
+"GSWP211","Rake Mould","GARDEN STATE","2 1/4",2.25,"1 1/8",1.125,1.9
+"GS8535","Casing","GARDEN STATE","3/4",.75,"5/8",.625,.33
+"GSL8535","Casing","GARDEN STATE","7/8",.875,"5/8",.625,.38
+"GSNY127","Casing","GARDEN STATE","1 5/8",1.625,"5/8",.625,.64
+"GSNY128","Casing","GARDEN STATE","1 3/8",1.375,"9/16",.5625,.52
+"GSWM210","Rake Mould","GARDEN STATE","1 5/8",1.625,"11/16",.6875,.8
+"GSWP210","Casing","GARDEN STATE","1 5/8",1.625,"1 1/8",1.125,1.28
+"GS8016","Crown","GARDEN STATE","9/16",.5625,"1 5/8",1.625,.59
+"GS8017","Crown","GARDEN STATE","9/16",.5625,"1 3/4",1.75,.68
+"GS8018","Crown","GARDEN STATE","9/16",.5625,"2 1/4",2.25,.9
+"GS8018","Crown","GARDEN STATE","9/16",.5625,"2 1/4",2.25,.9
+"GS8018","Crown","GARDEN STATE","9/16",.5625,"2 1/4",2.25,.9
+"GS8018","Crown","GARDEN STATE","9/16",.5625,"2 1/4",2.25,.87
+"GS8024","Crown","GARDEN STATE","9/16",.5625,"1 5/8",1.625,.47
+"GS8026","Crown","GARDEN STATE","9/16",.5625,"2 1/2",2.5,.72
+"GS8052","Cove Mould","GARDEN STATE","11/16",.6875,"11/16",.6875,.25
+"GS8061","Cove Mould","GARDEN STATE","1 1/8",1.125,"11/16",.6875,.49
+"GS8062","Cove Mould","GARDEN STATE","3/4",.75,"5/8",.625,.3
+"GSLWM70","Crown","GARDEN STATE","9/16",.5625,"2 5/8",2.625,1.09
+"GSS7","Cove Mould","GARDEN STATE","1",1,"5/16",.3125,.09
+"GSS7","Crown","GARDEN STATE","5/16",.3125,"1",1,.15
+"GSS86","Crown","GARDEN STATE","9/16",.5625,"1 5/8",1.625,.44
+"GSS9","Crown","GARDEN STATE","11/16",.6875,"2 1/2",2.5,.97
+"GSWM85","Crown","GARDEN STATE","9/16",.5625,"1 3/4",1.75,.57
+"GSWM93","Cove Mould","GARDEN STATE","3/4",.75,"3/4",.75,.3
+"GSWP101","Cove Mould","GARDEN STATE","1/2",.5,"1/2",.5,.14
+"GS8575","Back Band","GARDEN STATE","3/8",.375,"1/2",.5,.13
+"GS8576","Back Band","GARDEN STATE","1/2",.5,"5/8",.625,.22
+"GS8577","Back Band","GARDEN STATE","5/8",.625,"3/4",.75,.34
+"GS8578","Back Band","GARDEN STATE","11/16",.6875,"1 1/8",1.125,.49
+"GSBS134","Back Band","GARDEN STATE","7/8",.875,"1 3/4",1.75,.92
+"GSES11","Panel Mould","GARDEN STATE","1 1/8",1.125,"1 3/4",1.75,.74
+"GSES15","Panel Mould","GARDEN STATE","7/8",.875,"1 3/4",1.75,.72
+"GSPL134","Panel Mould","GARDEN STATE","5/8",.625,"1 3/4",1.75,.68
+"GSPL2","Panel Mould","GARDEN STATE","3/4",.75,"2",2,.84
+"GSPLP312","Panel Mould","GARDEN STATE","1 3/16",1.1875,"3 1/2",3.5,2.45
+"GS8416","Base Cap","GARDEN STATE","1 5/8",1.625,"5/8",.625,.64
+"GS8417","Base Cap","GARDEN STATE","2 1/4",2.25,"11/16",.6875,1.01
+"GSB34","Base Cap","GARDEN STATE","3/4",.75,"9/16",.5625,.28
+"GSB658","Base Cap","GARDEN STATE","1",1,"9/16",.5625,.33
+"GSBB138","Base Cap","GARDEN STATE","1 3/8",1.375,"11/16",.6875,.68
+"GSBC78","Base Cap","GARDEN STATE","7/8",.875,"11/16",.6875,.4
+"GSPL118","Panel Mould","GARDEN STATE","1 1/8",1.125,"7/8",.875,.66
+"GSPL118","Panel Mould","GARDEN STATE","1 1/8",1.125,"3/8",.375,.28
+"GSPL138","Panel Mould","GARDEN STATE","1 3/8",1.375,"5/16",.3125,.26
+"GSPL78","Base Cap","GARDEN STATE","7/8",.875,"3/8",.375,.22
+"GSWM163","Base Cap","GARDEN STATE","1 3/8",1.375,"11/16",.6875,.53
+"GSWM164","Base Cap","GARDEN STATE","1 1/8",1.125,"11/16",.6875,.44
+"GSMCAP34","Base Cap","GARDEN STATE","1 3/4",1.75,"5/8",.625,.81
+"GSMCAP54","Base Cap","GARDEN STATE","1 3/4",1.75,"1",1,1.17
+"GS8462","Back Band","GARDEN STATE","1 1/8",1.125,"11/16",.6875,.49
+"GS8469","Casing","GARDEN STATE","1 3/4",1.75,"11/16",.6875,.94
+"GS8904","Panel Mould","GARDEN STATE","3/4",.75,"3/4",.75,.55
+"GSL239","Panel Mould","GARDEN STATE","1/2",.5,"1/2",.5,.24
+"GSWM180","Back Band","GARDEN STATE","2",2,"1 1/4",1.25,2.23
+"GSWM212","Rake Mould","GARDEN STATE","2 1/2",2.5,"11/16",.6875,1.19
+"GSCSM","Casing","GARDEN STATE","3/8",.375,"2",2,.55
+"GSL995","Panel Mould","GARDEN STATE","1",1,"1",1,.49
+"GSLWM135","Panel Mould","GARDEN STATE","3/8",.375,"7/8",.875,.19
+"GSLWM973","Panel Mould","GARDEN STATE","1/4",.25,"1 1/2",1.5,.36
+"GSWM130","Panel Mould","GARDEN STATE","7/16",.4375,"1 1/8",1.125,.29
+"GSWM133","Panel Mould","GARDEN STATE","11/16",.6875,"1 3/4",1.75,.69
+"GSWP995","Panel Mould","GARDEN STATE","3/4",.75,"3/4",.75,.27
+"GS8281","Casing","GARDEN STATE","1/4",.25,"1 3/8",1.375,.33
+"GS8282","Casing","GARDEN STATE","1/4",.25,"1 5/8",1.625,.39
+"GS8432","Casing","GARDEN STATE","1/2",.5,"3/4",.75,.36
+"GSF8282","Casing","GARDEN STATE","1/4",.25,"2",2,.48
+"GSG8282","Casing","GARDEN STATE","1/4",.25,"2 1/4",2.25,.54
+"GSL265","Casing","GARDEN STATE","1/4",.25,"3 1/2",3.5,.85
+"GSL8279","Casing","GARDEN STATE","1/4",.25,"3/4",.75,.18
+"GSLWM264","Casing","GARDEN STATE","1/4",.25,"5 1/4",5.25,1.27
+"GS8590","Shoe Mould","GARDEN STATE","3/8",.375,"1/2",.5,.13
+"GS8610","Casing","GARDEN STATE","1/4",.25,"3/4",.75,.17
+"GS8611","Casing","GARDEN STATE","1/4",.25,"3/4",.75,.15
+"GS8121","Casing","GARDEN STATE","2 1/4",2.25,"9/16",.5625,1.19
+"GSA8090","Casing","GARDEN STATE","3/4",.75,"3/8",.375,.2
+"GSB8090","Casing","GARDEN STATE","7/8",.875,"3/8",.375,.26
+"GSB8121","Bullnose","GARDEN STATE","1 5/8",1.625,"9/16",.5625,.85
+"GSD8090","Stop","GARDEN STATE","1 3/8",1.375,"3/8",.375,.43
+"GSWM936","Stop","GARDEN STATE","1 3/8",1.375,"7/16",.4375,.52
+"GSWP925","Stop","GARDEN STATE","1 7/8",1.875,"1/2",.5,.81
+"GSWM888","Stop","GARDEN STATE","1 1/8",1.125,"3/8",.375,.41
+"GSWM887","Stop","GARDEN STATE","1 1/4",1.25,"3/8",.375,.45
+"GSWM876","Stop","GARDEN STATE","1 3/8",1.375,"7/16",.4375,.57
+"GSWM876","Stop","GARDEN STATE","1 3/8",1.375,"7/16",.4375,.57
+"GSWM935","Stop","GARDEN STATE","1 5/8",1.625,"7/16",.4375,.61
+"GSWM206","Corner Mould","GARDEN STATE","11/16",.6875,"11/16",.6875,.26
+"GS8201","Corner Mould","GARDEN STATE","1 3/8",1.375,"1 3/8",1.375,.7
+"GSL8202","Corner Mould","GARDEN STATE","7/8",.875,"7/8",.875,.26
+"GSWM197","Drip Cap","GARDEN STATE","11/16",.6875,"1 5/8",1.625,.69
+"GS8057","Quarter Round","GARDEN STATE","1/4",.25,"1/4",.25,.04
+"GS8058","Quarter Round","GARDEN STATE","3/8",.375,"3/8",.375,.1
+"GS8063","Quarter Round","GARDEN STATE","1/2",.5,"1/2",.5,.19
+"GS8064","Quarter Round","GARDEN STATE","5/8",.625,"5/8",.625,.3
+"GS8065","Quarter Round","GARDEN STATE","3/4",.75,"3/4",.75,.43
+"GSL8065","Quarter Round","GARDEN STATE","11/16",.6875,"11/16",.6875,.36
+"GS8070","Half Round","GARDEN STATE","1/4",.25,"1/2",.5,.09
+"GS8076","Half Round","GARDEN STATE","5/16",.3125,"5/8",.625,.15
+"GS8077","Half Round","GARDEN STATE","3/8",.375,"3/4",.75,.21
+"GSRP34","Casing","GARDEN STATE","3/4",.75,"2",2,1.36
+"GSRP34-TEST","Casing","GARDEN STATE","3/4",.75,"1 1/2",1.5,.59
+"GSNBS18","Bullnose","GARDEN STATE","3/4",.75,"7 1/4",7.25,5.36
+"GSBNS18","Bullnose","GARDEN STATE","3/4",.75,"7 1/4",7.25,5.32
+"GSFS225","Casing","GARDEN STATE","1 1/8",1.125,"2 1/4",2.25,2.24
+"GSFS312","Casing","GARDEN STATE","1 1/8",1.125,"3 1/2",3.5,3.65
+"GSWM1021","Casing","GARDEN STATE","11/16",.6875,"4 1/4",4.25,2.79
+"GSES10","Casing","GARDEN STATE","5 5/8",5.625,"1 5/8",1.625,5.47
+"GSHB158","Casing","GARDEN STATE","5/8",.625,"1 5/8",1.625,.7
+"GSHB158","Casing","GARDEN STATE","5/8",.625,"1 5/8",1.625,.69
+"HR 715-4","Crown","Hudson River","3/4",.75,"4 5/8",4.625,2.21
+"HR 726","Crown","Hudson River","13/16",.8125,"4 1/2",4.5,2.64
+"HR 726","Crown","Hudson River","13/16",.8125,"4 1/2",4.5,2.65
+"HR 726","Crown","Hudson River",".86",.86,"4.569",4.569,2.85
+"HR 112-4","Casing","Hudson River","3/4",.75,"4 1/2",4.5,2.81
+"HR 112","Casing","Hudson River","3/4",.75,"5 1/2",5.5,3.52
+"HR112","Casing","Hudson River","3/4",.75,"5 1/2",5.5,3.53
+"HR112-6.5","Casing","Hudson River","3/4",.75,"6 1/2",6.5,4.44
+"HR112-6.5","Casing","Hudson River","3/4",.75,"6 5/8",6.625,4.53
+"test 1x4","Casing","tim","3/4",.75,"3 1/2",3.5,2.61
+"24104-C-CA","Casing","KOETTER","3/4",.75,"3-1/4",.75,.54
+"24104-C-CA","Casing","KOETTER","3/4",.75,"3 1/4",3.25,2.33
+"2488-2R18-CA","Casing","KOETTER","3/4",.75,"2 3/4",2.75,2.03
+"24104-R-CA","Casing","KOETTER","3/4",.75,"3 1/4",3.25,2.4
+"24112-R-CA","Casing","KOETTER","3/4",.75,"3 1/2",3.5,2.59
+"32136-CA","Casing","KOETTER","1",1,"4 1/4",4.25,2.39
+"32112-H-CA","Casing","KOETTER","1",1,"3 1/2",3.5,2
+"24112-CA","Casing","KOETTER","3/4",.75,"3 1/2",3.5,1.57
+"2488-CA","Casing","KOETTER","3/4",.75,"2 3/4",2.75,1.67
+"24112-C-CA 3/4","Casing","KOETTER","3/4",.75,"3 1/2",3.5,2.05
+"24112-C-CA","Casing","KOETTER","3/4",.75,"3 1/2",3.5,2.05
+"40120-CA","Casing","KOETTER","1 1/4",1.25,"3 3/4",3.75,3.31
+"2472-B-CA","Casing","KOETTER","3/4",.75,"2 1/4",2.25,1.15
+"2496-Q-CA","Casing","KOETTER","3/4",.75,"3",3,1.8
+"24112-E-CA","Casing","KOETTER","3/4",.75,"3 1/2",3.5,2.06
+"34136-E-CA","Casing","KOETTER","3/4",.75,"4 1/4",4.25,2.28
+"24136-E-CA","Casing","KOETTER","3/4",.75,"4 1/4",4.25,2.64
+"24112-RD-CA","Casing","KOETTER","3/4",.75,"3 1/2",3.5,2.09
+"1872-A-CA","Casing","KOETTER","3/4",.75,"2 1/4",2.25,1.38
+"1872-A-CA","Casing","KOETTER","3/4",.75,"2 1/4",2.25,1.31
+"1872-A-CA","Casing","KOETTER","9/16",.5625,"2 1/4",2.25,.98
+"2472-A-CA","Casing","KOETTER","3/4",.75,"2 1/4",2.25,1.39
+"32128-G-CA","Casing","KOETTER","1",1,"4",4,2.76
+"32128-H-CA","Casing","KOETTER","1",1,"4",4,2.86
+"32128-I-CA","Casing","KOETTER","1",1,"4",4,2.69
+"32128-K-CA","Casing","KOETTER","1",1,"4",4,2.31
+"24112-B-CA","Casing","KOETTER","3/4",.75,"3 1/2",3.5,2.19
+"2488-B-CA","Casing","KOETTER","3/4",.75,"2 3/4",2.75,1.76
+"2472-MW-CA","Casing","KOETTER","3/4",.75,"2 1/4",2.25,1.24
+"26112-T-CA","Casing","KOETTER","13/16",.8125,"3 1/2",3.5,1.94
+"32128-T-CA","Casing","KOETTER","1",1,"4",4,2.41
+"2488-E-CA","Casing","KOETTER","3/4",.75,"2 3/4",2.75,1.41
+"2496-P-CA","Casing","KOETTER","3/4",.75,"3",3,1.71
+"24112-P-CA","Casing","KOETTER","3/4",.75,"3 1/2",3.5,1.88
+"32112-IT2-CA","Casing","KOETTER","1",1,"3 1/2",3.5,2.18
+"24112-F-CA","Casing","KOETTER","3/4",.75,"3 1/2",3.5,2.24
+"24136-RF-CA","Casing","KOETTER","3/4",.75,"4 1/4",4.25,2.3
+"4048-ID-BB","Back Band","KOETTER","1 1/4",1.25,"1 1/2",1.5,1.4
+"4856-ITC-BB","Back Band","KOETTER","1 1/2",1.5,"1 3/4",1.75,1.98
+"3248-IT-BB","Back Band","KOETTER","1",1,"1 1/2",1.5,.99
+"3248-IT-BB","Back Band","KOETTER","1 1/2",1.5,"1",1,.99
+"4856-ITC-BB","Back Band","KOETTER","1 3/4",1.75,"1 1/2",1.5,1.98
+"3436-BB","Back Band","KOETTER","1 1/8",1.125,"1 1/16",1.0625,.95
+"4650-A-BB","Back Band","KOETTER","1 9/16",1.5625,"1 7/16",1.4375,1.78
+"2432-EG-BB","Back Band","KOETTER","1",1,"3/4",.75,.54
+"3652-BB","Back Band","KOETTER","1 5/8",1.625,"1 1/8",1.125,1.39
+"5668-BB","Back Band","KOETTER","2 1/8",2.125,"1 3/4",1.75,2.63
+"5668-BB","Back Band","KOETTER","1 3/4",1.75,"2 1/8",2.125,2.63
+"2240-IT-BC","Base Cap","KOETTER","1 1/4",1.25,"11/16",.6875,.59
+"2148-CB-CAP","Base Cap","KOETTER","1 1/2",1.5,"21/32",.65625,.66
+"2444-B-CAP","Base Cap","KOETTER","1 3/8",1.375,"3/4",.75,.67
+"2444-B-CAP","Base Cap","KOETTER","1 3/8",1.375,"3/4",.75,.67
+"2448-US-BC","Base Cap","KOETTER","1 1/2",1.5,"3/4",.75,.74
+"3248-US-BC","Base Cap","KOETTER","1 1/2",1.5,"1",1,1.12
+"3248-US-BC","Base Cap","KOETTER","1 1/2",1.5,"1",1,1.12
+"3248-ITC-BC","Base Cap","KOETTER","1 1/2",1.5,"1",1,.92
+"3248-ITC-BC","Base Cap","KOETTER","1 1/2",1.5,"1",1,.93
+"1723-BD-BC","Base Cap","KOETTER","17/32",.53125,"23/32",.71875,.34
+"1640-1R18","Shoe Mould","KOETTER","1 1/4",1.25,"1/2",.5,.61
+"1640-1R18","Shoe Mould","KOETTER","1 1/4",1.25,"1/2",.5,.61
+"1624-A","Shoe Mould","KOETTER","3/4 ",.75,"1/2",.5,.31
+"1624-A","Shoe Mould","KOETTER","3/4",.75,"1/2",.5,.3
+"1624-B-SHOE","Shoe Mould","KOETTER","3/4",.75,"1/2",.5,1.63
+"1624-B-SHOE","Shoe Mould","KOETTER","3/4",.75,"1/2",.5,.36
+"2244-B-CAP","Base Cap","KOETTER","1 3/8",1.375,"11/16",.6875,.55
+"22232-CB","Base","KOETTER","7 1/4",7.25,"11/16",.6875,4.59
+"22168-CB","Base","KOETTER","5 1/4",5.25,"11/16",.6875,3.2
+"221363-CB","Base","KOETTER","4 1/4",4.25,"11/16",.6875,2.53
+"22104-CB","Base","KOETTER","3 1/4",3.25,"11/16",.6875,1.8
+"18232-B","Base","KOETTER","7 1/4",7.25,"9/16",.5625,3.7
+"18168-B","Base","KOETTTER","5 1/4",5.25,"9/16",.5625,2.62
+"18136-B","Base","KOETTER","4 1/4",4.25,"9/16",.5625,2.01
+"22168-E-B","Base","KOETTER","5 1/4",5.25,"11/16",.6875,2.97
+"22232-E-B","Base","KOETTER","7 1/4",7.25,"11/16",.6875,4.35
+"24112-BD-B","Base","KOETTER","3 1/2",3.5,"3/4",.75,2.54
+"24232-BD-B","Base","KOETTER","7 1/4",7.25,"3/4",.75,5.35
+"24168-BD-B","Base","KOETTER","5 1/4",5.25,"3/4",.75,3.84
+"20168-BD-B","Base","KOETTER","5 1/4",5.25,"5/8",.625,3.2
+"20136-BD-B","Base","KOETTER","4 1/4",4.25,"5/8",.625,2.57
+"20104-1R18-B","Base","KOETTER","3 1/4",3.25,"5/8",.625,2.01
+"20168-1R18-B","Base","KOETTER","5 1/4",5.25,"5/8",.625,3.25
+"20232-1R18-B","Base","KOETTER","7 1/4",7.25,"5/8",.625,4.51
+"16104-B","Base","KOETTER","3 1/4",3.25,"1/2",.5,1.5
+"18104-OG-B","Base","KOETTER","3 1/4",3.25,"9/16",.5625,1.65
+"18136-OG-B","Base","KOETTER","4 1/4",4.25,"9/16",.5625,2.22
+"14168-1B14-B","Base","KOETTER","5 1/4",5.25,"7/16",.4375,2.24
+"22104-CH","Chair Rail","KOETTER","3 1/4",3.25,"11/16",.6875,1.31
+"16104-CH","Chair Rail","KOETTER","3 1/4",3.25,"1/2",.5,.87
+"2288-CH","Chair Rail","KOETTER","2 3/4",2.75,"11/16",.6875,1.24
+"32104-CH","Chair Rail","KOETTER","3 1/4",3.25,"1",1,1.61
+"1256-STOP","Stop","KOETTER","3/8",.375,"1 3/4",1.75,.58
+"1234-STOP","Stop","KOETTER","3/8",.375,"1 1/16",1.0625,.32
+"1026-STOP","Stop","KOETTER","5/16",.3125,"13/16",.8125,.18
+"1644-KW-STOP","Stop","KOETTER","1/2",.5,"1 3/8",1.375,.57
+"1640-STOP","Stop","KOETTER","1/2",.5,"1 1/4",1.25,.57
+"1840","Panel Mould","KOETTER","9/16",.5625,"1 1/4",1.25,.49
+"2424-Q","Panel Mould","KOETTER","3/4",.75,"3/4",.75,.43
+"2323-BEAD","Panel Mould","KOETTER","23/32",.71875,"23/32",.71875,.44
+"1416-GB","Panel Mould","KOETTER","1/2",.5,"7/16",.4375,.14
+"1416-GB","Panel Mould","KOETTER","7/16",.4375,"1/2",.5,.14
+"2232-TM","Panel Mould","KOETTER","11/16",.6875,"1",1,.38
+"2424-I","Cove Mould","KOETTER","3/4",.75,"3/4",.75,.25
+"1624-C","Cove Mould","KOETTER","3/4",.75,"1/2",.5,.28
+"1224-KR","Panel Mould","KOETTER","3/8",.375,"3/4",.75,.25
+"1846","Panel Mould","KOETTER","9/16",.5625,"1 7/16",1.4375,.51
+"1648","Astragal","KOETTER","1/2",.5,"1 1/2",1.5,.53
+"1212-Q","Quarter Round","KOETTER","3/8",.375,"3/8",.375,.1
+"2024","Panel Mould","KOETTER","3/4",.75,"5/8",.625,.29
+"2424-O","Corner Mould","KOETTER","3/4",.75,"3/4",.75,.22
+"2448-HR","Half Round","KOETTER","3/4",.75,"1 1/2",1.5,.88
+"1224-T","Half Round","KOETTER","3/8",.375,"3/4",.75,.22
+"2424-C","Cove Mould","KOETTER","3/4",.75,"3/4",.75,.26
+"3636-O","Corner Mould","KOETTER","1 1/8",1.125,"1 1/8",1.125,.41
+"816","Cloverleaf","KOETTER","1/4",.25,"1/2",.5,.08
+"624","Screen Bead","KOETTER","3/16",.1875,"3/4",.75,.13
+"1624","Panel Mould","KOETTER","3/4",.75,"1/2",.5,.23
+"1640-BN","Bullnose","KOETTER","1/2",.5,"1 1/4",1.25,.59
+"832","Mullion","KOETTER","1/4",.25,"1",1,.21
+"840-M","Mullion","KOETTER","1/4",.25,"1 1/4",1.25,.27
+"848-M","Mullion","KOETTER","1/4",.25,"1 1/2",1.5,.34
+"856-M","Mullion","KOETTER","1/4",.25,"1 3/4",1.75,.39
+"864-M","Mullion","KOETTER","1/4",.25,"2",2,.46
+"3264-PR","Panel Mould","KOETTER","1",1,"2",2,.96
+"3240-PR","Panel Mould","KOETTER","1",1,"1 1/4",1.25,.61
+"2664-P","Panel Mould","KOETTER","13/16",.8125,"2",2,1.01
+"2424-R","Panel Mould","KOETTER","3/4",.75,"3/4",.75,.28
+"2428-ITC-PM","Panel Mould","KOETTER","7/8",.875,"3/4",.75,.47
+"2488-KW-PR","Panel Mould","KOETTER","3/4",.75,"2 3/4",2.75,1.17
+"2048-KW-PM","Panel Mould","KOETTER","5/8",.625,"1 1/2",1.5,.6
+"2448-BM","Panel Mould","KOETTER","3/4",.75,"1 1/2",1.5,.69
+"2464-PM","Panel Mould","KOETTER","3/4",.75,"2",2,.82
+"1632-CK-PM","Panel Mould","KOETTER","1/2",.5,"1",1,.32
+"2664-PR","Panel Mould","KOETTER","13/16",.8125,"2",2,.73
+"24136-STOOL","Stool","3/4","3/4",.75,"4 1/4",4.25,2.17
+"2472-A-STOOL","Stool","KOETTER","3/4",.75,"2 1/4",2.25,1.38
+"40104-STOOL","Stool","KOETTER","1 1/4",1.25,"3 1/4",3.25,3.22
+"2472-STOOL","Stool","KOETTER","3/4",.75,"2 1/4",2.25,1.43
+"32224-A-CR","Crown","KOETTER","1",1,"7 1/4",7.25,5.14
+"24168-QA-CR","Crown","KOETTER","3/4",.75,"5 1/4",5.25,2.79
+"2488-A-CR","Crown","KOETTER","3/4",.75,"2 3/4",2.75,1.5
+"2488-A-CR","Crown","KOETTER","3/4",.75,"2 3/4",2.75,1.49
+"1857-CR","Crown","KOETTER","9/16",.5625,"1 25/32",1.78125,.67
+"26192-CR","Crown","KOETTER","13/16",.8125,"6",6,2.96
+"24168-A-CR","Crown","KOETTER","3/4",.75,"5 1/4",5.25,2.47
+"24136-A-CR","Crown","KOETTER","3/4",.75,"4 1/4",4.25,2.08
+"26168-C-CR","Crown","KOETTER","13/16",.8125,"5 1/4",5.25,2.26
+"24136-C-CR","Crown","KOETTER","3/4",.75,"4 1/4",4.25,1.93
+"2472-C-CR","Crown","KOETTER","3/4",.75,"2 1/4",2.25,1.06
+"26232-CV-CR","Crown","KOETTER","13/16",.8125,"7 1/4",7.25,3.42
+"24104-ITC-CR","Crown","KOETTER","3/4",.75,"3 1/4",3.25,1.64
+"24136-CV-CR","Crown","KOETTER","3/4",.75,"4 1/4",4.25,1.7
+"32232-B-CR","Crown","KOETTER","1",1,"7 1/4",7.25,4.87
+"20168-B-CR","Crown","KOETTER","5/8",.625,"5 1/4",5.25,2.06
+"20136-B-CR","Crown","KOETTER","5/8",.625,"4 1/4",4.25,1.81
+"20104-B-CR","Crown","KOETTER","5/8",.625,"3 1/4",3.25,1.36
+"32128-CRB","Crown Backer","KOETTER","4",4,"1",1,2.57
+"2480-CRB","Crown Backer","KOETTER","2 1/2",2.5,"3/4",.75,1.5
+"54168-A-MM","Mantel Mold","KOETTER","1 11/16",1.6875,"5 1/4",5.25,6.06
+"24160-TVG","Tongue & Groove","KOETTER","3/4",.75,"5",5,3.52
+"2456-S4S","S4S","KOETTER","1 3/4",1.75,"3/4",.75,1.3
+"MM125","Shoe Mould","GARDEN STATE","1",1,"1/2",.5,.39
+"GSSH1","Shoe Mould","GARDEN STATE","1",1,"1/2",.5,.39
+"2464-S4S","S4S","KOETTER","2",2,"3/4",.75,1.49
+"2472-S4S","S4S","KOETTER","2 1/4",2.25,"3/4",.75,1.68
+"2480-S4S","S4S","KOETTER","2 1/2",2.5,"3/4",.75,1.86
+"24112-S4S","S4S","KOETTER","3 1/2",3.5,"3/4",.75,2.61
+"24168-S4S","S4S","KOETTER","5 1/4",5.25,"3/4",.75,3.92
+"24176-S4S","S4S","KOETTER","5 1/2",5.5,"3/4",.75,4.11
+"24232-S4S","S4S","KOETTER","7 1/4",7.25,"3/4",.75,5.42
+"24296-S4S","S4S","KOETTER","9 1/4",9.25,"3/4",.75,6.91
+"24296-S4S","S4S","KOETTER","9 1/4",9.25,"3/4",.75,6.91
+"24360-S4S","S4S","KOETTER","11 1/4",11.25,"3/4",.75,8.41
+"24360-S4S","S4S","KOETTER","11 1/4",11.25,"3/4",.75,8.41
+"4064-BR","Brick Mold","KOETTER","1 1/2",1.5,"2",2,2.69
+"4064-BR","Brick Mold","KOETTER","1 1/4",1.25,"2",2,2.24
+"25M112-H-CA","Casing","KOETTER",".984",.984,"3 1/2",3.5,1.94
+"25M112-CA","Casing","KOETTER",".984",.984,"3 1/2",3.5,2.48
+"18M112-C-CA","Casing","KOETTER",".709",.709,"3 1/2",3.5,1.91
+"18M88-CA","Casing","KOETTER",".709",.709,"2 3/4",2.75,1.56
+"24112-R-CA","Casing","KOETTER","3/4",.75,"3 1/2",3.5,2.58
+"18M112-CA","Casing","KOETTER",".709",.709,"3 1/2",3.5,1.43
+"18M112-UL-CA","Casing","KOETTER",".709",.709,"3 1/2",3.5,1.86
+"15M168-E-B","Base","KOETTER","5 1/4",5.25,".59",.59,2.55
+"15M48-CB-CAP","Base Cap","KOETTER","1 1/2",1.5,".59",.59,.56
+"15M232-CB","Base","KOETTER","7 1/4",7.25,".59",.59,3.9
+"15M168-CB","Base","KOETTER","5 1/4",5.25,".59",.59,2.72
+"15M136-CB","Base","KOETTER","4 1/4",4.25,".59",.59,2.14
+"15M104-CB","Base","KOETTER","3 1/4",3.25,".59",.59,1.55
+"18M88-CA","Casing","KOETTER",".709",.709,"2 3/4",2.75,1.56
+"18m88-CA","Casing","KOETTER",".709",.709,"2 3/4",2.75,1.56
+"15M104-B-CR","Crown","KOETTER",".59",.59,"3 1/4",3.25,1.32
+"15M136-B-CR","Crown","KOETTER",".59",.59,"4 1/4",4.25,1.69
+"15M168-B-CR","Crown","KOETTER",".59",.59,"5 1/4",5.25,2
+"18M232-RB-BCR","Crown","KOETTER",".709",.709,"7 1/4",7.25,3.1
+"25M232-C-CR","Crown","KOETTER",".984",.984,"7 1/4",7.25,4.16
+"20M232-CR","Crown","KOETTER",".787",.787,"7 1/4",7.25,3.77
+"18M168-C-CR","Crown","KOETTER",".709",.709,"5 1/4",5.25,2.31
+"18M136-A-CR","Crown","KOETTER",".709",.709,"4 1/4",4.25,1.92
+"24168-CO-CR","Crown","KOETTER","3/4",.75,"5 1/4",5.25,1.68
+"25M224-CO-CR","Crown","KOETTER",".984",.984,"7",7,2.89
+"25M202-OG-CR","Crown","KOETTER",".984",.984,"6 5/16",6.3125,3.25
+"16168-VS-CB","Base","KOETTER","5 1/4",5.25,"1/2",.5,2.42
+"16232-VS-CB","Base","KOETTER","7 1/4",7.25,"1/2",.5,3.42
+"16296-VS-CB","Base","KOETTER","9 1/2",9.5,"1/2",.5,4.25
+"PFP 18232-CB","Base","KOETTER","7 1/4",7.25,"9/16",.5625,3.7
+"2814","Casing","Carter","1 1/4",1.25,"4 1/2",4.5,3.29
+"2814","Casing","Carter","1 1/4",1.25,"4 1/2",4.5,3.33
+"24972","Casing","Flex Trim","1 1/16",1.0625,"3",3,1.8
+"EW412","Crown","FLEX TRIM","3/4",.75,"4 1/2",4.5,2.32
+"CAC212","Casing","FLEX TRIM","5/8",.625,"3 1/2",3.5,1.54
+"LSC522","Casing","FLEX TRIM","5/8",.625,"3 1/2",3.5,1.49
+"EC466","Casing","FLEX TRIM","1 1/16",1.0625,"4 5/8",4.625,2.81
+"BB200","Back Band","FLEX TRIM","1 1/2",1.5,"1",1,1.12
+"SM2501-2","Back Band","FLEX TRIM","1 1/2",1.5,"1",1,1.12
+"KCMD221a","Base","FLEX TRIM","3 1/4",3.25,"9/16",.5625,1.65
+"NW435","Crown","FLEX TRIM","1 1/8",1.125,"4 7/8",4.875,4.48
+"MV400","Casing","FLEX TRIM","3/4",.75,"3",3,1.53
+"MV003","Casing","FLEX TRIM","1 3/8",1.375,"3 1/2",3.5,2.67
+"MM212","Casing","FLEX TRIM","1 1/4",1.25,"4",4,2.7
+"MM184","Crown","FLEX TRIM","3/4",.75,"3 5/8",3.625,1.78
+"L8013","Crown","FLEX TRIM","5/8",.625,"4 3/8",4.375,1.9
+"MM047","Crown","FLEX TRIM","1/2",.5,"4 5/8",4.625,1.67
+"FTP7003s12","Base","FLEX TRIM","2 1/4",2.25,"1/2",.5,1.05
+"FM-SAN214","Casing","FLEX TRIM","5/8",.625,"2 1/4",2.25,1.03
+"WH416","Crown","FLEX TRIM","9/16",.5625,"2 1/4",2.25,.93
+"WH404","Crown","FLEX TRIM","5/8",.625,"1 1/4",1.25,.52
+"WBH1210","Casing","FLEX TRIM","11/16",.6875,"3 3/8",3.375,1.59
+"WC278","Crown","FLEX TRIM","3/4",.75,"2 7/8",2.875,1.59
+"WD411","Crown","FLEX TRIM","1 1/16",1.0625,"4 11/16",4.6875,2.84
+"WC784","Crown","FLEX TRIM","7/8",.875,"4 1/4",4.25,2.47
+"TSC40","Crown","FLEX TRIM","3/4",.75,"4",4,1.69
+"SW600","Crown","FLEX TRIM","3/4",.75,"6 3/8",6.375,3.09
+"SWM07","Crown","FLEX TRIM","1 1/8",1.125,"5 7/8",5.875,3.57
+"SG575","Crown","FLEX TRIM","3/4",.75,"5 3/4",5.75,3.13
+"SG575","Crown","FLEX TRIM","3/4",.75,"5 3/4",5.75,3.13
+"SD540","Crown","FLEX TRIM","1 1/2",1.5,"3 15/16",3.9375,3.73
+"SD523","Crown","FLEX TRIM","1 1/16",1.0625,"7 1/4",7.25,5.05
+"SD523","Crown","FLEX TRIM","1 1/16",1.0625,"7 1/4",7.25,5.05
+"RM400","Crown","FLEX TRIM","1",1,"4",4,2.34
+"RE550","Crown","FLEX TRIM","7/8",.875,"5 1/2",5.5,3.37
+"QC005","Crown","FLEX TRIM","1 5/16",1.3125,"8",8,7.32
+"PW562","Crown","FLEX TRIM","1 3/8",1.375,"7 5/8",7.625,6.32
+"PW518","Crown","FLEX TRIM","13/16",.8125,"5",5,2.89
+"PW228","Crown","FLEX TRIM","3/4",.75,"4",4,2.19
+"PMDRB3","Casing","FLEX TRIM","1 1/16",1.0625,"3 1/2",3.5,1.88
+"PM575","Crown","FLEX TRIM","1",1,"5 1/2",5.5,4.01
+"PC718","Crown","FLEX TRIM","1 1/16",1.0625,"7 1/8",7.125,5.16
+"PC634","Crown","FLEX TRIM","1 1/16",1.0625,"6 3/4",6.75,4.19
+"PM183","Crown","FLEX TRIM","1/2",.5,"4 1/4",4.25,1.31
+"OP155","Crown","FLEX TRIM","11/16",.6875,"5 1/4",5.25,2.69
+"PM550","Crown","FLEX TRIM","1 1/4",1.25,"5 7/16",5.4375,3.93
+"OM709","Crown","FLEX TRIM","1",1,"3 3/4",3.75,2.54
+"OM709","Crown","FLEX TRIM","1",1,"3 3/4",3.75,2.52
+"OM709","Crown","FLEX TRIM","3/4",.75,"3 11/16",3.6875,1.86
+"OM707","Crown","FLEX TRIM","15/16",.9375,"5 9/16",5.5625,3.43
+"OC214","Crown","FLEX TRIM","1 1/4",1.25,"2 7/8",2.875,2.35
+"OC333","Crown","FLEX TRIM","3/4",.75,"6 1/2",6.5,3.17
+"NS516","Crown","FLEX TRIM","1 1/4",1.25,"7 5/16",7.3125,4.96
+"OM709","Crown","FLEX TRIM","3/4",.75,"3 11/16",3.6875,1.65
+"WM72","Crown","KLUMB","9/16",.5625,"2-1/4",.5,.2
+"WM72","Crown","KLUMB","9/16",.5625,"2 1/4",2.25,.92
+"WMCE-12","Crown Backer","KLUMB","9/16",.5625,"4 1/2",4.5,2.04
+"WMCE-12","Crown Backer","KLUMB","4 1/2",4.5,"9/16",.5625,2.04
+"WM212","Casing","KLUMB","2 1/2",2.5,"11/16",.6875,1.25
+"WM728","Chair Rail","KLUMB","3 3/8",3.375,"1",1,.06
+"WM728","Chair Rail","KLUMB","3 3/8",3.375,"1",1,1.91
+"WM299","Chair Rail","KLUMB","3 5/16",3.3125,"1",1,1.9
+"WM298","Chair Rail","KLUMB","3",3,"11/16",.6875,1.29
+"WM319","Cap Mold","KLUMB","1 3/4",1.75,"3/4",.75,.73
+"MDF351","Casing","KLUMB","5",5,"1",1,2.72
+"EMPIRE E519","Crown","CHANNAHON","9/16",.5625,"4 1/4",4.25,1.42
+"EMPIRE E519","Crown","CHANNAHON","9/16",.5625,"4 1/4",4.25,1.48
+"EMPIRE LCC14","Casing","CHANNAHON","3/4",.75,"3 1/4",3.25,1.85
+"EMPIRE LCC14","Casing","CHANNAHON","3 1/4",3.25,"3/4",.75,1.85
+"EMPIRE 446","Casing","CHANNAHON","3 1/2",3.5,"11/16",.6875,1.81
+"EMPIRE SRB3","Casing","CHANNAHON","3 1/2",3.5,"1 1/16",1.0625,2.35
+"EMPIRE SRB3","Casing","CHANNAHON","3 1/2",3.5,"1 1/16",1.0625,2.35
+"EMPIRE BC14","Base","CHANNAHON","4 1/4",4.25,"11/16",.6875,2.3
+"EMPIRE CR291","Crown","CHANNAHON","5 1/4",5.25,"3/4",.75,1.74
+"EMPIRE CR291","Crown","CHANNAHON","3/4",.75,"5 1/4",5.25,1.74
+"EMPIRE 730","Crown","CHANNAHON","1 3/16",1.1875,"7",7,4.49
+"EMPIRE E208","Rake Mould","CHANNAHON","2 1/4",2.25,"5/8",.625,.9
+"EMPIRE E208","Rake Mould","CHANNAHON","2 1/4",2.25,"5/8",.625,.85
+"8422","Base Cap","5 STAR PROFILES","3/4",.75,"1/2",.5,.31
+"LWM297","Chair Rail","5 STAR PROFILES","3",3,"11/16",.6875,1.2
+"WC1CT","Casing","5 STAR PROFILES","3 1/2",3.5,"1 1/16",1.0625,2.3
+"AB132","Casing","A&B","3 5/8",3.625,"1 1/16",1.0625,1.9
+"AM77130","Casing","ALEXANDRIA","3 1/2 ",3.5,"7/8",.875,2.28
+"AM91112","Casing","ALEXANDRIA","3 1/2",3.5,"3/4",.75,1.52
+"EMPIRE DC97 MDF","Casing","CHESAPEAKE","3 1/2",3.5,"1",1,2.32
+"EMPIRE DC97 PI","Casing","CHESAPEAKE","3 1/2 ",3.5,"1 1/16",1.0625,2.45
+"AMC05642","Casing","ALXE","3",3,"1",1,1.37
+"AMC07719","Casing","ALEX","2 3/4 ",2.75,"5/8",.625,1.26
+"AMC2189A","Casing","ALEX","2 3/4",2.75,"5/8",.625,1.5
+"AM07715","Casing","ALEX","3 1/2 ",3.5,"3/4",.75,1.64
+"AM01236","Base","ALEXANDRIA","5 1/4",5.25,"9/16",.5625,2.81
+"AM00721","Base","ALEXANDRIA","5.25",5.25,"0.75",.75,3.14
+"AM00785","Base","ALEXANDRIA","7",7,"3/4",.75,4.09
+"ALP-7365","Casing","ALPINE MILLWORK","2 1/2",2.5,"1 1/2",1.5,2.33
+"ALPCA-7453","Casing","ALPINE MILLWORK","2 1/8",2.125,"1 5/16",1.3125,1.73
+"ALP-7365","Casing","ALPINE MILLWORK","2 1/2",2.5,"1 1/2",1.5,2.09
+"EMPIRE 512","Casing","ZEELAND EMPIRE","5 1/2",5.5,"1/2",.5,2.7
+"EMPIRE 512E","E1E","ZEELAND EMPIRE","5 1/2",5.5,"1/2",.5,2.7
+"EMPIRE L514","E1E","ZEELAND EMPIRE","5 1/4",5.25,"9/16",.5625,2.9
+"EMPIRE L514-7/16T","E1E","ZEELAND EMPIRE","5 1/4",5.25,"7/16",.4375,2.26
+"EMPIRE8741","Casing","ZEELAND EMPIRE","5 1/4",5.25,"9/16",.5625,2.75
+"EMPIRE8741","Casing","ZEELAND EMPIRE","5 1/4",5.25,"9/16",.5625,2.75
+"EMPIRE 682MDF","Casing","ZEELAND","3 1/4",3.25,"1",1,2.62
+"EMPIRE 683","Casing","ZEELAND EMPIRE","3 1/4",3.25,"11/16",.6875,1.8
+"EMPIRE 685","Casing","ZEELAND EMPIRE","2 1/4",2.25,"11/16",.6875,1.25
+"EMPIRE 366 2-1-4","Casing","ZEELAND EMPIRE","2 1/4",2.25,"11/16",.6875,1.1
+"EMPIRE 361","Casing","ZEELAND EMPIRE","2 1/2",2.5,"11/16",.6875,1.23
+"EMPIRE 411","Casing","ZEELAND EMPIRE","3",3,"11/16",.6875,1.55
+"EMPIRE 474","Casing","ZEELAND EMPIRE","2 3/4",2.75,"11/16",.6875,1.36
+"EMPIRE L366","Casing","ZEELAND EMPIRE","3 1/4",3.25,"11/16",.6875,1.52
+"EMPIRE P380","Casing","ZEELAND EMPIRE","2 3/4",2.75,"11/16",.6875,1.47
+"AM09091","Casing","ALEXE","3 1/2",3.5,"5/8",.625,1.41
+"AM0097A","Casing","ALEXANDRIA","3 1/2",3.5,"1 1/16",1.0625,2.38
+"AM09091","Casing","ALEX","3 1/2",3.5,"5/8",.625,2.13
+"AM00RB3","Casing","ALEXANDRIA","3 1/2 ",3.5,"1 1/16",1.0625,2.28
+"AM09091","Casing","ALEXE","3 1/2",3.5,"5/8",.625,2.14
+"AM01113","Casing","ALXE","3 1/2",3.5,"3/4",.75,2.48
+"AMC01737","Casing","ALXE","3 1/2",3.5,"3/4",.75,2.27
+"AMC07715","Casing","ALXE","3 1/2",3.5,"3/4",.75,1.92
+"AMC07736","Casing","ALXE","3 1/2",3.5,"3/4",.75,1.84
+"AMC00653","Stool","ALXE","1 11/16",1.6875,"1 1/8",1.125,1.66
+"ALPCR-7343","Crown","ALPINE","13/16",.8125,"2 7/16",2.4375,1.39
+"ALPCR-7086","Crown","ALPINE","9/16",.5625,"1 5/8",1.625,.48
+"EMPIRE 512","Base","ZEELAND EMPIRE","5 1/2",5.5,"1/2",.5,2.69
+"EMPIRE 512E","Base","ZEELAND EMPIRE","5 1/2",5.5,"1/2",.5,2.69
+"EMPIRE L514","Base","ZEELAND EMPIRE","5 1/4",5.25,"9/16",.5625,2.89
+"EMPIRE L514-7/16T","Base","ZEELAND EMPIRE","5 1/4",5.25,"7/16",.4375,2.24
+"EMPIRE 8741","Base","ZEELAND EMPIRE","5 1/4",5.25,"9/16",.5625,2.79
+"EMPIRE8741","Base","ZEELAND EMPIRE","5 1/4",5.25,"9/16",.5625,2.79
+"EMPIRE 682MDF","Casing","ZEELAND EMPIRE","3 1/4",3.25,"1",1,2.62
+"EMPIRE 683","Casing","ZEELAND EMPIRE","3 1/4",3.25,"11/16",.6875,1.8
+"EMPIRE 685","Casing","ZEELAND EMPIRE","2 3/4",2.75,"11/16",.6875,1.52
+"EMPIRE 366 2-1/4""","Casing","ZEELAND EMPIRE","2 1/4",2.25,"11/16",.6875,1.1
+"EMPIRE 366 2-1/4""","Casing","ZEELAND EMPIRE","2 1/4",2.25,"11/16",.6875,1.1
+"EMPIRE 361","Casing","ZEELAND","2 1/2",2.5,"11/16",.6875,1.22
+"EMPIRE 411","Casing","ZEELAND EMPIRE","3",3,"11/16",.6875,1.54
+"EMPIRE 474","Casing","ZEELAND EMPIRE","2 3/4",2.75,"11/16",.6875,1.36
+"EMPIRE L366","Casing","ZEELAND EMPIRE","3 1/4",3.25,"11/16",.6875,1.52
+"EMPIRE P380","Casing","ZEELAND EMPIRE","2 3/4",2.75,"11/16",.6875,1.48
+"EMPIRE P380","Casing","ZEELAND EMPIRE","2 3/4",2.75,"11/16",.6875,1.47
+"EMPIRE 445A MDF","Casing","ZEELAND EMPIRE","3 1/4",3.25,"11/16",.6875,1.56
+"EMPIRE L444","Casing","ZEELAND EMPIRE","3 1/4",3.25,"11/16",.6875,1.61
+"EMPIRE L444","Casing","ZEELAND EMPIRE","3 1/4",3.25,"11/16",.6875,1.61
+"EMPIRE 374","Casing","ZEELAND EMPIRE","3 1/2",3.5,"11/16",.6875,1.79
+"EMPIRE 535","Casing","ZEELAND EMPIRE","3 1/2",3.5,"11/16",.6875,1.77
+"EMPIRE G412","Casing","ZEELAND EMPIRE","3 1/2",3.5,"19/32",.59375,2
+"EMPIRE L361","Casing","ZEELAND EMPIRE","3 1/2",3.5,"11/16",.6875,1.74
+"EMPIRE P450","Casing","ZEELAND EMPIRE","3 1/2",3.5,"11/16",.6875,1.41
+"EMPIRE RB-3","Casing","ZEELAND EMPIRE","3 1/2",3.5,"1 1/16",1.0625,2.26
+"EMPIRE RB-3 MDF","Casing","ZEELAND EMPIRE","3 1/2",3.5,"1",1,2.13
+"EMPIRE 279","Back Band","ZEELAND EMPIRE","1 1/16",1.0625,"1 1/8",1.125,.95
+"EMPIRE 279","Back Band","ZEELAND EMPIRE","1 1/8",1.125,"1 1/16",1.0625,.95
+"EMPIRE H282","Back Band","ZEELAND EMPIRE","1 1/4",1.25,"2",2,1.66
+"EMPIRE L633","Base","ZEELAND EMPIRE","3 1/4",3.25,"7/16",.4375,1.29
+"EMPIRE L414 E1E","Base","ZEELAND EMPIRE","4 1/4",4.25,"9/16",.5625,2.37
+"EMPIRE G514","Casing","ZEELAND EMPIRE","5 1/4",5.25,"1/2",.5,2.56
+"EMPIRE L431 E1E","Casing","ZEELAND EMPIRE","5 1/4",5.25,"7/16",.4375,2.28
+"EMPIRE 163E MDF","Casing","ZEELAND EMPIRE","5 1/4",5.25,"19/32",.59375,2.79
+"EMPIRE 163E MDF","Casing","ZEELAND EMPIRE","5 1/4",5.25,"19/32",.59375,2.79
+"EMPIRE 618","Casing","ZEELAND EMPIRE","5 1/4",5.25,"9/16",.5625,2.8
+"EMPIRE 674","Casing","ZEELAND EMPIRE","5 1/4",5.25,"9/16",.5625,2.47
+"EMPIRE 674","Casing","ZEELAND EMPIRE","5 1/4",5.25,"9/16",.5625,2.47
+"EMPIRE L163E FJP","Casing","ZEELAND EMPIRE","5 1/4",5.25,"9/16",.5625,2.64
+"EMPIRE P813","Casing","ZEELAND EMPIRE","5 1/4",5.25,"9/16",.5625,2.65
+"EMPIRE P813 MDF","Casing","ZEELAND EMPIRE","5 1/4",5.25,"9/16",.5625,2.65
+"EMPIREL163E","Casing","ZEELAND EMPIRE","5 1/4",5.25,"9/16",.5625,2.64
+"EMPIRE LP815","Casing","ZEELAND EMPIRE","7 1/4",7.25,"9/16",.5625,3.68
+"EMPIRE 207MDF","Casing","ZEELAND EMPIRE","7 1/4",7.25,"19/32",.59375,3.64
+"EMPIRE 7163","Casing","ZEELAND EMPIRE","7 1/4",7.25,"19/32",.59375,3.97
+"EMPIRE E714MDF","Casing","ZEELAND EMPIRE","7 1/4",7.25,"1/2",.5,3.54
+"EMPIRE L49","Crown","ZEELAND EMPIRE","9/16",.5625,"3 5/8",3.625,1.51
+"EMPIRE L46","Crown","ZEELAND EMPIRE","9/16",.5625,"5 1/4",5.25,2.05
+"EMPIRE 041","Crown","ZEELAND EMPIRE","1 3/16",1.1875,"6 5/16",6.3125,4.13
+"EMPIRE 42 CROWN","Crown","ZEELAND EMPIRE","11/16",.6875,"7",7,3.07
+"EMPIRE 505","Crown","ZEELAND EMPIRE","1",1,"7",7,3.19
+"EMPIRE L254","Shoe Mould","ZEELAND EMPIRE","3/4",.75,"7/16",.4375,.31
+"EMPIRE 356C","Casing","ZEELAND EMPIRE","2 1/4",2.25,"11/16",.6875,1.17
+"EMPIRE 45-MDF","Crown","ZEELAND EMPIRE","19/32",.59375,"5 1/4",5.25,2
+"WPD 650","Crown","WILSON","11/16",.6875,"6 7/8",6.875,3.13
+"WPD 8009","Crown","WILSON","9/16",.5625,"3 5/8",3.625,1.53
+"WPD 8012","Crown","WILSON","9/16",.5625,"4 1/4",4.25,1.63
+"WPD 8012 OAK","Crown","WILSON","9/16",.5625,"4 1/4",4.25,1.63
+"WPD 8016","Bed Mold","WILSON","9/16",.5625,"1 3/4",1.75,.67
+"WPD 622","Crown","WILSON","11/16",.6875,"4 5/8",4.625,1.9
+"WPD S4S 1X2","S4S","WILSON","1 3/4",1.75,"11/16",.6875,1.19
+"CM175 (WM175)","Brick Mold","CMW","1 1/16",1.0625,"2",2,2.08
+"AMC01740","Back Band","ALXE","1.3125",1.3125,"0.75",.75,.73
+"WPD 8060","Cove Mould","WILSON","7/8",.875,"3/4",.75,.4
+"WPD 8060 OAK","Cove Mould","WILSON","7/8",.875,"3/4",.75,.4
+"WPD 8061","Crown","WILSON","1 1/4",1.25,"5 1/2",5.5,4.41
+"WPD 500","Crown","WILSON","1 7/16",1.4375,"5 1/4",5.25,2.29
+"AMC02828","Flat Stock","ALXE","3.875",3.875,"0.50",.5,1.9
+"WPD CRADLE","Crown Backer","WILSON","2 1/2",2.5,"1 7/16",1.4375,1.83
+"AMC03516","Base","ALXE","4.125",4.125,"0.375",.375,1.37
+"WPD B227","Base","WILSON","7 1/4",7.25,"9/16",.5625,3.68
+"WPD B11","Base","WILSON","4 1/2",4.5,"1",1,3.03
+"WPD B22","Base","WILSON","4 1/8",4.125,"1 1/16",1.0625,3.01
+"AMC07706","Base","ALXE","4.125",4.125,"0.50",.5,1.77
+"WPD LB11","Base","WILSON","4 1/2",4.5,"9/16",.5625,1.96
+"AMC5706A","Casing","ALXE","3.875",3.875,"0.375",.375,1.19
+"WPD C13","Casing","WILSON","11/16",.6875,"3 1/2",3.5,1.78
+"WPD C196","Casing","WILSON","3 1/2",3.5,"1 1/8",1.125,2.32
+"AMC02216","Flat Stock","ALXE","4.50",4.5,"0.50",.5,2.15
+"WPD C11","Casing","WILSON","1 1/16",1.0625,"3 1/2",3.5,2.35
+"WPD C22","Casing","WILSON","1 1/16",1.0625,"4",4,2.93
+"WPD 322","Casing","WILSON","5/8",.625,"2 1/2",2.5,1.01
+"WPD C422","Casing","WILSON","9/16",.5625,"3 3/8",3.375,1.42
+"WPD LC11","Casing","WILSON","11/16",.6875,"3 1/2",3.5,1.68
+"WPD CM1","Nose & Cove","WILSON","1 1/2",1.5,"3/4",.75,.77
+"WPD CM3","Panel Mould","WILSON","3/4",.75,"9/16",.5625,.29
+"WPD DM1","Astragal","WILSON","2",2,"1 1/16",1.0625,1.3
+"WPD DM27","Base Cap","WILSON","2 1/4",2.25,"5/8",.625,.75
+"WPD DM3","Nose & Cove","WILSON","1 1/8",1.125,"7/8",.875,.75
+"WPD PM1 FLAT","Panel Mould","WILSON","1 1/4",1.25,"3/4",.75,.6
+"WPD PM1 FLAT","Panel Mould","WILSON","1 1/4",1.25,"3/4",.75,.6
+"WPD PM5","Panel Mould","WILSON","1 1/8",1.125,"11/16",.6875,.43
+"WPD PM5","Panel Mould","WILSON","1 1/8",1.125,"11/16",.6875,.43
+"WPD PM5 OAK","Panel Mould","WILSON","1 1/8",1.125,"11/16",.6875,.43
+"WPD PM10","Panel Mould","WILSON","2",2,"1 1/16",1.0625,1.2
+"WPD PM1CAP","Panel Mould","WILSON","1 1/4",1.25,"3/4",.75,.52
+"WPD PM1CAP OAK","Panel Mould","WILSON","1 1/4",1.25,"3/4",.75,.52
+"WPD PM2 OAK","Panel Mould","WILSON","1 15/16",1.9375,"3/4",.75,.53
+"WPD PM2 OAK","Panel Mould","WILSON","3/4",.75,"1 15/16",1.9375,.53
+"WPD PM2 OAK","Panel Mould","WILSON","1 15/16",1.9375,"3/4",.75,.53
+"WPD PM88","Panel Mould","WILSON","2 7/8",2.875,"3/4",.75,.74
+"WPD CR-3","Chair Rail","WILSON","2 ",2,"11/16",.6875,.87
+"WPD CR6","Chair Rail","WILSON","3 7/16",3.4375,"1 7/16",1.4375,2.99
+"WPD CR7","Chair Rail","WILSON","2 1/2",2.5,"1 1/8",1.125,1.6
+"WPD508","Chair Rail","WILSON","4",4,"1 1/16",1.0625,3.02
+"WPD SCOTIA","Cove Mould","WILSON","1/2",.5,"1/2",.5,.14
+"WPD SHOE OAK","Shoe Mould","WILSON","3/4",.75,"7/16",.4375,.28
+"WM356 OAK","Casing","WHOLESALE MW","2 1/4",2.25,"11/16",.6875,1.18
+"WM361 (2-1/2)","Casing","WHOLESALE MW","2 1/2",2.5,"11/16",.6875,1.24
+"WM361 OAK","Casing","WHOLESALE MW","2 1/2",2.5,"11/16",.6875,1.24
+"WM371 (2-1/2)","Casing","WHOLESALE MW","2 1/2",2.5,"11/16",.6875,1.23
+"WM37FLUTED","Casing","WHOLESALE MW","3 1/4",3.25,"11/16",.6875,1.94
+"WM445 OAK","Casing","WHOLESALE MW","3 1/4",3.25,"11/16",.6875,1.63
+"WM99","Casing","WHOLESALE MW","3 1/2",3.5,"11/16",.6875,1.75
+"WM99","Casing","WHOLESALE MW","3 1/2",3.5,"11/16",.6875,1.75
+"WM1021","Stool","WHOLESALE MW","5 1/4",5.25,"11/16",.6875,3.51
+"WM96","Casing","WHOLESALE MW","3 1/4",3.25,"11/16",.6875,1.21
+"WM45 (11/16)","Crown","WHOLESALE MW","11/16",.6875,"5 1/4",5.25,2.56
+"WM47","Crown","WHOLESALE MW","9/16",.5625,"4 5/8",4.625,1.84
+"WM80","Crown","WHOLESALE MW","11/16",.6875,"4 1/4",4.25,1.78
+"WM163E-7 1/4 IN","Base","WHOLESALE MW","7 1/4",7.25,"5/8",.625,3.95
+"WM620-OAK","Base","WHOLESALE MW","4 1/4",4.25,"9/16",.5625,2.22
+"WM105-OAK","Quarter Round","WHOLESALE MW","3/4",.75,"3/4",.75,.44
+"WM750W","Base","WHOLESALE MW","5 1/4",5.25,"9/16",.5625,2.79
+"WM131 OAK","Shoe Mould","WHOLESALE MW","11/16",.6875,"7/16",.4375,.2
+"WM120 OAK","Half Round","WHOLESALE MW","1/2",.5,"1",1,.39
+"WM122","Half Round","WHOLESALE MW","3/8",.375,"3/4",.75,.21
+"WM142","Screen Bead","WHOLESALE MW","1/4",.25,"3/4",.75,.18
+"WM180-OAK","Brick Mold","WHOLESALE MW","1 1/4",1.25,"2",2,2.26
+"WM204-OAK","Corner Mould","WHOLESALE MW","1 5/16",1.3125,"1 5/16",1.3125,.71
+"WM205-OAK","Corner Mould","WHOLESALE MW","1 1/8",1.125,"1 1/8",1.125,.52
+"WM276","Picture Mould","WHOLESALE MW","1 5/8",1.625,"5/8",.625,.64
+"CL384","Casing","T W PERRY","1 1/16",1.0625,"4 1/4",4.25,3.22
+"WM954","Stool","T W PERRY","7/16",.4375,"1 3/8",1.375,.56
+"WM958","Mullion","T W PERRY","3/8",.375,"1 1/2",1.5,.5
+"STEPHENS-3S","Crown","STEPHENS MILLWORK","1 1/16",1.0625,"7 1/4",7.25,4.46
+"STEPHENS3U525COVE","Crown","STEPHENS MILLWORK","7/8",.875,"5 1/4",5.25,2.11
+"STEPHENS3U525COVE","Crown","STEPHENS MILLWORK","7/8",.875,"5 1/4",5.25,2.1
+"5C-STEPHENS","Panel Mould","STEPHENS MILLWORK","1 1/2",1.5,"1",1,.71
+"STEPHENS7CEILBEAD","Casing","STEPHENS MILLWORK","2 9/16",2.5625,"1/2",.5,1.25
+"STEPHENS11B","Base Cap","STEPHENS MILLWORK","1 1/2",1.5,"3/4",.75,.81
+"AMC09290","Base","ALXE","5",5,"1/2",.5,2.44
+"AMC2190A","Base","ALXE","4 3/4",4.75,"1/2",.5,2.24
+"AMC01096","Base","ALXE","5 1/2",5.5,"1/2",.5,2.72
+"AMC02190","Base","ALXE","5 1/4",5.25,"1/2",.5,2.48
+"AMC05739","Base","ALXE","5 9/16",5.5625,"1/2",.5,2.27
+"AMC07711","Base","ALXE","5 1/4",5.25,"1/2",.5,2.27
+"SM281","Back Band","SMITH MILLWORK","1 3/8",1.375,"3/4",.75,.71
+"SMWRB3PFJ","Casing","SMITH MILLWORK","1",1,"3 1/2",3.5,2.08
+"F366B","Casing","S&DE","3 1/4",3.25,"9/16",.5625,1.37
+"FLDF218B","Casing","S&DE","5 1/4",5.25,"9/16",.5625,2.64
+"FLDFBA714","Base","S&DE","7 1/4",7.25,"3/4",.75,4.89
+"FLDFBA734","Base","S&DE","7 3/4",7.75,"3/4",.75,4.91
+"FBA512NPP","Base","S&DE","5 1/2",5.5,"9/16",.5625,2.94
+"FBA714APP","Base","S&DE","7 1/4",7.25,"13/16",.8125,5
+"FBA714DPP","Base","S&DE","7 1/4",7.25,"3/4",.75,5.32
+"FBA714EPP","Base","S&DE","7 1/4",7.25,"11/16",.6875,4.82
+"FBA714NPP","Base","S&DE","7 1/4",7.25,"3/4",.75,5.36
+"F218B","Base","S&DE","5 1/4",5.25,"9/16",.5625,2.63
+"F5180","Base","S&DE","5 1/4",5.25,"9/16",.5625,2.69
+"FCA312NPP","Casing","S&DE","3 1/2",3.5,"3/4",.75,2.55
+"FCA4CPP","Casing","S&DE","4 ",4,"1 1/8",1.125,3.35
+"FCA414APP","Casing","S&DE","4 1/4",4.25,"1",1,3.1
+"F392","Chair Rail","S&DE","2 3/8",2.375,"1",1,1.33
+"BC714NPP","Base Cap","S&DE","1 1/4",1.25,"3/4",.75,.87
+"FBC8APP","Base Cap","S&DE","1 1/2",1.5,"1/2",.5,.62
+"FBC8BPP","Base Cap","S&DE","1 3/4",1.75,"5/8",.625,.71
+"FAM114PP","Panel Mould","S&DE","9/16",.5625,"1 1/4",1.25,.53
+"FAM2PP","Panel Mould","S&DE","3/4",.75,"2",2,.75
+"RB70","Bed Mold","RANDAL BROS","9/16",.5625,"2 3/4",2.75,1.12
+"RB482","Casing","RANDAL BROS","1 1/4",1.25,"4 1/2",4.5,3.4
+"RB8809","Back Band","RANDAL BROS","1 5/8",1.625,"1 3/8",1.375,1.79
+"RB105-OAK","Quarter Round","RANDAL BROS","3/4",.75,"3/4",.75,.43
+"KW 18M136-A-CR","Crown","OLD KOETTER","0709",709,"4 1/4",4.25,1862.48
+"KW 18M136-A-CR","Crown","OLD KOETTER","0.709",.709,"4 1/4",4.25,1.84
+"NI101","Base","NI CATALOG","3 1/4",3.25,"9/16",.5625,1.68
+"NI104","Base","NI CATALOG","4 5/8",4.625,"3/4",.75,3.01
+"NI106","Base","NI CATALOG","5 1/4",5.25,"9/16",.5625,2.65
+"NI111","Base","NI CATALOG","7",7,"3/4",.75,4.17
+"NI112","Base","NI CATALOG","6",6,"11/16",.6875,3.26
+"NI115-7","Base","NI CATALOG","7 1/2",7.5,"3/4",.75,4.7
+"NI203","Casing","NI CATALOG","2 1/2",2.5,"11/16",.6875,1.23
+"NI204","Casing","NI CATALOG","3 1/2",3.5,"11/16",.6875,1.51
+"NI206","Casing","NI CATALOG","3 1/2",3.5,"3/4",.75,1.97
+"NI212 PINE","Casing","NI CATALOG","3 1/2",3.5,"1 1/16",1.0625,2.26
+"NI212 PINE","Casing","NI CATALOG","3 1/2",3.5,"1 1/16",1.0625,2.26
+"AMC00239","Base","ALXE","5 1/2",5.5,"5/8",.625,3.39
+"AMC03533","Base","ALXE","5 1/2 ",5.5,"5/8",.625,2.95
+"AMC05737","Base","ALXE","5 1/2",5.5,"5/8",.625,2.65
+"AMC05955","Base","ALXE","5 9/16",5.5625,"5/8",.625,2.99
+"AMC00730","Stop","ALXE","1 3/16",1.1875,"7/16",.4375,.41
+"NI213","Casing","NI CATALOG","3 1/2",3.5,"1 1/16",1.0625,2.39
+"NI213","Casing","NI CATALOG","3 1/2",3.5,"1 1/16",1.0625,2.39
+"NI216","Casing","NI CATALOG","3 1/4",3.25,"1",1,1.89
+"NI216","Casing","NI CATALOG","3 1/4",3.25,"1",1,1.89
+"AMC01698","Stop","ALXE","1 3/8",1.375,"3/8",.375,.44
+"AMC03466","Base","ALXE","7 1/4",7.25,"5/8",.625,3.93
+"AMC03466","Base","ALXE","7 1/4",7.25,"5/8",.625,3.93
+"AMC03466","Base","ALXE","7 1/4",7.25,"5/8",.625,3.93
+"NI218","Casing","NI CATALOG","3 1/2",3.5,"3/4",.75,1.91
+"NI219","Casing","NI CATALOG","3 1/2",3.5,"3/4",.75,1.98
+"NI222","Casing","NI CATALOG","3 5/8",3.625,"1",1,2.1
+"NI226","Casing","NI CATALOG","4 1/2",4.5,"1",1,3.24
+"NI235","Casing","NI CATALOG","4 ",4,"1 1/8",1.125,2.47
+"NI241","Casing","NI CATALOG","3 1/2",3.5,"11/16",.6875,2.11
+"NI256","Casing","NI CATALOG","3 1/2",3.5,"11/16",.6875,2.31
+"NI261","Casing","NI CATALOG","3 1/2",3.5,"13/16",.8125,1.99
+"NI262","Casing","NI CATALOG","3 1/2",3.5,"13/16",.8125,1.99
+"NI300","Crown","NI CATALOG","3/4",.75,"1 3/16",1.1875,.61
+"NI300","Crown","NI CATALOG","3/4",.75,"1 3/16",1.1875,.48
+"NI300","Crown","NI CATALOG","3/4",.75,"1 3/16",1.1875,.61
+"NI311","Crown","NI CATALOG","11/16",.6875,"4 5/8",4.625,1.96
+"NI312","Crown","NI CATALOG","3/4",.75,"5 9/16",5.5625,2.59
+"NI320","Crown","NI CATALOG","1 ",1,"5 3/8",5.375,2.95
+"NI321","Crown","NI CATALOG","1 1/4",1.25,"7 3/4",7.75,4.74
+"NI502","Base Cap","NI CATALOG","1 3/8",1.375,"11/16",.6875,.54
+"NI503","Base Cap","NI CATALOG","1 3/8",1.375,"5/8",.625,.56
+"NI508","Panel Mould","NI CATALOG","2",2,"3/4",.75,.84
+"NI512","Panel Mould","NI CATALOG"," 1",1,"1 1/4",1.25,.61
+"NI512","Panel Mould","NI CATALOG","1",1,"1 1/4",1.25,.61
+"NI514","Panel Mould","NI CATALOG","1 1/8",1.125,"1 3/4",1.75,.74
+"NI516","Panel Mould","NI CATALOG","1 3/4",1.75,"5/8",.625,.68
+"NI516","Panel Mould","NI CATALOG","1 3/4",1.75,"9/16",.5625,.61
+"NI522","Panel Mould","NI CATALOG","1 7/16",1.4375,"1/2",.5,.44
+"NI601","Shoe Mould","NI CATALOG","3/4",.75,"1/2",.5,.32
+"NI601","Shoe Mould","NI CATALOG","3/4",.75,"1/2",.5,.32
+"NI602","Shoe Mould","NI CATALOG","3/4",.75,"1/2",.5,.24
+"NI603","Shoe Mould","NI CATALOG"," 1",1,"1/2",.5,.39
+"NI603","Shoe Mould","NI CATALOG","1",1,"1/2",.5,.39
+"NI608","Shoe Mould","NI CATALOG","31/32",.96875,"5/8",.625,.46
+"NI715","Back Band","NI CATALOG","1 1/8",1.125,"11/16",.6875,.55
+"NI717","Back Band","NI CATALOG","1 9/16",1.5625,"1 1/8",1.125,1.25
+"NI703","Quarter Round","NI CATALOG","3/4",.75,"3/4",.75,.43
+"NI704","Cove Mould","NI CATALOG","3/4",.75,"3/4",.75,.31
+"1607BC","Base Cap","NEW ITC","1 9/32",1.28125,"1/2",.5,.46
+"L8002","Casing","NEW WHSE MW","1 1/8",1.125,"3 5/8",3.625,2.5
+"L8046","Casing","NEW WHSE MW","1 1/16",1.0625,"4 1/2",4.5,2.92
+"L8711","Casing","NEW WHSE MW","1 3/8",1.375,"5 1/4",5.25,4.07
+"L8847","Casing","NEW WHSE MW","15/16",.9375,"4 1/2",4.5,2.6
+"L8399","Crown","NEW WHSE MW","2 1/4",2.25,"1 1/2",1.5,2.46
+"L8047","Casing","NEW WHSE MW","1 1/4",1.25,"3 1/2",3.5,2.54
+"L8081","Crown","NEW WHSE MW","1 1/16",1.0625,"4 5/8",4.625,2.66
+"L8086","Crown","NEW WHSE MW","1 3/8",1.375,"6",6,4.1
+"L8030","Base Cap","NEW WHSE MW","1 3/8",1.375,"11/16",.6875,.6
+"L8045","Base Cap","NEW WHSE MW","2 1/2",2.5,"7/8",.875,1.35
+"L8064","Panel Mould","NEW WHSE MW","1 1/4",1.25,"2",2,1.31
+"L8368","Back Band","NEW WHSE MW","1 1/16",1.0625,"1 7/16",1.4375,1.16
+"AMC07718","Base","ALXE","7 1/4",7.25,"1/2",.5,3.28
+"AMC1997A","Stop","ALXE","1 1/8",1.125,"3/8",.375,.4
+"AMC03321","Crown","ALXE","7",7,"11/16",.6875,2.6
+"AMC03321","Crown","ALXE","7",7,"11/16",.6875,2.65
+"AMC03321","Crown","ALXE","7",7,"11/16",.6875,3.03
+"WM331W","Casing","NEW WHSE MW","11/16",.6875,"3 1/2",3.5,1.67
+"WM452R1E","E1E","NEW WHSE MW","11/16",.6875,"2 1/2",2.5,1.68
+"AMC05991","Crown","ALXE","6 3/8",6.375,"1",1,3.83
+"WM432R2E","Casing","NEW WHSE MW","9/16",.5625,"3 1/2",3.5,1.92
+"WM45 (9/16)","Crown","NEW WHSE MW","9/16",.5625,"5 1/4",5.25,2.03
+"WM856","Stool","NEW WHSE MW","3/8",.375,"1 3/8",1.375,.44
+"WM886","E1E","NEW WHSE MW","3/8",.375,"1 3/8",1.375,.5
+"WM888","E1E","NEW WHSE MW","3/8",.375,"1 1/8",1.125,.41
+"WM1075","Cove Mould","NEW WHSE MW","3/4",.75,"1/2",.5,.26
+"WM430","Base","NEW WHSE MW","4 1/4",4.25,"9/16",.5625,2.34
+"WM432E","Base","NEW WHSE MW","5 1/2",5.5,"9/16",.5625,3.03
+"WM432E1E","Casing","NEW WHSE MW","9/16",.5625,"3 1/2",3.5,1.94
+"WM239","Flat Stock","NEW WHSE MW","3/4",.75,"3/4",.75,.55
+"WM249","Flat Stock","NEW WHSE MW","11/16",.6875,"1 5/8",1.625,1.11
+"WM995","Chamfer","NEW WHSE MW","3/4",.75,"3/4",.75,.27
+"PVC197","Drip Cap","NEW WHSE MW","11/16",.6875,"1 5/8",1.625,.69
+"AMC00101","Shoe Mould","ALXE","11/16",.6875,"7/16",.4375,.25
+"AMC00102","Quarter Round","ALXE","11/16",.6875,"11/16",.6875,.3
+"WM957","Chair Rail Backer","NEW WHSE MW","4 1/4",4.25,"1/2",.5,1.97
+"AMC03862","Shoe Mould","ALXE","3/4",.75,"1/2",.5,.32
+"AMC3650A","Flat Stock","ALXE","3/4",.75,"1/2",.5,.36
+"AMC05689","Base Cap","ALXE","1 3/4",1.75,"5/8",.625,.63
+"AMC05741","Chair Rail","ALXE","2 1/2 ",2.5,"5/8",.625,.92
+"5634PM","Panel Mould","NEW ITC","1/2",.5,"1 9/32",1.28125,.32
+"5634PM","Panel Mould","NEW ITC","1",1,"1 1/4",1.25,.63
+"5634PM","Panel Mould","NEW ITC","1",1,"1 1/4",1.25,.63
+"2137CR","Crown","NEW ITC","3/4",.75,"5 7/16",5.4375,2.64
+"2196CR","Crown","NEW ITC","11/16",.6875,"7 1/4",7.25,2.99
+"2114CR","Crown","NEW ITC","1 1/4",1.25,"6 5/16",6.3125,4.02
+"2177CR","Crown","NEW ITC","1 1/8",1.125,"8",8,4.21
+"2746CWP","Base","NEW ITC","3 1/2",3.5,"3/4",.75,2.36
+"3022CA","Casing","NEW ITC","3 1/4",3.25,"11/16",.6875,1.65
+"3714CA","Casing","NEW ITC","3 1/2",3.5,"1 1/16",1.0625,2.46
+"3007CA","Casing","NEW ITC","3 1/2",3.5,"1 1/16",1.0625,2.13
+"3018CA","Casing","NEW ITC","3 9/16",3.5625,"1",1,2.25
+"3023CA","Casing","NEW ITC","2 1/2",2.5,"1 3/4",1.75,3.22
+"3254CA","Casing","NEW ITC","2",2,"1 3/4",1.75,2.17
+"3687CA","Casing","NEW ITC","3 1/4",3.25,"3/4",.75,2.1
+"3753CA","Casing","NEW ITC","4 ",4,"1",1,2.4
+"4729WS","Stool","NEW ITC","1",1,"2 1/2",2.5,2.31
+"3384BKB","Back Band","NEW ITC","1 1/4",1.25,"1",1,.84
+"4003CH","Chair Rail","NEW ITC","3 1/2",3.5,"1 3/4",1.75,3.91
+"4004CHB","Chair Rail Backer","NEW ITC","6",6,"3/4",.75,4.12
+"5503DWL","Pencil Mold","NEW ITC","3/4",.75,"3/4",.75,.42
+"1632BC","Base Cap","NEW ITC","1 1/16",1.0625,"5/8",.625,.4
+"4825SHM","Shoe Mould","NEW ITC","13/16",.8125,"3/4",.75,.41
+"PT338R","Casing","NEW CMW","5/8",.625,"3 3/8",3.375,1.95
+"CAS50","Casing","NEW CMW","1 3/4",1.75,"2 1/2",2.5,3.36
+"WM315","Casing","NEW CMW","11/16",.6875,"2 1/2",2.5,1.29
+"BM1188","Casing","NEW CMW","1",1,"4 1/4",4.25,2.65
+"LDFCA358","Casing","NEW CMW","1",1,"3 5/8",3.625,2.07
+"M4316","Casing","NEW CMW","1 3/16",1.1875,"4 3/16",4.1875,2.65
+"TLC234","Casing","NEW CMW","1 3/16",1.1875,"4",4,3.23
+"TLC304","Casing","NEW CMW","1 1/4",1.25,"4 1/16",4.0625,3.09
+"CJF425","Casing","NEW CMW","1",1,"4 1/4",4.25,2.69
+"CJF425","Casing","NEW CMW","1",1,"4 1/4",4.25,2.69
+"LWM97","Casing","NEW CMW","7/8",.875,"3 1/2",3.5,1.86
+"CAS30","Casing","NEW CMW","1 3/4",1.75,"2",2,2.17
+"CTE350","Casing","NEW CMW","3/4",.75,"3 1/2",3.5,1.72
+"MS1661","Casing","NEW CMW","1 1/8",1.125,"3 3/8",3.375,2.17
+"CBG300","Casing","NEW CMW","11/16",.6875,"3 1/2",3.5,1.97
+"PT312","Casing","NEW CMW","5/8",.625,"3",3,1.41
+"CVA350","Casing","NEW CMW","3/4",.75,"3 1/2",3.5,1.74
+"CVA525","Casing","NEW CMW","1",1,"5 1/4",5.25,3.75
+"TLC513","Crown","NEW CMW","1 1/8",1.125,"8",8,5.01
+"TLC519","Crown","NEW CMW","11/16",.6875,"4 1/4",4.25,1.62
+"TLC653","Crown","NEW CMW","3/4",.75,"5 1/4",5.25,1.57
+"TLC665","Crown","NEW CMW","3/4",.75,"6 1/4",6.25,3.24
+"TLC675","Crown","NEW CMW","3/4",.75,"7 1/4",7.25,3.15
+"TLC501","Crown","NEW CMW","3/4",.75,"5 1/2",5.5,2.37
+"TLC503","Crown","NEW CMW","11/16",.6875,"5 1/4",5.25,2.66
+"TLC505","Crown","NEW CMW","1",1,"7",7,3.41
+"TLC545","Crown","NEW CMW","9/16",.5625,"5 1/4",5.25,2.01
+"32232-A-CR","Crown","NEW CMW","1",1,"7 1/4",7.25,5.27
+"CVS1W1PMD","Crown","NEW CMW","1 3/16",1.1875,"5 7/16",5.4375,3.21
+"CVS1W1PMD","Crown","NEW CMW","1 3/16",1.1875,"5 7/16",5.4375,3.15
+"LDF48","Crown","NEW CMW","5/8",.625,"4 1/4",4.25,1.86
+"26168-C-CR POPLAR","Crown","NEW CMW","13/16",.8125,"5 1/4",5.25,2.55
+"DY204","Solid Back Crown","NEW CMW","2 1/4",2.25,"1 1/8",1.125,1.49
+"TLC599","Crown Backer","NEW CMW","4 1/2",4.5,"5/8",.625,2.14
+"5180","Base","NEW CMW","5 1/4",5.25,"9/16",.5625,2.69
+"5180","Base","NEW CMW","5 1/4",5.25,"9/16",.5625,2.7
+"MDF714","Base","NEW CMW","7 1/4",7.25,"0.591",.591,3.9
+"MDF714","Base","NEW CMW","7 1/4",7.25,"0.591",.591,3.9
+"VIC BASE","Base","NEW CMW","5 1/4",5.25,"9/16",.5625,2.17
+"8416","Base Cap","NEW CMW","1 5/8",1.625,"5/8",.625,.64
+"B660","Base Cap","NEW CMW","1 1/2",1.5,"11/16",.6875,.62
+"CR560","Chair Rail","NEW CMW","5 ",5,"1",1,3.31
+"EC394","Chair Rail","NEW CMW","2 5/8",2.625,"15/16",.9375,1.56
+"CM956 CRB","Chair Rail Backer","NEW CMW","4 1/4",4.25,"7/16",.4375,1.8
+"DY613","Back Band","NEW CMW","1 13/16",1.8125,"3/4",.75,.57
+"MS176","Brick Mold","NEW CMW","11/16",.6875,"1 5/8",1.625,1.06
+"CM108","Quarter Round","NEW CMW","1/2",.5,"1/2",.5,.19
+"CM108 OAK","Quarter Round","NEW CMW","1/2",.5,"1/2",.5,.19
+"CM109","Quarter Round","NEW CMW","3/8",.375,"3/8",.375,.11
+"CM103","Quarter Round","NEW CMW","1 1/16",1.0625,"1 1/16",1.0625,.92
+"CM107-5/8 QTR RD","Quarter Round","NEW CMW","5/8",.625,"5/8",.625,.29
+"HM118","Picture Mould","NEW CMW","1 9/16",1.5625,"11/16",.6875,.69
+"WP111 OAK","Shoe Mould","NEW CMW","3/4",.75,"3/4",.75,.32
+"VS1W4","Crown","NEW CMW","1 3/16",1.1875,"5 1/4",5.25,3
+"NDM331","Casing","NDM","3 1/2",3.5,"11/16",.6875,1.59
+"1207","Base Cap","MISC","7/8",.875,"11/16",.6875,.41
+"8012","Crown","MISC","9/16",.5625,"4 1/4",4.25,1.78
+"8012","Crown","MISC","9/16",.5625,"4 1/4",4.25,1.77
+"8060","Cove Mould","MISC","7/8",.875,"11/16",.6875,.45
+"8060","Cove Mould","MISC","7/8",.875,"11/16",.6875,.36
+"8412","Base Cap","MISC","1 3/8",1.375,"5/8",.625,.55
+"8578","Nose & Cove","MISC","11/16",.6875,"1 1/8",1.125,.49
+"1328544","Crown","MISC","1 3/16",1.1875,"6 3/4",6.75,3.97
+"1640178","Casing","MISC","3 1/2",3.5,"11/16",.6875,2.25
+"1674704","Base","MISC","7 1/4",7.25,"5/8",.625,4.33
+"1674704","Base","MIS","7 1/4",7.25,"5/8",.625,4.33
+"1674704","Base","MISC","7 1/4",7.25,"5/8",.625,4.33
+"1680228","Casing","MISC","3 1/2",3.5,"11/16",.6875,2.07
+"1680231","Base","MISC","5 1/2",5.5,"9/16",.5625,2.58
+"1680231","Base","MISC","5 1/2",5.5,"9/16",.5625,2.58
+"1680232","Base","MISC","7 1/4",7.25,"9/16",.5625,3.38
+"1680232","Base","MISC","7 1/4",7.25,"9/16",.5625,3.38
+"1680238","Base","MISC","7 1/4",7.25,"9/16",.5625,3.9
+"1680238","Base","MISC","7 1/4",7.25,"9/16",.5625,3.9
+"1624-C OAK","Cove Mould","MISC","3/4",.75,"1/2",.5,.26
+"2 STEP 1262","Base","MISC","5 1/2",5.5,"3/4",.75,3.58
+"2 STEP 1262","Base","MISC","5 1/2",5.5,"3/4",.75,3.58
+"20232-R18-B","E1E","MISC","7 1/4",7.25,"5/8",.625,4.44
+"20232-R18-B","E1E","MISC","7 1/4",7.25,"5/8",.625,4.44
+"22112-C2-CA","Casing","MISC","11/16",.6875,"3 1/2",3.5,1.67
+"22112-W-CA","Casing","MISC","11/16",.6875,"3 1/2",3.5,1.53
+"22112-W-CA","Casing","MISC","11/16",.6875,"3 1/2",3.5,1.78
+"22168-CB POPLAR","Base","MISC","5 1/4",5.25,"11/16",.6875,3.18
+"22232-CB MOD 5.5","Base","MISC","5 1/2",5.5,"11/16",.6875,3.42
+"2288CA","Casing","MISC","11/16",.6875,"2 3/4",2.75,1.48
+"2323 BEAD","Pencil Mold","MISC","23/32",.71875,"23/32",.71875,.39
+"2323 BEAD","Pencil Mold","MISC","23/32",.71875,"23/32",.71875,.39
+"1640185","Base","MISC","5 7/16",5.4375,"9/16",.5625,2.68
+"1003M","Casing","MISC","11/16",.6875,"2 1/4",2.25,.87
+"MSI714SPEC","Crown","MILLWORK SALES","11/16",.6875,"7 1/4",7.25,2.56
+"FBPLDF86CSG","Casing","MILLWORK SALES","9/16",.5625,"3 3/16",3.1875,.85
+"FBPLDF86CSG","Casing","MILLWORK SALES","9/16",.5625,"3 3/16",3.1875,1.28
+"LWM433","E1E","MILLWORK SALES","5 1/4",5.25,"9/16",.5625,2.88
+"1677970","Casing","METRIE","3 ",3,"5/8",.625,1.82
+"LRM125BB","Back Band","LITTLE RIVER","1 1/4",1.25,"1",1,.94
+"LRM SP376","Casing","LITTLE RIVER","3 1/4",3.25,"1 1/16",1.0625,2.52
+"LRM SP376 THIN","Casing","LITTLE RIVER","3 1/4",3.25,"13/16",.8125,1.71
+"LRMSP143","Panel Mould","LITTLE RIVER","1 7/16",1.4375,"9/16",.5625,.29
+"EMPIRE 433","Casing","LAKELAND","3 1/4",3.25,"9/16",.5625,1.46
+"EMPIRE B RB-3","Casing","LAKELAND","2 1/4",2.25,"11/16",.6875,.87
+"EMPIRE 3180","Casing","LAKELAND","3 1/4",3.25,"7/8",.875,1.6
+"EMPIRE M-RB3","Casing","LAKELAND","3 1/4",3.25,"11/16",.6875,1.36
+"EMPIRE VICC CSG","Casing","LAKELAND","3 1/2",3.5,"11/16",.6875,1.94
+"EMPIRE STCA","Casing","LAKELAND","3 1/2",3.5,"13/16",.8125,1.95
+"EMPIRE 631","Base","LAKELAND","3 1/4",3.25,"9/16",.5625,1.46
+"EMPIRE L5180","Base","LAKELAND","5 1/4",5.25,"9/16",.5625,2.61
+"EMPIRE B615","Base","LAKELAND","7 1/4",7.25,"11/16",.6875,4.4
+"EMPIRE C714","Crown","LAKELAND","11/16",.6875,"7 1/4",7.25,3.48
+"EMPIRE SCBA MOD","Base","LAKELAND","7",7,"11/16",.6875,3.76
+"EMPIRE SCBA CCPMD","Base","LAKELAND","7",7,"11/16",.6875,3.76
+"EMPIRE SCBA CCPMD","Base","LAKELAND","7 ",7,"11/16",.6875,3.76
+"EMPIRE STBA MOD","Base","LAKELAND","7",7,"11/16",.6875,3.97
+"EMPIRE STBA MOD","Base","LAKELAND","7",7,"11/16",.6875,3.97
+"EMPIRE 412 MDF","E2E","LAKELAND","3 1/2",3.5,".59",.59,2.02
+"EMPIRE 412 MDF","E2E","LAKELAND","3 1/2",3.5,"0.59",.59,2.02
+"KW 24104-DD1-CA","Casing","KOETTER","3/4",.75,"3 1/4",3.25,2.1
+"KW 24104-DD1-CA","Casing","KOETTER","3/4",.75,"3 1/4",3.25,2.1
+"KW 24104-R-CA POP","E2E","KOETTER","3/4",.75,"3 1/4",3.25,2.41
+"KW 24112-CA POP","Casing","KOETTER","3/4",.75,"3 1/2",3.5,1.57
+"KW 24112-C-CA POP","Casing","KOETTER","3/4",.75,"3 1/2",3.5,2.05
+"KW 32112-H-CA POP","Casing","KOETTER","1",1,"3 1/2",3.5,2.01
+"KW 32136-CA POP","Casing","KOETTER","1",1,"4 1/4",4.25,2.4
+"KW 40120-CA POP","Casing","KOETTER","1 1/4",1.25,"3 3/4",3.75,3.32
+"KW 1872-A-CA POP","Casing","KOETTER","9/16",.5625,"2 1/4",2.25,.98
+"KW 2472-A-CA POP","Casing","KOETTER","3/4",.75,"2 1/4",2.25,1.38
+"KW 24112-E-CA POP","Casing","KOETTER","3/4",.75,"3 1/2",3.5,2.07
+"32128-G-CA POP","Casing","KOETTER","1",1,"4",4,2.76
+"KW 32128-G-CA POP","Casing","KOETTER","1",1,"4",4,2.76
+"32128-H-CA POP","Casing","KOETTER","1",1,"4",4,2.87
+"KW 32128-H-CA POP","Casing","KOETTER","1",1,"4",4,2.87
+"32128-I-CA POP","Casing","KOETTER","1",1,"4",4,2.67
+"KW 32128-I-CA POP","Casing","KOETTER","1",1,"4",4,2.67
+"32128-K-CA POP","Casing","KOETTER","1",1,"4",4,2.33
+"KW 32128-K-CA POP","Casing","KOETTER","1",1,"4",4,2.33
+"KW 32128-J-CA POP","Casing","KOETTER","1",1,"4",4,2.9
+"AMC05744","Chair Rail","ALXE","3-3/16",.1875,"1",1,.11
+"AMC05744","Chair Rail","ALXE","3 3/16",3.1875,"1",1,1.89
+"AMC03186","Flat Stock","ALXE","3 1/2",3.5,"3/4",.75,2.61
+"AMC15003","Flat Stock","ALXE","2 1/2",2.5,"19/32",.59375,1.47
+"AMC15004","Flat Stock","ALXE","3 1/2",3.5,"5/8",.625,2.17
+"AMC15006","Flat Stock","ALXE","5 3/8",5.375,"5/8",.625,3.34
+"KW 24112-B-CA POP","Casing","KOETTER","3/4",.75,"3 1/2",3.5,2.2
+"KW 26112-T-CA","Casing","KOETTER","13/16",.8125,"3 1/2",3.5,1.96
+"KW 32128-T-CA POP","Casing","KOETTER","1",1,"4",4,2.41
+"KW 5664-IT2-CA","Casing","KOETTER","1 3/4",1.75,"2",2,2.17
+"KW 24112-P-CA POP","Casing","KOETTER","3/4",.75,"3 1/2",3.5,1.89
+"KW 32112-IT2-CA","Casing","KOETTER","1",1,"3 1/2",3.5,2.19
+"KW 24112-RV-CA(R)","Casing","KOETTER","3/4",.75,"3 1/2",3.5,2.4
+"KW 2432-EG-BB POP","Back Band","KOETTER","1",1,"3/4",.75,.55
+"KW 3248-IT-BB","Back Band","KOETTER","1 1/2",1.5,"1",1,1
+"KW 3436-BB POPLAR","Back Band","KOETTER","1 1/8",1.125,"1 1/16",1.0625,.94
+"KW 3652-BB POP","Back Band","KOETTER","1 5/8",1.625,"1 1/8",1.125,1.38
+"KW 3660-BB POP","Back Band","KOETTER","1 7/8",1.875,"1 1/8",1.125,1.6
+"KW 4048-ID-BB","Back Band","KOETTER","1 1/2",1.5,"1 1/4",1.25,1.4
+"KW 4650-A-BB POP","Back Band","KOETTER","1 9/16",1.5625,"1 7/16",1.4375,1.78
+"KW 4856-ITC-BB PO","Back Band","KOETTER","1 3/4",1.75,"1 1/2",1.5,1.98
+"KW 5668-BB POPLAR","Back Band","KOETTER","1 3/4",1.75,"2 1/8",2.125,2.65
+"KW 18232-B POPLAR","Base","KOETTER","7 1/4",7.25,"9/16",.5625,3.72
+"KW 1624-A OAK","Shoe Mould","KOETTER","3/4",.75,"1/2",.5,.31
+"KW 1624-A POPLAR","Shoe Mould","KOETTER","3/4",.75,"1/2",.5,.31
+"2743CWP","Base (Beaded)","KOETTER","5 1/4",5.25,"3/4",.75,3.84
+"2742CWP","Base (Beaded)","KOETTER","7 1/4",7.25,"3/4",.75,5.33
+"KW 1624-B-SHOE","Shoe Mould","KOETTER","3/4",.75,"1/2",.5,.37
+"KW 1640-1R18-STOP","Stop","KOETTER","1 1/4",1.25,"1/2",.5,.61
+"KW 1723-BD-BC","Base Cap","KOETTER","17/32",.53125,"23/32",.71875,.34
+"KW 2148-CB-CAP OK","Base Cap","KOETTER","1 1/2",1.5,"21/32",.65625,.66
+"KW 2148-CB-CAP PO","Base Cap","KOETTER","1 1/2",1.5,"21/32",.65625,.66
+"KW 2240-IT-BC","Base Cap","KOETTER","1 1/4",1.25,"11/16",.6875,.6
+"KW 2244-B-CAP POP","Base Cap","KOETTER","1 3/8",1.375,"11/16",.6875,.55
+"KW 2444-B-CAP","Base Cap","KOETTER","1 3/8",1.375,"11/16",.6875,.55
+"KW 2448-US-BC","Base Cap","KOETTER","1 1/2",1.5,"3/4",.75,.75
+"KW 3240-PR POP","Panel Mould","KOETTER","1 1/4",1.25,"1",1,.62
+"KW 3248-ITC-BC","Base Cap","KOETTER","1 1/2",1.5,"1",1,.94
+"1024B / 22136-CB","Base","KOETTER","4 1/4",4.25,"11/16",.6875,2.54
+"KW 22168-CB POP","Base","KOETTER","5 1/4",5.25,"11/16",.6875,3.21
+"KW 22232-CB POP","Base","KOETTER","7 1/4",7.25,"11/16",.6875,4.58
+"KW 18136-B POPLAR","Base","KOETTER","4 1/4",4.25,"9/16",.5625,2.08
+"KW 18168-B POPLAR","Base","KOETTER","5 1/4",5.25,"9/16",.5625,2.63
+"KW 22232-EB POP","Base","KOETTER","7 1/4",7.25,"11/16",.6875,4.41
+"KW 20232-BD-B POP","Base (Beaded)","KOETTER","7 1/4",7.25,"5/8",.625,4.45
+"KW 24112-BD-B POP","Base (Beaded)","KOETTER","3 1/2",3.5,"3/4",.75,2.54
+"KW 24168-BD-B POP","Base (Beaded)","KOETTER","5 1/4",5.25,"3/4",.75,3.86
+"KW 24232-BD-B POP","Base (Beaded)","KOETTER","7 1/4",7.25,"3/4",.75,5.37
+"KW 20168-1R18-B","E1E","KOETTER","5 1/4",5.25,"5/8",.625,3.26
+"KW 20232-1R18-B","E1E","KOETTER","7 1/4",7.25,"5/8",.625,4.5
+"KW 14168-1B14-B","Base","KOETTER","5 1/4",5.25,"7/16",.4375,2.25
+"KW 16104-B POPLAR","Base","KOETTER","3 1/4",3.25,"1/2",.5,1.5
+"KW 18168-OG-B POP","Base","KOETTER","5 1/4",5.25,"9/16",.5625,2.77
+"1644-KWSTOP","Stop","KOETTER","1/2",.5,"1 3/8",1.375,.57
+"KW 1144-STOP POP","Stop","KOETTER","11/32",.34375,"1 1/4",1.25,.36
+"KW 1234-STOP POP","Stop","KOETTER","3/8",.375,"1 1/16",1.0625,.32
+"KW 1256-STOP POP","Stop","KOTTER","3/8",.375,"1 3/4",1.75,.58
+"KW 22104-CH POP","Chair Rail","KOETTER","3 1/4",3.25,"11/16",.6875,1.3
+"KW 2288-CH POP","Chair Rail","KOETTER","2 3/4",2.75,"11/16",.6875,1.23
+"KW 32104-CH POP","Chair Rail","KOETTER","3 1/4",3.25,"1",1,1.61
+"2424-C OAK","Cove Mould","KOETTER","3/4",.75,"3/4",.75,.25
+"4802SHM","Shoe Mould","KOETTER","3/4",.75,"1/2",.5,.31
+"4501PM","Astragal","KOETTER","3/4",.75,"1 1/2",1.5,.69
+"4577PM","Panel Mould","KOETTER","5/8",.625,"1 1/2",1.5,.6
+"KW 1212-Q POPLAR","Quarter Round","KOETTER","3/8",.375,"3/8",.375,.1
+"KW 1224-KR POPLAR","Cap Mold","KOETTER","3/8",.375,"3/4",.75,.25
+"KW 1416-GB POPLAR","Screen Bead","KOETTER","7/16",.4375,"1/2",.5,.14
+"KW 1624-C OAK","Cove Mould","KOETTER","3/4",.75,"1/2",.5,.28
+"KW 1624-C POPLAR","Cove Mould","KOETTER","3/4",.75,"1/2",.5,.28
+"KW 1846 POPLAR","Panel Mould","KOETTER","9/16",.5625,"1 7/16",1.4375,.51
+"KW 2048-KW-PM POP","Panel Mould","KOETTER","5/8",.625,"1 1/2",1.5,.59
+"KW 2048-KW-PM POP","Panel Mould","KOETTER","5/8",.625,"1 1/2",1.5,.6
+"KW 2232-TM POPLAR","Panel Mould","KOETTER","11/16",.6875,"1",1,.38
+"KW 2323-BEAD POP","Pencil Mold","KOETTER","23/32",.71875,"23/32",.71875,.44
+"KW 2424-C OAK","Cove Mould","KOETTER","3/4",.75,"3/4",.75,.26
+"KW 2424-C POPLAR","Cove Mould","KOETTER","3/4",.75,"3/4",.75,.26
+"KW 2424-Q","Quarter Round","KOETTER","3/4",.75,"3/4",.75,.43
+"KW 2424-Q OAK","Quarter Round","KOETTER","3/4",.75,"3/4",.75,.43
+"KW 1624 OAK","Panel Mould","KOETTER","3/4",.75,"1/2",.5,.23
+"KW 1624 POPLAR","Panel Mould","KOETTER","3/4",.75,"1/2",.5,.23
+"KW 1632-CK-PM","Panel Mould","KOETTER","1/2",.5,"1",1,.32
+"KW 2424-R POPLAR","Panel Mould","KOETTER","3/4",.75,"3/4",.75,.27
+"KW 2428-ITC-PM PO","Panel Mould","KOETTER","7/8",.875,"3/4",.75,.47
+"KW 2448-BM POPLAR","Astragal","KOETTER","3/4",.75,"1 1/2",1.5,.69
+"KW 2464-PM POPLAR","Panel Mould","KOETTER","3/4",.75,"2",2,.82
+"KW 2664 P POPLAR","Panel Mould","KOETTER","13/16",.8125,"2",2,1.02
+"KW 2664 P POPLAR","Panel Mould","KOETTER","13/16",.8125,"2",2,1.02
+"KW 2664-PR POP","Panel Mould","KOETTER","13/16",.8125,"2",2,.73
+"KW 3264-PR POPLAR","Panel Mould","KOETTER","1",1,"2",2,.96
+"AMC15008","Flat Stock","ALXE","7 1/4",7.25,"5/8",.625,4.44
+"26192-CR","Crown","KOETTER","13/16",.8125,"6",6,2.96
+"C606F","Casing","CMW","5 1/2 ",5.5,"11/16",.6875,3.19
+"C606F","Casing","CMW","5 1/2",5.5,"11/16",.6875,3.14
+"KW 2472-A-STOOL","Stool","KOETTER","3/4",.75,"2 1/4",2.25,1.38
+"KW 24168-QA-CR PO","Crown","KOETTER","3/4",.75,"5 1/4",5.25,2.74
+"C606R","Casing (Reeded)","CMW","5 1/2",5.5,"11/16",.6875,2.92
+"KW 1857-CR POP","Crown","KOETTER","9/16",.5625,"1 25/32",1.78125,.68
+"KW 20168-B-CR POP","Crown","KOETTER","5/8",.625,"5 1/4",5.25,2.14
+"3230CA","Casing","KOETTER","4",4,"1",1,2.57
+"KW 26168-C-CR POP","Crown","KOETTER","13/16",.8125,"5 1/4",5.25,2.21
+"KW 24104-ITC-CR","Crown","KOETTER","3/4",.75,"3 1/4",3.25,1.61
+"KW 24136-CV-CR","Crown","KOETTER","3/4",.75,"4 1/4",4.25,1.76
+"KW 20104-B-CR POP","Crown","KOETTER","5/8",.625,"3 1/4",3.25,1.27
+"KW 20136-B-CR POP","Crown","KOETTER","5/8",.625,"4 1/4",4.25,1.85
+"KW 32232-B-CR POP","Crown","KOETTER","1",1,"7 1/4",7.25,4.72
+"KW 32232-B-CR POP","Crown","KOETTER","1",1,"7 1/4",7.25,4.58
+"KW 1620-I-D POP","Dentil","KOETTER","5/8",.625,"1/2",.5,.27
+"KW 2480-CRB POP","Crown Backer","KOETTER","2 1/2",2.5,"3/4",.75,1.49
+"KW 32128-CRB POP","Crown Backer","KOETTER","4",4,"1",1,2.57
+"KW 1640-STOP POP","E2E","KOETTER","1/2",.5,"1 1/4",1.25,.61
+"KW 1644-KW-STOP","Stool","KOETTER","1/2",.5,"1 3/8",1.375,.57
+"KW 24112-S4S POP","Flat Stock","KOETTER","3/4",.75,"3 1/2",3.5,2.62
+"KW 24176-S4S OAK","Flat Stock","KOETTER","3/4",.75,"5 1/2",5.5,4.12
+"KW 24176-S4S POP","Flat Stock","KOETTER","3/4",.75,"5 1/2",5.5,4.12
+"KW 24232-S4S","Flat Stock","KOETTER","7 1/4",7.25,"3/4",.75,5.43
+"KW 24232-S4S OAK","Flat Stock","KOETTER","7 1/4",7.25,"3/4",.75,5.43
+"KW 24232-S4S POP","Flat Stock","KOETTER","7 1/4",7.25,"3/4",.75,5.43
+"KW 24296-S4S POP","Flat Stock","KOETTER","9 1/4",9.25,"3/4",.75,6.93
+"KW 2464-S4S POP","Flat Stock","KOETTER","2 ",2,"3/4",.75,1.5
+"KW 2472-S4S POP","Flat Stock","KOETTER","2 1/4",2.25,"3/4",.75,1.68
+"KW24112-S4S SPOOL","Flat Stock","KOETTER","3 1/2",3.5,"3/4",.75,2.62
+"KW 18M112C-CA PG","Casing","KOETTER","0.709",.709,"3 1/2",3.5,1.91
+"KW 24112-R-CA","E2E","KOETTER","3/4",.75,"3 1/2",3.5,2.6
+"KW 25M112-CA","Casing","KOETTER","0.984",.984,"3 1/2",3.5,2.49
+"KW 25M112-H-CA PG","Casing","KOETTER","0.984",.984,"3 1/2",3.5,1.95
+"KW 18M112-CA","Casing","KOETTER","11/16",.6875,"3 1/2",3.5,1.38
+"KW 18M112-UL-CA","Casing","KOETTER","11/16",.6875,"3 1/2",3.5,1.81
+"15M232-EB","Base","KOETTER","7 1/4",7.25,".59",.59,3.76
+"KW 15M232-EB PG","Base","KOETTER","7 1/4",7.25,".59",.59,3.76
+"KW 15M168-CB PG","Base","KOETTER","5 1/4",5.25,"0.59",.59,2.73
+"KW 15M232-CB PG","Base","KOETTER","7 1/4",7.25,"0.59",.59,3.94
+"KW 15M168-B-CR PG","Crown","KOETTER",".59",.59,"5 1/4",5.25,1.99
+"KW 18M232-RB-BCR","Crown","KOETTER","0.709",.709,"7 1/4",7.25,2.86
+"KW 20M232-CR","Crown","KOETTER","0.787",.787,"7 1/4",7.25,3.55
+"KW 25M232-C-CR","Crown","KOETTER","1 ",1,"7 1/4",7.25,4.19
+"KW 18M168-C-CR","Crown","KOETTER","0.709",.709,"5 1/4",5.25,2.23
+"2136CR","Crown","KOETTER",".98",.98,"7",7,3.26
+"KW 24168-CO-CR PO","Crown","KOETTER","3/4",.75,"5 1/4",5.25,1.72
+"KW 25M224-CO-CR","Crown","KOETTER","1",1,"7",7,3.02
+"KW 22112-W-CA","Casing","KOETTER","11/16",.6875,"3 1/2",3.5,1.8
+"KW PFP22112-C2-CA","Casing","KOETTER","11/16",.6875,"3 1/2",3.5,1.78
+"KW 18232-CB PFP","Base","KOETTER","7 1/4",7.25,"9/16",.5625,3.76
+"KW 1640-BN POP","Bullnose","KOETTER","1/2",.5,"1 1/4",1.25,.59
+"KLC10","Casing","KLEET22","3 1/2",3.5,"1 1/16",1.0625,2.59
+"KLC10","Casing","KLEET22","3 1/2",3.5,"1 1/16",1.0625,2.57
+"KLC19","Casing","KLEET22","4",4,"1 1/16",1.0625,2.78
+"KLC36","Casing","KLEET22","4 1/8",4.125,"1 1/16",1.0625,2.71
+"KLC37","Casing","KLEET22","3 1/2",3.5,"1 1/16",1.0625,2.48
+"KLC37","Casing","KLEET22","3 1/2",3.5,"1 1/16",1.0625,2.48
+"KLBB9","Back Band","KLEET4","1 3/4",1.75,"1 1/8",1.125,1.41
+"KLBB9","Back Band","KLEET4","1 3/4",1.75,"1 1/8",1.125,1.41
+"KLB47","Base","KLEET6","7 1/4",7.25,"15/16",.9375,6.18
+"KLNC3","Nose & Cove","KLEET79","1 3/4",1.75,"1 1/8",1.125,1.33
+"KL-P21","Panel Mould","KLEET80","7/8",.875,"3/8",.375,.21
+"KL-P21","Panel Mould","KLEET80","7/8",.875,"3/8",.375,.21
+"KLP27","Panel Mould","KLEET80","1 15/16",1.9375,"13/16",.8125,.96
+"JM421FJP","Casing","JIM MACKIE 1","3 1/4",3.25,"7/8",.875,2.32
+"1021B","Base","ITC","3 1/4",3.25,"11/16",.6875,1.88
+"1023B","Base","ITC","5 1/4",5.25,".59",.59,2.61
+"1027B","Base","ITC","7 1/4",7.25,"11/16",.6875,4.61
+"1501BC","Base Cap","ITC","1 3/8",1.375,"3/4",.75,.68
+"1502BC","Base Cap","ITC","1 3/8",1.375,"11/16",.6875,.56
+"1503BC","Base Cap","ITC","1 1/2",1.5,"1",1,1.12
+"1504BC","Base Cap","ITC","1",1,"3/4",.75,.63
+"1518BC","Base Cap","ITC","1 1/4",1.25,"11/16",.6875,.59
+"1527BC","Base Cap","ITC","1 1/2",1.5,"21/32",.65625,.63
+"1540BC","Base Cap","ITC","17/32",.53125,"23/32",.71875,.34
+"1546BC","Base Cap","ITC","1 1/2",1.5,"3/4",.75,.75
+"1547BC","Base Cap","ITC","1 1/2",1.5,"1",1,.93
+"2010CR","Crown","ITC","3/4",.75,"2 3/4",2.75,1.32
+"2010CR","Crown","ITC","3/4",.75,"2 3/4",2.75,1.32
+"2017CRBM","Bed Mold","ITC","3/4",.75,"2 3/4",2.75,1.51
+"2032CR","Crown","ITC",".98",.98,"7 1/4",7.25,4.21
+"2083CR","Crown","ITC","3/4",.75,"5 1/4",5.25,2.42
+"2153CR","Crown","ITC","3/4",.75,"5 1/4",5.25,1.99
+"3020CA","Casing","ITC","5 5/8",5.625,"1 1/2",1.5,4.88
+"3037CA","Casing","ITC","4",4,"1",1,2.21
+"3135CA","Casing","ITC","4 ",4,"1",1,2.33
+"3301BKB MOD","Back Band","ITC","1 3/4",1.75,"1 7/16",1.4375,1.78
+"3302BKB","Back Band","ITC","1 3/4",1.75,"1 1/2",1.5,1.98
+"4419CM","Cove Mould","ITC","3/4",.75,"3/4",.75,.31
+"4493CM","Cove Mould","ITC","3/4",.75,"1/2",.5,.27
+"4539PM","Panel Mould","ITC","2",2,"13/16",.8125,.95
+"4545PM","Nose & Cove","ITC","7/8",.875,"11/16",.6875,.43
+"4547PM","Nose & Cove","ITC","1 1/2",1.5,"1",1,.96
+"4548PM","Panel Mould","ITC","7/16",.4375,"1/2",.5,.13
+"5403MM","Panel Mould","ITC","1/2",.5,"7/16",.4375,.17
+"4504PM","Panel Mould","ITC","7/8",.875,"3/4",.75,.47
+"4504PM","Panel Mould","ITC","3/4",.75,"7/8",.875,.47
+"NDM446","Casing","NDM","3 1/2",3.5,"11/16",.6875,1.64
+"NDM SMCASING1","Casing","NDM","3 1/2",3.5,"23/32",.71875,2.4
+"NDM25012","Casing","NDM","4 1/2",4.5,"1 1/16",1.0625,3.17
+"NDMWC4","Casing","NDM","4 1/2",4.5,"1 1/4",1.25,2.74
+"NDM255W7","Base","NDM","7",7,"11/16",.6875,3.99
+"NDM VS1B2(7-1/4)","Base","NDM","7 1/4",7.25,"1/2",.5,3.32
+"NDM SMCAP1","Base Cap","NDM","3/4",.75,"3/4",.75,.49
+"NDM2450","Base Cap","NDM","2 1/8",2.125,"13/16",.8125,1.08
+"NDM2460","Panel Mould","NDM","2",2,"1 1/16",1.0625,1.17
+"NDM128","Astragal","NDM","3/4",.75,"1/2",.5,.24
+"NDM128","Astragal","NDM","1/2",.5,"3/4",.75,.24
+"GS STEP 55","Base","GSL","5 1/2",5.5,"11/16",.6875,2.92
+"GSES2MDF","Casing","GSL","3 1/4",3.25,"1",1,1.97
+"GS SCOOP 35","Casing","GSL","3 1/2",3.5,"13/16",.8125,1.91
+"GSSTEP35","Casing","GSL","3 9/16",3.5625,"13/16",.8125,1.94
+"GS8313","Back Band","GSL","1 1/8",1.125,"11/16",.6875,.54
+"GSBDBCAP","Base Cap","GSL","9/16",.5625,"13/16",.8125,.4
+"GSES9","Base Cap","GSL","2 1/2",2.5,"1 1/16",1.0625,1.68
+"GSL8416","Base Cap","GSL","1 5/8",1.625,"5/8",.625,.64
+"GSSCOOP55","Base","GSL","5 1/2",5.5,"11/16",.6875,2.84
+"GSL8027PVC","Crown","GSL","9/16",.5625,"5 1/4",5.25,1.92
+"EC778","Crown","EAST COAST","1 3/16",1.1875,"7 7/8",7.875,4.75
+"EC24","Crown","EAST COST","1 1/2",1.5,"7 3/4",7.75,6.25
+"EC24","Crown","EAST COAST","1 1/2",1.5,"7 3/4",7.75,6.25
+"EC34","Crown","EAST COAST","1 3/16",1.1875,"7 1/4",7.25,5.01
+"EC34","Crown","EAST COAST","11/16",.6875,"7 1/4",7.25,2.9
+"EC36","Crown","EAST COAST","11/16",.6875,"7 1/4",7.25,3.31
+"EC36","Crown","EAST COAST","11/16",.6875,"7 1/2",7.5,3.43
+"EC718","Crown","EAST COAST","11/16",.6875,"7 1/8",7.125,3.42
+"EC718","Crown","EAST COAST","11/16",.6875,"7 1/8",7.125,3.42
+"EC81","Crown","EAST COAST","1",1,"7",7,3.37
+"EC81","Crown","EAST COAST","1",1,"7",7,3.37
+"EC33 MDF","Crown","EAST COAST","1 1/8",1.125,"6 1/4",6.25,3.57
+"EC33 MDF","Crown","EAST COAST","1 1/8",1.125,"6 1/4",6.25,3.57
+"EC39","Crown","EAST COAST","1 1/16",1.0625,"5 3/8",5.375,3.25
+"EC39","Crown","EAST COAST","1 1/16",1.0625,"5 3/8",5.375,3.25
+"EC45","Crown","EAST COAST","9/16",.5625,"5 1/4",5.25,1.92
+"EC45","Crown","EAST COAST","9/16",.5625,"5 1/4",5.25,1.92
+"EC50","Crown","EAST COAST","11/16",.6875,"5 1/4",5.25,2.24
+"EC550","Crown","EAST COAST","11/16",.6875,"5 1/2",5.5,2.64
+"EC80","Crown","EAST COAST","3/4",.75,"5 1/4",5.25,1.59
+"EC49 PVC","Crown","EAST COAST","11/16",.6875,"3 5/8",3.625,1.81
+"EC3609","Solid Back Crown","EAST COAST","1 3/4",1.75,"1 3/8",1.375,1.4
+"EC4","Casing","EAST COAST","4",4,"1",1,2.53
+"EC414","Casing","EAST COAST","4 1/4",4.25,"1 1/16",1.0625,3.01
+"EC436","Casing","EAST COAST","4",4,"1 1/8",1.125,3.07
+"EC20","Casing","EAST COAST","3 1/2",3.5,"1 1/16",1.0625,2.43
+"EC350","Casing","EAST COAST","3 1/2",3.5,"11/16",.6875,1.86
+"EC444-OAK","Casing","EAST COAST","3 1/4",3.25,"11/16",.6875,1.66
+"SM5806","Casing","CMW","5 1/2",5.5,"3/4",.75,3.48
+"SM5806","Casing","CMW","3/4",.75,"5 1/2",5.5,3.48
+"EC455","Casing","EAST COAST","3 1/2",3.5,"11/16",.6875,2.03
+"EC464","Casing","EAST COAST","3 1/2",3.5,"1 1/16",1.0625,2.49
+"EC465","Casing","EAST COAST","3 1/2",3.5,"3/4",.75,1.9
+"EC480","Casing","EAST COAST","3 1/2",3.5,"11/16",.6875,1.83
+"EC402","Casing","EAST COAST","2 3/4",2.75,"11/16",.6875,1.52
+"EC405","Casing","EAST COAST","3 1/4",3.25,"11/16",.6875,1.88
+"EC463","Casing","EAST COAST","2 3/4",2.75,"1 1/16",1.0625,1.9
+"EC755","Casing","EAST COAST","2 1/2",2.5,"9/16",.5625,1.34
+"EC284A","Back Band","EAST COAST","1 1/4",1.25,"1 1/4",1.25,1.2
+"EC1140","Stool","EAST COAST","11/16",.6875,"1 1/2",1.5,.94
+"EC340","Chair Rail","EAST COAST","3 3/4",3.75,"1 3/8",1.375,3.15
+"EC520","Chair Rail","EAST COAST","5 1/4",5.25,"1 1/8",1.125,3.83
+"EC336","Astragal","EAST COAST","2 1/2",2.5,"1 1/16",1.0625,1.84
+"EC394A","Chair Rail","EAST COAST","2 5/8",2.625,"1 3/32",1.09375,1.96
+"EC810FJ","Base","EAST COAST","7 1/4",7.25,"9/16",.5625,3.77
+"EC910","Base","EAST COAST","9 1/4",9.25,"9/16",.5625,4.9
+"EC705","Base","EAST COAST","5 1/4",5.25,"9/16",.5625,2.81
+"EC248","Flat Stock","EAST COAST","1 3/4",1.75,"11/16",.6875,1.18
+"1002","Casing","cmw","9/16",.5625,"3 9/16",3.5625,1.82
+"1002M","Casing","CMW","1/2",.5,"2 1/4",2.25,1.02
+"FM-MDFN314","Base","DALLAS SW","3 1/4",3.25,"9/16",.5625,1.39
+"FM-SAN314","Base","DALLAS SW","3 1/4",3.25,"7/16",.4375,1.17
+"FM-ACOL514","Base","DALLAS SW","5 1/4",5.25,"9/16",.5625,2.41
+"FM-MDFB714","Base","DALLAS SW","7 1/4",7.25,"9/16",.5625,3.48
+"FM-MDFN514","Base","DALLAS SW","5 1/4",5.25,"9/16",.5625,2.48
+"FM-SWB514","Base","DALLAS SW","5 1/4",5.25,"9/16",.5625,2.87
+"FM-B11","Base","DALLAS SW","4 1/2",4.5,"1 1/6",1.16666666666667,3.51
+"FM-B395","Base","DALLAS SW","4 1/2",4.5,"9/16",.5625,2.27
+"FM-MDFB612AMW","Base","DALLAS SW","6 1/2",6.5,"9/16",.5625,2.98
+"FM-MDFLA834B","Base","DALLAS SW","8 3/4",8.75,"3/4",.75,5.93
+"FM-BB1","Bullnose","DALLAS SW","11/16",.6875,"1 1/4",1.25,.81
+"FM-C196","Casing","DALLAS SW","1 1/8",1.125,"3 9/16",3.5625,2.41
+"FM-C196","Casing","DALLAS SW","1 1/8",1.125,"3 9/16",3.5625,2.41
+"FM-C295","Casing","DALLAS SW","9/16",.5625,"3 1/2",3.5,1.78
+"FM-HW218","Casing","DALLAS SW","5/8",.625,"2 1/8",2.125,1.03
+"FM-HW218","Casing","DALLAS SW","5/8",.625,"2 1/8",2.125,1.03
+"FM-SWC312MDF","Casing","DALLAS SW","11/16",.6875,"3 1/2",3.5,2.34
+"C600R","Casing","CMW","5/8",.625,"3 1/2",3.5,1.93
+"FM-MC9E","Casing","DALLAS SW","7/8",.875,"3 1/4",3.25,1.79
+"FM-LA314","Casing","DALLAS SW","3/4",.75,"3 1/4",3.25,1.46
+"FM-LA414CPR","Casing","DALLAS SW","1 1/16",1.0625,"4",4,2.45
+"FM-LA4CPR8","Casing","DALLAS SW","1 1/4",1.25,"4",4,3.32
+"FM-LA4CPR8","Casing","DALLAS SW","1 1/4",1.25,"4",4,3.33
+"FM-RB3","Casing","DALLAS SW","3 1/2",3.5,"1",1,1.74
+"FM-8441 / WM175","Brick Mold","DALLAS SW","1 1/16",1.0625,"2",2,2.07
+"FM-MDF-LA5COLCR","Crown","DALLAS SW","5/8`",.625,"4 1/16",4.0625,1.32
+"FM-MDF-LA5COLCR","Crown","DALLAS SW","5/8",.625,"4 1/16",4.0625,1.31
+"FM-MDF-LA5COLCR","Crown","DALLAS SW","5/8",.625,"4 1/16",4.0625,1.3
+"FM-SW58","Crown","DALLAS SW","9/16",.5625,"5 5/8",5.625,1.99
+"FM-M48","Crown","DALLAS SW","11/16",.6875,"7",7,3.27
+"FM-M48","Crown","DALLAS SW","11/16",.6875,"7",7,3.27
+"FM-M48","Crown","DALLAS SW","11/16",.6875,"7",7,3.27
+"FM-MDFLA8COLCR","Crown","DALLAS SW","1",1,"6 3/4",6.75,4.52
+"FM-8060","Cove Mould","DALLAS SW","7/8",.875,"3/4",.75,.45
+"FM-OKPM1 (OAK)","Panel Mould","DALLAS SW","13/16",.8125,"1 5/16",1.3125,.69
+"FM-PM6","Panel Mould","DALLAS SW","3/4",.75,"2",2,.56
+"FM-PM6","Panel Mould","DALLAS SW","2",2,"3/4",.75,.56
+"FM-PM6","Panel Mould","DALLAS SW","3/4",.75,"1 1/16",1.0625,.29
+"TEST","Panel Mould","SOME","3/4",.75,"2",2,.56
+"TEST","Panel Mould","SOM","11/16",.6875,"1 7/8",1.875,.48
+"FM-CR6","Chair Rail","DALLAS SW","1 1/4",1.25,"3 1/2",3.5,2.56
+"FM-DM22","Base Cap","DALLAS SW","11/16",.6875,"1 3/4",1.75,.73
+"FM-8238","Corner Mould","DALLAS SW","1 1/4",1.25,"1 1/4",1.25,.71
+"FM-MMOULD","Astragal","DALLAS SW","1/2",.5,"1",1,.33
+"CCC350","Casing","CMW","3 1/2",3.5,"3/4",.75,2.3
+"CCC350","Casing","CMW","3 1/2",3.5,"3/4",.75,2.3
+"CCC350","Casing","CMW","3/4",.75,"3 1/2",3.5,2.3
+"CNF312","Casing","CMW","3/4",.75,"3 1/2",3.5,2.24
+"SM8","Casing","CMW","3/4",.75,"5",5,3.11
+"CFC214","Casing","CMW","3/4",.75,"3 1/2",3.5,2.14
+"WM376","Casing","CMW","11/16",.6875,"2 1/4",2.25,1.09
+"PM32340","Panel Mould","COX INTERIORS","13/16",.8125,"1 3/4",1.75,1.04
+"PM32654","Panel Mould","COX INTERIORS","3/4",.75,"1 1/2",1.5,.69
+"FM-PM6","Panel Mould","DALLAS SW","11/16",.6875,"1 7/8",1.875,.73
+"COX BB118","Back Band","COX INTERIORS","1 1/8",1.125,"1 1/8",1.125,.94
+"BCB150","Base Cap","COX INTERIORS","11/16",.6875,"1 1/2",1.5,.68
+"BCB150","Base Cap","COX INTERIORS","1 1/2",1.5,"11/16",.6875,.68
+"CGA425","Casing","COX INTERIORS","4 1/4",4.25,"1",1,2.38
+"COX CRC150","Back Band","COX INTERIORS","1 1/2",1.5,"1 1/16",1.0625,1.19
+"BLB1125","Base","COX INTERIORS","11 1/4",11.25,"5/8",.625,5.76
+"KW 1648-EG-SHOE","Shoe Mould","KOETTER WOOD RCD","1/2",.5,"1 1/2",1.5,.7
+"KW 2024 POPLAR","Panel Mould","KOETTER ONLINE","3/4",.75,"5/8",.625,.29
+"CM70 COX CROWN","Crown","CMW","3/4",.75,"7",7,3.42
+"CM70 BED MOULD","Bed Mold","CMW","9/16",.5625,"2 3/4",2.75,1.07
+"USL42 (7-1/4 CRN)","Crown","CMW","1 ",1,"7 1/4",7.25,5.16
+"USL42 (7-1/4 CRN)","Crown","CMW","1 ",1,"7 1/4",7.25,5.16
+"1 IN QTR RND","Quarter Round","CMW","1",1,"1",1,.78
+"SM41","Rake Mould","CMW","2",2,"1 1/16",1.0625,1.44
+"CM100","Cove Mould","CMW","11/16",.6875,"11/16",.6875,.24
+"CM101","Cove Mould","CMW","1/2",.5,"1/2",.5,.14
+"CM204","Corner Mould","CMW","1 1/4",1.25,"1 1/4",1.25,.65
+"CM205","Corner Mould","CMW","1 1/16",1.0625,"1 1/16",1.0625,.55
+"CM03","Cove Mould","CMW","3/4",.75,"3/4",.75,.31
+"CM93","Cove Mould","CMW","3/4",.75,"3/4",.75,.31
+"WM1075","Cove Mould","CMW","3/4",.75,"1/2",.5,.27
+"CMXJ","Jamb","CMW","3/4",.75,"3",3,2.24
+"CM127","Shoe Mould","CMW","11-16",11,"7/16",.4375,4.23
+"CM127","Shoe Mould","CMW","11/16",.6875,"7/16",.4375,.26
+"CM105","Quarter Round","CMW","3/4",.75,"3/4",.75,.43
+"CM106","Quarter Round","CMW","11/16",.6875,"11/16",.6875,.37
+"CM126","Shoe Mould","CMW","3/4",.75,"1/2",.5,.31
+"CM131","Shoe Mould","CMW","3/4",.75,"7/16",.4375,.22
+"CM137","Astragal","CMW","9/16",.5625,"1 1/4",1.25,.47
+"CM197","Drip Cap","CMW","11/16",.6875,"1 5/8",1.625,.74
+"CM273","Picture Mould","CMW","11/16",.6875,"1 3/4",1.75,.76
+"CM936","Stop","CMW","7/16",.4375,"1 3/8",1.375,.51
+"CM937","Stop","CMW","3/8",.375,"1 1/4",1.25,.4
+"CM941","Stop","CMW","7/16",.4375,"5/8",.625,.2
+"CM941A","Stop","CMW","7/16",.4375,"3/4",.75,.24
+"CM987","Mullion","CMW","3/8",.375,"2",2,.61
+"CM988 - 1 1/2","Mullion","CMW","3/8",.375,"1 1/2",1.5,.46
+"CM175","Brick Mold","CMW","1 1/16",1.0625,"2",2,2.09
+"CM180","Brick Mold","CMW","1 1/4",1.25,"2",2,2.23
+"WM179","Brick Mold","CMW","1 1/4",1.25,"3 1/4",3.25,3.37
+"CM209","Rake Mould","CMW","2",2,"11/16",.6875,1.09
+"CM210","Brick Mold","CMW","1 5/8",1.625,"11/16",.6875,.81
+"CM212","Rake Mould","CMW","2 1/2",2.5,"11/16",.6875,1.25
+"CM212","Rake Mould","CMW","2 1/2",2.5,"11/16",.6875,1.25
+"CM28","Rake Mould","CMW","3",3,"3/4",.75,1.5
+"CM287","Rake Mould","CMW","2 ",2,"1 1/16",1.0625,1.45
+"CM29","Rake Mould","CMW","3 1/2",3.5,"1 1/2",1.5,3.96
+"CM445A","Casing","CMW","11/16",.6875,"3 1/2",3.5,1.78
+"LWP286","Rake Mould","CMW","2",2,"1 1/16",1.0625,1.57
+"WP207","Rake Mould","CMW","3 1/4",3.25,"1 1/16",1.0625,2.06
+"CM460","Casing","CMW","1 1/16",1.0625,"3 11/16",3.6875,2.27
+"SM12","Casing","CMW","15/16",.9375,"4 1/2",4.5,3.61
+"SM12","Casing","CMW","15/16",.9375,"4 1/2",4.5,2.68
+"CKN425","Casing","CMW","3/4 ",.75,"4 1/4",4.25,2.41
+"CM327","Casing","CMW","11/16",.6875,"2 1/4",2.25,1.15
+"CM398","Chair Rail Backer","CMW","5 1/4",5.25,"1/2",.5,2.52
+"CM425 (C135)","Chair Rail Backer","CMW","4 1/2",4.5,"1/2",.5,2.18
+"CM957","Chair Rail Backer","CMW","4 1/4",4.25,"1/2",.5,1.98
+"CRB425","Chair Rail Backer","CMW","4 1/4",4.25,"3/4",.75,2.98
+"CRB525","Chair Rail Backer","CMW","5 1/4",5.25,"3/4",.75,3.71
+"A9","Panel Mould","CMW","1 1/4",1.25,"9/16",.5625,.5
+"A9","Panel Mould","CMW","9/16",.5625,"1 1/4",1.25,.5
+"C42","Panel Mould","CMW","1 1/16",1.0625,"1 5/8",1.625,1.29
+"C42 R3/4","Panel Mould","CMW","1 1/16",1.0625,"1 5/8",1.625,1.29
+"C42 R3/4","Panel Mould","CMW","1 1/16",1.0625,"1 5/8",1.625,1.1
+"CM183","Panel Mould","CMW","9/16",.5625,"1 1/8",1.125,.35
+"CM184","Panel Mould","CMW","1/2",.5,"1 1/2",1.5,.47
+"PM118","Panel Mould","CMW","3/4",.75,"1",1,.49
+"PM250R4","Panel Mould","CMW","3/4",.75,"2",2,.86
+"PM719","Casing","CMW","11/16",.6875,"3 1/2",3.5,1.71
+"PM250R4","Panel Mould","CMW","3/4",.75,"2",2,.73
+"PM250R5","Panel Mould","CMW","1",1,"2",2,.98
+"RIDOUT 376","Casing","CMW","1",1,"3",3,2.06
+"PM250R5","Panel Mould","CMW","1",1,"2",2,.96
+"PM43","Panel Mould","CMW","15/16",.9375,"2 1/8",2.125,.95
+"PM5127","Panel Mould","CMW","1 1/16",1.0625,"4 1/16",4.0625,2.12
+"C136","Chair Rail","CMW","2 1/2",2.5,"1 1/16",1.0625,1.78
+"SM7","Casing","CMW","11/16",.6875,"4 1/2",4.5,2.67
+"CM302","Chair Rail","CMW","2 3/4",2.75,"1 1/16",1.0625,1.71
+"CM390","Chair Rail","CMW","2 5/8",2.625,"11/16",.6875,1
+"CR290","Chair Rail","CMW","3 1/2",3.5,"3/4",.75,1.56
+"CN400","Casing","CMW","1",1,"4",4,2.67
+"CM297","Chair Rail","CMW","3 ",3,"11/16",.6875,1.2
+"CGA425","Casing","CMW","1",1,"4 1/4",4.25,2.62
+"CM300","Chair Rail","CMW","3",3,"1 1/16",1.0625,1.75
+"CM397","Chair Rail","CMW","3 1/2",3.5,"1",1,2.12
+"SM225","Chair Rail","CMW","3 5/8",3.625,"1 1/2",1.5,3.13
+"BLB525","Base","CMW","5 1/4",5.25,"5/8",.625,2.67
+"1201","Base Cap","CMW","1 1/4",1.25,"11/16",.6875,.58
+"BCB150","Base Cap","CMW","1 1/2",1.5,"11/16",.6875,.71
+"CM163","Base Cap","CMW","1 3/8",1.375,"11/16",.6875,.55
+"CM164","Base Cap","CMW","1 1/8",1.125,"11/16",.6875,.44
+"CM164","Base Cap","CMW","1 1/8",1.125,"11/16",.6875,.44
+"CM166","Base Cap","CMW","1 1/4",1.25,"11/16",.6875,.55
+"CM167","Base Cap","CMW","1 1/8",1.125,"11/16",.6875,.44
+"LWP114","Base Cap","CMW","7/8",.875,"11/16",.6875,.43
+"MS287","Base Cap","CMS","2 1/16",2.0625,"15/16",.9375,.96
+"SM30","Base Cap","CMW","1 3/8",1.375,"3/4",.75,.68
+"SM40","Base Cap","CMW","1 7/8",1.875,"7/8",.875,1.09
+"SM43","Base Cap","CMW","2 1/2",2.5,"1 1/4",1.25,2.08
+"SM54","Panel Mould","CMW","1 3/8",1.375,"5/8",.625,.62
+"SM64","Panel Mould","CMW","2",2,"1 1/4",1.25,1.25
+"W39","Base Cap","CMW","1 1/2",1.5,"1 1/8",1.125,.95
+"CM218","Base","CMW","5 1/4",5.25,"9/16",.5625,2.63
+"CM610","Base","CMW","5 1/4",5.25,"9/16",.5625,2.67
+"CM610","Base","CMW","5 1/4",5.25,"9/16",.5625,2.67
+"CM623","Base","CMW","3 1/4",3.25,"9/16",.5625,1.68
+"CM753","Base","CMW","3 1/4",3.25,"9/16",.5625,1.74
+"CM750","Base","CMW","4 1/4",4.25,"9/16",.5625,2.28
+"CM750W","Base","CMW","5 1/4",5.25,"9/16",.5625,2.81
+"SM97","Base","CMW","5 1/2",5.5,"3/4",.75,3.67
+"BBJ525","Base","CMW","5 1/4",5.25,"3/4",.75,3.47
+"BBJ425","Base","CMW","4 1/4",4.25,"3/4",.75,2.75
+"BBJ325","Base","CMW","3 1/4",3.25,"3/4",.75,2
+"BBJ725","Base","CMW","7 1/4",7.25,"3/4",.75,4.97
+"CM616","Base","CMW","6 1/8",6.125,"11/16",.6875,3.78
+"TWPB","Base","CMW","5 1/4",5.25,"11/16",.6875,3.03
+"HR 100FJPR","Base","METRIE","3 1/4",3.25,"9/16",.5625,1.68
+"1701","Crown Backer","CMW","4 1/4",4.25,"5/8",.625,1.98
+"CM2","Crown Backer","CMW","2 1/2",2.5,"11/16",.6875,1.32
+"CRB250","Crown Backer","CMW","2 1/2",2.5,"5/8",.625,1.21
+"BCB500","Base","CMW","5 1/4",5.25,"5/8",.625,2.92
+"BCB400","Base","CMW","4 1/4",4.25,"5/8",.625,2.29
+"BCB300","Base","CMW","3 1/4",3.25,"5/8",.625,1.67
+"BCB700","Base","CMW","7 1/4",7.25,"5/8",.625,3.82
+"BCB925","Base","CMW","9 1/4",9.25,"5/8",.625,4.73
+"CM618","Base","CMW","5 1/4",5.25,"9/16",.5625,2.81
+"CM663","Base","CMW","3 1/4",3.25,"9/16",.5625,1.65
+"CM710","Base","CMW","4 1/4",4.25,"9/16",.5625,2.16
+"SM1136","Crown","CMW","3/4",.75,"4 7/8",4.875,2.34
+"CM525L","Crown","CMW","3/4",.75,"5 1/4",5.25,2.58
+"CM725L","Crown","CMW","3/4",.75,"7 1/4",7.25,2.99
+"SM21","Crown","CMW","3/4",.75,"3 1/2",3.5,1.81
+"CM53","Crown","CMW","9/16",.5625,"2 5/8",2.625,1.04
+"RBCCM525","Crown","CMW","1",1,"5 1/4",5.25,2.69
+"CM37 CURTIS CROWN","Crown","CMW","11/16",.6875,"5 1/16",5.0625,2.19
+"SMITH DENTIL CRN","Crown","CMW","1 3/16",1.1875,"5 5/16",5.3125,3.36
+"CM49","Crown","CMW","9/16",.5625,"3 5/8",3.625,1.55
+"CM52","Crown","CMW","9/16",.5625,"2 3/4",2.75,1.12
+"AH41","Crown","CMW","1",1,"7",7,4.61
+"CM17","Crown","CMW","11/16",.6875,"5 5/8",5.625,2.5
+"CM17","Crown","CMW","11/16",.6875,"5 5/8",5.625,2.51
+"CM74","Bed Mold","CMW","9/16",.5625,"1 3/4",1.75,.68
+"CM75","Bed Mold","CMW","9/16",.5625,"1 5/8",1.625,.62
+"SM42","Solid Back Crown","CMW","1 5/8",1.625,"2 1/4",2.25,2.65
+"AH40","Crown","CMW","5/8",.625,"4 1/4",4.25,1.75
+"CM48","Crown","CMW","9/16",.5625,"4 1/4",4.25,1.71
+"CM541","Crown","CMW","11/16",.6875,"5 1/4",5.25,1.99
+"TLC500","Crown","CMW","1 1/8",1.125,"6 5/16",6.3125,3.73
+"CM6449C","Crown","CMW","3/4",.75,"6 1/8",6.125,2.36
+"CM6449C","Crown","CMW","3/4",.75,"6 1/4",6.25,2.41
+"CM6440C","Crown","CMW","3/4",.75,"6 1/4",6.25,2.4
+"CM6449C","Crown","CMW","3/4",.75,"6 1/4",6.25,2.4
+"RBCCM625","Crown","CMW","1",1,"6 1/4",6.25,3.58
+"RBCCM625","Crown","CMW","1",1,"6 1/4",6.25,3.58
+"SM81","Crown","CMW","1 1/16",1.0625,"4 5/8",4.625,2.6
+"SM81","Crown","CMW","1 1/16",1.0625,"4 5/8",4.625,2.59
+"SM86","Crown","CMW","1 1/2",1.5,"6",6,4.75
+"97BB","Back Band","CMW","1 1/16",1.0625,"1 3/8",1.375,1.05
+"C281","Back Band","CMW","1 5/16",1.3125,"1 5/16",1.3125,1.25
+"C282","Back Band","CMW","1 5/8",1.625,"1 5/16",1.3125,1.68
+"CM809","Back Band","CMW","1 5/8",1.625,"1 3/8",1.375,1.83
+"SM68","Back Band","CMW","1 1/16",1.0625,"1 7/16",1.4375,1.11
+"CM280","Back Band","CMW","1 1/16",1.0625,"11/16",.6875,.52
+"CM289","Back Band","CMW","1 9/16",1.5625,"1 1/16",1.0625,1.26
+"CRC150","Back Band","CMW","1 1/2",1.5,"1 1/16",1.0625,1.18
+"SM2501","Back Band","CMW","1 11/16",1.6875,"1 9/16",1.5625,1.93
+"SM2510","Back Band","CMW","1 1/2",1.5,"1 1/16",1.0625,1.22
+"C351","Casing","CMW","3/4",.75,"3 1/2",3.5,1.9
+"C351","Casing","CMW","3/4",.75,"3 1/2",3.5,1.9
+"C351","Casing","CMW","3/4",.75,"3 1/2",3.5,1.91
+"CKN350","Casing","CMW","3/4",.75,"2 3/4",2.75,1.54
+"SM82","Casing","CMW","11/16",.6875,"2 3/4",2.75,1.21
+"CM466","Casing","CMW","1 1/16",1.0625,"4 5/8",4.625,2.9
+"CKN535","Casing","CMW","1",1,"3 1/2",3.5,2.24
+"DELTAHOWE","Casing","CMW","1",1,"3 7/16",3.4375,1.8
+"TMMH","Casing","CMW","11/16",.6875,"2 3/4",2.75,1.27
+"CM361","Casing","CMW","11/16",.6875,"3 1/4",3.25,1.5
+"COXCOMB","Casing","CMW","1 1/16",1.0625,"3 1/2",3.5,2.19
+"CM361","Casing","CMW","11/16 ",.6875,"3 1/4",3.25,1.49
+"C425","Casing","CMW","1",1,"4 1/2",4.5,3.21
+"MISS JENNY","Casing","CMW","1 1/16",1.0625,"4 7/8",4.875,2.99
+"CM433","E2E","CMW","9/16",.5625,"3 1/4",3.25,1.78
+"CM452E2E","E2E","CMW","11/16",.6875,"2 1/2",2.5,1.69
+"CM452E1E","E1E","CMW","11/16",.6875,"2 1/2",2.5,1.69
+"CM473","E2E","CMW","9/16",.5625,"2 1/4",2.25,1.24
+"C352","Casing","CMW","3/4",.75,"3 1/2",3.5,2.07
+"SM84","Casing","CMW","1 3/8",1.375,"5 1/4",5.25,4.21
+"CM683","Casing","CMW","11/16",.6875,"3 1/4",3.25,1.7
+"TM1","Casing","CMW","11/16",.6875,"3 1/4",3.25,1.54
+"ARC-401","Casing","ROYAL WOODWORKING","4 3/4",4.75,"1 3/4",1.75,5.52
+"CRO-400","Crown","","11/16",.6875,"4 1/4",4.25,2.07
+"CAS-2F3","Casing","ROYAL WOODWORKING","3/4",.75,"2-3/4",.5,.3
+"CAS-2F3","Casing","ROYAL WOODWORKING","2-3/4",.5,"3/4",.75,.36
+"CAS-3EW","Casing","ROYAL WOODWORKING","3-1/2",1.5,"3/4",.75,1.1
+"ALPCA-7908","Casing","ALPINE MILLWORK","3 7/8",3.875,"1 1/16",1.0625,2.27
+"ALP-7158","Crown","ALPINE MILLWORK","1 1/4",1.25,"2 7/8",2.875,2.55
+"ALPPA7787","Panel Mould","ALPINE MILLWORK","1/2",.5,"1 7/16",1.4375,.46
+"ALPCA-7453","Casing","ALPINE MILLWORK","2 1/8",2.125,"1 5/16",1.3125,1.79
+"AMM110BA 8 1/4","Base","Architectural Moulding & Millwork","8 1/4",8.25,"3/4",.75,5.32
+"AMM110BA 8 1|4","Base","Architectural Moulding & Millwork","8 1/4",8.25,"3/4",.75,5.32
+"AMM110BA 8 1_4","Base","Architectural Moulding & Millwork","8 1/4",8.25,"3/4",.75,5.32
+"AMM110BA 8 1_4","Base","Architectural Moulding & Millwork","8 1/4",8.25,"3/4",.75,5.32
+"AMM65CS","Casing","Architectural Moulding & Millwork","3/4",.75,"3 1/2",3.5,1.99
+"AMM738BA","Base","Architectural Moulding & Millwork","7 3/8",7.375,".59",.59,3.86
+"AMM738BA","Base","Architectural Moulding & Millwork","7 3/8",7.375,".59",.59,3.86
+"AMM107CS","Casing","Architectural Moulding & Millwork","13/16",.8125,"3 1/4",3.25,1.87
+"AMM1CR","Crown","Architectural Moulding & Millwork","9/16",.5625,"3 1/4",3.25,1.25
+"AMM232CR","Crown","Architectural Moulding & Millwork","13/16",.8125,"8 3/8",8.375,4.57
+"AMM24CR","Crown","Architectural Moulding & Millwork","13/16",.8125,"5 1/4",5.25,3.11
+"AMM-2CR","Crown","Architectural Moulding & Millwork","7/8",.875,"7 1/4",7.25,4.56
+"AMM-2CH","Chair Rail","Architectural Moulding & Millwork","11/16",.6875,"1 1/2",1.5,.64
+"AMM-52CS","Casing","Architectural Moulding & Millwork","3/4",.75,"2 5/8",2.625,1.07
+"AMM47CR","Crown","Architectural Moulding & Millwork","7/8",.875,"6 1/2",6.5,3.68
+"AMM102CS","Casing","Architectural Moulding & Millwork","11/16",.6875,"2 1/4",2.25,.97
+"AMM33CS","Casing","Architectural Moulding & Millwork","3/4",.75,"3 1/2",3.5,1.91
+"AMM103CR","Crown","Architectural Moulding & Millwork","7/8",.875,"8",8,3.93
+"AMM12CR","Crown","Architectural Moulding & Millwork","3/4",.75,"6 3/4",6.75,3.53
+"AMM-24CH","Chair Rail","Architectural Moulding & Millwork","3/4",.75,"1 3/4",1.75,.69
+"AMM-53BA","Base","Architectural Moulding & Millwork","7",7,"3/4",.75,4.82
+"AMM90BA","Base","Architectural Moulding & Millwork","7",7,"3/4",.75,5.08
+"AMM90BA-MOD3-1_2","Casing","Architectural Moulding & Millwork","3 1/2",3.5,"3/4",.75,2.54
+"AMM21CS","Casing","Architectural Moulding & Millwork","3/4",.75,"3",3,1.58
+"AMM87CS","Casing","Architectural Moulding & Millwork","7/8",.875,"4",4,2.43
+"AMM-19CH","Casing","Architectural Moulding & Millwork","3/4",.75,"1 3/4",1.75,.7
+"AMM-43CS","Casing","Architectural Moulding & Millwork","1 1/8",1.125,"3 1/4",3.25,2.07
+"AMM-4BA - 3-1_2","Base","Architectural Moulding & Millwork","3 1/2",3.5,"3/4",.75,2.41
+"AMM-4BA - 8 IN","Base","Architectural Moulding & Millwork","8",8,"3/4",.75,5.5
+"AMM-16BA","Base","Architectural Moulding & Millwork","7 1/2",7.5,"3/4",.75,5.04
+"AMM18BA","Base","Architectural Moulding & Millwork","6",6,"3/4",.75,4.02
+"AMM18BA (5 1/4"")","Base","Architectural Moulding & Millwork","5 1/4",5.25,"3/4",.75,3.52
+"AMM18BA (5 1_4"")","Base","Architectural Moulding & Millwork","5 1/4",5.25,"3/4",.75,3.52
+"AMM18BA (5 1_4)","Base","Architectural Moulding & Millwork","5 1/4",5.25,"3/4",.75,3.52
+"AMM18BA (6INCH)","Base","Architectural Moulding & Millwork","6",6,"3/4",.75,4.02
+"AMM38BA","Base","Architectural Moulding & Millwork","6",6,"3/4",.75,3.38
+"AMM47BA","Base","Architectural Moulding & Millwork","6",6,"3/4",.75,4.21
+"AMM47BA","Base","Architectural Moulding & Millwork","6",6,"3/4",.75,4.21
+"AMM47BA 8IN","Base","Architectural Moulding & Millwork","8",8,"3/4",.75,5.62
+"AMM-56BA","Base","Architectural Moulding & Millwork","3",3,"11/16",.6875,1.91
+"AMM-56BA","Base","Architectural Moulding & Millwork","3",3,"11/16",.6875,1.91
+"AMM-63BA","Base","Architectural Moulding & Millwork","5 15/16",5.9375,"5/8",.625,3.34
+"AMM-63BAMOD4","Base","Architectural Moulding & Millwork","4",4,"5/8",.625,2.25
+"AMM-62BA","Base","Architectural Moulding & Millwork","5 1/4",5.25,"3/4",.75,3.37
+"AMM62BA 3-1/2","Base","Architectural Moulding & Millwork","3 1/2",3.5,"3/4",.75,2.25
+"AMM62BA 3-1_2","Base","Architectural Moulding & Millwork","3 1/2",3.5,"3/4",.75,2.24
+"AMM62BA 3-1_4","Base","Architectural Moulding & Millwork","3 1/4",3.25,"3/4",.75,2.08
+"AMM-62BA 7-1_4","Base","Architectural Moulding & Millwork","7 1/4",7.25,"3/4",.75,4.65
+"AMM62BA-6-1/2IN","Base","Architectural Moulding & Millwork","6 1/2",6.5,"3/4",.75,4.17
+"AMM62BA-6-1_2IN","Base","Architectural Moulding & Millwork","6 1/2",6.5,"3/4",.75,4.17
+"AMM62BA-9","Base","Architectural Moulding & Millwork","9",9,"13/16",.8125,6.25
+"AMM67BA","Base","Architectural Moulding & Millwork","5",5,"3/4",.75,3.12
+"AMM67BA","Base","Architectural Moulding & Millwork","5",5,"3/4",.75,3.12
+"AMM-68BA","Base","Architectural Moulding & Millwork","6",6,"5/8",.625,2.98
+"AMM-82BA MOD675","Base","Architectural Moulding & Millwork","6 3/4",6.75,"5/8",.625,3.81
+"AMM91BA","Base","Architectural Moulding & Millwork","8 1/4",8.25,"3/4",.75,5.35
+"AMM-91BA-6 1/4","Base","Architectural Moulding & Millwork","6 1/4",6.25,"3/4",.75,4.05
+"AMM-91BA-6 1_4","Base","Architectural Moulding & Millwork","6 1/4",6.25,"5/8",.625,3.38
+"AMM112 (3-1_2)","Base","Architectural Moulding & Millwork","3 1/2",3.5,"3/4",.75,2.54
+"AMM124BA","Base","Architectural Moulding & Millwork","4 1/2",4.5,"3/4",.75,3.3
+"AMM-124BA(5-3_8)","Base","Architectural Moulding & Millwork","5 3/8",5.375,"5/8",.625,3.29
+"AMM135BA","Base","Architectural Moulding & Millwork","7 1/8",7.125,"15/16",.9375,5.9
+"AMM-147BA","Base","Architectural Moulding & Millwork","5 1/2",5.5,"3/4",.75,3.92
+"AMM-146BA","Base","Architectural Moulding & Millwork","7",7,"9/16",.5625,3.39
+"AMM150 MOD","Base","Architectural Moulding & Millwork","6",6,"11/16",.6875,3.61
+"AMM-150BA","Base","Architectural Moulding & Millwork","8 1/4",8.25,"11/16",.6875,4.97
+"AMM-151BA","Base","Architectural Moulding & Millwork","6",6,"3/4",.75,3.98
+"AMM-157BA","Base","Architectural Moulding & Millwork","8",8,"9/16",.5625,3.58
+"AMM158BA(5/8X6)","Base","Architectural Moulding & Millwork","6",6,"5/8",.625,3.47
+"AMM158BA(5_8X6)","Base","Architectural Moulding & Millwork","6",6,"5/8",.625,3.47
+"AMM-159BA","Base","Architectural Moulding & Millwork","5 3/8",5.375,"3/4",.75,3.65
+"AMM-177BA","Base","Architectural Moulding & Millwork","5 3/8",5.375,"3/4",.75,3.99
+"AMM186BA","Base","Architectural Moulding & Millwork","5",5,"3/4",.75,3.38
+"AMM188BA","Base","Architectural Moulding & Millwork","4 1/2",4.5,"3/4",.75,3.16
+"AMM-191BA","Base","Architectural Moulding & Millwork","6",6,"3/4",.75,3.97
+"AMM196BA","Base","Architectural Moulding & Millwork","9 5/16",9.3125,"5/8",.625,5.22
+"AMM-197BA (6IN)","Base","Architectural Moulding & Millwork","6",6,"3/4",.75,3.71
+"AMM200BA","Base","Architectural Moulding & Millwork","3 1/2",3.5,"3/4",.75,2.54
+"AMM-210BA","Base","Architectural Moulding & Millwork","7 1/4",7.25,"3/4",.75,5.25
+"AMM209BA","Base","Architectural Moulding & Millwork","9",9,"13/16",.8125,6.35
+"AMM-242BA","Base","Architectural Moulding & Millwork","9",9,"3/4",.75,6.07
+"AMM-253BA","Base","Architectural Moulding & Millwork","8",8,"3/4",.75,5.43
+"AMM-265BA","Base","Architectural Moulding & Millwork","6",6,"3/4",.75,4.3
+"AMM340BA","Base","Architectural Moulding & Millwork","5 1/4 ",5.25,"3/4",.75,3.72
+"AMM7CS","Casing","Architectural Moulding & Millwork","3/4",.75,"3",3,1.7
+"AMM9CS","Casing","Architectural Moulding & Millwork","1 1/16",1.0625,"4 1/4",4.25,3.13
+"AMM14CS","Casing","Architectural Moulding & Millwork","13/16",.8125,"3 1/2",3.5,1.79
+"AMM-12CS","Casing","Architectural Moulding & Millwork","11/16",.6875,"3 3/8",3.375,1.61
+"AMM22CS","Casing","Architectural Moulding & Millwork","13/16",.8125,"3 3/8",3.375,1.86
+"AMM29CS","Casing","Architectural Moulding & Millwork","1",1,"4",4,2.95
+"AMM-31CS","Casing","Architectural Moulding & Millwork","5/8",.625,"2 5/8",2.625,1.27
+"AMM34CS","Casing","Architectural Moulding & Millwork","11/16",.6875,"2 1/4",2.25,1.09
+"AMM-37CS","Casing","Architectural Moulding & Millwork","1",1,"3 1/4",3.25,2.15
+"AMM-40CS","Casing","Architectural Moulding & Millwork","1",1,"3 1/2",3.5,2.48
+"AMM-92CS","Casing","Architectural Moulding & Millwork","3/4",.75,"4 1/4",4.25,2.6
+"AMM-100CS","Casing","Architectural Moulding & Millwork","3/4",.75,"3 11/16",3.6875,2.02
+"AMM110CS","Casing","Architectural Moulding & Millwork","1 1/8",1.125,"3 7/8",3.875,2.36
+"AMM117CS","Casing","Architectural Moulding & Millwork","11/16",.6875,"3 1/2",3.5,1.67
+"AMM-144CS","Casing","Architectural Moulding & Millwork","3/4",.75,"2 5/8",2.625,1.6
+"AMM149CS","Casing","Architectural Moulding & Millwork","3/4",.75,"4 1/4",4.25,2.46
+"AMM153CS","Casing","Architectural Moulding & Millwork","1",1,"3 1/2",3.5,2.45
+"AMM-153CS","Casing","Architectural Moulding & Millwork","1",1,"3 1/2",3.5,2.45
+"AMM-156CS","Casing","Architectural Moulding & Millwork","13/16",.8125,"3 1/2",3.5,1.91
+"AMM-173CS","Casing","Architectural Moulding & Millworks","1 1/4",1.25,"6",6,4.53
+"AMM181CS","Casing","Architectural Moulding & Millworks","1",1,"3",3,2.05
+"AMM188CS","Casing","Architectural Moulding & Millworks","13/16",.8125,"4 1/2",4.5,2.81
+"AMM194CS","Casing","Architectural Moulding & Millworks","13/16",.8125,"3 1/2",3.5,1.95
+"AMM211CS","Casing","Architectural Moulding & Millworks","3/4",.75,"2 1/4",2.25,1.13
+"AMM230CS","Casing","Architectural Moulding & Millworks","3/4",.75,"3 1/2",3.5,1.9
+"AMM237CS","Casing","Architectural Moulding & Millworks","1",1,"4",4,2.44
+"AMM-241CS","Casing","Architectural Moulding & Millworks","3/4",.75,"3 7/16",3.4375,2.31
+"AMM262 CASING","Casing","Architectural Moulding & Millworks","1 1/16",1.0625,"4",4,2.56
+"AMM-289CS","Casing","Architectural Moulding & Millworks","1 1/16",1.0625,"4 1/2",4.5,2.8
+"AMM-292CS","Casing","Architectural Moulding & Millworks","3/4",.75,"3 1/2",3.5,1.94
+"AMM-295CS","Casing","Architectural Moulding & Millworks","7/8",.875,"3 1/2",3.5,2.17
+"AMM16CR","Crown","Architectural Moulding & Millworks","3/4",.75,"5 1/4",5.25,2.59
+"AMM-18CR","Crown","Architectural Moulding & Millworks","3/4",.75,"3 15/16",3.9375,2.07
+"AMM41CR","Crown","Architectural Moulding & Millworks","7/8",.875,"8",8,4.54
+"AMM-42CR","Crown","Architectural Moulding & Millworks","7/8",.875,"3",3,1.71
+"AMM-65CR","Crown","Architectural Moulding & Millworks","3/4",.75,"5 1/8",5.125,2.46
+"AMM-82CR","Crown","Architectural Moulding & Millworks","1",1,"6 3/4",6.75,4.16
+"AMM83CR","Crown","Architectural Moulding & Millworks","1 1/16",1.0625,"8 1/2",8.5,5.97
+"AMM102CR","Crown","Architectural Moulding & Millworks","3/4",.75,"4 1/4",4.25,2.06
+"AMM122CR","Crown","Architectural Moulding & Millworks","1 1/4",1.25,"6 1/4",6.25,3.64
+"AMM-135CR","Crown","Architectural Moulding & Millworks","3/4",.75,"1 3/4",1.75,.86
+"AMM-139CR","Crown","Architectural Moulding & Millworks","7/8",.875,"4 1/2",4.5,2.14
+"AMM147CR","Crown","Architectural Moulding & Millworks","3/4",.75,"5 1/2",5.5,2.85
+"AMM151CR","Crown","Architectural Moulding & Millworks","1",1,"8",8,4.15
+"AMM-159CR","Crown","Architectural Moulding & Millworks","3/4",.75,"7 1/8",7.125,3.74
+"AMM177CR","Crown","Architectural Moulding & Millworks","7/8",.875,"4 1/4",4.25,2.43
+"AMM188CR","Crown","Architectural Moulding & Millworks","7/8",.875,"4 7/8",4.875,2.67
+"AMM-225CR","Crown","Architectural Moulding & Millworks","1 1/4",1.25,"9 1/4",9.25,8.41
+"AMM-230CR","Crown","Architectural Moulding & Millworks","1 1/4",1.25,"8",8,4.95
+"AMM240CR","Crown","Architectural Moulding & Millworks","7/8",.875,"8",8,4.93
+"AMM252CR","Crown","Architectural Moulding & Millworks","1 1/4",1.25,"6",6,2.93
+"AMM264CR","Crown","Architectural Moulding & Millworks","1 1/8",1.125,"7 1/4",7.25,4.39
+"AMM294CR","Crown","Architectural Moulding & Millworks","7/8",.875,"8",8,4.63
+"AMM-295CR","Crown","Architectural Moulding & Millworks","1 11/16",1.6875,"8 1/8",8.125,6.18
+"AMM297CR","Crown","Architectural Moulding & Millworks","7/8",.875,"10",10,1.04
+"AMM297CR","Crown","Architectural Moulding & Millworks","7/8",.875,"10",10,5.52
+"AMM-369CR","Crown","Architectural Moulding & Millworks","1 1/16",1.0625,"5 3/4",5.75,3.06
+"AMM412CR","Crown","Architectural Moulding & Millworks","3/4",.75,"5 1/4",5.25,2.57
+"AMM-1CH","Chair Rail","Architectural Moulding & Millworks","3/4",.75,"3",3,1.3
+"AMM7CH","Mullion","Architectural Moulding & Millworks","7/16",.4375,"1 3/4",1.75,.63
+"AMM14CH","Chair Rail","Architectural Moulding & Millworks","1 5/16",1.3125,"2",2,1.3
+"AMM-21CH","Chair Rail","Architectural Moulding & Millworks","3/4",.75,"1 3/4",1.75,.9
+"AMM-23A-CH","Base Cap","Architectural Moulding & Millworks","1 1/8",1.125,"1 5/8",1.625,.92
+"AMM66CH","Base Cap","Architectural Moulding & Millworks","1/2",.5,"1",1,.28
+"AMM85CH","Panel Mould","Architectural Moulding & Millworks","1/2",.5,"1 1/2",1.5,.45
+"AMM87CH","Chair Rail","Architectural Moulding & Millworks","1 1/2",1.5,"4 5/8",4.625,4.13
+"AMM-104CH 5/8 RAB","Panel Mould","Architectural Moulding & Millworks","1 1/8",1.125,"1 1/2",1.5,.84
+"AMM-104CH 5_8 RAB","Panel Mould","Architectural Moulding & Millworks","1 1/8",1.125,"1 1/2",1.5,.84
+"AMM-104CH","Panel Mould","Architectural Moulding & Millworks","1 1/8",1.125,"1 1/2",1.5,1.12
+"AMM137CH","Chair Rail","Architectural Moulding & Millworks","3/4",.75,"3 3/4",3.75,1.79
+"AMM195CH","Chair Rail","Architectural Moulding & Millworks","3/4",.75,"4",4,2.3
+"AMM244CH","Chair Rail Backer","Architectural Moulding & Millworks","1/2",.5,"4 1/4",4.25,1.9
+"AMM248CH","Panel Mould","Architectural Moulding & Millworks","1",1,"1 1/2",1.5,.99
+"AMM262CH","Chair Rail","Architectural Moulding & Millworks","3/4",.75,"2 1/4",2.25,1
+"AMM272CH","Chair Rail","Architectural Moulding & Millworks","11/16",.6875,"2 1/4",2.25,.96
+"AMM280CH","Panel Mould","Architectural Moulding & Millworks","5/8",.625,"1 1/2",1.5,.59
+"AMM-336CH","Chair Rail","Architectural Moulding & Millworks","3/4",.75,"1 7/16",1.4375,.57
+"AMM343CH","Chair Rail","Architectural Moulding & Millworks","13/16",.8125,"1 1/2",1.5,.66
+"AMM-394CH","Chair Rail","Architectural Moulding & Millworks","1",1,"2 1/2",2.5,2.16
+"AMM467CH","Casing","Architectural Moulding & Millworks","1 1/16",1.0625,"3 1/2",3.5,2.55
+"AMM-484CH","Casing","Architectural Moulding & Millworks","3/4",.75,"3 1/2",3.5,2.14
+"AMM-196","Base","Architectural Moulding & Millworks","3/4",.75,"8 1/2",8.5,5.67
+"AMM-196","Base","Architectural Moulding & Millworks","8 1/2",8.5,"3/4",.75,5.67
+"AMM197CS","Casing","Architectural Moulding & Millworks","4 3/8",4.375,"1 1/16",1.0625,2.61
+"AMM197CS","Casing","Architectural Moulding & Millworks","1 1/16",1.0625,"4 3/8",4.375,2.61
+"AMM8BA 6 INCH","Base","Architectural Moulding & Millworks","6",6,"13/16",.8125,4.59
+"AMM8BA 6 INCH","Base","Architectural Moulding & Millworks","6",6,"13/16",.8125,4.59
+"AMM8BA","Base","Architectural Moulding & Millworks","15/16",.9375,"8",8,4.57
+"AMM8BA","Base","Architectural Moulding & Millworks","8",8,"15/16",.9375,4.57
+"AMM400CS","Casing","Architectural Moulding & Millworks","1",1,"4",4,2.56
+"AMM153BA","Base","Architectural Moulding & Millworks","8",8,"3/4",.75,5.79
+"AMM88CR","Crown","Architectural Moulding & Millworks","13/16",.8125,"4 1/2",4.5,2.53
+"AMM92CR","Crown","Architectural Moulding & Millworks","11/16",.6875,"8 1/16",8.0625,3.72
+"AMM318CR","Crown","Architectural Moulding & Millworks","1 1/16",1.0625,"5 1/2",5.5,3.86
+"AMM96CR","Crown","Architectural Moulding & Millworks","13/16",.8125,"5 1/8",5.125,2.83
+"AMM158BA","Base","Architectural Moulding & Millworks","7 1/4",7.25,"3/4",.75,5.05
+"AMM158BA","Base","Architectural Moulding & Millworks","7 1/4",7.25,"3/4",.75,5.05
+"AMM-316BA","Base","Architectural Moulding & Millworks","6 15/16",6.9375,"11/16",.6875,4.52
+"AMM-316BA","Base","Architectural Moulding & Millworks","6 15/16",6.9375,"11/16",.6875,4.52
+"AMM-210CR MOD","Crown","Architectural Moulding & Millworks","13/16",.8125,"7",7,3.92
+"AMM-29BA","Base","Architectural Moulding & Millworks","5 1/4",5.25,"3/4",.75,3.41
+"AMM-149CR","Crown","Architectural Moulding & Millworks","7/8",.875,"7",7,3.83
+"AMM-34BA","Base","Architectural Moulding & Millworks","8",8,"3/4",.75,5.29
+"AMM-276CR","Crown","Architectural Moulding & Millworks","1",1,"6 3/4",6.75,4.35
+"AMM-1BA","Base","Architectural Moulding & Millworks","3/4",.75,"2 13/16",2.8125,1.82
+"AMM-383CH MOD","Chair Rail","Architectural Moulding & Millworks","3/4",.75,"6 5/8",6.625,2.99
+"AMM-314BA","Base","Architectural Moulding & Millworks","1/2",.5,"3",3,1.39
+"AMM203","Casing","AUTHENTIC MOULDINGS","1 1/8",1.125,"3 1/2",3.5,2.57
+"AMM-136CH","Chair Rail","Architectural Moulding & Millworks","1 3/8",1.375,"4",4,3.28
+"AMM-387CH","Chair Rail","Architectural Moulding & Millworks","9/16",.5625,"1 3/4",1.75,.59
+"AMM-322CR","Crown","Architectural Moulding & Millworks","1",1,"8 1/8",8.125,4.97
+"AMM-322CR","Crown","Architectural Moulding & Millworks","1",1,"8 1/8",8.125,4.97
+"AMM-322CR","Crown","Architectural Moulding & Millworks","1",1,"8 1/8",8.125,5.18
+"AMM-2HRD","Bullnose","Architectural Moulding & Millworks","1",1,"3/4",.75,.68
+"AMM201CR","Crown","Architectural Moulding & Millworks","1 3/8",1.375,"8 1/2",8.5,7.54
+"AMM89BA","Base","Architectural Moulding & Millworks","13/16",.8125,"6 1/2",6.5,5.01
+"AMM92CH","Panel Mould","Architectural Moulding & Millworks","13/16",.8125,"1 5/16",1.3125,.65
+"AMM395CR","Crown","Architectural Moulding & Millworks","7/8",.875,"6 1/2",6.5,3.52
+"AMM-235CS","Back Band","Architectural Moulding & Millworks","1 1/2",1.5,"1 7/16",1.4375,1.65
+"AMM-40BA","Base","Architectural Moulding & Millworks","10",10,"3/4",.75,6.03
+"AMM-40BA","Base","Architectural Moulding & Millworks","10",10,"3/4",.75,6.03
+"AMM-312BA","Base","Architectural Moulding & Millworks","3 1/2",3.5,"1/2",.5,1.54
+"AMM279CR","Crown","Architectural Moulding & Millworks","1 13/16",1.8125,"7 3/4",7.75,5.47
+"AMM494-S","Chair Rail","Architectural Moulding & Millworks","1",1,"3 1/2",3.5,2.08
+"AMM5180","Base","Architectural Moulding & Millworks","5 1/4",5.25,"9/16",.5625,2.72
+"AMM8625BA","Base","Architectural Moulding & Millworks","8 5/8",8.625,"1",1,7.71
+"AMM8625BA","Base","Architectural Moulding & Millworks","8 5/8",8.625,".59",.59,4.55
+"AMM8BA MOD10","Base","Architectural Moulding & Millworks","10",10,"3/4",.75,6.83
+"AMM-164BA","Base","Architectural Moulding & Millworks","7 1/4",7.25,"3/4",.75,4.57
+"AMM-164BA","Base","Architectural Moulding & Millworks","7 1/4",7.25,"3/4",.75,4.57
+"AMM193BA MOD","Base","Architectural Moulding & Millworks","7 1/4",7.25,"1",1,6.56
+"BAC-102","Back Band","ROYAL / ALEXANDRIA","1 1/4",1.25,"3/4",.75,.66
+"BAS-102","Back Band","ROYAL / ALEXANDRIA","1 1/4",1.25,"3/4",.75,.66
+"BAC-121","Back Band","ROYAL / ALEXANDRIA","1 9/16",1.5625,"13/16",.8125,.87
+"BAC-102","Back Band","ROYAL / ALEXANDRIA","1 1/4",1.25,"3/4",.75,.66
+"BAC-174","Back Band","ROYAL / ALEXANDRIA","1 5/8",1.625,"1 5/8",1.625,1.84
+"BAC-200","Stool","ROYAL / ALEXANDRIA","2",2,"1/2",.5,.85
+"BAS-199","Base Cap","ROYAL / ALEXANDRIA","1 1/2",1.5,"3/4",.75,.7
+"BAS-100","Base Cap","ROYAL / ALEXANDRIA","1 1/2",1.5,"3/4",.75,.7
+"BAS-100","Base Cap","ROYAL / ALEXANDRIA","1 1/2",1.5,"3/4",.75,.7
+"BAS-400","Base","ROYAL / ALEXANDRIA","4 1/4",4.25,"5/8",.625,1.99
+"BAS-405","Base","ROYAL / ALEXANDRIA","4 1/4",4.25,"5/8",.625,2.36
+"BAS-412","Base","ROYAL / ALEXANDRIA","4 1/4",4.25,"5/8",.625,2.15
+"BAS-503","Base","ROYAL / ALEXANDRIA","5 1/4",5.25,"5/8",.625,2.68
+"BAS-509","Base","ROYAL / ALEXANDRIA","5 1/4",5.25,"5/8",.625,2.57
+"BAS-5M7","Base","ROYAL / ALEXANDRIA","5 1/4",5.25,"11/16",.6875,3.06
+"BAS-647","Base","ROYAL / ALEXANDRIA","6 1/4",6.25,"11/16",.6875,3.64
+"BAS-701","Base","ROYAL / ALEXANDRIA","7 1/4",7.25,"11/16",.6875,4.07
+"BAS-7A7","Base","ROYAL / ALEXANDRIA","7 1/4",7.25,"11/16 ",.6875,4.33
+"BAS-518","Base","ROYAL / ALEXANDRIA","5 1/4",5.25,"11/16",.6875,2.96
+"BAS-5C9","Base","ROYAL / ALEXANDRIA","5 1/4",5.25,"11/16",.6875,3.07
+"BAS-702","Base","ROYAL / ALEXANDRIA","7 1/4",7.25,"11/16",.6875,4.24
+"BAS-702","Base","ROYAL / ALEXANDRIA","7 1/4",7.25,"11/16",.6875,4.24
+"BAS-704","Base","ROYAL / ALEXANDRIA","7 1/4",7.25,"11/16",.6875,4.39
+"BAS-773","Base","ROYAL / ALEXANDRIA","7 1/4",7.25,"13/16 ",.8125,4.82
+"BAS-508","Base","ROYAL / ALEXANDRIA","5 1/4",5.25,"5/8",.625,2.91
+"BAS-803","Base","ROYAL / ALEXANDRIA","8 1/2",8.5,"3/4",.75,5.4
+"BAS-785","Base","ROYAL / ALEXANDRIA","7 1/4",7.25,"3/4",.75,4.89
+"BAS-7A1","Base","ROYAL / ALEXANDRIA","7 1/4",7.25,"11/16",.6875,4.43
+"BAS-7A1","Base","ROYAL / ALEXANDRIA","7 1/4",7.25,"11/16",.6875,4.43
+"CAS-203","Casing","ROYAL / ALEXANDRIA","2 1/8",2.125,"3/8",.375,.53
+"CAS-2F3","Casing","ROYAL / ALEXANDRIA","2 3/4",2.75,"3/4",.75,1.73
+"CHA-106","Chair Rail","ROYAL / ALEXANDRIA","1 3/8",1.375,"1/2 ",.5,.41
+"CHA-110","Chair Rail","ROYAL / ALEXANDRIA","1 5/8",1.625,"5/8",.625,.64
+"CHA-202","Chair Rail","ROYAL / ALEXANDRIA","2 1/8",2.125,"3/4",.75,.9
+"CHA-204","Chair Rail","ROYAL / ALEXANDRIA","2 1/2",2.5,"13/16",.8125,1.12
+"CHA-209","Chair Rail","ROYAL / ALEXANDRIA","2 1/4",2.25,"3/4",.75,1
+"CHA-209","Chair Rail","ROYAL / ALEXANDRIA","2 1/2",2.5,"3/4",.75,1.11
+"CRO-300","Crown","ROYAL / ALEXANDRIA","3/4",.75,"3 1/2",3.5,1.87
+"CRO-501","Crown","ROYAL / ALEXANDRIA","3/4",.75,"5 1/4",5.25,2.79
+"CRO-501","Crown","ROYAL / ALEXANDRIA","3/4",.75,"5 1/4",5.25,2.79
+"CRO-302","Crown","ROYAL / ALEXANDRIA","3/4",.75,"3 1/4",3.25,1.72
+"CRO-500","Crown","ROYAL / ALEXANDRIA","3/4",.75,"5 1/4",5.25,2.71
+"CRO-702","Crown","ROYAL / ALEXANDRIA","3/4",.75,"7 1/4",7.25,3.52
+"STO-100","Stop","ROYAL / ALEXANDRIA","1 1/4",1.25,"5/16",.3125,.33
+"STO-100","Stop","ROYAL / ALEXANDRIA","1 1/4",1.25,"5/16",.3125,.33
+"STO-101","Stop","ROYAL / ALEXANDRIA","1 5/8",1.625,"5/16",.3125,.45
+"STO-102","Stop","ROYAL / ALEXANDRIA","1 1/2",1.5,"1/2",.5,.6
+"STO-139","Stop","ROYAL / ALEXANDRIA","1 1/4",1.25,"5/16",.3125,.34
+"STO-174","Stop","ROYAL / ALEXANDRIA","1 1/2",1.5,"1/2",.5,.63
+"HAL-101","Half Round","ROYAL / ALEXANDRIA","1 1/4",1.25,"5/8",.625,.61
+"QUA-006","Quarter Round","ROYAL / ALEXANDRIA","1/2",.5,"1/2",.5,.19
+"QUA-009","Quarter Round","ROYAL / ALEXANDRIA","3/4",.75,"3/4",.75,.37
+"OUT-007","Corner Mould","ROYAL / ALEXANDRIA","1",1,"1",1,.41
+"PAN-101","Panel Mould","ROYAL / ALEXANDRIA","1 3/8",1.375,"13/16",.8125,.51
+"PAN-001","Panel Mould","ROYAL / ALEXANDRIA","7/8",.875,"9/16",.5625,.25
+"PAN-103","Panel Mould","ROYAL / ALEXANDRIA","1 7/8",1.875,"3/4",.75,.6
+"PAN-103","Panel Mould","ROYAL / ALEXANDRIA","3/4",.75,"1 7/8",1.875,.6
+"PAN-103","Panel Mould","ROYAL / ALEXANDRIA","1 7/8",1.875,"3/4",.75,.6
+"PRO-104","Base Cap","ROYAL / ALEXANDRIA","1 1/4",1.25,"7/16",.4375,.34
+"SHI-102","Shingle Mold","Royal / Alexandria","1 1/4",1.25,"3/4",.75,.64
+"SHI-002","Shingle Mold","Royal / Alexandria","3/4",.75,"1/2",.5,.25
+"SHI-101","Shingle Mold","Royal / Alexandria","1 5/8",1.625,"3/4",.75,.88
+"SHI-203","Shingle Mold","Royal / Alexandria","2 1/4",2.25,"1 1/4",1.25,1.72
+"CAS-206","Casing","Royal / Alexandria","2 1/2",2.5,"3/4",.75,1.25
+"CAS-314","Casing","Royal / Alexandria","3 1/4",3.25,"3/4",.75,1.77
+"CAS-3J8","Casing","Royal / Alexandria","3 1/4",3.25,"3/4",.75,1.79
+"CAS-3V6","Casing","Royal / Alexandria","3 1/2",3.5,"3/4",.75,2.33
+"CAS-300","Casing","Royal / Alexandria","3 1/4",3.25,"3/4",.75,1.67
+"CAS-3F5","Casing","Royal / Alexandria","3 1/2",3.5,"3/4",.75,1.94
+"CAS-3F5","Casing","Royal / Alexandria","3 1/2",3.5,"3/4",.75,1.94
+"CAS-3F6","Casing","Royal / Alexandria","3 3/4",3.75,"3/4",.75,1.86
+"BAS-5CN","Base","Royal / Alexandria","5 1/4",5.25,"5/8",.625,2.84
+"BAS-732","Base","Royal / Alexandria","7 1/4",7.25,"11/16",.6875,4.5
+"BAS-7K3","Base","Royal / Alexandria","7 1/4",7.25,"11/16",.6875,4.15
+"CRO-202","Crown","Royal / Alexandria","11/16",.6875,"2 1/4",2.25,1.01
+"CRO-400","Crown","Royal / Alexandria","11/16",.6875,"4 1/4",4.25,2.04
+"CRO-402","Crown","Royal / Alexandria","13/16",.8125,"4 15/16",4.9375,2.85
+"HAL-102","Half Round","Royal / Alexandria","1 5/8",1.625,"13/16",.8125,1.03
+"HAL-200","Half Round","Royal / Alexandria","2",2,"1",1,1.58
+"BUR-101","Mullion","Royal / Alexandria","1 1/4",1.25,"5/16",.3125,.31
+"BUR-106","E2E","Royal / Alexandria","1 5/8",1.625,"5/16",.3125,.49
+"DEC-006","Base Cap","Royal / Alexandria","3/4",.75,"7/16",.4375,.22
+"DEC-007","Panel Mould","Royal / Alexandria","7/8",.875,"1/2",.5,.28
+"DEC-022","Base Cap","Royal / Alexandria","11/16",.6875,"3/8",.375,.2
+"DEC-065","Panel Mould","Royal / Alexandria","7/8",.875,"1/2",.5,.27
+"DEC-103","Panel Mould","Royal / Alexandria","1 1/16",1.0625,"7/16",.4375,.3
+"DEC-105","Astragal","Royal / Alexandria","1 5/8",1.625,"3/4",.75,.76
+"COV-001","Cove Mould","Royal / Alexandria","1/2",.5,"1/2",.5,.15
+"BEA-116","Screen Bead","Royal / Alexandria","1 1/2",1.5,"1/2",.5,.74
+"BAC-154","Back Band","Royal / Alexandria","1 1/4",1.25,"3/4",.75,.66
+"BAS-7K2","Base","Royal / Alexandria","7 1/4",7.25,"11/16",.6875,4.44
+"HAL-001","Half Round","Royal / Alexandria","3/4",.75,"3/8",.375,.22
+"AMC05621","Casing","Royal / Alexandria East","2 1/8",2.125,"3/8",.375,.64
+"AM3002","Casing","Royal / Alexandria East","2 1/4",2.25,"3/8",.375,.64
+"AM40356","Casing","Royal / Alexandria East","2 1/8",2.125,"7/16",.4375,.63
+"AMC05357","Casing","Royal / Alexandria East","2 1/4",2.25,"1/2",.5,.9
+"AMC00111","Casing","Royal / Alexandria East","2 1/2",2.5,"7/16",.4375,.81
+"AMC00635","Casing","Royal / Alexandria East","2 1/2",2.5,"9/16",.5625,.92
+"AMC07735","Casing","Royal / Alexandria East","2 1/2",2.5,"5/8",.625,1.06
+"AMC00710","Casing","Royal / Alexandria East","2 1/2",2.5,"5/8",.625,.97
+"AMCL2216","Casing","Royal / Alexandria East","2 1/2",2.5,"5/8",.625,1.53
+"AMCL3513","E2E","Royal / Alexandria East","2 3/4",2.75,"5/8",.625,1.7
+"AM00705","Casing","Royal / Alexandria East","2 3/4",2.75,"5/8",.625,1.2
+"AM00977","Casing","Royal / Alexandria East","3",3,"3/4",.75,2.07
+"AMC00705","Casing","Royal / Alexandria East","2 3/4",2.75,"5/8",.625,1.2
+"AM07705","Casing","Royal / Alexandria East","2 3/4",2.75,"5/8",.625,1.18
+"AMC00977","Casing","Royal / Alexandria East","3",3,"3/4",.75,2.07
+"AMC05642","Casing","Royal / Alexandria East","3",3,"1",1,1.37
+"AMC07705","Casing","Royal / Alexandria East","2 3/4",2.75,"5/8",.625,1.18
+"AMC07719","Casing","Royal / Alexandria East","2 3/4",2.75,"5/8",.625,1.27
+"AMC2189A","Casing","Royal / Alexandria East","2 3/4",2.75,"5 /8",5,12.18
+"AMC2189A","Casing","Royal / Alexandria East","2 3/4",2.75,"5/8",.625,1.52
+"AM0729","Casing","Royal / Alexandria East","3 1/8",3.125,"11/16",.6875,2.02
+"AMC00715","Casing","Royal / Alexandria East","3 1/8",3.125,"11/16",.6875,1.42
+"AMC04642","Casing","Royal / Alexandria East","3 ",3,"1 1/16",1.0625,1.53
+"AMC07976","Casing","Royal / Alexandria East","3 1/4",3.25,"3/4",.75,1.96
+"AMC07976","Casing","Royal / Alexandria East","3 1/4",3.25,"3/4",.75,1.96
+"AMCCR690","Casing","Royal / Alexandria East","3 7/16",3.4375,"3/4",.75,2.15
+"AM01705","Casing","Royal / Alexandria East","3 1/2",3.5,"3/4",.75,2.41
+"AM07776","Casing","Royal / Alexandria East","3 1/2",3.5,"3/4",.75,2.15
+"AM09091","Casing","Royal / Alexandria East","3 1/2",3.5,"5/8",.625,2.13
+"AMC00954","Casing","Royal / Alexandria East","3 1/2",3.5,"3/4",.75,2.2
+"AMC01113","Casing","Royal / Alexandria East","3 1/2",3.5,"3/4",.75,2.47
+"AMC01705","Casing","Royal / Alexandria East","3 1/2",3.5,"3/4",.75,2.41
+"AMC07715","Casing","Royal / Alexandria East","3 1/2",3.5,"3/4",.75,1.94
+"AMC07736","Casing","Royal / Alexandria East","3 1/2",3.5,"3/4",.75,1.84
+"AMC07776","Casing","Royal / Alexandria East","3 1/2",3.5,"3/4",.75,2.15
+"AMC01737","Casing","Royal / Alexandria East","3 1/2",3.5,"3/4",.75,2.3
+"AMC05977","Casing","Royal / Alexandria East","3 7/8",3.875,"3/4",.75,2.49
+"AMCR669","Casing","Royal / Alexandria East","4 1/8",4.125,"1",1,2.69
+"AMCR694","Casing","Royal / Alexandria East","3 1/2",3.5,"1",1,2.15
+"AMC01740","Back Band","Royal / Alexandria","1 5/16",1.3125,"3/4",.75,.73
+"AMCCR003","Back Band","Royal / Alexandria","1 5/16",1.3125,"7/8",.875,.82
+"AMCR003","Back Band","Royal / Alexandria","1 5/16",1.3125,"7/8",.875,.82
+"AMCR692","Casing","Royal / Alexandria","4 1/2",4.5,"3/4",.75,3.14
+"AMC00653","Stool","Royal / Alexandria","1 1/8",1.125,"1 11/16",1.6875,1.66
+"AMC02193","Casing","Royal / Alexandria","3 3/8",3.375,"1",1,1.82
+"AMC2193A","Chair Rail Backer","Royal / Alexandria","4 1/2",4.5,"1",1,2.26
+"AMC07712","Casing","Royal / Alexandria","3 5/8",3.625,"1",1,1.99
+"AMC07704","Casing","Royal / Alexandria","5 1/4",5.25,"1 3/16",1.1875,3.41
+"AMC07722","Casing","Royal / Alexandria","4 1/2",4.5,"1 1/16",1.0625,3.12
+"AM0623A","Base","Royal / Alexandria","3 1/4",3.25,"7/16",.4375,1.28
+"AMC07622","Base","Royal / Alexandria","3 1/8",3.125,"3/8",.375,1.06
+"AMC02188","E2E","Royal / Alexandria","3 1/2",3.5,"1/2",.5,1.74
+"AMC02828","E1E","Royal / Alexandria","3 7/8",3.875,"1/2",.5,1.92
+"AMC07720","Base","Royal / Alexandria","3 7/8",3.875,"3/8",.375,1.07
+"AMC5706A","Casing","Royal / Alexandria","3 7/8",3.875,"3/8",.375,1.21
+"AMC00624","Base","Royal / Alexandria","4 1/8",4.125,"5/16",.3125,1.15
+"AMC03516","Base","Royal / Alexandria","4 1/8",4.125,"3/8",.375,1.37
+"AMC07706","Base","Royal / Alexandria","4 1/8",4.125,"1/2",.5,1.8
+"AM0714","Base","Royal / Alexandria","4 1/8",4.125,"11/16",.6875,2.35
+"AMC02216","Flat Stock","Royal / Alexandria","4 1/2",4.5,"1/2",.5,2.21
+"AMC03514","E1E","Royal / Alexandria","4 1/2",4.5,"1/2",.5,2.23
+"AMC05708","Base","Royal / Alexandria","4 5/32",4.15625,"5/8",.625,2.01
+"AMC00716","Base","Royal / Alexandria","4 5/8",4.625,"11/16",.6875,2.75
+"AMC05709","Base","Royal / Alexandria","5",5,"5/8",.625,2.44
+"AMC09290","Base","Royal / Alexandria","5",5,"1/2",.5,2.43
+"AMC0L954","Base","Royal / Alexandria","4 3/4",4.75,"11/16",.6875,2.84
+"AMC2190A","Base","Royal / Alexandria","4 3/4",4.75,"1/2",.5,2.23
+"AMC02190","Base","Royal / Alexandria","5 1/4",5.25,"1/2",.5,2.49
+"AMC03518","Base","Royal / Alexandria","5 1/4",5.25,"7/16",.4375,2.14
+"AMC07711","Base","Royal / Alexandria","5 1/4",5.25,"1/2",.5,2.33
+"AMC07711","Base","Royal / Alexandria","5 1/4",5.25,"1/2",.5,2.34
+"AMC00718","Base","Royal / Alexandria","5 5/16",5.3125,"5/8",.625,2.84
+"AMC01096","E1E","Royal / Alexandria","5 1/2",5.5,"1/2",.5,2.72
+"AMC05739","Base","Royal / Alexandria","5 1/2",5.5,"1/2",.5,2.24
+"AMC0CR678","Base","Royal / Alexandria","5 1/4",5.25,"5/8",.625,3.23
+"AMCR678","Base","Royal / Alexandria","5 1/4",5.25,"5/8",.625,3.23
+"AM01692","Base","Royal / Alexandria","5 1/2",5.5,"5/8",.625,3.2
+"AMC00239","Base","Royal / Alexandria","5 1/2",5.5,"5/8",.625,3.38
+"AMC01692","Base","Royal / Alexandria","5 1/2",5.5,"5/8",.625,3.2
+"AMC03533","Base","Royal / Alexandria","5 1/2",5.5,"5/8",.625,2.93
+"AMC05737","Base","Royal / Alexandria","5 1/2",5.5,"5/8",.625,2.66
+"AMC00976","Base","Royal / Alexandria","6 1/2",6.5,"5/8",.625,3.51
+"AMC05738","Base","Royal / Alexandria","7 1/4",7.25,"1/2",.5,3.12
+"AMC05955","Base","Royal / Alexandria","5 9/16",5.5625,"5/8",.625,3
+"AMCR680","Base","Royal / Alexandria","5 15/16",5.9375,"5/8",.625,3.49
+"AMC03466","Base","Royal / Alexandria","7 1/4",7.25,"5/8",.625,3.96
+"AMC07718","Base","Royal / Alexandria","7 1/4",7.25,"1/2",.5,3.3
+"AMC1706A","Base","Royal / Alexandria","7 3/8",7.375,"3/8",.375,2.48
+"AMCCR674","Base","Royal / Alexandria","7 3/8",7.375,"7/8",.875,5.51
+"AMCR674","Base","Royal / Alexandria","7 3/8",7.375,"7/8",.875,5.51
+"AMC00662","Stool","Royal / Alexandria","1 1/16",1.0625,"5/16",.3125,.28
+"AMC00730","Stool","Royal / Alexandria","1 3/16",1.1875,"7/16",.4375,.42
+"AMC00968","Stool","Royal / Alexandria","1 1/8",1.125,"3/8",.375,.36
+"AMC01698","Stop","Royal / Alexandria","1 3/8",1.375,"3/8",.375,.44
+"AMC04075","Stop","Royal / Alexandria","7/8",.875,"5/16",.3125,.27
+"AMC00968","Stop","Royal / Alexandria","1 1/8",1.125,"3/8",.375,.36
+"AMC00730","Stop","Royal / Alexandria","1 3/16",1.1875,"7/16",.4375,.42
+"AMC00662","Stop","Royal / Alexandria","1 1/16",1.0625,"5/16",.3125,.28
+"AMC05723","Stop","Royal / Alexandria","1 3/8",1.375,"3/8",.375,.42
+"AMC1997A","Stop","Royal / Alexandria","1 1/8",1.125,"3/8",.375,.41
+"AMCR687","Base Cap","Royal / Alexandria","1 3/4",1.75,"3/4",.75,.94
+"AMCR688","Base Cap","Royal / Alexandria","1 3/8",1.375,"3/4",.75,.72
+"AMC07714","Casing","Royal / Alexandria","3",3,"3/4",.75,1.65
+"AMC00173","Bed Mold","Royal / Alexandria","7/16",.4375,"1 5/8",1.625,.47
+"AMC00174","Bed Mold","Royal / Alexandria","7/16",.4375,"2 1/8",2.125,.67
+"AMC00179","Crown","Royal / Alexandria","9/16",.5625,"3 1/8",3.125,1.34
+"AMC07054","Crown","Royal / Alexandria","9/16",.5625,"2 3/8",2.375,.97
+"AMCCR001","Solid Back Crown","Royal / Alexandria","2 3/4",2.75,"1 1/4",1.25,1.99
+"AMCR001","Solid Back Crown","Royal / Alexandria","2 3/4",2.75,"1 1/4",1.25,1.99
+"AMC00180","Crown","Royal / Alexandria","4 1/2",4.5,"9/16",.5625,1.7
+"AMC00180","Crown","Royal / Alexandria","9/16",.5625,"4 1/2",4.5,1.7
+"AMC05180","Crown","Royal / Alexandria","5/8",.625,"4 1/4",4.25,1.85
+"AMC05981","Crown","Royal / Alexandria","5/8",.625,"3 5/16",3.3125,1.43
+"AM5982","Crown","Royal / Alexandria","5/8",.625,"4 1/2",4.5,1.98
+"AMC05982","Crown","Royal / Alexandria","5/8",.625,"4 1/2",4.5,1.98
+"AMC07049","Crown","Royal / Alexandria","1/2",.5,"3 5/8",3.625,1.35
+"AMC05980","Crown","Royal / Alexandria","5/8",.625,"5 1/4",5.25,2.12
+"AMC90983","Crown","Royal / Alexandria","5/8",.625,"4 1/2",4.5,2.05
+"AMCCR695","Crown","Royal / Alexandria","11/16",.6875,"4 1/2",4.5,2.28
+"AMC03321","Crown","Royal / Alexandria","11/16",.6875,"7",7,3.08
+"AMC05991","Crown","Royal / Alexandria","1",1,"6 3/8",6.375,4.01
+"AMC05991","Crown","Royal / Alexandria","1",1,"6 3/8",6.375,4.01
+"AMCCR696","Crown","Royal / Alexandria","3/4",.75,"5 15/16",5.9375,2.94
+"AMCR696","Crown","Royal / Alexandria","3/4",.75,"5 15/16",5.9375,2.94
+"AMC00105","Cove Mould","Royal / Alexandria","1/2",.5,"1/2",.5,.11
+"AM00906","Cove Mould","Royal / Alexandria","11/16",.6875,"11/16",.6875,.27
+"AMC00171","Corner Mould","Royal / Alexandria","1",1,"1",1,.48
+"AMC103","Quarter Round","Royal / Alexandria","15/16",.9375,"15/16",.9375,.68
+"AMC00902","Quarter Round","Royal / Alexandria","11/16",.6875,"11/16",.6875,.34
+"AMC03862","Shoe Mould","Royal / Alexandria","3/4",.75,"1/2",.5,.33
+"AMC0102B","Quarter Round","Royal / Alexandria","11/16",.6875,"11/16",.6875,.29
+"AMC3650A","Flat Stock","Royal / Alexandria","3/4",.75,"1/2",.5,.36
+"AMC00695","Astragal","Royal / Alexandria","3/4",.75,"5/16",.3125,.14
+"AMC00696","Astragal","Royal / Alexandria","1 1/8",1.125,"9/16",.5625,.41
+"AMC00165","Mullion","Royal / Alexandria","1 11/16",1.6875,"5/16",.3125,.4
+"AMC00612","Chair Rail","Royal / Alexandria","1 11/16",1.6875,"11/16",.6875,.65
+"AMC00689","Chair Rail","Royal / Alexandria","1 3/4",1.75,"11/16",.6875,.76
+"AMC00690","Chair Rail","Royal / Alexandria","2 3/8",2.375,"1 1/16",1.0625,1.36
+"AMC00690","Chair Rail","Royal / Alexandria","2 3/8",2.375,"1 1/16",1.0625,1.36
+"AMC05689","Base Cap","Royal / Alexandria","1 3/4",1.75,"5/8",.625,.63
+"AMC00698","Chair Rail","Royal / Alexandria","2 3/8",2.375,"15/16",.9375,1.37
+"AMC05741","Chair Rail","Royal / Alexandria","2 1/2",2.5,"5/8",.625,.9
+"AMC05744","Chair Rail","Royal / Alexandria","3 3/16",3.1875,"1",1,1.89
+"AMC00187","Panel Mould","Royal / Alexandria","3/4",.75,"1/2",.5,.22
+"AMC00188","Panel Mould","Royal / Alexandria","1 1/8",1.125,"9/16",.5625,.39
+"AMC00189","Panel Mould","Royal / Alexandria","1 1/2",1.5,"9/16",.5625,.57
+"AM84424","Casing","Royal / Alexandria","2 3/4",2.75,"13/16",.8125,1.74
+"AML361A-OAK","Casing","Royal / Alexandria","3 1/2",3.5,"11/16",.6875,1.58
+"AM90432","E2E","Royal / Alexandria","3 1/2",3.5,"5/8",.625,2.15
+"AMCL361A","Casing","Royal / Alexandria","3 1/2",3.5,"11/16",.6875,1.58
+"AML361A","Casing","Royal / Alexandria","3 1/2",3.5,"11/16",.6875,1.58
+"AML361A","Casing","Royal / Alexandria","3 1/2",3.5,"11/16",.6875,1.58
+"AMCL361A","Casing","Royal / Alexandria","3 1/2",3.5,"11/16",.6875,1.58
+"AM91112","Casing","Royal / Alexandria","3 1/2",3.5,"3/4",.75,1.54
+"AM05105","Casing","Royal / Alexandria","4 1/4",4.25,"1 3/16",1.1875,2.8
+"AM83190","Casing","Royal / Alexandria","5 5/16",5.3125,"1",1,3.66
+"AM3102","Base","Royal / Alexandria","3 1/4",3.25,"7/16",.4375,1.27
+"AM87628","Base","Royal / Alexandria","5 1/4",5.25,"1/2",.5,2.39
+"AM92136","Base","Royal / Alexandria","4 1/4",4.25,"5/8",.625,2.28
+"AM5204A","Base","Royal / Alexandria","5 1/4",5.25,"1/2",.5,2.58
+"AMWP163","Base","Royal / Alexandria","5 1/4",5.25,"9/16",.5625,2.69
+"AM92168","Base","Royal / Alexandria","5 1/4",5.25,"5/8",.625,2.7
+"AMH5709","Base","Royal / Alexandria","5 1/4",5.25,"5/8",.625,2.6
+"AM03533","Base","Royal / Alexandria","5 1/2",5.5,"5/8",.625,2.91
+"AM00976","Base","Royal / Alexandria","6 1/2",6.5,"5/8",.625,3.52
+"AM00976","Base","Royal / Alexandria","6 1/2",6.5,"5/8",.625,3.52
+"AML163C","Base","Royal / Alexandria","7 1/4",7.25,"5/8",.625,4.16
+"AM90051","Crown","Royal / Alexandria","5/8",.625,"3 1/4",3.25,1.51
+"AM00051","Crown","Royal / Alexandria","9/16",.5625,"3 1/4",3.25,1.35
+"AM93263","Crown","Royal / Alexandria","11/16",.6875,"5 1/4",5.25,1.97
+"AM94368","Crown","Royal / Alexandria","3/4",.75,"5 1/4",5.25,2.47
+"AM05991","Crown","Royal / Alexandria","1",1,"6 3/8",6.375,4.04
+"AM94168","Crown","Royal / Alexandria","3/4",.75,"5 1/4",5.25,2.45
+"AMC00090","Screen Bead","Royal / Alexandria","3/4",.75,"1/4",.25,.16
+"AMC00090","Screen Bead","Royal / Alexandria","3/4",.75,"1/4",.25,.16
+"AML185A","Panel Mould","Royal / Alexandria","1 1/2",1.5,"9/16",.5625,.51
+"AML185A","Panel Mould","Royal / Alexandria","1 1/2",1.5,"9/16",.5625,.51
+"AM0W360","Casing","Royal / Alexandria","3 1/4",3.25,"11/16",.6875,1.67
+"AM07976","Casing","Royal / Alexandria","3 1/4",3.25,"3/4",.75,1.95
+"AM0W376","Casing","Royal / Alexandria","2 1/4",2.25,"11/13",.846153846153846,1.32
+"AM01181","Casing","Royal / Alexandria","2 1/2",2.5,"3/4",.75,1.2
+"AM77145","Casing","Royal / Alexandria","3 3/8",3.375,"1",1,1.88
+"AM0L503","Casing","Royal / Alexandria","3 7/16",3.4375,"1",1,1.77
+"AM7715A","Casing","Royal / Alexandria","3 1/2",3.5,"11/16",.6875,1.69
+"AM7715","Casing","Royal / Alexandria","3 1/2",3.5,"5/8",.625,1.47
+"AMH7715","Casing","Royal / Alexandria","3 1/2",3.5,"5/8",.625,1.47
+"AM00954","Casing","Royal / Alexandria","3 1/2",3.5,"3/4",.75,2.2
+"AM02695","Casing","Royal / Alexandria","3 1/2",3.5,"7/8",.875,1.91
+"AM07715","Casing","Royal / Alexandria","3 1/2",3.5,"3/4",.75,1.94
+"AM77130","Casing","Royal / Alexandria","3 1/2",3.5,"7/8",.875,2.31
+"AMCR370","Casing","Royal / Alexandria","3 1/2",3.5,"3/4",.75,2.56
+"AMCR670","Casing","Royal / Alexandria","3 1/2",3.5,"3/4",.75,2.56
+"AMCR673","Casing","Royal / Alexandria","3 1/2",3.5,"3/4",.75,2.15
+"AM0097A","Casing","Royal / Alexandria","3 1/2",3.5,"1 1/16",1.0625,2.39
+"AM00RB3","Casing","Royal / Alexandria","3 1/2",3.5,"1 1/16",1.0625,2.27
+"AM2510","Casing","Royal / Alexandria","3 5/8",3.625,"1",1,2.56
+"AMCR369","Casing","Royal / Alexandria","4 3/32",4.09375,"1 1/16",1.0625,2.98
+"AM00277","Casing","Royal / Alexandria","4 1/4",4.25,"11/16",.6875,2.31
+"AM00277","Casing","Royal / Alexandria","4 1/4",4.25,"11/16",.6875,2.31
+"AM77132","Casing","Royal / Alexandria","4 1/4",4.25,"1",1,3.18
+"AMCR393","Casing","Royal / Alexandria","5",5,"3/4",.75,3.29
+"AMCR393","Casing","Royal / Alexandria","5 ",5,"3/4",.75,3.29
+"AM77212","Base","Royal / Alexandria","4 7/8",4.875,"3/4",.75,3.21
+"AM0E163","Base","Royal / Alexandria","5 1/4",5.25,"9/16",.5625,2.62
+"AM01236","E1E","Royal / Alexandria","5 1/4",5.25,"9/16",.5625,2.93
+"AM00721","Base","Royal / Alexandria","5 1/4",5.25,"3/4",.75,3.24
+"AM05955","Base","Royal / Alexandria","5 9/16",5.5625,"5/8",.625,3.01
+"AMH20","Base","Royal / Alexandria","6",6,"11/16",.6875,3.28
+"AM00785","Base","Royal / Alexandria","7",7,"3/4",.75,4.16
+"AM02696","Base","Royal / Alexandria","6 1/4",6.25,"13/16",.8125,4.16
+"AM77215","Base","Royal / Alexandria","6 1/2",6.5,"3/4",.75,4.28
+"AM77217","Base","Royal / Alexandria","7 1/2",7.5,"7/8",.875,5.35
+"AMCR697","Solid Back Crown","Royal / Alexandria","2 3/4",2.75,"1",1,1.57
+"AM780","Crown","Royal / Alexandria","3/4",.75,"3 5/8",3.625,1.83
+"AM05981","Crown","Royal / Alexandria","5/8",.625,"3 5/16",3.3125,1.41
+"AM03067","Crown","Royal / Alexandria","11/16",.6875,"4 5/8",4.625,2.01
+"AM03067","Crown","Royal / Alexandria","11/16",.6875,"4 5/8",4.625,2.01
+"AM77334","Crown","Royal / Alexandria","3/4",.75,"5 1/4",5.25,2.46
+"AMHR696","Crown","Royal / Alexandria","11/16",.6875,"5 1/4",5.25,2.57
+"AMHR696","Crown","Royal / Alexandria","11/16",.6875,"5 1/4",5.25,2.57
+"AMLW45A","Crown","Royal / Alexandria","9/16",.5625,"5 1/4",5.25,1.92
+"AM779","Crown","Royal / Alexandria","13/16",.8125,"5 13/16",5.8125,3.28
+"AMCCR699","Crown","Royal / Alexandria","1",1,"5 15/16",5.9375,2.77
+"AM02691","Crown","Royal / Alexandria","1 3/16",1.1875,"8 1/2",8.5,6.61
+"AM2691MDF","Crown","Royal / Alexandria","1 3/16",1.1875,"8 1/2",8.5,6.61
+"AM77352","Crown","Royal / Alexandria","1",1,"7 3/8",7.375,5.6
+"AM00106","Cove Mould","Royal / Alexandria","11/16",.6875,"11/16",.6875,.27
+"AM00102","Quarter Round","Royal / Alexandria","11/16",.6875,"11/16",.6875,.36
+"AM0101","Shoe Mould","Royal / Alexandria","11/16",.6875,"7/6",1.16666666666667,.68
+"AM0101","Shoe Mould","Royal / Alexandria","11/16",.6875,"7/16",.4375,.25
+"AM0101","Shoe Mould","Royal / Alexandria","11/16",.6875,"7/16",.4375,.25
+"AM0W131","Shoe Mould","Royal / Alexandria","3/4",.75,"1/2",.5,.24
+"AM7390","Chair Rail","Royal / Alexandria","2 5/8",2.625,"5/8",.625,.93
+"AM05744","Chair Rail","Royal / Alexandria","3 3/16",3.1875,"1",1,1.9
+"AM05744MDF","Chair Rail","Royal / Alexandria","3 3/16",3.1875,"1",1,1.9
+"AMC00110","Casing","Royal / Alexandria","2 1/8",2.125,"3/8",.375,.61
+"AM2140","Casing","Royal / Alexandria","2 1/4",2.25,"5/8",.625,.97
+"AM3000","Casing","Royal / Alexandria","1 7/16",1.4375,"7/16",.4375,.47
+"AM0H125","Casing","Royal / Alexandria","2 1/8",2.125,"9/16",.5625,.89
+"AM3005R","Casing","Royal / Alexandria","1 1/2",1.5,"1/2",.5,.52
+"AM00357","Casing","Royal / Alexandria","2 1/4",2.25,"7/16",.4375,.7
+"AM3296","E2E","Royal / Alexandria","2 1/4",2.25,"7/16",.4375,.97
+"AM93296","E2E","Royal / Alexandria","2 1/4",2.25,"9/16",.5625,1.25
+"AM9S356","Casing","Royal / Alexandria","2 1/4",2.25,"9/16",.5625,.95
+"AM9W356","Casing","Royal / Alexandria","2 1/4",2.25,"5/8",.625,1.03
+"AM3209","Casing","Royal / Alexandria","2 1/2",2.5,"5/8",.625,1.05
+"AM90415","Casing","Royal / Alexandria","2 1/4",2.25,"5/8",.625,.89
+"AM90386","Casing","Royal / Alexandria","2 1/4",2.25,"5/8",.625,1.06
+"AM90410","Casing","Royal / Alexandria","2 1/4",2.25,"11/16",.6875,1.06
+"AM90907","Casing","Royal / Alexandria","2 1/4",2.25,"5/8",.625,1.27
+"AM1208","Casing","Royal / Alexandria","2 1/2",2.5,"11/16",.6875,1.06
+"AM05208-9","Casing","Royal / Alexandria","2 1/2",2.5,"5/8",.625,.97
+"AM90373","Casing","Royal / Alexandria","2 1/2",2.5,"5/8",.625,1.12
+"AM90423","E2E","Royal / Alexandria","3",3,"5/8",.625,1.85
+"AM93121","Casing","Royal / Alexandria","2 5/8",2.625,"5/8",.625,1.14
+"AM3125","Casing","Royal / Alexandria","3 1/4",3.25,"9/16",.5625,1.56
+"AM3125R","Casing","Royal / Alexandria","3 1/4",3.25,"9/16",.5625,1.7
+"AM90411","Casing","Royal / Alexandria","3",3,"11/16",.6875,1.51
+"AMH444","Casing","Royal / Alexandria","3 1/4",3.25,"9/16",.5625,1.29
+"AM2150","Casing","Royal / Alexandria","3 1/4",3.25,"5/8",.625,1.45
+"AM90093","Casing","Royal / Alexandria","3 1/4",3.25,"5/8",.625,1.53
+"AM90340","Casing","Royal / Alexandria","3 1/4",3.25,"5/8",.625,1.92
+"AM90341BEADED","Casing","Royal / Alexandria","3 3/8",3.375,"5/8",.625,1.88
+"AM90908","Casing","Royal / Alexandria","3 5/16",3.3125,"5/8",.625,1.81
+"AM98063","Casing","Royal / Alexandria","3 1/4",3.25,"3/4",.75,1.95
+"AM98233","Casing","Royal / Alexandria","3 5/16",3.3125,"5/8",.625,1.35
+"AM90326","Casing","Royal / Alexandria","3 7/16",3.4375,"5/8",.625,1.76
+"AM90535","Casing","Royal / Alexandria","3 1/2",3.5,"11/16",.6875,1.73
+"AM0736","Casing","Royal / Alexandria","3 1/2",3.5,"3/4",.75,1.87
+"AM03459","Casing","Royal / Alexandria","3 3/4",3.75,"3/4",.75,2.23
+"AM90348","Casing","Royal / Alexandria","4 1/2",4.5,"1",1,3.46
+"AM95010","Casing","Royal / Alexandria","4 3/16",4.1875,"1 3/16",1.1875,2.88
+"AM90350","Casing","Royal / Alexandria","5 1/4",5.25,"1 3/16",1.1875,3.61
+"AM90350","Casing","Royal / Alexandria","5 1/4",5.25,"1 3/16",1.1875,3.61
+"AM9L348","Casing","Royal / Alexandria","6 1/4",6.25,"1 1/2",1.5,7.22
+"AM9L348","Casing","Royal / Alexandria","6 1/4",6.25,"1 1/2",1.5,7.22
+"AM00303","Brick Mold","Royal / Alexandria","1 1/2",1.5,"1 1/4",1.25,1.7
+"AM05127","E1E","Royal / Alexandria","3 1/8",3.125,"1/2",.5,1.55
+"AM90402","Base","Royal / Alexandria","3 1/4",3.25,"1/2",.5,1.38
+"AM92625","Casing","Royal / Alexandria","2 1/4",2.25,"1/2",.5,.99
+"AM3112","E1E","Royal / Alexandria","3 1/4",3.25,"7/16",.4375,1.4
+"AM90389","Base","Royal / Alexandria","3 1/4",3.25,"5/8",.625,1.64
+"AM90431","Casing","Royal / Alexandria","3 1/4",3.25,"5/8",.625,1.54
+"AM0623B","Base","Royal / Alexandria","3 1/4",3.25,"9/16",.5625,1.66
+"AM3140","Base","Royal / Alexandria","3 1/4",3.25,"7/16",.4375,1.14
+"AM3140","Base","Royal / Alexandria","3 1/4",3.25,"7/16",.4375,1.14
+"AM0309","Base","Royal / Alexandria","3 1/4",3.25,"11/16",.6875,1.74
+"AM90094","Base","Royal / Alexandria","4",4,"5/8",.625,1.98
+"AM90205","Base","Royal / Alexandria","3 7/8",3.875,"1/2",.5,1.75
+"AM93140","Base","Royal / Alexandria","3 1/4",3.25,"3/8",.375,1.02
+"AM98910","Base","Royal / Alexandria","3 7/8",3.875,"3/8",.375,1.18
+"AM04312","Base","Royal / Alexandria","4 1/2",4.5,"11/16",.6875,2.47
+"AM90412","Base","Royal / Alexandria","4 1/4",4.25,"5/8",.625,2.08
+"AM90412","Base","Royal / Alexandria","4 1/4",4.25,"5/8",.625,2.08
+"AM90663","Base","Royal / Alexandria","4 1/4",4.25,"1/2",.5,1.61
+"AM00310","Base","Royal / Alexandria","4 1/8",4.125,"11/16",.6875,2.36
+"AM0735","Base","Royal / Alexandria","4 1/2",4.5,"11/16",.6875,2.38
+"AM00964","Base","Royal / Alexandria","4 1/2",4.5,"1/2",.5,1.76
+"AM90095","Base","Royal / Alexandria","5",5,"5/8",.625,2.65
+"AM90349","Base","Royal / Alexandria","5 ",5,"1/2",.5,2.31
+"AM90545","Base","Royal / Alexandria","5",5,"5/8",.625,2.41
+"AM00311","Base","Royal / Alexandria","5 1/4",5.25,"11/16",.6875,3.13
+"AM10673","Base","Royal / Alexandria","5 3/16",5.1875,"9/16",.5625,2.35
+"AM02459","Base","Royal / Alexandria","5 1/4",5.25,"5/8",.625,2.77
+"AM90414","Base","Royal / Alexandria","5 1/4",5.25,"5/8",.625,2.73
+"AM0B260","Base","Royal / Alexandria","5 1/2",5.5,"5/8",.625,2.77
+"AM90347","Base","Royal / Alexandria","7",7,"3/4",.75,4.83
+"AM90347","Base","Royal / Alexandria","7 ",7,"3/4",.75,4.83
+"AM0L130","Base","Royal / Alexandria","7 1/4",7.25,"5/8",.625,4.2
+"AM0940","Stool","Royal / Alexandria","1 3/8",1.375,"7/16",.4375,.57
+"AM3422","Stool","Royal / Alexandria","1 1/4",1.25,"3/8",.375,.46
+"AM0936A","Stop","Royal / Alexandria","1 1/4",1.25,"7/16",.4375,.47
+"AM03244","Solid Back Crown","Royal / Alexandria","1 1/4",1.25,"5/8",.625,.51
+"AM93244","Rake Mould","Royal / Alexandria","1 1/4",1.25,"3/4",.75,.67
+"AM9LW54","Crown","Royal / Alexandria","1/2",.5,"2 1/4",2.25,.83
+"AM90710","Crown","Royal / Alexandria","9/16",.5625,"3 1/4",3.25,1.37
+"AM93040","Crown","Royal / Alexandria","11/16",.6875,"4 1/4",4.25,1.83
+"AM93248","Solid Back Crown","Royal / Alexandria","2 7/16",2.4375,"1 3/16",1.1875,1.96
+"AM93248","Rake Mould","Royal / Alexandria","2 7/16",2.4375,"1 3/16",1.1875,1.96
+"AMLWM48","Crown","Royal / Alexandria","9/16",.5625,"4 1/4",4.25,1.73
+"AMLWM49","Crown","Royal / Alexandria","9/16",.5625,"3 5/8",3.625,1.55
+"HP-01","Casing","General Woodworking","2 5/16",2.3125,"15 3/8",15.375,15.06
+"HP-02","Casing","General Woodworking","1 3/4",1.75,"6 3/4",6.75,9.19
+"HP-03","Chair Rail","General Woodworking","4 1/4",4.25,"2",2,6.14
+"HP-02","Chair Rail","General Woodworking","4 1/4",4.25,"2",2,6.14
+"HP-04","Casing","General Woodworking","1 3/4",1.75,"13 3/16",13.1875,16.72
+"HP-01L","Casing","General Woodworking","1 3/4",1.75,"7 11/16",7.6875,6.03
+"HP-01R","Casing","General Woodworking","2 5/16",2.3125,"7 11/16",7.6875,9.14
+"AM90983","Crown","Royal / Alexandria","5/8",.625,"4 1/2",4.5,2.05
+"AM0047","Crown","Royal / Alexandria","9/16",.5625,"4 9/16",4.5625,1.82
+"AM0047 flip","Crown","Royal / Alexandria","9/16",.5625,"4 9/16",4.5625,1.82
+"AM05869","Crown","Royal / Alexandria","1",1,"4 1/2",4.5,2.59
+"AM00512","Crown","Royal / Alexandria","9/16",.5625,"5 1/4",5.25,1.83
+"AM03280","Corner Mould","Royal / Alexandria","1 1/8",1.125,"1 1/8",1.125,.51
+"AM90041","Crown","Royal / Alexandria","1 1/8",1.125,"6 1/4",6.25,3.9
+"AMC00101","Shoe Mould","Royal / Alexandria","11/16",.6875,"7/16",.4375,.25
+"AMC00102","Quarter Round","Royal / Alexandria","11/16",.6875,"11/16",.6875,.36
+"AM3724","Panel Mould","Royal / Alexandria","1 1/8",1.125,"3/4",.75,.36
+"AMLATC","Lattice","Royal / Alexandria","1 3/8",1.375,"1/4",.25,.34
+"AM0297","Chair Rail","Royal / Alexandria","3",3,"11/16",.6875,1.22
+"AMOPCR7","Chair Rail","Royal / Alexandria","2 7/16",2.4375,"1 1/8",1.125,1.64
+"AM0182","Astragal","Royal / Alexandria","1 9/16",1.5625,"9/16",.5625,.49
+"AM0182","Astragal","Royal / Alexandria","1 9/16",1.5625,"9/16",.5625,.49
+"AM00185","Astragal","Royal / Alexandria","1 1/2",1.5,"3/4",.75,.71
+"AM00265","Chair Rail","Royal / Alexandria","2 1/2",2.5,"9/16",.5625,1.01
+"AM1105","Panel Mould","Royal / Alexandria","1 1/8",1.125,"3/4",.75,.48
+"AM01130","Base Cap","Royal / Alexandria","1",1,"1/2",.5,.37
+"AM9W623","Base","Royal / Alexandria","3 1/4",3.25,"9/16",.5625,1.69
+"Corbel","Casing","special","21",21,"15",15,162.56
+"SBB123","Back Band","sample","1 1/16",1.0625,"1 3/8",1.375,1.05
+"JACKSON1","Crown","SAMPLE","1.3125",1.3125,"8.47",8.47,6.79
+"JACKSON2","Crown","SAMPLE","1.3125",1.3125,"8.47",8.47,6.77

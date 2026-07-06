@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@theme {
+  --color-primary: #9f1b20;
+  --color-primary-hover: #8a171b;
+}
+
+/* Top of viewable area (site-wide). Content should start at (header + content-top-buffer). */
+:root {
+  --header-offset: 6rem;
+  --content-top-buffer: 3px;
+}
+
+/* All headings use Quicksand (--font-heading from layout). */
+h1, h2, h3 {
+  font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+}
