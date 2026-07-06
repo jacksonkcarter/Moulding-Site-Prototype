@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { HeroImageCycler } from "@/components/HeroImageCycler";
+import { HomeScrollSections } from "@/components/HomeScrollSections";
 
 export default function Home() {
   return (
@@ -54,6 +55,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <HomeScrollSections />
     </main>
   );
 }
