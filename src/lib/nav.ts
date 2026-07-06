@@ -3,10 +3,10 @@ export const navItems = [
     label: "Our Products",
     landingHref: "/product-info/profile-search",
     children: [
+      { label: "Product Details", href: "/product-info/material-info" },
       { label: "Browse Stock Items", href: "/product-info/stock-items" },
       { label: "Browse All Profiles", href: "/product-info/profile-search" },
       { label: "New Profile Process", href: "/quote-request" },
-      { label: "Product Details", href: "/product-info/material-info" },
       { label: "Accessories", href: "/product-info/accessories" },
       { label: "Stainable", href: "/product-info/stainable-product" },
     ],
