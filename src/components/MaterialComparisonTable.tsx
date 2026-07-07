@@ -1,5 +1,5 @@
+import Link from "next/link";
 import {
-  MATERIAL_COMPARISON_ATTRIBUTE_LABEL,
   MATERIAL_COMPARISON_COLUMNS,
   MATERIAL_COMPARISON_ROWS,
 } from "@/data/material-comparison";
@@ -9,6 +9,11 @@ const RATING_LEVELS = [
   { symbol: "OO", label: "Better", count: 2 },
   { symbol: "OOO", label: "Best", count: 3 },
 ] as const;
+
+const LEARN_MORE_LINKS: Partial<Record<(typeof MATERIAL_COMPARISON_COLUMNS)[number], string>> = {
+  "Machinable S4S": "/product-info/machinable-s4s",
+  "Ultra-Fire Flex": "/contact-us",
+};
 
 function RatingDots({ value }: { value: string }) {
   const rating = RATING_LEVELS.find((level) => level.symbol === value);
@@ -50,20 +55,27 @@ export function MaterialComparisonTable() {
                 <th
                   scope="col"
                   className="sticky left-0 z-20 min-w-[11rem] border-r border-neutral-200 bg-white px-4 py-4 text-left"
-                >
-                  <span className="text-xs font-semibold tracking-wide text-neutral-500">
-                    {MATERIAL_COMPARISON_ATTRIBUTE_LABEL}
-                  </span>
-                </th>
-                {MATERIAL_COMPARISON_COLUMNS.map((column) => (
-                  <th
-                    key={column}
-                    scope="col"
-                    className="min-w-[8.5rem] px-3 py-4 text-center font-semibold text-neutral-900"
-                  >
-                    {column}
-                  </th>
-                ))}
+                  aria-hidden
+                />
+                {MATERIAL_COMPARISON_COLUMNS.map((column) => {
+                  const href = LEARN_MORE_LINKS[column];
+
+                  return (
+                    <th
+                      key={column}
+                      scope="col"
+                      className="min-w-[8.5rem] px-3 py-4 text-center font-semibold text-neutral-900"
+                    >
+                      {href ? (
+                        <Link href={href} className="text-inherit no-underline hover:text-inherit hover:no-underline">
+                          {column}
+                        </Link>
+                      ) : (
+                        column
+                      )}
+                    </th>
+                  );
+                })}
               </tr>
             </thead>
             <tbody>
@@ -87,13 +99,31 @@ export function MaterialComparisonTable() {
                   ))}
                 </tr>
               ))}
+              <tr className="border-b border-neutral-100 bg-white">
+                <th
+                  scope="row"
+                  className="sticky left-0 z-10 border-r border-neutral-200 bg-inherit px-4 py-1.5"
+                  aria-hidden
+                />
+                {MATERIAL_COMPARISON_COLUMNS.map((column) => (
+                  <td key={`learn-more-${column}`} className="px-3 py-1.5 text-center">
+                    {LEARN_MORE_LINKS[column] ? (
+                      <Link
+                        href={LEARN_MORE_LINKS[column]}
+                        className="text-[11px] font-medium text-primary transition-colors hover:underline"
+                      >
+                        Learn more
+                      </Link>
+                    ) : null}
+                  </td>
+                ))}
+              </tr>
             </tbody>
           </table>
         </div>
 
         <div className="border-t border-neutral-200 bg-neutral-50 px-4 py-4 sm:px-5">
-          <p className="text-xs font-semibold tracking-wide text-neutral-500">Rating key</p>
-          <div className="mt-3 flex flex-wrap gap-4 sm:gap-6">
+          <div className="flex flex-wrap gap-4 sm:gap-6">
             {RATING_LEVELS.map((level) => (
               <div key={level.symbol} className="flex items-center gap-2.5">
                 <div className="flex items-center gap-1">

@@ -11,7 +11,7 @@ export const PRODUCT_APPLICATIONS: ProductApplication[] = [
     id: "arched-radius-casing",
     title: "Arched & radius casing",
     description:
-      "Frame arched doorways and round windows flawlessly without the time-consuming process of relief cutting or steam bending. Our flexible casing bends to your exact radius for a seamless, professional finish.",
+      "Frame arched doorways and round windows flawlessly without the costly manufacturing and installation process. Our flexible casing is pre-bent to your exact radius for a seamless, professional finish.",
     image: "/product-info/product-overview/arched-radius-casing.png",
     imageAlt: "Arched doorway and round window with flexible radius casing",
   },
@@ -19,7 +19,7 @@ export const PRODUCT_APPLICATIONS: ProductApplication[] = [
     id: "curved-walls",
     title: "Curved walls",
     description:
-      "Wrap sweeping staircases and radius walls effortlessly with our flexible baseboards and chair rails. Our material conforms tightly to any contour, eliminating the gaps and splitting associated with forcing rigid wood onto convex or concave surfaces.",
+      "Wrap sweeping staircases and radius walls effortlessly with our flexible baseboard, chair rail, and crown mouldings. Our material conforms tightly to any contour, eliminating the need for steam-bending or kerf-cutting.",
     image: "/product-info/product-overview/curved-walls.png",
     imageAlt: "Curved wall with flexible baseboard and chair rail moulding",
   },
