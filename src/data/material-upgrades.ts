@@ -3,6 +3,7 @@ export type MaterialUpgrade = {
   description: string;
   product?: string;
   footnote?: string;
+  learnMoreHref?: string;
 };
 
 export const MATERIAL_UPGRADES: MaterialUpgrade[] = [
@@ -25,11 +26,14 @@ export const MATERIAL_UPGRADES: MaterialUpgrade[] = [
     description:
       "Engineered from our Ultra-Flex compound, this material can be milled with conventional woodworking machinery without dulling expensive carbide knives—perfect when you only need a small amount of straight, custom-tooled footage.",
     footnote: "Manufactured exclusively at our Utah plant.",
+    learnMoreHref: "/product-info/machinable-s4s",
   },
   {
     title: "Commercial fire ratings",
+    product: "Ultra-Fire Flex",
     description:
       "For commercial builds that require elevated fire performance, we offer specialized material options. Our team can help you select the right formulation for your application and specification.",
     footnote: "Manufactured exclusively at our Utah plant.",
+    learnMoreHref: "/contact-us",
   },
 ];

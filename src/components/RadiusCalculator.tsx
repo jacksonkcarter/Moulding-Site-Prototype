@@ -24,8 +24,8 @@ export function RadiusCalculator() {
   return (
     <section id="calculator" className="scroll-mt-20 border-t border-neutral-200 bg-neutral-50 pt-5 pb-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <h2 className="font-sans text-3xl font-medium uppercase tracking-[0.15em] text-neutral-900 text-center">
-          Radius Calculator
+        <h2 className="font-sans text-3xl font-medium tracking-tight text-neutral-900 text-center">
+          Radius calculator
         </h2>
         <p className="mt-2 text-neutral-600 text-center">
           Enter width and rise (in inches) to get arc radius and required moulding length.

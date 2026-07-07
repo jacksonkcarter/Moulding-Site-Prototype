@@ -209,8 +209,8 @@ export function ProfileSearch({ initialProfiles }: ProfileSearchProps) {
   return (
     <section id="profiles" className="scroll-mt-20 border-t border-neutral-200 bg-white pb-20 pt-5">
       <div className="w-full px-4 sm:px-6">
-        <h2 className="font-sans text-3xl font-medium uppercase tracking-[0.15em] text-neutral-900 text-center">
-          Browse All Profiles
+        <h2 className="font-sans text-3xl font-medium tracking-tight text-neutral-900 text-center">
+          Browse all profiles
         </h2>
         <p className="mt-2 text-neutral-600 text-center">
           Over 50,000 profiles available. Filter by type, width, and thickness.
@@ -242,7 +242,7 @@ export function ProfileSearch({ initialProfiles }: ProfileSearchProps) {
                   </select>
                 </div>
               </FilterSection>
-              <FilterSection title="Moulding Type" open={typesOpen} onToggle={() => setTypesOpen((o) => !o)}>
+              <FilterSection title="Moulding type" open={typesOpen} onToggle={() => setTypesOpen((o) => !o)}>
                 <div className="grid grid-cols-2 gap-x-2 gap-y-1">
                   {mouldingFilterOptions.map((type) => (
                     <label

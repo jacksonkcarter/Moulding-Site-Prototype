@@ -95,7 +95,7 @@ export default function StockItemModelPage() {
           href={`/product-info/stock-items#${categorySlug}`}
           className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
         >
-          ← Back to Browse Stock Items
+          ← Back to browse stock items
         </Link>
         <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:items-start">
           <div className="flex w-full items-center gap-2 lg:max-w-md">
@@ -147,7 +147,7 @@ export default function StockItemModelPage() {
           </div>
           <div className="min-w-0 flex-1 space-y-6">
             <div className="text-center lg:text-left">
-              <h1 className="text-3xl font-medium uppercase tracking-[0.15em] text-neutral-900">
+              <h1 className="text-3xl font-medium tracking-tight text-neutral-900">
                 {item.item}
               </h1>
               <p className="mt-1 text-neutral-600">{item.dimensions}</p>
@@ -160,7 +160,7 @@ export default function StockItemModelPage() {
               <>
                 {straight.length > 0 && (
                   <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-neutral-500">
+                    <h3 className="text-sm font-semibold tracking-wide text-neutral-500">
                       Straight
                     </h3>
                     <div className="mt-2 flex flex-wrap gap-2">
@@ -183,8 +183,8 @@ export default function StockItemModelPage() {
                 )}
                 {halfRound.length > 0 && (
                   <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-neutral-500">
-                      Half Rounds
+                    <h3 className="text-sm font-semibold tracking-wide text-neutral-500">
+                      Half rounds
                     </h3>
                     <div className="mt-2 flex flex-wrap gap-2">
                       {halfRound.map((opt) => (
@@ -206,7 +206,7 @@ export default function StockItemModelPage() {
                 )}
                 {arc.length > 0 && (
                   <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-wider text-neutral-500">
+                    <h3 className="text-sm font-semibold tracking-wide text-neutral-500">
                       Arc
                     </h3>
                     <div className="mt-2 flex flex-wrap gap-2">

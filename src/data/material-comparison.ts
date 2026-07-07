@@ -12,7 +12,7 @@ export const MATERIAL_COMPARISON_COLUMNS = [
   "Zzz Flex",
   "Ultra-Flex",
   "Machinable S4S",
-  "Fire Rated"
+  "Ultra-Fire Flex"
 ] as const;
 
 export const MATERIAL_COMPARISON_ROWS: MaterialComparisonRow[] = [
@@ -23,7 +23,7 @@ export const MATERIAL_COMPARISON_ROWS: MaterialComparisonRow[] = [
       "Zzz Flex": "OOO",
       "Ultra-Flex": "O",
       "Machinable S4S": "O",
-      "Fire Rated": "OO"
+      "Ultra-Fire Flex": "OO"
     }
   },
   {
@@ -33,7 +33,7 @@ export const MATERIAL_COMPARISON_ROWS: MaterialComparisonRow[] = [
       "Zzz Flex": "OOO",
       "Ultra-Flex": "OOO",
       "Machinable S4S": "OOO",
-      "Fire Rated": "OOO"
+      "Ultra-Fire Flex": "OOO"
     }
   },
   {
@@ -43,7 +43,7 @@ export const MATERIAL_COMPARISON_ROWS: MaterialComparisonRow[] = [
       "Zzz Flex": "OO",
       "Ultra-Flex": "OOO",
       "Machinable S4S": "N/A",
-      "Fire Rated": "O"
+      "Ultra-Fire Flex": "O"
     }
   },
   {
@@ -53,7 +53,7 @@ export const MATERIAL_COMPARISON_ROWS: MaterialComparisonRow[] = [
       "Zzz Flex": "O",
       "Ultra-Flex": "OOO",
       "Machinable S4S": "OO",
-      "Fire Rated": "O"
+      "Ultra-Fire Flex": "O"
     }
   },
   {
@@ -63,27 +63,27 @@ export const MATERIAL_COMPARISON_ROWS: MaterialComparisonRow[] = [
       "Zzz Flex": "O",
       "Ultra-Flex": "OO",
       "Machinable S4S": "OOO",
-      "Fire Rated": "O"
+      "Ultra-Fire Flex": "O"
     }
   },
   {
-    "attribute": "Moisture Resistance",
+    "attribute": "Moisture resistance",
     "values": {
       "Flex Trim": "OOO",
       "Zzz Flex": "OOO",
       "Ultra-Flex": "OOO",
       "Machinable S4S": "OOO",
-      "Fire Rated": "OOO"
+      "Ultra-Fire Flex": "OOO"
     }
   },
   {
-    "attribute": "Insect Resistance",
+    "attribute": "Insect resistance",
     "values": {
       "Flex Trim": "OOO",
       "Zzz Flex": "OOO",
       "Ultra-Flex": "OOO",
       "Machinable S4S": "OOO",
-      "Fire Rated": "OOO"
+      "Ultra-Fire Flex": "OOO"
     }
   },
   {
@@ -93,7 +93,7 @@ export const MATERIAL_COMPARISON_ROWS: MaterialComparisonRow[] = [
       "Zzz Flex": "OOO",
       "Ultra-Flex": "OOO",
       "Machinable S4S": "OOO",
-      "Fire Rated": "OOO"
+      "Ultra-Fire Flex": "OOO"
     }
   },
   {
@@ -103,27 +103,27 @@ export const MATERIAL_COMPARISON_ROWS: MaterialComparisonRow[] = [
       "Zzz Flex": "OOO",
       "Ultra-Flex": "OOO",
       "Machinable S4S": "OOO",
-      "Fire Rated": "OOO"
+      "Ultra-Fire Flex": "OOO"
     }
   },
   {
-    "attribute": "Extended Lengths",
+    "attribute": "Extended lengths",
     "values": {
       "Flex Trim": "O",
       "Zzz Flex": "O",
       "Ultra-Flex": "N/A",
       "Machinable S4S": "N/A",
-      "Fire Rated": "N/A"
+      "Ultra-Fire Flex": "N/A"
     }
   },
   {
-    "attribute": "Manufacturing Location",
+    "attribute": "Manufacturing location",
     "values": {
       "Flex Trim": "NC & UT",
       "Zzz Flex": "NC & UT",
       "Ultra-Flex": "UT",
       "Machinable S4S": "UT",
-      "Fire Rated": "UT"
+      "Ultra-Fire Flex": "UT"
     }
   },
   {
@@ -133,7 +133,7 @@ export const MATERIAL_COMPARISON_ROWS: MaterialComparisonRow[] = [
       "Zzz Flex": "Lifetime",
       "Ultra-Flex": "1 Year",
       "Machinable S4S": "1 Year",
-      "Fire Rated": "Lifetime"
+      "Ultra-Fire Flex": "Lifetime"
     }
   }
 ];

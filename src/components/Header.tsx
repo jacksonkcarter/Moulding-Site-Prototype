@@ -30,10 +30,10 @@ export function Header() {
       <div className="w-full border-b border-neutral-200 bg-neutral-100">
         <div className="flex h-10 w-full items-center justify-end gap-6 px-4 sm:px-6">
           <Link href="/contact-us" className="text-sm text-neutral-600 hover:text-primary">
-            Contact Us
+            Contact us
           </Link>
           <Link href="/portal/login" className="text-sm text-neutral-600 hover:text-primary">
-            Customer Portal
+            Customer portal
           </Link>
         </div>
       </div>
@@ -85,7 +85,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-full px-3 py-2 text-base uppercase ${
+                className={`rounded-full px-3 py-2 text-base ${
                   pathname === item.href
                     ? "text-[#9f1b20]"
                     : "text-neutral-600 hover:bg-neutral-100 hover:text-[#9f1b20]"
@@ -102,7 +102,7 @@ export function Header() {
               >
                 <Link
                   href={"landingHref" in item ? item.landingHref : "#"}
-                  className={`flex items-center gap-1 rounded-full px-3 py-2 text-base uppercase ${
+                  className={`flex items-center gap-1 rounded-full px-3 py-2 text-base ${
                     openDropdown === item.label
                       ? "bg-neutral-100 text-[#9f1b20]"
                       : "text-neutral-600 hover:bg-neutral-100 hover:text-[#9f1b20]"
@@ -158,7 +158,7 @@ export function Header() {
                         </>
                       ) : (
                       item.children.map((child) =>
-                        child.label === "Browse Stock Items" ? (
+                        child.label === "Browse stock items" ? (
                           <div
                             key={`${item.label}-${child.label}`}
                             className="relative"
@@ -226,13 +226,13 @@ export function Header() {
                                       setStockItemsSubmenuOpen(false);
                                     }}
                                   >
-                                    See All
+                                    See all
                                   </Link>
                                 </div>
                               </div>
                             )}
                           </div>
-                        ) : child.label === "Browse All Profiles" ? (
+                        ) : child.label === "Browse all profiles" ? (
                           <div
                             key={`${item.label}-${child.label}`}
                             className="relative"
@@ -300,7 +300,7 @@ export function Header() {
                                       setProfilesSubmenuOpen(false);
                                     }}
                                   >
-                                    See All
+                                    See all
                                   </Link>
                                 </div>
                               </div>
@@ -378,7 +378,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`block rounded-full px-4 py-2 text-base uppercase ${
+                  className={`block rounded-full px-4 py-2 text-base ${
                     pathname === item.href ? "text-[#9f1b20]" : "text-neutral-600"
                   }`}
                   onClick={() => setMobileOpen(false)}
@@ -389,7 +389,7 @@ export function Header() {
                 <div key={item.label}>
                   <button
                     type="button"
-                    className="flex w-full items-center justify-between rounded-full px-4 py-2 text-left text-base uppercase text-neutral-600"
+                    className="flex w-full items-center justify-between rounded-full px-4 py-2 text-left text-base text-neutral-600"
                     onClick={() => setMobileExpanded((c) => (c === item.label ? null : item.label))}
                   >
                     {item.label}

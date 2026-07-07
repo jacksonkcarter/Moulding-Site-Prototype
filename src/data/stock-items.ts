@@ -17,7 +17,7 @@ export type StockItemSection = { label: string; id: string };
 
 export const STOCK_ITEM_SECTIONS: StockItemSection[] = [
   {
-    "label": "Back Band",
+    "label": "Back band",
     "id": "back-band"
   },
   {
@@ -25,11 +25,11 @@ export const STOCK_ITEM_SECTIONS: StockItemSection[] = [
     "id": "base"
   },
   {
-    "label": "Base Cap",
+    "label": "Base cap",
     "id": "base-cap"
   },
   {
-    "label": "Brick Mould",
+    "label": "Brick mould",
     "id": "brick-mould"
   },
   {
@@ -37,11 +37,11 @@ export const STOCK_ITEM_SECTIONS: StockItemSection[] = [
     "id": "casing"
   },
   {
-    "label": "Chair Rail",
+    "label": "Chair rail",
     "id": "chair-rail"
   },
   {
-    "label": "Corner & Cove",
+    "label": "Corner & cove",
     "id": "corner-cove"
   },
   {
@@ -53,7 +53,7 @@ export const STOCK_ITEM_SECTIONS: StockItemSection[] = [
     "id": "miscellaneous"
   },
   {
-    "label": "Panel Mould",
+    "label": "Panel mould",
     "id": "panel-mould"
   },
   {
@@ -61,7 +61,7 @@ export const STOCK_ITEM_SECTIONS: StockItemSection[] = [
     "id": "rake"
   },
   {
-    "label": "Shoe & Quarter Round",
+    "label": "Shoe & quarter round",
     "id": "shoe-quarter-round"
   },
   {

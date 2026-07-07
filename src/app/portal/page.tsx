@@ -3,7 +3,7 @@ import { PageContent } from "@/components/PageContent";
 
 export default function PortalPage() {
   return (
-    <PageContent title="Customer Portal">
+    <PageContent title="Customer portal">
       <p className="text-neutral-600">
         Welcome to your customer portal. More features will be available here soon.
       </p>

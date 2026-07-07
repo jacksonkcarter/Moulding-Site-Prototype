@@ -18,8 +18,8 @@ export default function LoginPage() {
   return (
     <main className="min-h-screen flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-sm -mt-[100px]">
-        <h1 className="text-3xl font-medium uppercase tracking-[0.12em] text-neutral-900 text-center mb-2">
-          Customer Portal
+        <h1 className="text-3xl font-medium tracking-tight text-neutral-900 text-center mb-2">
+          Customer portal
         </h1>
         <p className="text-neutral-600 text-center text-sm mb-8">
           Sign in to your account

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ELEVATE_SECTION, WHY_CHOOSE_BENEFITS } from "@/data/home-sections";
+import { ELEVATE_SECTION, WHY_CHOOSE_BENEFITS, WHY_CHOOSE_SECTION } from "@/data/home-sections";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -43,7 +43,7 @@ export function HomeScrollSections() {
         <div className="mx-auto flex min-h-[min(88vh,920px)] max-w-7xl flex-col justify-center px-4 py-24 sm:px-6 lg:py-32">
           <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
             <Reveal>
-              <p className="text-primary text-sm font-medium uppercase tracking-[0.35em]">
+              <p className="text-primary text-sm font-medium tracking-wide">
                 {ELEVATE_SECTION.eyebrow}
               </p>
               <h2
@@ -57,10 +57,10 @@ export function HomeScrollSections() {
               </p>
               <div className="mt-10">
                 <Link
-                  href="/product-info/material-info"
+                  href="/product-info/material-details"
                   className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white"
                 >
-                  Explore Product Details
+                  Explore material details
                 </Link>
               </div>
             </Reveal>
@@ -69,7 +69,7 @@ export function HomeScrollSections() {
               {ELEVATE_SECTION.highlights.map((item, index) => (
                 <Reveal key={item.label} delay={0.08 + index * 0.1}>
                   <article className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+                    <p className="text-xs font-semibold tracking-wide text-neutral-500">
                       {item.label}
                     </p>
                     <p className="mt-2 text-3xl font-medium tracking-tight text-primary md:text-4xl">
@@ -91,14 +91,14 @@ export function HomeScrollSections() {
       >
         <div className="mx-auto min-h-[min(88vh,920px)] max-w-7xl px-4 py-24 sm:px-6 lg:py-32">
           <Reveal className="mx-auto max-w-3xl text-center">
-            <p className="text-primary text-sm font-medium uppercase tracking-[0.35em]">
-              The Carter Millwork Difference
+            <p className="text-primary text-sm font-medium tracking-wide">
+              {WHY_CHOOSE_SECTION.eyebrow}
             </p>
             <h2
               id="why-choose-heading"
               className="mt-4 text-3xl font-sans tracking-tight text-neutral-900 md:text-4xl lg:text-5xl"
             >
-              Why Choose Carter Millwork Flexible Moulding?
+              {WHY_CHOOSE_SECTION.title}
             </h2>
           </Reveal>
 

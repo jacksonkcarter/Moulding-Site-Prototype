@@ -12,7 +12,7 @@ const quicksand = Quicksand({
 });
 
 export const metadata: Metadata = {
-  title: "Flex Trim | Custom Flexible Moulding",
+  title: "Flex Trim | Custom flexible moulding",
   description: "Custom flexible moulding and millwork. Interior and exterior trim.",
 };
 

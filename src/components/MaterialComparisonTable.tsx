@@ -51,7 +51,7 @@ export function MaterialComparisonTable() {
                   scope="col"
                   className="sticky left-0 z-20 min-w-[11rem] border-r border-neutral-200 bg-white px-4 py-4 text-left"
                 >
-                  <span className="text-xs font-semibold uppercase tracking-[0.16em] text-neutral-500">
+                  <span className="text-xs font-semibold tracking-wide text-neutral-500">
                     {MATERIAL_COMPARISON_ATTRIBUTE_LABEL}
                   </span>
                 </th>
@@ -92,7 +92,7 @@ export function MaterialComparisonTable() {
         </div>
 
         <div className="border-t border-neutral-200 bg-neutral-50 px-4 py-4 sm:px-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-neutral-500">Rating key</p>
+          <p className="text-xs font-semibold tracking-wide text-neutral-500">Rating key</p>
           <div className="mt-3 flex flex-wrap gap-4 sm:gap-6">
             {RATING_LEVELS.map((level) => (
               <div key={level.symbol} className="flex items-center gap-2.5">

@@ -205,8 +205,8 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
   return (
     <section id="stock-items" className="scroll-mt-20 border-t border-neutral-200 bg-white pb-20 pt-5">
       <div className="w-full px-4 sm:px-6">
-        <h2 className="text-3xl font-medium uppercase tracking-[0.15em] text-neutral-900 text-center">
-          Browse Stock Items
+        <h2 className="text-3xl font-medium tracking-tight text-neutral-900 text-center">
+          Browse stock items
         </h2>
         <p className="mt-2 text-neutral-600 text-center">
           Browse stock items by category. Select one or more moulding types to filter.
@@ -237,7 +237,7 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
                   </select>
                 </div>
               </FilterSection>
-              <FilterSection title="Moulding Type" open={typesOpen} onToggle={() => setTypesOpen((o) => !o)}>
+              <FilterSection title="Moulding type" open={typesOpen} onToggle={() => setTypesOpen((o) => !o)}>
                 <div className="grid grid-cols-2 gap-x-2 gap-y-1">
                   {filterOptions.map((option) => (
                     <div

@@ -27,7 +27,7 @@ const CASING_IMAGES = [
 export const GALLERY_APPLICATIONS: ApplicationCategory[] = [
   {
     id: "arched-radius-casing",
-    title: "Arched & Radius Casing",
+    title: "Arched & radius casing",
     description:
       "Frame your most striking architectural features with precision. From elegant arched doorways to perfectly round windows, our radius casing bends seamlessly to create a flawless, gap-free border that traditional wood simply cannot match.",
     stripImage: CASING_IMAGES[0],
@@ -35,7 +35,7 @@ export const GALLERY_APPLICATIONS: ApplicationCategory[] = [
   },
   {
     id: "curved-walls",
-    title: "Curved Walls",
+    title: "Curved walls",
     description:
       "Transform sweeping architectural lines into finished masterpieces. Whether you are wrapping a grand staircase or trimming a radius hallway, our flexible baseboards, chair rails, and crown mouldings contour effortlessly to your wall's natural shape for a smooth, continuous flow.",
     stripImage: CASING_IMAGES[1],
@@ -43,7 +43,7 @@ export const GALLERY_APPLICATIONS: ApplicationCategory[] = [
   },
   {
     id: "vaulted-domed-ceilings",
-    title: "Vaulted & Domed Ceilings",
+    title: "Vaulted & domed ceilings",
     description:
       "Draw the eye upward with dramatic, flowing transitions. Perfect for domed entryways, barrel vaults, and arched ceiling details, our highly pliable materials make overhead installations simple, safe, and visually stunning.",
     stripImage: CASING_IMAGES[2],
@@ -51,7 +51,7 @@ export const GALLERY_APPLICATIONS: ApplicationCategory[] = [
   },
   {
     id: "decorative-applied-mouldings",
-    title: "Decorative Applied Mouldings",
+    title: "Decorative applied mouldings",
     description:
       "Add depth and sophisticated character to any space. Our flexible panel mouldings allow you to design intricate wainscoting, sweeping picture frames, and custom geometric wall features without the limitations of rigid millwork.",
     stripImage: CASING_IMAGES[3],
@@ -59,7 +59,7 @@ export const GALLERY_APPLICATIONS: ApplicationCategory[] = [
   },
   {
     id: "historical-reproductions",
-    title: "Historical Reproductions",
+    title: "Historical reproductions",
     description:
       "Preserve the integrity of the past with the technology of today. We specialize in custom-tooling and replicating ornate, century-old profiles, allowing you to seamlessly restore historic properties or match existing millwork with durable, modern precision.",
     stripImage: CASING_IMAGES[4],

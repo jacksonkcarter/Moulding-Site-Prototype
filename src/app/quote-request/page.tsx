@@ -3,7 +3,7 @@ import { QuoteRequestForm } from "@/components/QuoteRequestForm";
 
 export default function QuoteRequestPage() {
   return (
-    <PageContent title="Quote Request">
+    <PageContent title="Quote request">
       <QuoteRequestForm />
     </PageContent>
   );

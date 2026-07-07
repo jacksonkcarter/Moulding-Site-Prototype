@@ -39,10 +39,10 @@ export function Footer({ compact }: FooterProps) {
             />
           </div>
           <div className="flex flex-wrap justify-center gap-6 text-sm text-neutral-600">
-            <Link href="/product-info/profile-search" className="hover:text-[#9f1b20]">Browse All Profiles</Link>
-            <Link href="/ordering-installation/radius-calculator" className="hover:text-[#9f1b20]">Radius Calculator</Link>
-            <Link href="/ordering-installation/dealer-search" className="hover:text-[#9f1b20]">Dealer Search</Link>
-            <Link href="/contact-us" className="hover:text-[#9f1b20]">Contact Us</Link>
+            <Link href="/product-info/profile-search" className="hover:text-[#9f1b20]">Browse all profiles</Link>
+            <Link href="/ordering-installation/radius-calculator" className="hover:text-[#9f1b20]">Radius calculator</Link>
+            <Link href="/ordering-installation/dealer-search" className="hover:text-[#9f1b20]">Dealer search</Link>
+            <Link href="/contact-us" className="hover:text-[#9f1b20]">Contact us</Link>
           </div>
         </div>
         <div className="mt-8 grid gap-8 border-t border-neutral-200 pt-8 text-sm text-neutral-600 md:grid-cols-2">

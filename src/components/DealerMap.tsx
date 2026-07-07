@@ -67,15 +67,15 @@ export function DealerMap() {
   return (
     <section id="dealers" className="scroll-mt-20 border-t border-neutral-200 bg-white pt-5 pb-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <h2 className="font-sans text-3xl font-medium uppercase tracking-[0.15em] text-neutral-900 text-center">
-          Find a Dealer
+        <h2 className="font-sans text-3xl font-medium tracking-tight text-neutral-900 text-center">
+          Find a dealer
         </h2>
         <p className="mt-2 text-neutral-600 text-center">
           Search by zip code and radius to find dealers near you.
         </p>
         <div className="mt-6 flex flex-wrap items-end gap-4">
           <div>
-            <label className="block text-sm font-medium text-neutral-700">Zip Code</label>
+            <label className="block text-sm font-medium text-neutral-700">Zip code</label>
             <input
               type="text"
               value={zip}
@@ -85,7 +85,7 @@ export function DealerMap() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-neutral-700">Mile Radius</label>
+            <label className="block text-sm font-medium text-neutral-700">Mile radius</label>
             <select
               value={radiusMi}
               onChange={(e) => setRadiusMi(Number(e.target.value))}

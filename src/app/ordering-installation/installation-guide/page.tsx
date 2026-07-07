@@ -93,8 +93,8 @@ export default function InstallationGuidePage() {
   return (
     <main className="min-h-screen">
       <div id="overview" className="mx-auto max-w-[calc(72rem+192px)] scroll-mt-24 px-4 pt-5 pb-12 sm:px-6">
-        <h1 className="font-sans text-3xl font-medium uppercase tracking-[0.15em] text-neutral-900 text-center">
-          Installation Guide
+        <h1 className="font-sans text-3xl font-medium tracking-tight text-neutral-900 text-center">
+          Installation guide
         </h1>
         <p className="mt-4 text-neutral-600 leading-relaxed text-center">
           Watch our{" "}
@@ -113,7 +113,7 @@ export default function InstallationGuidePage() {
         <section id="preparing" className="scroll-mt-24 pt-14">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-10">
             <div className="flex shrink-0 flex-col items-center lg:w-72">
-              <h2 className="font-sans text-3xl font-normal uppercase tracking-[0.12em] text-primary text-center sm:text-4xl">
+              <h2 className="font-sans text-3xl font-normal tracking-tight text-primary text-center sm:text-4xl">
                 Preparing
               </h2>
               <div className="relative mt-5 aspect-square w-48 overflow-hidden rounded-xl sm:w-56 lg:w-72">
@@ -141,7 +141,7 @@ export default function InstallationGuidePage() {
         <section id="machining" className="scroll-mt-24 pt-14">
           <div className="flex flex-col gap-6 lg:flex-row-reverse lg:items-center lg:gap-10">
             <div className="flex shrink-0 flex-col items-center lg:w-72">
-              <h2 className="font-sans text-3xl font-normal uppercase tracking-[0.12em] text-primary text-center sm:text-4xl">
+              <h2 className="font-sans text-3xl font-normal tracking-tight text-primary text-center sm:text-4xl">
                 Machining
               </h2>
               <div className="relative mt-5 aspect-square w-48 overflow-hidden rounded-xl sm:w-56 lg:w-72">
@@ -169,7 +169,7 @@ export default function InstallationGuidePage() {
         <section id="installing" className="scroll-mt-24 pt-14">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-10">
             <div className="flex shrink-0 flex-col items-center lg:w-72">
-              <h2 className="font-sans text-3xl font-normal uppercase tracking-[0.12em] text-primary text-center sm:text-4xl">
+              <h2 className="font-sans text-3xl font-normal tracking-tight text-primary text-center sm:text-4xl">
                 Installing
               </h2>
               <div className="relative mt-5 aspect-square w-48 overflow-hidden rounded-xl sm:w-56 lg:w-72">
@@ -197,7 +197,7 @@ export default function InstallationGuidePage() {
         <section id="finishing" className="scroll-mt-24 pt-14 pb-12">
           <div className="flex flex-col gap-6 lg:flex-row-reverse lg:items-center lg:gap-10">
             <div className="flex shrink-0 flex-col items-center lg:w-72">
-              <h2 className="font-sans text-3xl font-normal uppercase tracking-[0.12em] text-primary text-center sm:text-4xl">
+              <h2 className="font-sans text-3xl font-normal tracking-tight text-primary text-center sm:text-4xl">
                 Finishing
               </h2>
               <div className="relative mt-5 aspect-square w-48 overflow-hidden rounded-xl sm:w-56 lg:w-72">

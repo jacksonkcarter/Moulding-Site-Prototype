@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { MATERIAL_UPGRADES } from "@/data/material-upgrades";
@@ -34,31 +35,35 @@ export function MaterialUpgradeCards() {
 
         return (
           <li key={item.title} className="min-w-0">
-            <button
-              type="button"
-              onClick={() => setExpanded(isOpen ? null : item.title)}
-              aria-expanded={isOpen}
-              className={`group flex w-full flex-col rounded-2xl border p-5 text-left shadow-sm transition-all duration-300 ${
+            <div
+              className={`rounded-2xl border shadow-sm transition-all duration-300 ${
                 isOpen
                   ? "border-primary/40 bg-white shadow-md ring-1 ring-primary/10"
                   : "border-neutral-200 bg-gradient-to-br from-white via-white to-neutral-50 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-md"
               }`}
             >
-              <div className="flex items-center justify-between gap-3">
-                <div className="flex min-w-0 flex-1 items-center gap-2.5">
-                  <div
-                    className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full transition-colors ${
-                      isOpen ? "bg-primary/15" : "bg-primary/10 group-hover:bg-primary/15"
-                    }`}
-                  >
-                    <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
+              <button
+                type="button"
+                onClick={() => setExpanded(isOpen ? null : item.title)}
+                aria-expanded={isOpen}
+                className="group flex w-full flex-col p-5 text-left"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex min-w-0 flex-1 items-center gap-2.5">
+                    <div
+                      className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full transition-colors ${
+                        isOpen ? "bg-primary/15" : "bg-primary/10 group-hover:bg-primary/15"
+                      }`}
+                    >
+                      <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
+                    </div>
+                    <p className="min-w-0 text-sm font-semibold leading-snug text-neutral-900 md:text-base">
+                      {item.title}
+                    </p>
                   </div>
-                  <p className="min-w-0 text-sm font-semibold leading-snug text-neutral-900 md:text-base">
-                    {item.title}
-                  </p>
+                  <ChevronIcon open={isOpen} />
                 </div>
-                <ChevronIcon open={isOpen} />
-              </div>
+              </button>
 
               <AnimatePresence initial={false}>
                 {isOpen ? (
@@ -70,11 +75,9 @@ export function MaterialUpgradeCards() {
                     transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
                     className="overflow-hidden"
                   >
-                    <div className="mt-4 border-t border-neutral-200 pt-4">
+                    <div className="border-t border-neutral-200 px-5 pb-5 pt-4">
                       {item.product ? (
-                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                          {item.product}
-                        </p>
+                        <p className="text-sm font-semibold text-primary md:text-base">{item.product}</p>
                       ) : null}
                       <p className={`text-sm leading-relaxed text-neutral-600 ${item.product ? "mt-2" : ""}`}>
                         {item.description}
@@ -82,11 +85,19 @@ export function MaterialUpgradeCards() {
                       {item.footnote ? (
                         <p className="mt-3 text-xs leading-relaxed text-neutral-500">{item.footnote}</p>
                       ) : null}
+                      {item.learnMoreHref ? (
+                        <Link
+                          href={item.learnMoreHref}
+                          className="mt-4 flex w-full items-center justify-center rounded-full border-2 border-primary px-4 py-2 text-xs font-medium text-primary transition-colors hover:bg-primary hover:text-white"
+                        >
+                          Learn more
+                        </Link>
+                      ) : null}
                     </div>
                   </motion.div>
                 ) : null}
               </AnimatePresence>
-            </button>
+            </div>
           </li>
         );
       })}

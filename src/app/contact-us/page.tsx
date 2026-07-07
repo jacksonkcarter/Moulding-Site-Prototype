@@ -2,7 +2,7 @@ import { PageContent } from "@/components/PageContent";
 
 export default function ContactUsPage() {
   return (
-    <PageContent title="Contact Us">
+    <PageContent title="Contact us">
       <div className="space-y-8 text-neutral-600">
         <p>Reach Flex Trim East or West for sales, orders, and support.</p>
         <section>

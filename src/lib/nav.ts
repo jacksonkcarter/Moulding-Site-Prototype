@@ -1,12 +1,13 @@
 export const navItems = [
   {
-    label: "Our Products",
+    label: "Products",
     landingHref: "/product-info/profile-search",
     children: [
-      { label: "Product Details", href: "/product-info/material-info" },
-      { label: "Browse Stock Items", href: "/product-info/stock-items" },
-      { label: "Browse All Profiles", href: "/product-info/profile-search" },
-      { label: "New Profile Process", href: "/quote-request" },
+      { label: "Product overview", href: "/product-info/product-overview" },
+      { label: "Material details", href: "/product-info/material-details" },
+      { label: "Browse stock items", href: "/product-info/stock-items" },
+      { label: "Browse all profiles", href: "/product-info/profile-search" },
+      { label: "New profile process", href: "/quote-request" },
       { label: "Accessories", href: "/product-info/accessories" },
       { label: "Stainable", href: "/product-info/stainable-product" },
     ],
@@ -15,10 +16,10 @@ export const navItems = [
     label: "Ordering",
     landingHref: "/quote-request",
     children: [
-      { label: "Quote Request", href: "/quote-request" },
-      { label: "Browse All Profiles", href: "/product-info/profile-search" },
-      { label: "Dealer Search", href: "/ordering-installation/dealer-search" },
-      { label: "Radius Calculator", href: "/ordering-installation/radius-calculator" },
+      { label: "Quote request", href: "/quote-request" },
+      { label: "Browse all profiles", href: "/product-info/profile-search" },
+      { label: "Dealer search", href: "/ordering-installation/dealer-search" },
+      { label: "Radius calculator", href: "/ordering-installation/radius-calculator" },
     ],
   },
   {
@@ -38,7 +39,7 @@ export const navItems = [
     children: [
       { label: "Applications", href: "/gallery/applications" },
       { label: "Styles", href: "/gallery/styles" },
-      { label: "Indoor & Outdoor", href: "/gallery/indoor-outdoor" },
+      { label: "Indoor & outdoor", href: "/gallery/indoor-outdoor" },
     ],
   },
   {
@@ -47,7 +48,7 @@ export const navItems = [
     children: [
       { label: "Catalog", href: "/forms-literature/literature" },
       { label: "Brochure", href: "/forms-literature/literature" },
-      { label: "Order Forms", href: "/forms-literature/forms" },
+      { label: "Order forms", href: "/forms-literature/forms" },
     ],
   },
   { label: "FAQ", href: "/ordering-installation/faq" },

@@ -13,8 +13,8 @@ export default function Home() {
         <div className="absolute inset-0 z-[2] bg-white/40" aria-hidden />
         <div className="absolute inset-0 z-[3] bg-gradient-to-t from-white/95 via-white/70 to-white/15" aria-hidden />
         <div className="relative z-10 max-w-7xl mx-auto w-full px-4 pb-24 pt-32 sm:px-6">
-          <p className="text-primary text-sm uppercase tracking-[0.35em] mb-4 font-medium">
-            Custom Flexible Moulding
+          <p className="text-primary text-sm font-medium tracking-wide mb-4">
+            Custom flexible moulding
           </p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-sans tracking-tight text-neutral-900 max-w-4xl leading-[1.08]">
             Curved trim made easy
@@ -38,19 +38,19 @@ export default function Home() {
               href="/quote-request"
               className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-white hover:bg-primary-hover transition-colors"
             >
-              Request a Quote
+              Request a quote
             </Link>
             <Link
               href="/product-info/profile-search"
               className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-6 py-3 text-sm font-medium text-primary hover:bg-primary hover:text-white transition-colors"
             >
-              Browse All Profiles
+              Browse all profiles
             </Link>
             <Link
               href="/ordering-installation/dealer-search"
               className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-6 py-3 text-sm font-medium text-primary hover:bg-primary hover:text-white transition-colors"
             >
-              Find a Dealer
+              Find a dealer
             </Link>
           </div>
         </div>

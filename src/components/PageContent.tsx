@@ -11,7 +11,7 @@ export function PageContent({ title, children, fullWidth }: PageContentProps) {
     <main className="min-h-screen">
       <div className={`px-4 pt-5 pb-12 sm:px-6 ${fullWidth ? "w-full" : "mx-auto max-w-4xl"}`}>
         {title ? (
-          <h1 className="font-sans text-3xl font-medium uppercase tracking-[0.15em] text-neutral-900 text-center">
+          <h1 className="font-sans text-3xl font-medium tracking-tight text-neutral-900 text-center">
             {title}
           </h1>
         ) : null}
