@@ -12,7 +12,82 @@
   --content-top-buffer: 3px;
 }
 
+/* Hide native search clear so custom clear controls don't double up. */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 /* All headings use Quicksand (--font-heading from layout). */
 h1, h2, h3 {
   font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Report-style print: content only, no site chrome. */
+@media print {
+  /* Zero @page margin hides browser date/URL/title headers in Chromium. */
+  @page {
+    margin: 0;
+  }
+
+  /*
+    Use only system fonts when printing/saving PDF.
+    Web fonts (Quicksand) often render lowercase "l" as an overly thick stem in Chromium PDFs.
+  */
+  html,
+  body,
+  body * {
+    font-family: Arial, Helvetica, "Segoe UI", Tahoma, sans-serif !important;
+    -webkit-font-smoothing: auto !important;
+    -moz-osx-font-smoothing: auto !important;
+    text-rendering: auto !important;
+    font-synthesis: none !important;
+  }
+
+  body {
+    font-weight: 400 !important;
+    background: white !important;
+    color: #171717;
+    font-size: 10pt !important;
+    line-height: 1.4;
+    margin: 0.75in !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  h1 {
+    font-size: 14pt !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.2rem;
+  }
+
+  h2 {
+    font-size: 12pt !important;
+    font-weight: 700 !important;
+    break-after: avoid;
+  }
+
+  h3 {
+    font-size: 10pt !important;
+    font-weight: 700 !important;
+    break-after: avoid;
+  }
+
+  p,
+  li {
+    font-size: 10pt !important;
+    font-weight: 400 !important;
+  }
+
+  p,
+  li {
+    orphans: 3;
+    widows: 3;
+  }
 }

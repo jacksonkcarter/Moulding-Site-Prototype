@@ -99,7 +99,7 @@ function getSummaryEntries(view: FormView, currentItem: QuoteItem | null): Summa
       entries.push({ view: { step: "doorway-half-round-diameter", itemId }, label: `Diameter: ${d.halfRound.diameterIn} in` });
     }
     if (view.step === "doorway-half-round-diameter") return entries;
-    entries.push({ view: { step: "doorway-half-round-flex", itemId }, label: `Flex trim legs: ${d.halfRound.flexTrimLegs ? "Yes" : "No"}` });
+    entries.push({ view: { step: "doorway-half-round-flex", itemId }, label: `Flex Trim™ legs: ${d.halfRound.flexTrimLegs ? "Yes" : "No"}` });
     if (view.step === "doorway-half-round-flex") return entries;
     const hasStraightLegValue = d.halfRound.flexTrimLegs && d.halfRound.straightLegLengthIn != null && String(d.halfRound.straightLegLengthIn).trim() !== "";
     if (hasStraightLegValue) {
@@ -151,7 +151,7 @@ function getItemDetailLines(item: QuoteItem): string[] {
   const isHalfRound = d.archStyle === "Half Round" && d.halfRound;
   if (isHalfRound && d.halfRound) {
     if (d.halfRound.diameterIn) lines.push(`Diameter: ${d.halfRound.diameterIn} in`);
-    lines.push(`Flex trim legs: ${d.halfRound.flexTrimLegs ? "Yes" : "No"}`);
+    lines.push(`Flex Trim™ legs: ${d.halfRound.flexTrimLegs ? "Yes" : "No"}`);
     const hasStraightLegValue = d.halfRound.flexTrimLegs && d.halfRound.straightLegLengthIn != null && String(d.halfRound.straightLegLengthIn).trim() !== "";
     if (hasStraightLegValue) lines.push(`Straight leg length: ${d.halfRound.straightLegLengthIn!.trim()} in`);
   }
@@ -180,7 +180,7 @@ function getItemDetailLines(item: QuoteItem): string[] {
   return lines;
 }
 
-/** Returns detail lines with optional view for edit (when item is the current item). Only shows lines that are in the flow up to/including the current step (e.g. does not show "Flex trim legs" on the diameter step). */
+/** Returns detail lines with optional view for edit (when item is the current item). Only shows lines that are in the flow up to/including the current step (e.g. does not show "Flex Trim™ legs" on the diameter step). */
 function getItemDetailEntries(item: QuoteItem, itemId: string, currentStep: FormView["step"] | null): { label: string; view?: FormView }[] {
   const entries: { label: string; view?: FormView }[] = [];
   const isCurrent = item.id === itemId;
@@ -204,9 +204,9 @@ function getItemDetailEntries(item: QuoteItem, itemId: string, currentStep: Form
   if (isHalfRound && d.halfRound) {
     const showDiameter = currentStep !== "doorway-curved-wall";
     if (showDiameter && d.halfRound.diameterIn) entries.push({ label: `Diameter: ${d.halfRound.diameterIn} in`, view: isCurrent ? { step: "doorway-half-round-diameter", itemId } : undefined });
-    // Only show "Flex trim legs" after the user has left the flex-trim step (hide on curved-wall and half-round diameter/flex steps)
+    // Only show "Flex Trim™ legs" after the user has left the flex-trim step (hide on curved-wall and half-round diameter/flex steps)
     const showFlexTrimLegs = currentStep !== "doorway-curved-wall" && currentStep !== "doorway-half-round-diameter" && currentStep !== "doorway-half-round-flex";
-    if (showFlexTrimLegs) entries.push({ label: `Flex trim legs: ${d.halfRound.flexTrimLegs ? "Yes" : "No"}`, view: isCurrent ? { step: "doorway-half-round-flex", itemId } : undefined });
+    if (showFlexTrimLegs) entries.push({ label: `Flex Trim™ legs: ${d.halfRound.flexTrimLegs ? "Yes" : "No"}`, view: isCurrent ? { step: "doorway-half-round-flex", itemId } : undefined });
     const hasStraightLegValue = d.halfRound.flexTrimLegs && d.halfRound.straightLegLengthIn != null && String(d.halfRound.straightLegLengthIn).trim() !== "";
     const showStraightLegs = hasStraightLegValue && (currentStep === null || currentStep !== "doorway-half-round-legs");
     if (showStraightLegs) entries.push({ label: `Straight leg length: ${d.halfRound.straightLegLengthIn!.trim()} in`, view: isCurrent ? { step: "doorway-half-round-legs", itemId } : undefined });
@@ -1201,7 +1201,7 @@ export function QuoteRequestForm() {
       <div className="space-y-6">
         {lines.length > 0 && <CollapsibleLinesList lines={lines} collapsedLines={collapsedLines} onToggle={toggleLine} currentItemId={currentItem?.id} currentStep={view.step} onEdit={setView} />}
       <FormStepLayout>
-        <h2 className="text-xl font-medium text-neutral-900">Would you like to order the straight legs in flex trim?</h2>
+        <h2 className="text-xl font-medium text-neutral-900">Would you like to order the straight legs in Flex Trim™?</h2>
         <div className="flex gap-3">
           <button type="button" onClick={() => setFlexTrimLegs(true)} className={optionBtn}>Yes</button>
           <button type="button" onClick={() => setFlexTrimLegs(false)} className={optionBtn}>No</button>

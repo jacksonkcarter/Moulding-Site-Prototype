@@ -4,12 +4,10 @@ import { PageContent } from "@/components/PageContent";
 export default function PortalPage() {
   return (
     <PageContent title="Customer portal">
-      <p className="text-neutral-600">
-        Welcome to your customer portal. More features will be available here soon.
-      </p>
+      <p className="text-neutral-500">Coming soon</p>
       <p className="mt-4">
-        <Link href="/portal/login" className="text-sm text-primary hover:underline">
-          Sign out (return to login)
+        <Link href="/" className="text-sm text-primary hover:underline">
+          ← Back to site
         </Link>
       </p>
     </PageContent>

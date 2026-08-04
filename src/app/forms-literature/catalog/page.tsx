@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { PageContent } from "@/components/PageContent";
 import { PdfViewerFrame } from "@/components/PdfDocumentViewer";
+import { ContactLink } from "@/components/ContactLink";
 
 const CATALOG_PDF = "/forms-literature/carter-millwork-catalog.pdf";
 
@@ -10,9 +10,9 @@ export default function CatalogPage() {
       <div className="mx-auto w-full max-w-6xl not-prose">
         <p className="mb-4 text-center text-sm leading-relaxed text-neutral-600 md:text-base">
           Looking for something specific? This catalog features just a fraction of our available profiles.{" "}
-          <Link href="/contact-us" className="font-medium text-primary hover:underline">
+          <ContactLink action="popover" className="font-medium text-primary hover:underline">
             Reach out to our team
-          </Link>
+          </ContactLink>
           , and we&apos;ll track down exactly what you need.
         </p>
         <PdfViewerFrame

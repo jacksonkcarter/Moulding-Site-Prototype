@@ -26,7 +26,7 @@ export const MATERIAL_UPGRADES: MaterialUpgrade[] = [
     description:
       "For commercial builds that require elevated fire performance, we offer specialized material options. Our team can help you select the right formulation for your application and specification.",
     footnote: "Manufactured exclusively at our Utah plant.",
-    learnMoreHref: "/contact-us",
+    learnMoreHref: "/product-info/ultra-fire-flex",
   },
   {
     title: "Enhanced machinability",

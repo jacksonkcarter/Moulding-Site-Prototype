@@ -2,30 +2,27 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-
-const HERO_IMAGES = [
-  "/design-style/Modern-Farmhouse.png",
-  "/design-style/Colonial.png",
-  "/design-style/Mid-Century-Modern.jpg",
-];
+import { HOME_PAGE_HERO_IMAGES } from "@/data/home-page-images";
 
 const ROTATE_MS = 5000;
 const FADE_MS = 1200;
 
 export function HeroImageCycler() {
+  const images = HOME_PAGE_HERO_IMAGES;
   const [index, setIndex] = useState(0);
   const [leavingIndex, setLeavingIndex] = useState<number | null>(null);
   const indexRef = useRef(0);
   indexRef.current = index;
 
   useEffect(() => {
+    if (images.length < 2) return;
     const id = setInterval(() => {
       const current = indexRef.current;
       setLeavingIndex(current);
-      setIndex((i) => (i + 1) % HERO_IMAGES.length);
+      setIndex((i) => (i + 1) % images.length);
     }, ROTATE_MS);
     return () => clearInterval(id);
-  }, []);
+  }, [images.length]);
 
   useEffect(() => {
     if (leavingIndex === null) return;
@@ -33,12 +30,15 @@ export function HeroImageCycler() {
     return () => clearTimeout(t);
   }, [leavingIndex]);
 
+  if (images.length === 0) {
+    return <div className="absolute inset-0 z-[1] bg-neutral-200" aria-hidden />;
+  }
+
   return (
     <div className="absolute inset-0 z-[1]">
-      {HERO_IMAGES.map((src, i) => {
+      {images.map((src, i) => {
         const isActive = i === index;
         const isLeaving = i === leavingIndex;
-        // Incoming slide sits underneath at opacity 1; leaving slide on top fades out (smooth crossfade, no blank on wrap)
         return (
           <div
             key={src}

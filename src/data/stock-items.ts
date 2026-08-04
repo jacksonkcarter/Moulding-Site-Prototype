@@ -3,6 +3,8 @@
 
 export type StockItem = {
   item: string;
+  /** Alternate / industry name from column B; shown in parentheses next to item. */
+  alternateName: string | null;
   category: string;
   categorySlug: string;
   dimensions: string;
@@ -15,9 +17,18 @@ export type StockItem = {
 
 export type StockItemSection = { label: string; id: string };
 
+export function getStockItemDisplayName(item: Pick<StockItem, "item" | "alternateName">): string {
+  return item.alternateName ? item.item + " (" + item.alternateName + ")" : item.item;
+}
+
+/** Public /stock-items/ folder name (slashes removed from the Excel item name). */
+export function getStockItemPhotoFolder(itemName: string): string {
+  return itemName.replace(/\//g, "");
+}
+
 export const STOCK_ITEM_SECTIONS: StockItemSection[] = [
   {
-    "label": "Back band",
+    "label": "Back Band",
     "id": "back-band"
   },
   {
@@ -25,11 +36,11 @@ export const STOCK_ITEM_SECTIONS: StockItemSection[] = [
     "id": "base"
   },
   {
-    "label": "Base cap",
+    "label": "Base Cap",
     "id": "base-cap"
   },
   {
-    "label": "Brick mould",
+    "label": "Brick Mould",
     "id": "brick-mould"
   },
   {
@@ -37,11 +48,11 @@ export const STOCK_ITEM_SECTIONS: StockItemSection[] = [
     "id": "casing"
   },
   {
-    "label": "Chair rail",
+    "label": "Chair Rail",
     "id": "chair-rail"
   },
   {
-    "label": "Corner & cove",
+    "label": "Corner & Cove",
     "id": "corner-cove"
   },
   {
@@ -49,11 +60,15 @@ export const STOCK_ITEM_SECTIONS: StockItemSection[] = [
     "id": "crown"
   },
   {
+    "label": "Flat Stock",
+    "id": "flat-stock"
+  },
+  {
     "label": "Miscellaneous",
     "id": "miscellaneous"
   },
   {
-    "label": "Panel mould",
+    "label": "Panel Mould",
     "id": "panel-mould"
   },
   {
@@ -61,7 +76,7 @@ export const STOCK_ITEM_SECTIONS: StockItemSection[] = [
     "id": "rake"
   },
   {
-    "label": "Shoe & quarter round",
+    "label": "Shoe & Quarter Round",
     "id": "shoe-quarter-round"
   },
   {
@@ -73,6 +88,7 @@ export const STOCK_ITEM_SECTIONS: StockItemSection[] = [
 export const STOCK_ITEMS: StockItem[] = [
   {
     "item": "1 IN QTR",
+    "alternateName": "WM104",
     "category": "Shoe & Quarter Round",
     "categorySlug": "shoe-quarter-round",
     "dimensions": "1\" x 1\"",
@@ -85,6 +101,20 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "C42",
+    "alternateName": null,
+    "category": "Panel Mould",
+    "categorySlug": "panel-mould",
+    "dimensions": "1-1/16\" x 1-5/8\"",
+    "thickness": 1.0625,
+    "width": 1.625,
+    "configs": [
+      "12 FT"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
+    "item": "C42R3/4",
+    "alternateName": null,
     "category": "Panel Mould",
     "categorySlug": "panel-mould",
     "dimensions": "1-1/16\" x 1-5/8\"",
@@ -97,6 +127,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "C136",
+    "alternateName": null,
     "category": "Chair Rail",
     "categorySlug": "chair-rail",
     "dimensions": "1-1/16\" x 2-1/2\"",
@@ -109,6 +140,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "C281",
+    "alternateName": null,
     "category": "Back Band",
     "categorySlug": "back-band",
     "dimensions": "1-5/16\" x 1-5/16\" x 7/8\" Rab",
@@ -121,6 +153,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM1",
+    "alternateName": "EC001",
     "category": "Casing",
     "categorySlug": "casing",
     "dimensions": "1-1/16\" x 3-1/2\"",
@@ -135,13 +168,120 @@ export const STOCK_ITEMS: StockItem[] = [
       "3/0",
       "2/6",
       "2/0",
-      "12 FT x 48 IN R",
-      "8 FT x 48 IN R"
+      "7' @ 84\"R",
+      "12' @ 48\"R"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
+    "item": "CM1 X 2",
+    "alternateName": "WM1X2",
+    "category": "Flat Stock",
+    "categorySlug": "flat-stock",
+    "dimensions": "3/4\" x 1-1/2\"",
+    "thickness": 0.75,
+    "width": 1.5,
+    "configs": [
+      "12 FT"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
+    "item": "CM1 X 4",
+    "alternateName": "WM1X4",
+    "category": "Flat Stock",
+    "categorySlug": "flat-stock",
+    "dimensions": "3/4\" x 3-1/2\"",
+    "thickness": 0.75,
+    "width": 3.5,
+    "configs": [
+      "12 FT",
+      "10 FT",
+      "8 FT",
+      "6/0",
+      "5/0",
+      "4/0",
+      "3/0",
+      "2/6",
+      "2/0"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
+    "item": "CM1 X 6",
+    "alternateName": "WM1X6",
+    "category": "Flat Stock",
+    "categorySlug": "flat-stock",
+    "dimensions": "3/4\" x 5-1/2\"",
+    "thickness": 0.75,
+    "width": 5.5,
+    "configs": [
+      "12 FT",
+      "10 FT",
+      "8 FT"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
+    "item": "CM1 X 8 (7.25N)",
+    "alternateName": "WM1X8-7.25N",
+    "category": "Flat Stock",
+    "categorySlug": "flat-stock",
+    "dimensions": "3/4\" x 7-1/4\"",
+    "thickness": 0.75,
+    "width": 7.25,
+    "configs": [
+      "12 FT"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
+    "item": "CM1 X 8",
+    "alternateName": "WM1X8",
+    "category": "Flat Stock",
+    "categorySlug": "flat-stock",
+    "dimensions": "3/4\" x 7-1/2\"",
+    "thickness": 0.75,
+    "width": 7.5,
+    "configs": [
+      "12 FT",
+      "8 FT"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
+    "item": "CM1 X 10",
+    "alternateName": "WM1X10",
+    "category": "Flat Stock",
+    "categorySlug": "flat-stock",
+    "dimensions": "3/4\" x 9-1/4\"",
+    "thickness": 0.75,
+    "width": 9.25,
+    "configs": [
+      "12 FT",
+      "10 FT",
+      "8 FT"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
+    "item": "CM1 X 12",
+    "alternateName": "WM1X12",
+    "category": "Flat Stock",
+    "categorySlug": "flat-stock",
+    "dimensions": "3/4\" x 11-1/4\"",
+    "thickness": 0.75,
+    "width": 11.25,
+    "configs": [
+      "12 FT",
+      "10 FT",
+      "8 FT"
     ],
     "miscellaneousLabel": null
   },
   {
     "item": "CM2",
+    "alternateName": "WM2",
     "category": "Miscellaneous",
     "categorySlug": "miscellaneous",
     "dimensions": "11/16\" x 2-1/2\"",
@@ -154,6 +294,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM28",
+    "alternateName": "WM28",
     "category": "Rake",
     "categorySlug": "rake",
     "dimensions": "3/4\" x 3\"",
@@ -166,6 +307,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM37",
+    "alternateName": "EC037",
     "category": "Crown",
     "categorySlug": "crown",
     "dimensions": "11/16\" x 5-1/16\"",
@@ -178,6 +320,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM45",
+    "alternateName": "EC045",
     "category": "Crown",
     "categorySlug": "crown",
     "dimensions": "9/16\" x 5-1/4\"",
@@ -190,6 +333,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM47",
+    "alternateName": "WM47",
     "category": "Crown",
     "categorySlug": "crown",
     "dimensions": "9/16\" x 4-5/8\"",
@@ -202,6 +346,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM49",
+    "alternateName": "WM49",
     "category": "Crown",
     "categorySlug": "crown",
     "dimensions": "9/16\" x 3-5/8\"",
@@ -214,6 +359,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM52",
+    "alternateName": "WM52",
     "category": "Crown",
     "categorySlug": "crown",
     "dimensions": "9/16\" x 2-3/4\"",
@@ -226,6 +372,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM75",
+    "alternateName": "WM75",
     "category": "Crown",
     "categorySlug": "crown",
     "dimensions": "9/16\" x 1-5/8\"",
@@ -238,6 +385,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM93",
+    "alternateName": "WM93",
     "category": "Corner & Cove",
     "categorySlug": "corner-cove",
     "dimensions": "3/4\" x 3/4\"",
@@ -250,6 +398,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM100",
+    "alternateName": "WM53",
     "category": "Corner & Cove",
     "categorySlug": "corner-cove",
     "dimensions": "11/16\" x 11/16\"",
@@ -262,6 +411,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM101",
+    "alternateName": "WM54",
     "category": "Corner & Cove",
     "categorySlug": "corner-cove",
     "dimensions": "1/2\" x 1/2\"",
@@ -274,6 +424,20 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM105",
+    "alternateName": "WM105",
+    "category": "Shoe & Quarter Round",
+    "categorySlug": "shoe-quarter-round",
+    "dimensions": "3/4\" x 3/4\"",
+    "thickness": 0.75,
+    "width": 0.75,
+    "configs": [
+      "12 FT"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
+    "item": "CM105 OAK",
+    "alternateName": "WM105 OAK",
     "category": "Shoe & Quarter Round",
     "categorySlug": "shoe-quarter-round",
     "dimensions": "3/4\" x 3/4\"",
@@ -286,6 +450,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM106",
+    "alternateName": "WM106",
     "category": "Shoe & Quarter Round",
     "categorySlug": "shoe-quarter-round",
     "dimensions": "11/16\" x 11/16\"",
@@ -297,7 +462,34 @@ export const STOCK_ITEMS: StockItem[] = [
     "miscellaneousLabel": null
   },
   {
+    "item": "CM126",
+    "alternateName": "WM126",
+    "category": "Shoe & Quarter Round",
+    "categorySlug": "shoe-quarter-round",
+    "dimensions": "1/2\" x 3/4\"",
+    "thickness": 0.5,
+    "width": 0.75,
+    "configs": [
+      "12 FT"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
+    "item": "CM126 OAK",
+    "alternateName": "WM126 OAK",
+    "category": "Shoe & Quarter Round",
+    "categorySlug": "shoe-quarter-round",
+    "dimensions": "1/2\" x 3/4\"",
+    "thickness": 0.5,
+    "width": 0.75,
+    "configs": [
+      "12 FT"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
     "item": "CM127",
+    "alternateName": "WM127",
     "category": "Shoe & Quarter Round",
     "categorySlug": "shoe-quarter-round",
     "dimensions": "7/16\" x 11/16\"",
@@ -310,6 +502,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM131",
+    "alternateName": "WM131",
     "category": "Shoe & Quarter Round",
     "categorySlug": "shoe-quarter-round",
     "dimensions": "7/16\" x 3/4\"",
@@ -322,6 +515,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM137",
+    "alternateName": "WM137",
     "category": "Panel Mould",
     "categorySlug": "panel-mould",
     "dimensions": "9/16\" x 1-1/4\"",
@@ -334,6 +528,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM163",
+    "alternateName": "WM163",
     "category": "Base Cap",
     "categorySlug": "base-cap",
     "dimensions": "11/16\" x 1-3/8\"",
@@ -346,7 +541,21 @@ export const STOCK_ITEMS: StockItem[] = [
     "miscellaneousLabel": null
   },
   {
+    "item": "CM163E",
+    "alternateName": "WM163E",
+    "category": "Base",
+    "categorySlug": "base",
+    "dimensions": "11/16\" x 5-1/4\"",
+    "thickness": 0.6875,
+    "width": 5.25,
+    "configs": [
+      "12 FT"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
     "item": "CM164",
+    "alternateName": "WM164",
     "category": "Base Cap",
     "categorySlug": "base-cap",
     "dimensions": "11/16\" x 1-1/8\"",
@@ -359,6 +568,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM166",
+    "alternateName": "WM166",
     "category": "Base Cap",
     "categorySlug": "base-cap",
     "dimensions": "11/16\" x 1-1/4\"",
@@ -371,6 +581,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM167",
+    "alternateName": "WM167",
     "category": "Base Cap",
     "categorySlug": "base-cap",
     "dimensions": "11/16\" x 1-1/8\"",
@@ -383,6 +594,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM180",
+    "alternateName": "WM180",
     "category": "Brick Mould",
     "categorySlug": "brick-mould",
     "dimensions": "1-1/4\" x 2\"",
@@ -402,6 +614,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM183",
+    "alternateName": "WM183",
     "category": "Panel Mould",
     "categorySlug": "panel-mould",
     "dimensions": "9/16\" x 1-1/8\"",
@@ -414,6 +627,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM184",
+    "alternateName": "WM184",
     "category": "Panel Mould",
     "categorySlug": "panel-mould",
     "dimensions": "1/2\" x 1-1/2\"",
@@ -426,6 +640,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM197",
+    "alternateName": "WM197",
     "category": "Miscellaneous",
     "categorySlug": "miscellaneous",
     "dimensions": "11/16\" x 1-5/8\"",
@@ -438,6 +653,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM205",
+    "alternateName": "WM205",
     "category": "Corner & Cove",
     "categorySlug": "corner-cove",
     "dimensions": "1-1/4\" x 1-1/4\"",
@@ -450,6 +666,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM210",
+    "alternateName": "WM210",
     "category": "Rake",
     "categorySlug": "rake",
     "dimensions": "1-1/8\" x 1-1/8\"",
@@ -462,6 +679,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM273",
+    "alternateName": "WM273",
     "category": "Miscellaneous",
     "categorySlug": "miscellaneous",
     "dimensions": "11/16\" x 1-3/4\"",
@@ -474,6 +692,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM280",
+    "alternateName": "WM280",
     "category": "Back Band",
     "categorySlug": "back-band",
     "dimensions": "11/16\" x 1-1/16\" x 11/16\" Rab",
@@ -486,6 +705,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM281",
+    "alternateName": null,
     "category": "Back Band",
     "categorySlug": "back-band",
     "dimensions": "11/16\" x 1-1/8\" x 5/8\" Rab",
@@ -498,6 +718,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM297",
+    "alternateName": "WM297",
     "category": "Chair Rail",
     "categorySlug": "chair-rail",
     "dimensions": "11/16\" x 3\"",
@@ -510,6 +731,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM300",
+    "alternateName": "WM300",
     "category": "Chair Rail",
     "categorySlug": "chair-rail",
     "dimensions": "1-1/16\" x 3\"",
@@ -522,6 +744,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM302",
+    "alternateName": "WM302",
     "category": "Chair Rail",
     "categorySlug": "chair-rail",
     "dimensions": "1-1/16\" x 2-3/4\"",
@@ -534,6 +757,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM356",
+    "alternateName": "WM356",
     "category": "Casing",
     "categorySlug": "casing",
     "dimensions": "11/16\" x 2-1/4\"",
@@ -548,13 +772,14 @@ export const STOCK_ITEMS: StockItem[] = [
       "3/0",
       "2/6",
       "2/0",
-      "12 FT x 48 IN R",
-      "8 FT x 48 IN R"
+      "7' @ 84\"R",
+      "12' @ 48\"R"
     ],
     "miscellaneousLabel": null
   },
   {
     "item": "CM361",
+    "alternateName": "WM361",
     "category": "Casing",
     "categorySlug": "casing",
     "dimensions": "11/16\" x 3-1/4\"",
@@ -573,6 +798,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM366",
+    "alternateName": "WM366",
     "category": "Casing",
     "categorySlug": "casing",
     "dimensions": "11/16\" x 2-1/4\"",
@@ -592,6 +818,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM371",
+    "alternateName": "WM371",
     "category": "Casing",
     "categorySlug": "casing",
     "dimensions": "11/16\" x 3\"",
@@ -610,6 +837,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM376",
+    "alternateName": "WM376",
     "category": "Casing",
     "categorySlug": "casing",
     "dimensions": "11/16\" x 2-1/4\"",
@@ -629,6 +857,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM442",
+    "alternateName": "WM442",
     "category": "Casing",
     "categorySlug": "casing",
     "dimensions": "11/16\" x 2-1/4\"",
@@ -647,6 +876,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM444",
+    "alternateName": "WM444",
     "category": "Casing",
     "categorySlug": "casing",
     "dimensions": "11/16\" x 3-1/4\"",
@@ -666,6 +896,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM445",
+    "alternateName": "WM445",
     "category": "Casing",
     "categorySlug": "casing",
     "dimensions": "11/16\" x 3-1/4\"",
@@ -680,16 +911,17 @@ export const STOCK_ITEMS: StockItem[] = [
       "3/0",
       "2/6",
       "2/0",
-      "12 FT x 48 IN R",
-      "8 FT x 48 IN R",
-      "7 FT x 84 IN",
-      "7 FT x 48 IN",
-      "4.5 FT x 30 IN R"
+      "7' @ 84\"R",
+      "12' @ 48\"R",
+      "8' @ 48\"R",
+      "7' @ 48\"R",
+      "4.5' @ 30\"R"
     ],
     "miscellaneousLabel": null
   },
   {
     "item": "CM470",
+    "alternateName": "WM470",
     "category": "Casing",
     "categorySlug": "casing",
     "dimensions": "1-1/16\" x 3-1/16\"",
@@ -707,7 +939,22 @@ export const STOCK_ITEMS: StockItem[] = [
     "miscellaneousLabel": null
   },
   {
+    "item": "CM496",
+    "alternateName": "WM496",
+    "category": "Flat Stock",
+    "categorySlug": "flat-stock",
+    "dimensions": "3/4\" x 4-9/16\"",
+    "thickness": 0.75,
+    "width": 4.5625,
+    "configs": [
+      "12 FT",
+      "8 FT"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
     "item": "CM610",
+    "alternateName": "WM610",
     "category": "Base",
     "categorySlug": "base",
     "dimensions": "9/16\" x 5-1/4\"",
@@ -720,6 +967,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM616",
+    "alternateName": "WM616",
     "category": "Base",
     "categorySlug": "base",
     "dimensions": "11/16\" x 6-1/8\"",
@@ -732,6 +980,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM618",
+    "alternateName": "WM618",
     "category": "Base",
     "categorySlug": "base",
     "dimensions": "9/16\" x 5-1/4\"",
@@ -744,6 +993,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM623",
+    "alternateName": "WM623",
     "category": "Base",
     "categorySlug": "base",
     "dimensions": "9/16\" x 3-1/4\"",
@@ -756,6 +1006,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM663",
+    "alternateName": "WM663",
     "category": "Base",
     "categorySlug": "base",
     "dimensions": "9/16\" x 3-1/4\"",
@@ -767,7 +1018,21 @@ export const STOCK_ITEMS: StockItem[] = [
     "miscellaneousLabel": null
   },
   {
+    "item": "CM750",
+    "alternateName": "WM750",
+    "category": "Base",
+    "categorySlug": "base",
+    "dimensions": "9/16\" x 4-1/4\"",
+    "thickness": 0.5625,
+    "width": 4.25,
+    "configs": [
+      "12 FT"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
     "item": "CM753",
+    "alternateName": "WM753",
     "category": "Base",
     "categorySlug": "base",
     "dimensions": "9/16\" x 3-1/4\"",
@@ -780,6 +1045,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM809",
+    "alternateName": "WM809",
     "category": "Back Band",
     "categorySlug": "back-band",
     "dimensions": "1-3/8\" x 1-5/8\" x 1\" Rab",
@@ -792,6 +1058,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM937",
+    "alternateName": "WM937",
     "category": "Stop",
     "categorySlug": "stop",
     "dimensions": "3/8\" x 1-1/4\"",
@@ -804,6 +1071,7 @@ export const STOCK_ITEMS: StockItem[] = [
   },
   {
     "item": "CM940",
+    "alternateName": "WM940",
     "category": "Stop",
     "categorySlug": "stop",
     "dimensions": "7/16\" x 7/8\"",
@@ -815,7 +1083,21 @@ export const STOCK_ITEMS: StockItem[] = [
     "miscellaneousLabel": null
   },
   {
+    "item": "CM941",
+    "alternateName": "WM941",
+    "category": "Stop",
+    "categorySlug": "stop",
+    "dimensions": "7/16\" x 5/8\"",
+    "thickness": 0.4375,
+    "width": 0.625,
+    "configs": [
+      "12 FT"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
     "item": "CM956 CRB",
+    "alternateName": "WM956",
     "category": "Miscellaneous",
     "categorySlug": "miscellaneous",
     "dimensions": "7/16\" x 4-1/4\"",
@@ -827,7 +1109,34 @@ export const STOCK_ITEMS: StockItem[] = [
     "miscellaneousLabel": "Chair Rail Backer"
   },
   {
+    "item": "CMXJ",
+    "alternateName": null,
+    "category": "Flat Stock",
+    "categorySlug": "flat-stock",
+    "dimensions": "3/4\" x 3\"",
+    "thickness": 0.75,
+    "width": 3,
+    "configs": [
+      "12 FT"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
+    "item": "EC810A",
+    "alternateName": null,
+    "category": "Base",
+    "categorySlug": "base",
+    "dimensions": "1/2\" x 7-1/4\"",
+    "thickness": 0.5,
+    "width": 7.25,
+    "configs": [
+      "12 FT"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
     "item": "PM5",
+    "alternateName": null,
     "category": "Panel Mould",
     "categorySlug": "panel-mould",
     "dimensions": "11/16\" x 1-1/8\"",
@@ -837,87 +1146,149 @@ export const STOCK_ITEMS: StockItem[] = [
       "12 FT"
     ],
     "miscellaneousLabel": null
+  },
+  {
+    "item": "PM6",
+    "alternateName": null,
+    "category": "Panel Mould",
+    "categorySlug": "panel-mould",
+    "dimensions": "3/4\" x 2\"",
+    "thickness": 0.75,
+    "width": 2,
+    "configs": [
+      "12 FT"
+    ],
+    "miscellaneousLabel": null
+  },
+  {
+    "item": "PM7",
+    "alternateName": null,
+    "category": "Panel Mould",
+    "categorySlug": "panel-mould",
+    "dimensions": "13/16\" x 1-5/16\"",
+    "thickness": 0.8125,
+    "width": 1.3125,
+    "configs": [
+      "12 FT"
+    ],
+    "miscellaneousLabel": null
   }
 ];
 
-/** Main image path for each item (under /stock-items/). */
+/** Main image path for each item that has a photo (under /stock-items/). Missing keys = no image yet. */
 export const STOCK_ITEM_IMAGES: Record<string, string> = {
-  "1 IN QTR": "/stock-items/1 IN QTR/1 IN QTR.jpg",
-  "C136": "/stock-items/C136/C136.jpg",
-  "C281": "/stock-items/C281/C281.jpg",
-  "C42": "/stock-items/C42/C42.jpg",
-  "CM1": "/stock-items/CM1/CM1.jpg",
-  "CM100": "/stock-items/CM100/CM100.jpg",
-  "CM101": "/stock-items/CM101/CM101.jpg",
-  "CM105": "/stock-items/CM105/CM105.jpg",
-  "CM106": "/stock-items/CM106/CM106.jpg",
-  "CM126": "/stock-items/CM126/CM126.jpg",
-  "CM127": "/stock-items/CM127/CM127.jpg",
-  "CM131": "/stock-items/CM131/CM131.jpg",
-  "CM137": "/stock-items/CM137/CM137.jpg",
-  "CM163": "/stock-items/CM163/CM163.jpg",
-  "CM164": "/stock-items/CM164/CM164.jpg",
-  "CM166": "/stock-items/CM166/CM166.jpg",
-  "CM167": "/stock-items/CM167/CM167.jpg",
-  "CM180": "/stock-items/CM180/CM180.jpg",
-  "CM183": "/stock-items/CM183/CM183.jpg",
-  "CM184": "/stock-items/CM184/CM184.jpg",
-  "CM197": "/stock-items/CM197/CM197.jpg",
-  "CM2": "/stock-items/CM2/CM2.jpg",
-  "CM205": "/stock-items/CM205/CM205.jpg",
-  "CM210": "/stock-items/CM210/CM210.jpg",
-  "CM273": "/stock-items/CM273/CM273.jpg",
-  "CM28": "/stock-items/CM28/CM28.jpg",
-  "CM280": "/stock-items/CM280/CM280.jpg",
-  "CM281": "/stock-items/CM281/CM281.jpg",
-  "CM297": "/stock-items/CM297/CM297.jpg",
-  "CM300": "/stock-items/CM300/CM300.jpg",
-  "CM302": "/stock-items/CM302/CM302.jpg",
-  "CM356": "/stock-items/CM356/CM356.jpg",
-  "CM361": "/stock-items/CM361/CM361.jpg",
-  "CM366": "/stock-items/CM366/CM366.jpg",
-  "CM37": "/stock-items/CM37/CM37.jpg",
-  "CM371": "/stock-items/CM371/CM371.jpg",
-  "CM376": "/stock-items/CM376/CM376.jpg",
-  "CM442": "/stock-items/CM442/CM442.jpg",
-  "CM444": "/stock-items/CM444/CM444.jpg",
-  "CM445": "/stock-items/CM445/CM445.jpg",
-  "CM45": "/stock-items/CM45/CM45.jpg",
-  "CM47": "/stock-items/CM47/CM47.jpg",
-  "CM470": "/stock-items/CM470/CM470.jpg",
-  "CM49": "/stock-items/CM49/CM49.jpg",
-  "CM52": "/stock-items/CM52/CM52.jpg",
-  "CM610": "/stock-items/CM610/CM610.jpg",
-  "CM616": "/stock-items/CM616/CM616.jpg",
-  "CM618": "/stock-items/CM618/CM618.jpg",
-  "CM623": "/stock-items/CM623/CM623.jpg",
-  "CM663": "/stock-items/CM663/CM663.jpg",
-  "CM75": "/stock-items/CM75/CM75.jpg",
-  "CM753": "/stock-items/CM753/CM753.jpg",
-  "CM809": "/stock-items/CM809/CM809.jpg",
-  "CM93": "/stock-items/CM93/CM93.jpg",
-  "CM937": "/stock-items/CM937/CM937.jpg",
-  "CM940": "/stock-items/CM940/CM940.jpg",
-  "CM956 CRB": "/stock-items/CM956 CRB/CM956 CRB.jpg",
-  "PM5": "/stock-items/PM5/PM5.jpg"
+  "1 IN QTR": "/stock-items/1 IN QTR/1 IN QTR.gif",
+  "C42": "/stock-items/C42/C42.gif",
+  "C42R3/4": "/stock-items/C42R34/C42 R34.gif",
+  "C136": "/stock-items/C136/C136.gif",
+  "C281": "/stock-items/C281/C281.gif",
+  "CM1": "/stock-items/CM1/ec001.gif",
+  "CM1 X 2": "/stock-items/CM1 X 2/CM1 X 2.gif",
+  "CM1 X 4": "/stock-items/CM1 X 4/24112-S4S.gif",
+  "CM1 X 6": "/stock-items/CM1 X 6/CM1 X 6.gif",
+  "CM1 X 8 (7.25N)": "/stock-items/CM1 X 8 (7.25N)/CM1 X 8 (7.25N).gif",
+  "CM1 X 8": "/stock-items/CM1 X 8/CM1 X 8.gif",
+  "CM1 X 10": "/stock-items/CM1 X 10/CM1 X 10.gif",
+  "CM1 X 12": "/stock-items/CM1 X 12/CM1 X 12.gif",
+  "CM2": "/stock-items/CM2/CM2.gif",
+  "CM28": "/stock-items/CM28/CM28.gif",
+  "CM37": "/stock-items/CM37/CM37.gif",
+  "CM45": "/stock-items/CM45/EC45.gif",
+  "CM47": "/stock-items/CM47/CM47.gif",
+  "CM49": "/stock-items/CM49/ec049.gif",
+  "CM52": "/stock-items/CM52/CM52.gif",
+  "CM75": "/stock-items/CM75/CM75.gif",
+  "CM93": "/stock-items/CM93/CM93.gif",
+  "CM100": "/stock-items/CM100/CM100.gif",
+  "CM101": "/stock-items/CM101/CM101.gif",
+  "CM105": "/stock-items/CM105/CM105.gif",
+  "CM105 OAK": "/stock-items/CM105 OAK/CM105.gif",
+  "CM106": "/stock-items/CM106/CM106.gif",
+  "CM126": "/stock-items/CM126/CM126.gif",
+  "CM126 OAK": "/stock-items/CM126 OAK/CM126.gif",
+  "CM127": "/stock-items/CM127/CM127.gif",
+  "CM131": "/stock-items/CM131/CM131.gif",
+  "CM137": "/stock-items/CM137/CM137.gif",
+  "CM163": "/stock-items/CM163/CM163.gif",
+  "CM163E": "/stock-items/CM163E/CM163E.GIF",
+  "CM164": "/stock-items/CM164/CM164.gif",
+  "CM166": "/stock-items/CM166/CM166.gif",
+  "CM167": "/stock-items/CM167/CM167.gif",
+  "CM180": "/stock-items/CM180/CM180.gif",
+  "CM183": "/stock-items/CM183/CM183.gif",
+  "CM184": "/stock-items/CM184/CM184.gif",
+  "CM197": "/stock-items/CM197/CM197.gif",
+  "CM205": "/stock-items/CM205/CM205.gif",
+  "CM210": "/stock-items/CM210/CM210.gif",
+  "CM273": "/stock-items/CM273/CM273.gif",
+  "CM280": "/stock-items/CM280/CM280.gif",
+  "CM281": "/stock-items/CM281/CM281.gif",
+  "CM297": "/stock-items/CM297/CM297.gif",
+  "CM300": "/stock-items/CM300/CM300.gif",
+  "CM302": "/stock-items/CM302/CM302.gif",
+  "CM356": "/stock-items/CM356/CM356.gif",
+  "CM361": "/stock-items/CM361/CM361.gif",
+  "CM366": "/stock-items/CM366/wm366.gif",
+  "CM371": "/stock-items/CM371/wm371.gif",
+  "CM376": "/stock-items/CM376/WM376.gif",
+  "CM442": "/stock-items/CM442/wm442.gif",
+  "CM444": "/stock-items/CM444/CM444.gif",
+  "CM445": "/stock-items/CM445/CM445.gif",
+  "CM470": "/stock-items/CM470/CM470.gif",
+  "CM496": "/stock-items/CM496/CM496.gif",
+  "CM610": "/stock-items/CM610/CM610.gif",
+  "CM616": "/stock-items/CM616/CM616.gif",
+  "CM618": "/stock-items/CM618/CM618.gif",
+  "CM623": "/stock-items/CM623/CM623.gif",
+  "CM663": "/stock-items/CM663/CM663.gif",
+  "CM750": "/stock-items/CM750/CM750.gif",
+  "CM753": "/stock-items/CM753/CM753.gif",
+  "CM809": "/stock-items/CM809/CM809.gif",
+  "CM937": "/stock-items/CM937/CM937.gif",
+  "CM940": "/stock-items/CM940/CM940.gif",
+  "CM941": "/stock-items/CM941/CM941.gif",
+  "CM956 CRB": "/stock-items/CM956 CRB/CM956 CRB.gif",
+  "CMXJ": "/stock-items/CMXJ/CMXJ.gif",
+  "EC810A": "/stock-items/EC810A/ec810.GIF",
+  "PM5": "/stock-items/PM5/sspm5.gif"
 };
 
 /** Per-item, per-config-folder (e.g. "20" for 2/0) assets: images and optional .glb. */
 export const STOCK_ITEM_CONFIG_ASSETS: Record<string, Record<string, { images: string[]; glb: string | null }>> = {
   "1 IN QTR": {},
+  "C42": {},
+  "C42R3/4": {},
   "C136": {},
   "C281": {},
-  "C42": {},
   "CM1": {},
+  "CM1 X 2": {},
+  "CM1 X 4": {},
+  "CM1 X 6": {},
+  "CM1 X 8 (7.25N)": {},
+  "CM1 X 8": {},
+  "CM1 X 10": {},
+  "CM1 X 12": {},
+  "CM2": {},
+  "CM28": {},
+  "CM37": {},
+  "CM45": {},
+  "CM47": {},
+  "CM49": {},
+  "CM52": {},
+  "CM75": {},
+  "CM93": {},
   "CM100": {},
   "CM101": {},
   "CM105": {},
+  "CM105 OAK": {},
   "CM106": {},
   "CM126": {},
+  "CM126 OAK": {},
   "CM127": {},
   "CM131": {},
   "CM137": {},
   "CM163": {},
+  "CM163E": {},
   "CM164": {},
   "CM166": {},
   "CM167": {},
@@ -933,11 +1304,9 @@ export const STOCK_ITEM_CONFIG_ASSETS: Record<string, Record<string, { images: s
   "CM183": {},
   "CM184": {},
   "CM197": {},
-  "CM2": {},
   "CM205": {},
   "CM210": {},
   "CM273": {},
-  "CM28": {},
   "CM280": {},
   "CM281": {},
   "CM297": {},
@@ -946,30 +1315,30 @@ export const STOCK_ITEM_CONFIG_ASSETS: Record<string, Record<string, { images: s
   "CM356": {},
   "CM361": {},
   "CM366": {},
-  "CM37": {},
   "CM371": {},
   "CM376": {},
   "CM442": {},
   "CM444": {},
   "CM445": {},
-  "CM45": {},
-  "CM47": {},
   "CM470": {},
-  "CM49": {},
-  "CM52": {},
+  "CM496": {},
   "CM610": {},
   "CM616": {},
   "CM618": {},
   "CM623": {},
   "CM663": {},
-  "CM75": {},
+  "CM750": {},
   "CM753": {},
   "CM809": {},
-  "CM93": {},
   "CM937": {},
   "CM940": {},
+  "CM941": {},
   "CM956 CRB": {},
-  "PM5": {}
+  "CMXJ": {},
+  "EC810A": {},
+  "PM5": {},
+  "PM6": {},
+  "PM7": {}
 };
 
 export function getStockItemByModel(model: string): StockItem | undefined {

@@ -1,0 +1,48 @@
+/**
+ * Moulding types for the profile browser nav/filters.
+ * Generated from All-Profiles.xlsx Key sheet, limited to types with drawings,
+ * sorted alphabetically.
+ * Regenerate with: npm run generate-profile-moulding-types
+ */
+export const PROFILE_MOULDING_TYPES = [
+  "Apron",
+  "Astragal",
+  "Back band",
+  "Base",
+  "Base cap",
+  "Bed mould",
+  "Brick mould",
+  "Bullnose",
+  "Cabinet lip mould",
+  "Casing",
+  "Chair rail",
+  "Chair rail backer",
+  "Chamfer",
+  "Corner",
+  "Cove",
+  "Crown",
+  "Crown backer",
+  "Decorative",
+  "Dentil",
+  "E1E",
+  "E2E",
+  "Flat stock",
+  "Frieze",
+  "Half round",
+  "Hand rail",
+  "Mantle",
+  "Miscellaneous",
+  "Mullion",
+  "Panel mould",
+  "Pencil mould",
+  "Picture mould",
+  "Quarter round",
+  "Rake",
+  "Rope",
+  "Screen bead",
+  "Shoe",
+  "Solid back crown",
+  "Stool",
+  "Stop",
+  "Tongue & groove"
+] as const;

@@ -2,8 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useMemo, useEffect, useCallback, type ReactNode } from "react";
+import { useSearchParams } from "next/navigation";
+import { useState, useMemo, useEffect, useCallback } from "react";
+import { BoundNumberInput } from "@/components/BoundNumberInput";
+import { FilterSection } from "@/components/FilterSection";
 import type { StockItem, StockItemSection } from "@/data/stock-items";
+import { getStockItemDisplayName } from "@/data/stock-items";
+import { getStockConfigGroups } from "@/lib/stock-item-configs";
 import { getStockMouldingFilterOptions } from "@/lib/stock-moulding-filter-options";
 
 type StockItemsViewProps = {
@@ -51,53 +56,63 @@ function useDebounce<T>(value: T, delay: number): T {
   return debounced;
 }
 
-function roundToStep(value: number, step: number): number {
-  return Math.round(value / step) * step;
-}
-
-function FilterSection({
-  title,
-  open,
-  onToggle,
-  children,
-}: {
-  title: string;
-  open: boolean;
-  onToggle: () => void;
-  children: ReactNode;
-}) {
-  return (
-    <div className="border-b border-neutral-200 last:border-b-0">
-      <button
-        type="button"
-        onClick={onToggle}
-        className="flex w-full items-center justify-between py-2 text-left text-sm font-medium text-neutral-700 hover:text-[#9f1b20]"
-      >
-        {title}
-        <svg
-          className={`h-4 w-4 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-      {open && <div className="pb-3">{children}</div>}
-    </div>
-  );
+function getStockDimensionBounds(
+  items: StockItem[],
+  key: "thickness" | "width",
+  fallbackMax: number,
+): [number, number] {
+  let min = Infinity;
+  let max = -Infinity;
+  for (const item of items) {
+    const value = item[key];
+    if (value != null) {
+      min = Math.min(min, value);
+      max = Math.max(max, value);
+    }
+  }
+  if (min === Infinity) min = 0;
+  if (max === -Infinity) max = fallbackMax;
+  return [min, max];
 }
 
 export function StockItemsView({ sections, items, images }: StockItemsViewProps) {
-  const [selectedFilterOptions, setSelectedFilterOptions] = useState<Set<string>>(new Set());
+  const searchParams = useSearchParams();
+  const [selectedFilterOptions, setSelectedFilterOptions] = useState<Set<string>>(() => {
+    const t = searchParams.get("types");
+    if (!t) return new Set();
+    return new Set(
+      t
+        .split(",")
+        .map((s) => decodeURIComponent(s.trim()))
+        .filter(Boolean),
+    );
+  });
+
+  useEffect(() => {
+    const t = searchParams.get("types");
+    if (!t) return;
+    setSelectedFilterOptions(
+      new Set(
+        t
+          .split(",")
+          .map((s) => decodeURIComponent(s.trim()))
+          .filter(Boolean),
+      ),
+    );
+  }, [searchParams]);
+
   const [typesOpen, setTypesOpen] = useState(true);
   const [searchOpen, setSearchOpen] = useState(true);
   const [thicknessOpen, setThicknessOpen] = useState(true);
   const [widthOpen, setWidthOpen] = useState(true);
   const [itemQuery, setItemQuery] = useState("");
   const [searchFilterType, setSearchFilterType] = useState<SearchFilterType>("contains");
-  const [thicknessRange, setThicknessRange] = useState<[number, number]>([0, 2]);
-  const [widthRange, setWidthRange] = useState<[number, number]>([0, 12]);
+  const [thicknessRange, setThicknessRange] = useState<[number, number]>(() =>
+    getStockDimensionBounds(items, "thickness", 2),
+  );
+  const [widthRange, setWidthRange] = useState<[number, number]>(() =>
+    getStockDimensionBounds(items, "width", 12),
+  );
 
   const itemQueryDebounced = useDebounce(itemQuery, 150);
   const thicknessMinDebounced = useDebounce(thicknessRange[0], 150);
@@ -110,31 +125,15 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
     [sections, items]
   );
 
-  const thicknessBounds = useMemo(() => {
-    let min = Infinity, max = -Infinity;
-    for (const item of items) {
-      if (item.thickness != null) {
-        min = Math.min(min, item.thickness);
-        max = Math.max(max, item.thickness);
-      }
-    }
-    if (min === Infinity) min = 0;
-    if (max === -Infinity) max = 2;
-    return [min, max] as [number, number];
-  }, [items]);
+  const thicknessBounds = useMemo(
+    () => getStockDimensionBounds(items, "thickness", 2),
+    [items],
+  );
 
-  const widthBounds = useMemo(() => {
-    let min = Infinity, max = -Infinity;
-    for (const item of items) {
-      if (item.width != null) {
-        min = Math.min(min, item.width);
-        max = Math.max(max, item.width);
-      }
-    }
-    if (min === Infinity) min = 0;
-    if (max === -Infinity) max = 12;
-    return [min, max] as [number, number];
-  }, [items]);
+  const widthBounds = useMemo(
+    () => getStockDimensionBounds(items, "width", 12),
+    [items],
+  );
 
   const toggleFilterOption = useCallback((option: string) => {
     setSelectedFilterOptions((prev) => {
@@ -159,9 +158,12 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
     if (selectedFilterOptions.size > 0) {
       result = result.filter(itemMatchesTypeFilter);
     }
-    result = result.filter((item) =>
-      itemMatchesSearch(item.item, itemQueryDebounced, searchFilterType)
-    );
+    result = result.filter((item) => {
+      const haystack = item.alternateName
+        ? `${item.item} ${item.alternateName}`
+        : item.item;
+      return itemMatchesSearch(haystack, itemQueryDebounced, searchFilterType);
+    });
     result = result.filter((item) => {
       if (item.thickness != null) {
         if (item.thickness < thicknessMinDebounced || item.thickness > thicknessMaxDebounced) return false;
@@ -213,9 +215,17 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
         </p>
 
         <div className="mt-8 flex flex-col gap-8 lg:flex-row">
-          <aside className="w-full shrink-0 min-w-0 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 p-4 lg:w-72">
+          <aside className="w-full shrink-0 self-start min-w-0 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 p-4 lg:w-72">
             <div className="space-y-0">
-              <FilterSection title="Item" open={searchOpen} onToggle={() => setSearchOpen((o) => !o)}>
+              <FilterSection
+                title="Item"
+                open={searchOpen}
+                onToggle={() => setSearchOpen((o) => !o)}
+                onReset={() => {
+                  setItemQuery("");
+                  setSearchFilterType("contains");
+                }}
+              >
                 <div className="min-w-0 space-y-2">
                   <input
                     type="text"
@@ -237,10 +247,15 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
                   </select>
                 </div>
               </FilterSection>
-              <FilterSection title="Moulding type" open={typesOpen} onToggle={() => setTypesOpen((o) => !o)}>
+              <FilterSection
+                title="Moulding type"
+                open={typesOpen}
+                onToggle={() => setTypesOpen((o) => !o)}
+                onReset={() => setSelectedFilterOptions(new Set())}
+              >
                 <div className="grid grid-cols-2 gap-x-2 gap-y-1">
                   {filterOptions.map((option) => (
-                    <div
+                    <label
                       key={option}
                       className="flex cursor-pointer items-center gap-1.5 truncate rounded border border-neutral-300 px-2 py-1.5 hover:border-[#9f1b20] hover:bg-red-50/50"
                     >
@@ -249,20 +264,18 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
                         checked={selectedFilterOptions.has(option)}
                         onChange={() => toggleFilterOption(option)}
                         className="h-3 w-3 shrink-0 rounded border-neutral-400 text-[#9f1b20] focus:ring-[#9f1b20]"
-                        aria-label={`Filter stock items by ${option}`}
                       />
-                      <Link
-                        href={`/product-info/profile-search?types=${encodeURIComponent(option)}`}
-                        className="min-w-0 flex-1 truncate text-xs text-neutral-700 hover:text-[#9f1b20]"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        {option}
-                      </Link>
-                    </div>
+                      <span className="min-w-0 flex-1 truncate text-xs text-neutral-700">{option}</span>
+                    </label>
                   ))}
                 </div>
               </FilterSection>
-              <FilterSection title="Thickness (in)" open={thicknessOpen} onToggle={() => setThicknessOpen((o) => !o)}>
+              <FilterSection
+                title="Thickness (in)"
+                open={thicknessOpen}
+                onToggle={() => setThicknessOpen((o) => !o)}
+                onReset={() => setThicknessRange(thicknessBounds)}
+              >
                 <div className="min-w-0 space-y-2">
                   <div className="flex min-w-0 items-center gap-2">
                     <span className="w-8 shrink-0 text-xs text-neutral-500">Min</span>
@@ -272,29 +285,21 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
                       max={thicknessBounds[1]}
                       step={0.0625}
                       value={thicknessRange[0]}
+                      tabIndex={-1}
                       onChange={(e) =>
                         setThicknessRange((prev) => [
-                          Math.min(Number(e.target.value), prev[1] - 0.0625),
+                          Math.min(Number(e.target.value), prev[1]),
                           prev[1],
                         ])
                       }
                       className="min-w-0 flex-1 accent-[#9f1b20]"
                     />
-                    <input
-                      type="number"
-                      min={thicknessBounds[0]}
-                      max={thicknessRange[1] - 0.0625}
-                      step={0.0625}
+                    <BoundNumberInput
                       value={thicknessRange[0]}
-                      onChange={(e) => {
-                        const v = parseFloat(e.target.value);
-                        if (!Number.isNaN(v))
-                          setThicknessRange((prev) => [
-                            roundToStep(Math.min(Math.max(v, thicknessBounds[0]), prev[1] - 0.0625), 0.0625),
-                            prev[1],
-                          ]);
-                      }}
-                      className="w-14 shrink-0 rounded border border-neutral-300 px-1.5 py-1 text-xs focus:border-[#9f1b20] focus:outline-none focus:ring-1 focus:ring-[#9f1b20]"
+                      min={thicknessBounds[0]}
+                      max={thicknessRange[1]}
+                      onCommit={(n) => setThicknessRange((prev) => [n, prev[1]])}
+                      className="w-16 shrink-0 rounded border border-neutral-300 px-1.5 py-1 text-xs focus:border-[#9f1b20] focus:outline-none focus:ring-1 focus:ring-[#9f1b20]"
                     />
                   </div>
                   <div className="flex min-w-0 items-center gap-2">
@@ -305,34 +310,32 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
                       max={thicknessBounds[1]}
                       step={0.0625}
                       value={thicknessRange[1]}
+                      tabIndex={-1}
                       onChange={(e) =>
                         setThicknessRange((prev) => [
                           prev[0],
-                          Math.max(Number(e.target.value), prev[0] + 0.0625),
+                          Math.max(Number(e.target.value), prev[0]),
                         ])
                       }
                       className="min-w-0 flex-1 accent-[#9f1b20]"
                     />
-                    <input
-                      type="number"
-                      min={thicknessRange[0] + 0.0625}
-                      max={thicknessBounds[1]}
-                      step={0.0625}
+                    <BoundNumberInput
                       value={thicknessRange[1]}
-                      onChange={(e) => {
-                        const v = parseFloat(e.target.value);
-                        if (!Number.isNaN(v))
-                          setThicknessRange((prev) => [
-                            prev[0],
-                            roundToStep(Math.max(Math.min(v, thicknessBounds[1]), prev[0] + 0.0625), 0.0625),
-                          ]);
-                      }}
-                      className="w-14 shrink-0 rounded border border-neutral-300 px-1.5 py-1 text-xs focus:border-[#9f1b20] focus:outline-none focus:ring-1 focus:ring-[#9f1b20]"
+                      min={thicknessRange[0]}
+                      max={thicknessBounds[1]}
+                      onCommit={(n) => setThicknessRange((prev) => [prev[0], n])}
+                      className="w-16 shrink-0 rounded border border-neutral-300 px-1.5 py-1 text-xs focus:border-[#9f1b20] focus:outline-none focus:ring-1 focus:ring-[#9f1b20]"
                     />
                   </div>
                 </div>
               </FilterSection>
-              <FilterSection title="Width (in)" open={widthOpen} onToggle={() => setWidthOpen((o) => !o)}>
+              <FilterSection
+                title="Width (in)"
+                open={widthOpen}
+                onToggle={() => setWidthOpen((o) => !o)}
+                onReset={() => setWidthRange(widthBounds)}
+                headerTabIndex={-1}
+              >
                 <div className="min-w-0 space-y-2">
                   <div className="flex min-w-0 items-center gap-2">
                     <span className="w-8 shrink-0 text-xs text-neutral-500">Min</span>
@@ -342,29 +345,21 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
                       max={widthBounds[1]}
                       step={0.0625}
                       value={widthRange[0]}
+                      tabIndex={-1}
                       onChange={(e) =>
                         setWidthRange((prev) => [
-                          Math.min(Number(e.target.value), prev[1] - 0.0625),
+                          Math.min(Number(e.target.value), prev[1]),
                           prev[1],
                         ])
                       }
                       className="min-w-0 flex-1 accent-[#9f1b20]"
                     />
-                    <input
-                      type="number"
-                      min={widthBounds[0]}
-                      max={widthRange[1] - 0.0625}
-                      step={0.0625}
+                    <BoundNumberInput
                       value={widthRange[0]}
-                      onChange={(e) => {
-                        const v = parseFloat(e.target.value);
-                        if (!Number.isNaN(v))
-                          setWidthRange((prev) => [
-                            roundToStep(Math.min(Math.max(v, widthBounds[0]), prev[1] - 0.0625), 0.0625),
-                            prev[1],
-                          ]);
-                      }}
-                      className="w-14 shrink-0 rounded border border-neutral-300 px-1.5 py-1 text-xs focus:border-[#9f1b20] focus:outline-none focus:ring-1 focus:ring-[#9f1b20]"
+                      min={widthBounds[0]}
+                      max={widthRange[1]}
+                      onCommit={(n) => setWidthRange((prev) => [n, prev[1]])}
+                      className="w-16 shrink-0 rounded border border-neutral-300 px-1.5 py-1 text-xs focus:border-[#9f1b20] focus:outline-none focus:ring-1 focus:ring-[#9f1b20]"
                     />
                   </div>
                   <div className="flex min-w-0 items-center gap-2">
@@ -375,29 +370,21 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
                       max={widthBounds[1]}
                       step={0.0625}
                       value={widthRange[1]}
+                      tabIndex={-1}
                       onChange={(e) =>
                         setWidthRange((prev) => [
                           prev[0],
-                          Math.max(Number(e.target.value), prev[0] + 0.0625),
+                          Math.max(Number(e.target.value), prev[0]),
                         ])
                       }
                       className="min-w-0 flex-1 accent-[#9f1b20]"
                     />
-                    <input
-                      type="number"
-                      min={widthRange[0] + 0.0625}
-                      max={widthBounds[1]}
-                      step={0.0625}
+                    <BoundNumberInput
                       value={widthRange[1]}
-                      onChange={(e) => {
-                        const v = parseFloat(e.target.value);
-                        if (!Number.isNaN(v))
-                          setWidthRange((prev) => [
-                            prev[0],
-                            roundToStep(Math.max(Math.min(v, widthBounds[1]), prev[0] + 0.0625), 0.0625),
-                          ]);
-                      }}
-                      className="w-14 shrink-0 rounded border border-neutral-300 px-1.5 py-1 text-xs focus:border-[#9f1b20] focus:outline-none focus:ring-1 focus:ring-[#9f1b20]"
+                      min={widthRange[0]}
+                      max={widthBounds[1]}
+                      onCommit={(n) => setWidthRange((prev) => [prev[0], n])}
+                      className="w-16 shrink-0 rounded border border-neutral-300 px-1.5 py-1 text-xs focus:border-[#9f1b20] focus:outline-none focus:ring-1 focus:ring-[#9f1b20]"
                     />
                   </div>
                 </div>
@@ -415,34 +402,70 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
                     <h3 className="border-b border-neutral-300 pb-1.5 text-xl font-medium text-primary">
                       {label}
                     </h3>
-                    <div className="mt-3 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+                    <div className="mt-3 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
                       {categoryItems.map((item) => {
-                        const imageSrc = images[item.item] ?? `/stock-items/${item.item}.png`;
+                        const imageSrc = images[item.item];
                         const href = `/product-info/stock-items/${item.categorySlug}/${encodeURIComponent(item.item)}`;
+                        const sizeGroups = getStockConfigGroups(item.configs);
+                        const displayName = getStockItemDisplayName(item);
                         return (
-                          <Link
+                          <div
                             key={item.item}
-                            href={href}
-                            className="group relative block w-full transition hover:opacity-90"
+                            className="relative w-full overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm"
                           >
-                            <div className="relative w-full" style={{ aspectRatio: "4/3" }}>
-                              <Image
-                                src={imageSrc}
-                                alt={item.item}
-                                fill
-                                className="object-contain pt-1 px-4 pb-px transition group-hover:opacity-95"
-                                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
-                                unoptimized
-                              />
-                            </div>
-                            <div className="pt-0 pl-[18px] pr-1">
-                              <p className="font-bold text-neutral-900">{item.item}</p>
-                              <p className="text-sm text-neutral-600">{item.dimensions}</p>
-                              {item.miscellaneousLabel && (
-                                <p className="text-sm text-neutral-600">{item.miscellaneousLabel}</p>
-                              )}
-                            </div>
-                          </Link>
+                            <Link
+                              href={href}
+                              className="group block transition hover:opacity-90"
+                            >
+                              <div className="relative w-full" style={{ aspectRatio: "4/3" }}>
+                                {imageSrc ? (
+                                  <Image
+                                    src={imageSrc}
+                                    alt={displayName}
+                                    fill
+                                    className="object-contain pt-1 px-4 pb-px transition group-hover:opacity-95"
+                                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                                    unoptimized
+                                  />
+                                ) : (
+                                  <div className="flex h-full w-full items-center justify-center bg-neutral-50 px-4">
+                                    <p className="text-center text-sm font-medium text-neutral-400">
+                                      Image coming soon
+                                    </p>
+                                  </div>
+                                )}
+                              </div>
+                              <div className={`px-3 pt-0 text-center ${sizeGroups.length > 0 ? "pb-1" : "pb-3"}`}>
+                                <p className="font-bold text-neutral-900">{displayName}</p>
+                                <p className="text-sm text-neutral-600">{item.dimensions}</p>
+                                {item.miscellaneousLabel && (
+                                  <p className="text-sm text-neutral-600">{item.miscellaneousLabel}</p>
+                                )}
+                              </div>
+                            </Link>
+                            {sizeGroups.length > 0 && (
+                              <div className="space-y-2 px-3 pb-3 text-center">
+                                {sizeGroups.map(({ label, options }) => (
+                                  <div key={label}>
+                                    <p className="text-[11px] font-semibold tracking-wide text-neutral-500">
+                                      {label}
+                                    </p>
+                                    <div className="mt-1 flex flex-wrap justify-center gap-1">
+                                      {options.map((opt) => (
+                                        <Link
+                                          key={opt}
+                                          href={`${href}?config=${encodeURIComponent(opt)}`}
+                                          className="rounded border border-neutral-300 bg-white px-1.5 py-0.5 text-[11px] font-medium text-neutral-700 transition-colors hover:border-primary hover:bg-red-50/50 hover:text-primary"
+                                        >
+                                          {opt}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         );
                       })}
                     </div>

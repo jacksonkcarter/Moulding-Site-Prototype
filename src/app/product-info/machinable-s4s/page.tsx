@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import { MachinableBenefitsGrid } from "@/components/MachinableBenefitsGrid";
 import { PageContent } from "@/components/PageContent";
+import { ContactLink } from "@/components/ContactLink";
 
 const SPECIFICATIONS = [
   { label: "Thickness", value: '1/2" to 2"' },
@@ -103,12 +103,9 @@ export default function MachinableS4SPage() {
             We are here to help you find the right fit for your build. Contact our team to explore custom sizing
             alternatives for your specific architectural needs.
           </p>
-          <Link
-            href="/contact-us"
-            className="mt-6 inline-flex w-full max-w-xs items-center justify-center rounded-full border-2 border-primary px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white sm:w-auto"
-          >
+          <ContactLink action="popover" className="mt-6 inline-flex w-full max-w-xs items-center justify-center rounded-full border-2 border-primary px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white sm:w-auto">
             Contact our team
-          </Link>
+          </ContactLink>
         </section>
       </div>
     </PageContent>

@@ -1,9 +1,10 @@
 import { Suspense } from "react";
 import { ProfileSearch } from "@/components/ProfileSearch";
-import { loadProfilesWithImages } from "@/lib/profiles";
+import { getMouldingTypesWithDrawings, loadProfilesWithImages } from "@/lib/profiles";
 
 export default function ProfileSearchPage() {
   const profiles = loadProfilesWithImages();
+  const mouldingTypes = getMouldingTypesWithDrawings(profiles);
 
   return (
     <main className="min-h-screen">
@@ -14,7 +15,7 @@ export default function ProfileSearchPage() {
           </div>
         }
       >
-        <ProfileSearch initialProfiles={profiles} />
+        <ProfileSearch initialProfiles={profiles} mouldingTypes={mouldingTypes} />
       </Suspense>
     </main>
   );

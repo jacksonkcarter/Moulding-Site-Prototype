@@ -1,6 +1,6 @@
 export const ELEVATE_SECTION = {
   eyebrow: "Flexible moulding",
-  title: "Elevate your space with Flex Trim®",
+  title: "Elevate your space with Flex Trim™",
   description:
     "Whether your project demands a unique custom style or flawless consistency, flexible polyurethane moulding is the perfect solution. It effortlessly overcomes complex architectural challenges, transforming any ordinary room into a memorable, elegant space.",
   highlights: [

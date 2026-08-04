@@ -52,13 +52,19 @@ function configToFolder(name) {
   return String(name).replace(/\//g, "");
 }
 
+/** Photo folders drop "/" from item names (e.g. C42R3/4 -> C42R34). */
+function photoFolderKey(name) {
+  return String(name).replace(/\//g, "").toLowerCase();
+}
+
 function main() {
   const wb = XLSX.readFile(EXCEL_PATH);
   const sheet = wb.Sheets[wb.SheetNames[0]];
   const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
-  const headers = rows[1]; // Item, Category, Thickness, Width, Other (E), then config columns
-  const OTHER_COLUMN_INDEX = 4; // Column E
-  const configColumns = headers.slice(OTHER_COLUMN_INDEX + 1).filter(Boolean); // skip Other, then 12 FT, 10 FT, ...
+  // Item, Alternate Name, Category, Thickness, Width, Other, then config columns
+  const headers = rows[1];
+  const OTHER_COLUMN_INDEX = 5; // Column F
+  const configColumns = headers.slice(OTHER_COLUMN_INDEX + 1).filter(Boolean);
   const items = [];
   const categoriesSeen = new Set();
   const categoryOrder = [];
@@ -67,10 +73,14 @@ function main() {
     const row = rows[i];
     const itemName = row[0] ? String(row[0]).trim() : "";
     if (!itemName) continue;
-    const category = cleanCategory(row[1]);
+    const alternateRaw = row[1] ? String(row[1]).trim() : "";
+    const alternateName = alternateRaw
+      ? alternateRaw.replace(/^\(+/, "").replace(/\)+$/, "").trim() || null
+      : null;
+    const category = cleanCategory(row[2]);
     if (!category) continue;
-    const thickness = row[2];
-    const width = row[3];
+    const thickness = row[3];
+    const width = row[4];
     const other = row[OTHER_COLUMN_INDEX];
     let dimensions = `${decimalToMixed(thickness)}" x ${decimalToMixed(width)}"`;
     if (category === "Back Band" && (other !== "" && other != null && !String(other).trim().match(/^(X|x)$/i))) {
@@ -96,13 +106,14 @@ function main() {
 
     const thicknessNum = typeof thickness === "number" && !Number.isNaN(thickness) ? thickness : null;
     const widthNum = typeof width === "number" && !Number.isNaN(width) ? width : null;
-    const rawCategory = row[1];
+    const rawCategory = row[2];
     const miscellaneousLabel =
       category === "Miscellaneous" && getParenthetical(rawCategory) ? getParenthetical(rawCategory) : null;
     items.push({
       item: itemName,
+      alternateName,
       category,
-      categorySlug: categoryToSlug(row[1]),
+      categorySlug: categoryToSlug(row[2]),
       dimensions,
       thickness: thicknessNum,
       width: widthNum,
@@ -120,26 +131,45 @@ function main() {
       if (d.name === "STOCK ITEM LIST.xlsx") continue;
       const itemPath = path.join(PHOTOS_ROOT, d.name);
       if (!d.isDirectory()) continue;
-      const subdirs = fs.readdirSync(itemPath, { withFileTypes: true })
+      const subdirs = fs
+        .readdirSync(itemPath, { withFileTypes: true })
         .filter((x) => x.isDirectory())
         .map((x) => x.name);
-      const files = fs.readdirSync(itemPath, { withFileTypes: true })
-        .filter((x) => x.isFile() && /\.(jpg|jpeg|png|webp)$/i.test(x.name))
+      const files = fs
+        .readdirSync(itemPath, { withFileTypes: true })
+        .filter((x) => x.isFile() && /\.(jpg|jpeg|png|webp|gif)$/i.test(x.name))
         .map((x) => x.name);
-      const mainImage = files.find((f) => f.toLowerCase().startsWith(d.name.toLowerCase())) || files[0];
-      itemPhotos[d.name] = { mainImage: mainImage || null, configFolders: subdirs };
+      const namePrefix = d.name.toLowerCase();
+      const gifs = files.filter((f) => /\.gif$/i.test(f));
+      const mainImage =
+        gifs.find((f) => f.toLowerCase().startsWith(namePrefix)) ||
+        gifs[0] ||
+        files.find((f) => f.toLowerCase().startsWith(namePrefix)) ||
+        files[0] ||
+        null;
+      itemPhotos[d.name] = { mainImage, configFolders: subdirs };
 
       itemConfigAssets[d.name] = {};
       for (const sub of subdirs) {
         const subPath = path.join(itemPath, sub);
-        const subFiles = fs.readdirSync(subPath, { withFileTypes: true })
+        const subFiles = fs
+          .readdirSync(subPath, { withFileTypes: true })
           .filter((x) => x.isFile())
           .map((x) => x.name);
-        const images = subFiles.filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f));
+        const images = subFiles.filter((f) => /\.(jpg|jpeg|png|webp|gif)$/i.test(f));
         const glb = subFiles.find((f) => /\.glb$/i.test(f)) || null;
         itemConfigAssets[d.name][sub] = { images, glb };
       }
     }
+  }
+
+  // Case-insensitive lookup from Excel item name -> photo folder data
+  // Also index by "/"-stripped names (Windows folders cannot contain "/").
+  const photosByItemLower = {};
+  for (const [folderName, data] of Object.entries(itemPhotos)) {
+    const entry = { folderName, data };
+    photosByItemLower[folderName.toLowerCase()] = entry;
+    photosByItemLower[photoFolderKey(folderName)] = entry;
   }
 
   // Build sections for categories that appear in the sheet, alphabetized by label
@@ -150,18 +180,17 @@ function main() {
     }))
     .sort((a, b) => a.label.localeCompare(b.label, undefined, { sensitivity: "base" }));
 
-  // Main image path per item: /stock-items/ITEM or /stock-items/ITEM/filename
+  // Only include image paths when a real file exists (no placeholder path for missing photos)
   const itemImagePaths = {};
-  for (const [name, data] of Object.entries(itemPhotos)) {
-    if (data.mainImage) {
-      itemImagePaths[name] = `/stock-items/${name}/${data.mainImage}`;
-    } else {
-      itemImagePaths[name] = `/stock-items/${name}.png`;
-    }
-  }
+  const itemConfigAssetsByItem = {};
   for (const it of items) {
-    if (!itemImagePaths[it.item]) {
-      itemImagePaths[it.item] = `/stock-items/${it.item}.png`;
+    const match =
+      photosByItemLower[it.item.toLowerCase()] || photosByItemLower[photoFolderKey(it.item)];
+    if (match?.data.mainImage) {
+      itemImagePaths[it.item] = `/stock-items/${match.folderName}/${match.data.mainImage}`;
+    }
+    if (match && itemConfigAssets[match.folderName]) {
+      itemConfigAssetsByItem[it.item] = itemConfigAssets[match.folderName];
     }
   }
 
@@ -170,6 +199,8 @@ function main() {
 
 export type StockItem = {
   item: string;
+  /** Alternate / industry name from column B; shown in parentheses next to item. */
+  alternateName: string | null;
   category: string;
   categorySlug: string;
   dimensions: string;
@@ -182,15 +213,24 @@ export type StockItem = {
 
 export type StockItemSection = { label: string; id: string };
 
+export function getStockItemDisplayName(item: Pick<StockItem, "item" | "alternateName">): string {
+  return item.alternateName ? item.item + " (" + item.alternateName + ")" : item.item;
+}
+
+/** Public /stock-items/ folder name (slashes removed from the Excel item name). */
+export function getStockItemPhotoFolder(itemName: string): string {
+  return itemName.replace(/\\//g, "");
+}
+
 export const STOCK_ITEM_SECTIONS: StockItemSection[] = ${JSON.stringify(sections, null, 2)};
 
 export const STOCK_ITEMS: StockItem[] = ${JSON.stringify(items, null, 2)};
 
-/** Main image path for each item (under /stock-items/). */
+/** Main image path for each item that has a photo (under /stock-items/). Missing keys = no image yet. */
 export const STOCK_ITEM_IMAGES: Record<string, string> = ${JSON.stringify(itemImagePaths, null, 2)};
 
 /** Per-item, per-config-folder (e.g. "20" for 2/0) assets: images and optional .glb. */
-export const STOCK_ITEM_CONFIG_ASSETS: Record<string, Record<string, { images: string[]; glb: string | null }>> = ${JSON.stringify(itemConfigAssets, null, 2)};
+export const STOCK_ITEM_CONFIG_ASSETS: Record<string, Record<string, { images: string[]; glb: string | null }>> = ${JSON.stringify(itemConfigAssetsByItem, null, 2)};
 
 export function getStockItemByModel(model: string): StockItem | undefined {
   return STOCK_ITEMS.find((i) => i.item.toUpperCase() === model.toUpperCase());

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { ELEVATE_SECTION, WHY_CHOOSE_BENEFITS, WHY_CHOOSE_SECTION } from "@/data/home-sections";
 
@@ -40,9 +41,22 @@ export function HomeScrollSections() {
         className="scroll-mt-24 border-t border-neutral-200 bg-neutral-50"
         aria-labelledby="elevate-heading"
       >
-        <div className="mx-auto flex min-h-[min(88vh,920px)] max-w-7xl flex-col justify-center px-4 py-24 sm:px-6 lg:py-32">
-          <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-            <Reveal>
+        <div className="mx-auto flex min-h-[min(72vh,760px)] max-w-7xl flex-col justify-center px-4 py-14 sm:px-6 lg:py-20">
+          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.15fr)_auto] lg:gap-12 xl:gap-14">
+            <Reveal delay={0.08} className="order-2 justify-self-center lg:order-1 lg:justify-self-stretch">
+              <div className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm lg:max-w-none lg:min-h-[28rem]">
+                <Image
+                  src="/home/gothic.jpg"
+                  alt="Gothic arched windows with flexible moulding in a finished interior"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 24rem, 28vw"
+                  priority
+                />
+              </div>
+            </Reveal>
+
+            <Reveal className="order-1 lg:order-2">
               <p className="text-primary text-sm font-medium tracking-wide">
                 {ELEVATE_SECTION.eyebrow}
               </p>
@@ -52,7 +66,7 @@ export function HomeScrollSections() {
               >
                 {ELEVATE_SECTION.title}
               </h2>
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-neutral-600 md:text-lg">
+              <p className="mt-6 max-w-3xl text-base leading-relaxed text-neutral-600 md:text-lg">
                 {ELEVATE_SECTION.description}
               </p>
               <div className="mt-10">
@@ -65,10 +79,10 @@ export function HomeScrollSections() {
               </div>
             </Reveal>
 
-            <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1 lg:gap-5">
+            <div className="order-3 grid w-full max-w-xs gap-4 justify-self-center sm:max-w-none sm:grid-cols-3 sm:justify-self-stretch lg:w-56 lg:max-w-none lg:grid-cols-1 lg:justify-self-end lg:gap-5">
               {ELEVATE_SECTION.highlights.map((item, index) => (
-                <Reveal key={item.label} delay={0.08 + index * 0.1}>
-                  <article className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+                <Reveal key={item.label} delay={0.12 + index * 0.08}>
+                  <article className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md">
                     <p className="text-xs font-semibold tracking-wide text-neutral-500">
                       {item.label}
                     </p>
