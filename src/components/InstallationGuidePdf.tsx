@@ -187,8 +187,13 @@ export function InstallationGuidePdfDocument({ logos }: { logos: LogoSources }) 
           </View>
           <View style={styles.columnRight}>
             <SectionBlock title="Installing" steps={INSTALLING_STEPS} />
-            <SectionBlock title="Finishing" steps={FINISHING_STEPS} />
-            <StepBlock index={FINISHING_STEPS.length + 1} step={ADDITIONAL_STAINING_TIPS} />
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Finishing</Text>
+              {FINISHING_STEPS.map((step, i) => (
+                <StepBlock key={step.title} index={i + 1} step={step} />
+              ))}
+              <StepBlock index={FINISHING_STEPS.length + 1} step={ADDITIONAL_STAINING_TIPS} />
+            </View>
           </View>
         </View>
 

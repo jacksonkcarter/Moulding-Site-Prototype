@@ -1,6 +1,7 @@
 import { PageContent } from "@/components/PageContent";
 import { ContactLink } from "@/components/ContactLink";
 import { ContactPhoneLink } from "@/components/ContactPhoneLink";
+import Link from "next/link";
 
 export default function ReturnsPage() {
   return (
@@ -31,6 +32,14 @@ export default function ReturnsPage() {
           For further assistance, call a product specialist at{" "}
           <ContactPhoneLink className="font-medium text-primary hover:underline" /> or{" "}
           <ContactLink className="font-medium text-primary hover:underline">contact us</ContactLink>.
+        </p>
+
+        <p className="leading-relaxed border-t border-neutral-200 pt-6">
+          For manufacturing defects in materials and workmanship, see our{" "}
+          <Link href="/company-info/warranty" className="font-medium text-primary hover:underline">
+            limited lifetime warranty
+          </Link>
+          .
         </p>
       </div>
     </PageContent>

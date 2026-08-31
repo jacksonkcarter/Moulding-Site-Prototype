@@ -16,6 +16,7 @@ const ORDERING_PRODUCT_PROFILE_LINKS = [
   { label: "Browse select profiles", href: "/product-info/browse-select-profiles" },
   { label: "Replicate custom profiles", href: "/product-info/replicate-custom-profiles" },
   { label: "Accessories", href: "/product-info/accessories" },
+  { label: "Tight radii & bullnose corners", href: "/product-info/tight-radii-bullnose-corners" },
 ] as const;
 
 export function Header() {
@@ -46,14 +47,11 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm print:hidden">
-      {/* Top ribbon: order status, customer portal */}
+      {/* Top ribbon: order status */}
       <div className="w-full border-b border-neutral-200 bg-neutral-100">
         <div className="flex h-10 w-full items-center justify-end gap-6 px-4 sm:px-6">
           <Link href="/order-status" className="text-sm text-neutral-600 hover:text-primary">
             Check order status
-          </Link>
-          <Link href="/portal/login" className="text-sm text-neutral-600 hover:text-primary">
-            Customer portal
           </Link>
         </div>
       </div>
@@ -82,13 +80,13 @@ export function Header() {
           />
         </svg>
         <div className="absolute inset-x-0 top-0 z-10 flex h-16 w-full items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="mt-[3px] flex items-center gap-3">
+        <Link href="/" className="mt-[3px] flex min-w-0 items-center gap-2 md:gap-3">
           <Image
             src="/logos/flex-trim.svg"
             alt="Flex Trim™"
             width={120}
             height={40}
-            className="h-9 w-auto"
+            className="h-6 w-auto md:h-9"
           />
           <span className="text-neutral-300">|</span>
           <Image
@@ -96,7 +94,7 @@ export function Header() {
             alt="Carter Millwork"
             width={160}
             height={40}
-            className="h-9 w-auto"
+            className="h-6 w-auto md:h-9"
           />
         </Link>
         <nav className="hidden flex-1 items-center justify-evenly md:flex">
@@ -241,7 +239,7 @@ export function Header() {
                                   }, 150);
                                 }}
                               >
-                                <div className="rounded-r-md border border-neutral-200 border-l-0 bg-white py-1 shadow-lg">
+                                <div className="rounded-r-md rounded-bl-md border border-neutral-200 border-l-0 bg-white py-1 shadow-lg">
                                   {ORDERING_PRODUCT_PROFILE_LINKS.map((link) =>
                                     link.label === "Browse stock items" ? (
                                       <div
@@ -293,8 +291,19 @@ export function Header() {
                                               );
                                             }}
                                           >
-                                            <div className="rounded-r-md border border-neutral-200 border-l-0 bg-white py-1 shadow-lg">
-                                              <div className="border-b border-neutral-100 pb-1">
+                                            <div className="rounded-r-md rounded-bl-md border border-neutral-200 border-l-0 bg-white py-1 shadow-lg">
+                                              <Link
+                                                href="/product-info/browse-stock-items"
+                                                className="mx-2 mt-1 mb-1 block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
+                                                onClick={() => {
+                                                  setOpenDropdown(null);
+                                                  setStockItemsSubmenuOpen(false);
+                                                  setProductsAndProfilesOpen(false);
+                                                }}
+                                              >
+                                                See all categories
+                                              </Link>
+                                              <div className="border-t border-neutral-100 pt-1">
                                                 {STOCK_ITEM_SECTIONS.map((section) => (
                                                   <Link
                                                     key={section.id}
@@ -310,17 +319,6 @@ export function Header() {
                                                   </Link>
                                                 ))}
                                               </div>
-                                              <Link
-                                                href="/product-info/browse-stock-items"
-                                                className="mx-2 mt-1 mb-1 block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
-                                                onClick={() => {
-                                                  setOpenDropdown(null);
-                                                  setStockItemsSubmenuOpen(false);
-                                                  setProductsAndProfilesOpen(false);
-                                                }}
-                                              >
-                                                See all
-                                              </Link>
                                             </div>
                                           </div>
                                         )}
@@ -375,8 +373,19 @@ export function Header() {
                                               );
                                             }}
                                           >
-                                            <div className="overflow-hidden rounded-r-md border border-neutral-200 border-l-0 bg-white shadow-lg">
-                                              <div className="grid grid-cols-3 gap-x-1 gap-y-0 border-b border-neutral-100 px-2 py-1.5">
+                                            <div className="overflow-hidden rounded-r-md rounded-bl-md border border-neutral-200 border-l-0 bg-white shadow-lg">
+                                              <Link
+                                                href="/product-info/browse-select-profiles"
+                                                className="mx-2 mt-1 mb-1 block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
+                                                onClick={() => {
+                                                  setOpenDropdown(null);
+                                                  setProfilesSubmenuOpen(false);
+                                                  setProductsAndProfilesOpen(false);
+                                                }}
+                                              >
+                                                See all categories
+                                              </Link>
+                                              <div className="grid grid-cols-3 gap-x-1 gap-y-0 border-t border-neutral-100 px-2 py-1.5">
                                                 {PROFILE_NAV_MOULDING_OPTIONS.map((type) => (
                                                   <Link
                                                     key={type}
@@ -392,17 +401,6 @@ export function Header() {
                                                   </Link>
                                                 ))}
                                               </div>
-                                              <Link
-                                                href="/product-info/browse-select-profiles"
-                                                className="mx-2 mt-1 mb-1 block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
-                                                onClick={() => {
-                                                  setOpenDropdown(null);
-                                                  setProfilesSubmenuOpen(false);
-                                                  setProductsAndProfilesOpen(false);
-                                                }}
-                                              >
-                                                See all
-                                              </Link>
                                             </div>
                                           </div>
                                         )}
@@ -471,8 +469,18 @@ export function Header() {
                                   stockItemsSubmenuCloseTimer.current = setTimeout(() => setStockItemsSubmenuOpen(false), 150);
                                 }}
                               >
-                                <div className="rounded-r-md border border-neutral-200 border-l-0 bg-white py-1 shadow-lg">
-                                  <div className="border-b border-neutral-100 pb-1">
+                                <div className="rounded-r-md rounded-bl-md border border-neutral-200 border-l-0 bg-white py-1 shadow-lg">
+                                  <Link
+                                    href="/product-info/browse-stock-items"
+                                    className="mx-2 mt-1 mb-1 block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
+                                    onClick={() => {
+                                      setOpenDropdown(null);
+                                      setStockItemsSubmenuOpen(false);
+                                    }}
+                                  >
+                                    See all categories
+                                  </Link>
+                                  <div className="border-t border-neutral-100 pt-1">
                                     {STOCK_ITEM_SECTIONS.map((section) => (
                                     <Link
                                       key={section.id}
@@ -487,16 +495,6 @@ export function Header() {
                                     </Link>
                                   ))}
                                   </div>
-                                  <Link
-                                    href="/product-info/browse-stock-items"
-                                    className="mx-2 mt-1 mb-1 block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
-                                    onClick={() => {
-                                      setOpenDropdown(null);
-                                      setStockItemsSubmenuOpen(false);
-                                    }}
-                                  >
-                                    See all
-                                  </Link>
                                 </div>
                               </div>
                             )}
@@ -546,8 +544,18 @@ export function Header() {
                                   profilesSubmenuCloseTimer.current = setTimeout(() => setProfilesSubmenuOpen(false), 150);
                                 }}
                               >
-                                <div className="overflow-hidden rounded-r-md border border-neutral-200 border-l-0 bg-white shadow-lg">
-                                  <div className="grid grid-cols-3 gap-x-1 gap-y-0 border-b border-neutral-100 px-2 py-1.5">
+                                <div className="overflow-hidden rounded-r-md rounded-bl-md border border-neutral-200 border-l-0 bg-white shadow-lg">
+                                  <Link
+                                    href="/product-info/browse-select-profiles"
+                                    className="mx-2 mt-1 mb-1 block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
+                                    onClick={() => {
+                                      setOpenDropdown(null);
+                                      setProfilesSubmenuOpen(false);
+                                    }}
+                                  >
+                                    See all categories
+                                  </Link>
+                                  <div className="grid grid-cols-3 gap-x-1 gap-y-0 border-t border-neutral-100 px-2 py-1.5">
                                     {PROFILE_NAV_MOULDING_OPTIONS.map((type) => (
                                       <Link
                                         key={type}
@@ -562,16 +570,6 @@ export function Header() {
                                       </Link>
                                     ))}
                                   </div>
-                                  <Link
-                                    href="/product-info/browse-select-profiles"
-                                    className="mx-2 mt-1 mb-1 block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
-                                    onClick={() => {
-                                      setOpenDropdown(null);
-                                      setProfilesSubmenuOpen(false);
-                                    }}
-                                  >
-                                    See all
-                                  </Link>
                                 </div>
                               </div>
                             )}
@@ -604,7 +602,7 @@ export function Header() {
             Contact us
           </ContactLink>
           <form
-            className="relative mt-[12px] flex items-center"
+            className="relative mt-[12px] hidden items-center md:flex"
             onSubmit={(event) => {
               event.preventDefault();
               submitSiteSearch();
@@ -778,6 +776,13 @@ export function Header() {
                                       </button>
                                       {mobileDeepExpanded === "Browse stock items" && (
                                         <div className="pl-4">
+                                          <Link
+                                            href="/product-info/browse-stock-items"
+                                            className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
+                                            onClick={() => setMobileOpen(false)}
+                                          >
+                                            See all categories
+                                          </Link>
                                           {STOCK_ITEM_SECTIONS.map((section) => (
                                             <Link
                                               key={section.id}
@@ -788,13 +793,6 @@ export function Header() {
                                               {section.label}
                                             </Link>
                                           ))}
-                                          <Link
-                                            href="/product-info/browse-stock-items"
-                                            className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
-                                            onClick={() => setMobileOpen(false)}
-                                          >
-                                            See all
-                                          </Link>
                                         </div>
                                       )}
                                     </div>
@@ -823,6 +821,13 @@ export function Header() {
                                       </button>
                                       {mobileDeepExpanded === "Browse select profiles" && (
                                         <div className="pl-4">
+                                          <Link
+                                            href="/product-info/browse-select-profiles"
+                                            className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
+                                            onClick={() => setMobileOpen(false)}
+                                          >
+                                            See all categories
+                                          </Link>
                                           {PROFILE_NAV_MOULDING_OPTIONS.map((type) => (
                                             <Link
                                               key={type}
@@ -833,13 +838,6 @@ export function Header() {
                                               {type}
                                             </Link>
                                           ))}
-                                          <Link
-                                            href="/product-info/browse-select-profiles"
-                                            className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
-                                            onClick={() => setMobileOpen(false)}
-                                          >
-                                            See all
-                                          </Link>
                                         </div>
                                       )}
                                     </div>

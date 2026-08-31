@@ -5,7 +5,7 @@ const XLSX = require("xlsx");
 const PROJECT_ROOT = path.join(__dirname, "..");
 const PROJECT_INFO = path.join(PROJECT_ROOT, "Project_Info");
 const XLSX_PATH = path.join(PROJECT_INFO, "All-Profiles.xlsx");
-const IMAGES_DIR = path.join(PROJECT_INFO, "Website-Images");
+const IMAGES_DIR = path.join(PROJECT_INFO, "Profile-Browser", "GIFs");
 const OUTPUT_PATH = path.join(PROJECT_ROOT, "src", "data", "profile-moulding-types.ts");
 const IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".gif"]);
 

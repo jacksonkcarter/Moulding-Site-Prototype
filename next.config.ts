@@ -1,12 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  serverExternalPackages: ["xlsx"],
+  serverExternalPackages: ["xlsx", "pdfjs-dist"],
   async redirects() {
     return [
       {
-        source: "/product-info/material-info",
-        destination: "/product-info/material-details",
+        source: "/ordering-installation/radius-calculator",
+        destination: "/ordering-installation/flex-trim-toolbox",
         permanent: true,
       },
     ];

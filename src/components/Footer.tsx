@@ -46,8 +46,8 @@ export function Footer({ compact }: FooterProps) {
             <Link href="/product-info/browse-select-profiles" className="hover:text-[#9f1b20]">
               Browse select profiles
             </Link>
-            <Link href="/ordering-installation/radius-calculator" className="hover:text-[#9f1b20]">
-              Radius calculator
+            <Link href="/ordering-installation/flex-trim-toolbox" className="hover:text-[#9f1b20]">
+              Flex Trim Toolbox
             </Link>
             <Link href="/ordering-installation/dealer-search" className="hover:text-[#9f1b20]">
               Dealer search

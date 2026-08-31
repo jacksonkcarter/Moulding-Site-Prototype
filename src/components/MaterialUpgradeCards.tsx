@@ -3,7 +3,10 @@
 import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { MATERIAL_UPGRADES } from "@/data/material-upgrades";
+import {
+  MATERIAL_UPGRADES,
+  type MaterialUpgradeEmblem,
+} from "@/data/material-upgrades";
 
 function ChevronIcon({ open }: { open: boolean }) {
   return (
@@ -22,12 +25,83 @@ function ChevronIcon({ open }: { open: boolean }) {
   );
 }
 
+function EmblemIcon({
+  emblem,
+  className,
+}: {
+  emblem: MaterialUpgradeEmblem;
+  className?: string;
+}) {
+  switch (emblem) {
+    case "flexibility":
+      // Sideways S-curve
+      return (
+        <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
+          <path
+            d="M3.5 7C7.5 7 7.5 17 12 17C16.5 17 16.5 7 20.5 7"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
+    case "feather":
+      return (
+        // eslint-disable-next-line @next/next/no-img-element -- static emblem asset
+        <img
+          src="/emblems/feather.png?v=3"
+          alt=""
+          aria-hidden
+          className={`object-contain ${className ?? ""}`}
+        />
+      );
+    case "fire":
+      return (
+        // eslint-disable-next-line @next/next/no-img-element -- static emblem asset
+        <img
+          src="/emblems/fire.png?v=1"
+          alt=""
+          aria-hidden
+          className={`object-contain ${className ?? ""}`}
+        />
+      );
+    case "tooling":
+      // 4-blade insert cutterhead (circular body + four knife inserts)
+      return (
+        <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
+          <g fill="currentColor" fillRule="evenodd">
+            <path d="M12 2.15A9.85 9.85 0 1 0 21.85 12 9.85 9.85 0 0 0 12 2.15Zm0 5.95a3.9 3.9 0 1 0 3.9 3.9A3.9 3.9 0 0 0 12 8.1Z" />
+          </g>
+          {[0, 90, 180, 270].map((deg) => (
+            <path
+              key={deg}
+              transform={`rotate(${deg} 12 12)`}
+              fill="currentColor"
+              d="M6.55 1.9h8.95l.4 2.95H9.55L6.55 3.4Z"
+            />
+          ))}
+        </svg>
+      );
+    case "spiral":
+      return (
+        // eslint-disable-next-line @next/next/no-img-element -- static emblem asset
+        <img
+          src="/emblems/spiral.png?v=1"
+          alt=""
+          aria-hidden
+          className={`object-contain ${className ?? ""}`}
+        />
+      );
+  }
+}
+
 export function MaterialUpgradeCards() {
   const [expanded, setExpanded] = useState<string | null>(null);
 
   return (
     <ul
-      className="mt-5 grid list-none items-start gap-4 p-0 sm:grid-cols-2 lg:grid-cols-4"
+      className="mt-5 grid list-none items-start gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
       aria-label="Specialized material upgrade benefits"
     >
       {MATERIAL_UPGRADES.map((item) => {
@@ -46,22 +120,24 @@ export function MaterialUpgradeCards() {
                 type="button"
                 onClick={() => setExpanded(isOpen ? null : item.title)}
                 aria-expanded={isOpen}
-                className="group flex w-full flex-col p-5 text-left"
+                className="group relative flex w-full flex-col p-5 text-left"
               >
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex min-w-0 flex-1 items-center gap-2.5">
-                    <div
-                      className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full transition-colors ${
-                        isOpen ? "bg-primary/15" : "bg-primary/10 group-hover:bg-primary/15"
-                      }`}
-                    >
-                      <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden />
-                    </div>
-                    <p className="min-w-0 text-sm font-semibold leading-snug text-neutral-900 md:text-base">
-                      {item.title}
-                    </p>
-                  </div>
+                <span className="absolute top-5 right-5">
                   <ChevronIcon open={isOpen} />
+                </span>
+                <div className="flex flex-col items-center gap-3 px-6 text-center">
+                  <div
+                    className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-full transition-colors ${
+                      isOpen
+                        ? "bg-primary/15 text-primary"
+                        : "bg-primary/10 text-primary group-hover:bg-primary/15"
+                    }`}
+                  >
+                    <EmblemIcon emblem={item.emblem} className="h-9 w-9" />
+                  </div>
+                  <p className="whitespace-nowrap text-sm font-semibold leading-tight text-neutral-900 sm:text-[15px]">
+                    {item.title}
+                  </p>
                 </div>
               </button>
 
@@ -76,13 +152,52 @@ export function MaterialUpgradeCards() {
                     className="overflow-hidden"
                   >
                     <div className="border-t border-neutral-200 px-5 pb-5 pt-4">
-                      {item.product ? (
-                        <p className="text-sm font-semibold text-primary md:text-base">{item.product}</p>
+                      {item.products?.length ? (
+                        item.learnMoreHref ? (
+                          <Link
+                            href={item.learnMoreHref}
+                            className="block space-y-0.5 text-sm font-semibold text-primary hover:underline md:text-base"
+                          >
+                            {item.products.map((name, index) => {
+                              const total = item.products!.length;
+                              const label =
+                                total > 1 && index < total - 1 ? `${name},` : name;
+                              return (
+                                <span key={name} className="block">
+                                  {label}
+                                </span>
+                              );
+                            })}
+                          </Link>
+                        ) : (
+                          <div className="space-y-0.5 text-sm font-semibold text-primary md:text-base">
+                            {item.products.map((name, index) => {
+                              const total = item.products!.length;
+                              const label =
+                                total > 1 && index < total - 1 ? `${name},` : name;
+                              return (
+                                <p key={name}>{label}</p>
+                              );
+                            })}
+                          </div>
+                        )
                       ) : null}
-                      <p className={`text-sm leading-relaxed text-neutral-600 ${item.product ? "mt-2" : ""}`}>
+                      <p
+                        className={`text-sm leading-relaxed text-neutral-600 ${
+                          item.products?.length ? "mt-2" : ""
+                        }`}
+                      >
                         {item.description}
                       </p>
-                      {item.footnote ? (
+                      {item.footnotes?.length ? (
+                        <div className="mt-3 space-y-2">
+                          {item.footnotes.map((note) => (
+                            <p key={note} className="text-xs leading-relaxed text-neutral-500">
+                              {note}
+                            </p>
+                          ))}
+                        </div>
+                      ) : item.footnote ? (
                         <p className="mt-3 text-xs leading-relaxed text-neutral-500">{item.footnote}</p>
                       ) : null}
                       {item.learnMoreHref ? (

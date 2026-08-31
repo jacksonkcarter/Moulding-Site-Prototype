@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ELEVATE_SECTION, WHY_CHOOSE_BENEFITS, WHY_CHOOSE_SECTION } from "@/data/home-sections";
+import { ELEVATE_SECTION } from "@/data/home-sections";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -38,7 +38,7 @@ export function HomeScrollSections() {
     <>
       <section
         id="elevate"
-        className="scroll-mt-24 border-t border-neutral-200 bg-neutral-50"
+        className="scroll-mt-24 border-t border-neutral-200 bg-white"
         aria-labelledby="elevate-heading"
       >
         <div className="mx-auto flex min-h-[min(72vh,760px)] max-w-7xl flex-col justify-center px-4 py-14 sm:px-6 lg:py-20">
@@ -94,40 +94,6 @@ export function HomeScrollSections() {
                 </Reveal>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="why-choose"
-        className="scroll-mt-24 border-t border-neutral-200 bg-white"
-        aria-labelledby="why-choose-heading"
-      >
-        <div className="mx-auto min-h-[min(88vh,920px)] max-w-7xl px-4 py-24 sm:px-6 lg:py-32">
-          <Reveal className="mx-auto max-w-3xl text-center">
-            <p className="text-primary text-sm font-medium tracking-wide">
-              {WHY_CHOOSE_SECTION.eyebrow}
-            </p>
-            <h2
-              id="why-choose-heading"
-              className="mt-4 text-3xl font-sans tracking-tight text-neutral-900 md:text-4xl lg:text-5xl"
-            >
-              {WHY_CHOOSE_SECTION.title}
-            </h2>
-          </Reveal>
-
-          <div className="mt-14 grid gap-6 md:grid-cols-3 lg:mt-16 lg:gap-8">
-            {WHY_CHOOSE_BENEFITS.map((benefit, index) => (
-              <Reveal key={benefit.title} delay={0.1 + index * 0.1}>
-                <article className="group h-full rounded-2xl border border-neutral-200 bg-neutral-50/60 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:bg-white hover:shadow-md lg:p-8">
-                  <div className="mb-5 h-1 w-10 rounded-full bg-primary transition-all duration-300 group-hover:w-14" />
-                  <h3 className="text-lg font-semibold text-primary">{benefit.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-neutral-600 md:text-base">
-                    {benefit.description}
-                  </p>
-                </article>
-              </Reveal>
-            ))}
           </div>
         </div>
       </section>

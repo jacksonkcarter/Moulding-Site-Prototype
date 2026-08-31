@@ -4,12 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState, useMemo, useEffect, useCallback } from "react";
+import { BendingStylesCard } from "@/components/BendingStylesCard";
 import { BoundNumberInput } from "@/components/BoundNumberInput";
-import { FilterSection } from "@/components/FilterSection";
+import { ContactLink } from "@/components/ContactLink";
+import { FilterSection, FilterResetAllButton } from "@/components/FilterSection";
 import type { StockItem, StockItemSection } from "@/data/stock-items";
-import { getStockItemDisplayName } from "@/data/stock-items";
+import { getStockItemDisplayName, STOCK_ITEM_IMAGE_SIZES } from "@/data/stock-items";
 import { getStockConfigGroups } from "@/lib/stock-item-configs";
-import { getStockMouldingFilterOptions } from "@/lib/stock-moulding-filter-options";
+import {
+  getStockMouldingFilterOptions,
+  stockItemMatchesMouldingFilter,
+} from "@/lib/stock-moulding-filter-options";
+import { dimensionFilterBounds } from "@/lib/format-inches";
 
 type StockItemsViewProps = {
   sections: StockItemSection[];
@@ -26,6 +32,20 @@ const SEARCH_FILTER_OPTIONS = [
 ] as const;
 
 type SearchFilterType = (typeof SEARCH_FILTER_OPTIONS)[number]["value"];
+
+function categoryImageCanvas(
+  categoryItems: StockItem[],
+): { width: number; height: number } | null {
+  let width = 0;
+  let height = 0;
+  for (const item of categoryItems) {
+    const size = STOCK_ITEM_IMAGE_SIZES[item.item];
+    if (!size) continue;
+    width = Math.max(width, size.width);
+    height = Math.max(height, size.height);
+  }
+  return width > 0 && height > 0 ? { width, height } : null;
+}
 
 function itemMatchesSearch(itemName: string, query: string, filterType: SearchFilterType): boolean {
   const name = itemName.toLowerCase();
@@ -144,16 +164,20 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
     });
   }, []);
 
+  const resetAllFilters = useCallback(() => {
+    setItemQuery("");
+    setSearchFilterType("contains");
+    setSelectedFilterOptions(new Set());
+    setThicknessRange(thicknessBounds);
+    setWidthRange(widthBounds);
+  }, [thicknessBounds, widthBounds]);
+
   const itemMatchesTypeFilter = useCallback((item: StockItem): boolean => {
-    if (selectedFilterOptions.size === 0) return true;
-    if (item.category === "Miscellaneous" && item.miscellaneousLabel) {
-      return selectedFilterOptions.has(item.miscellaneousLabel);
-    }
-    const categoryParts = item.category.split(/\s+&\s+/).map((p) => p.trim()).filter(Boolean);
-    return categoryParts.some((part) => selectedFilterOptions.has(part));
+    return stockItemMatchesMouldingFilter(item, selectedFilterOptions);
   }, [selectedFilterOptions]);
 
   const filteredItems = useMemo(() => {
+    const [widthMin, widthMax] = dimensionFilterBounds(widthMinDebounced, widthMaxDebounced);
     let result = items;
     if (selectedFilterOptions.size > 0) {
       result = result.filter(itemMatchesTypeFilter);
@@ -172,7 +196,7 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
     });
     result = result.filter((item) => {
       if (item.width != null) {
-        if (item.width < widthMinDebounced || item.width > widthMaxDebounced) return false;
+        if (item.width < widthMin || item.width > widthMax) return false;
       }
       return true;
     });
@@ -204,6 +228,22 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
     return map;
   }, [filteredItems]);
 
+  const canvasByCategory = useMemo(() => {
+    const bySlug = new Map<string, StockItem[]>();
+    for (const item of items) {
+      if (item.categorySlug === "miscellaneous") continue;
+      const list = bySlug.get(item.categorySlug) ?? [];
+      list.push(item);
+      bySlug.set(item.categorySlug, list);
+    }
+    const canvases = new Map<string, { width: number; height: number }>();
+    for (const [slug, categoryItems] of bySlug) {
+      const canvas = categoryImageCanvas(categoryItems);
+      if (canvas) canvases.set(slug, canvas);
+    }
+    return canvases;
+  }, [items]);
+
   return (
     <section id="stock-items" className="scroll-mt-20 border-t border-neutral-200 bg-white pb-20 pt-5">
       <div className="w-full px-4 sm:px-6">
@@ -211,12 +251,28 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
           Browse stock items
         </h2>
         <p className="mt-2 text-neutral-600 text-center">
-          Browse stock items by category. Select one or more moulding types to filter.
+          View custom profiles in our{" "}
+          <Link href="/product-info/profile-search" className="font-medium text-primary hover:underline">
+            browser
+          </Link>{" "}
+          or{" "}
+          <Link href="/forms-literature/catalog" className="font-medium text-primary hover:underline">
+            catalog
+          </Link>
+          , or{" "}
+          <ContactLink action="popover" className="font-medium text-primary hover:underline">
+            contact us
+          </ContactLink>{" "}
+          for even more options
         </p>
 
         <div className="mt-8 flex flex-col gap-8 lg:flex-row">
-          <aside className="w-full shrink-0 self-start min-w-0 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 p-4 lg:w-72">
-            <div className="space-y-0">
+          <aside className="w-full shrink-0 self-start min-w-0 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 lg:w-72">
+            <BendingStylesCard flush />
+            <div className="border-b border-neutral-200 px-4 pb-3 pt-3">
+              <FilterResetAllButton onClick={resetAllFilters} />
+            </div>
+            <div className="space-y-0 p-4">
               <FilterSection
                 title="Item"
                 open={searchOpen}
@@ -402,12 +458,36 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
                     <h3 className="border-b border-neutral-300 pb-1.5 text-xl font-medium text-primary">
                       {label}
                     </h3>
-                    <div className="mt-3 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+                    <div
+                      className={`mt-3 grid gap-6 sm:grid-cols-2 md:grid-cols-3 ${
+                        id === "flat-stock"
+                          ? "lg:grid-cols-9"
+                          : id === "shoe-quarter-round" || id === "stop" || id === "corner-cove"
+                            ? "lg:grid-cols-8"
+                            : id === "casing"
+                              ? "lg:grid-cols-5"
+                              : "lg:grid-cols-6"
+                      }`}
+                    >
                       {categoryItems.map((item) => {
                         const imageSrc = images[item.item];
                         const href = `/product-info/stock-items/${item.categorySlug}/${encodeURIComponent(item.item)}`;
                         const sizeGroups = getStockConfigGroups(item.configs);
                         const displayName = getStockItemDisplayName(item);
+                        const canvas = id === "miscellaneous" ? null : canvasByCategory.get(id) ?? null;
+                        const imageSize = STOCK_ITEM_IMAGE_SIZES[item.item] ?? null;
+                        const scaleToCategory = Boolean(canvas && imageSize && imageSrc);
+                        // Flat stock 9-across @ 8/9; shoe/stop/corner 8-across @ 1 keep prior 6×(4/3) image height
+                        const tileAspect =
+                          id === "base"
+                            ? "2/3"
+                            : id === "casing"
+                              ? "3/2"
+                              : id === "shoe-quarter-round" || id === "stop" || id === "corner-cove"
+                                ? "1"
+                                : id === "chair-rail" || id === "flat-stock" || id === "crown" || id === "rake"
+                                  ? "8/9"
+                                  : "4/3";
                         return (
                           <div
                             key={item.item}
@@ -417,16 +497,45 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
                               href={href}
                               className="group block transition hover:opacity-90"
                             >
-                              <div className="relative w-full" style={{ aspectRatio: "4/3" }}>
+                              <div
+                                className="relative w-full bg-white"
+                                style={{ aspectRatio: tileAspect }}
+                              >
                                 {imageSrc ? (
-                                  <Image
-                                    src={imageSrc}
-                                    alt={displayName}
-                                    fill
-                                    className="object-contain pt-1 px-4 pb-px transition group-hover:opacity-95"
-                                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
-                                    unoptimized
-                                  />
+                                  scaleToCategory && canvas && imageSize ? (
+                                    <div className="absolute inset-0 flex items-center justify-center p-2">
+                                      <div
+                                        className="relative h-full w-auto max-w-full"
+                                        style={{ aspectRatio: `${canvas.width} / ${canvas.height}` }}
+                                      >
+                                        <div
+                                          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                                          style={{
+                                            width: `${(imageSize.width / canvas.width) * 100}%`,
+                                            height: `${(imageSize.height / canvas.height) * 100}%`,
+                                          }}
+                                        >
+                                          <Image
+                                            src={imageSrc}
+                                            alt={`${displayName} flexible moulding`}
+                                            fill
+                                            className="object-contain transition group-hover:opacity-95"
+                                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                                            unoptimized
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  ) : (
+                                    <Image
+                                      src={imageSrc}
+                                      alt={`${displayName} flexible moulding`}
+                                      fill
+                                      className="object-contain pt-1 px-4 pb-px transition group-hover:opacity-95"
+                                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                                      unoptimized
+                                    />
+                                  )
                                 ) : (
                                   <div className="flex h-full w-full items-center justify-center bg-neutral-50 px-4">
                                     <p className="text-center text-sm font-medium text-neutral-400">
@@ -450,12 +559,12 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
                                     <p className="text-[11px] font-semibold tracking-wide text-neutral-500">
                                       {label}
                                     </p>
-                                    <div className="mt-1 flex flex-wrap justify-center gap-1">
+                                    <div className="mt-1 flex flex-wrap justify-center gap-0.5">
                                       {options.map((opt) => (
                                         <Link
                                           key={opt}
                                           href={`${href}?config=${encodeURIComponent(opt)}`}
-                                          className="rounded border border-neutral-300 bg-white px-1.5 py-0.5 text-[11px] font-medium text-neutral-700 transition-colors hover:border-primary hover:bg-red-50/50 hover:text-primary"
+                                          className="rounded border border-neutral-300 bg-white px-1 py-px text-[10px] font-medium leading-tight text-neutral-700 transition-colors hover:border-primary hover:bg-red-50/50 hover:text-primary"
                                         >
                                           {opt}
                                         </Link>

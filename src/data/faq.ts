@@ -86,9 +86,12 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         id: "warranty",
         question: "What warranty do your materials carry?",
         answer: [
-          "Flex Trim™ and Zzz Flex® carry a lifetime warranty. Ultra-Flex, Ultra-Fire Flex, Machinable S4S, and Rigid Cast carry a 1-year warranty.",
+          "Flex Trim™, Zzz Flex®, Ultra-Flex, Ultra-Fire Flex, and Machinable S4S carry a lifetime warranty. See the limited lifetime warranty for full terms, exclusions, and how to make a claim.",
         ],
-        links: [{ label: "Material details", href: "/product-info/material-details" }],
+        links: [
+          { label: "Limited lifetime warranty", href: "/company-info/warranty" },
+          { label: "Material details", href: "/product-info/material-details" },
+        ],
       },
     ],
   },
@@ -140,9 +143,9 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         id: "radius-length",
         question: "How do I figure out moulding length for a radius?",
         answer: [
-          "Use the radius calculator: enter width and rise in inches. It computes the arc radius and required moulding length, rounding length up to the nearest foot plus 1 extra foot.",
+          "Use the Flex Trim Toolbox: choose a shape (half round, arc/eyebrow, elliptical, oval, or custom), then enter dimensions or a measured length. It computes the geometric length and the required moulding length, rounding up to the next foot plus manufacturing allowance.",
         ],
-        links: [{ label: "Radius calculator", href: "/ordering-installation/radius-calculator" }],
+        links: [{ label: "Flex Trim Toolbox", href: "/ordering-installation/flex-trim-toolbox" }],
       },
       {
         id: "pre-bent",
@@ -180,7 +183,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         id: "adhesive-fasteners",
         question: "What adhesive and fasteners should I use?",
         answer: [
-          "Use adhesive compatible with polyurethane and non-porous materials, such as PL Premium Max—standard wood glue will not bond. Pin nails are best; screws, framing nails, finish nails, and brad nails are also acceptable depending on size. Never use staples. Lower nail-gun pressure, set nails by hand when needed, and let adhesive do most of the holding work.",
+          "Use adhesive compatible with polyurethane and non-porous materials, such as PL Premium Max—standard wood glue will not bond. Pin nails are best; trim screws, finish nails, and brad nails are also acceptable depending on size. Never use staples. Lower nail-gun pressure, set nails by hand when needed, and let adhesive do most of the holding work.",
         ],
         links: [
           { label: "Installing tips", href: "/ordering-installation/installation-guide#installing" },
@@ -297,7 +300,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
           },
         ],
         links: [
-          { label: "Radius calculator", href: "/ordering-installation/radius-calculator" },
+          { label: "Flex Trim Toolbox", href: "/ordering-installation/flex-trim-toolbox" },
           { label: "Installation guide", href: "/ordering-installation/installation-guide" },
         ],
       },

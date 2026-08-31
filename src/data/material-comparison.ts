@@ -12,130 +12,118 @@ export const MATERIAL_COMPARISON_COLUMNS = [
   "Zzz Flex",
   "Ultra-Flex",
   "Ultra-Fire Flex",
-  "Machinable S4S",
-  "Rigid Cast"
+  "Machinable S4S"
 ] as const;
 
 export const MATERIAL_COMPARISON_ROWS: MaterialComparisonRow[] = [
   {
     "attribute": "Flexibility",
     "values": {
-      "Flex Trim": "OO",
-      "Zzz Flex": "OOO",
-      "Ultra-Flex": "O",
-      "Ultra-Fire Flex": "O",
-      "Machinable S4S": "O",
-      "Rigid Cast": "N/A"
+      "Flex Trim": "OOO",
+      "Zzz Flex": "OOOO",
+      "Ultra-Flex": "OO",
+      "Ultra-Fire Flex": "OO",
+      "Machinable S4S": "OO"
     }
   },
   {
     "attribute": "Paintability",
     "values": {
-      "Flex Trim": "OOO",
-      "Zzz Flex": "OOO",
-      "Ultra-Flex": "OOO",
-      "Ultra-Fire Flex": "OOO",
-      "Machinable S4S": "OOO",
-      "Rigid Cast": "OOO"
+      "Flex Trim": "OOOO",
+      "Zzz Flex": "OOOO",
+      "Ultra-Flex": "OOOO",
+      "Ultra-Fire Flex": "OOOO",
+      "Machinable S4S": "OOOO"
     }
   },
   {
     "attribute": "Stainability",
     "values": {
-      "Flex Trim": "OO",
-      "Zzz Flex": "OO",
-      "Ultra-Flex": "OOO",
-      "Ultra-Fire Flex": "O",
-      "Machinable S4S": "N/A",
-      "Rigid Cast": "OOO"
+      "Flex Trim": "OOOO",
+      "Zzz Flex": "OOOO",
+      "Ultra-Flex": "OOOO",
+      "Ultra-Fire Flex": "OOOO",
+      "Machinable S4S": "N/A"
     }
   },
   {
     "attribute": "Lightweight",
     "values": {
-      "Flex Trim": "O",
-      "Zzz Flex": "O",
-      "Ultra-Flex": "OOO",
-      "Ultra-Fire Flex": "OOO",
-      "Machinable S4S": "OO",
-      "Rigid Cast": "OO"
+      "Flex Trim": "OO",
+      "Zzz Flex": "OO",
+      "Ultra-Flex": "OOOO",
+      "Ultra-Fire Flex": "OOOO",
+      "Machinable S4S": "OOOO"
     }
   },
   {
     "attribute": "Machinability",
     "values": {
-      "Flex Trim": "O",
-      "Zzz Flex": "O",
-      "Ultra-Flex": "OO",
-      "Ultra-Fire Flex": "OO",
-      "Machinable S4S": "OOO",
-      "Rigid Cast": "OO"
+      "Flex Trim": "OO",
+      "Zzz Flex": "OO",
+      "Ultra-Flex": "OOO",
+      "Ultra-Fire Flex": "OOO",
+      "Machinable S4S": "OOOO"
     }
   },
   {
-    "attribute": "Moisture Resistance",
+    "attribute": "Moisture resistance",
     "values": {
-      "Flex Trim": "OOO",
-      "Zzz Flex": "OOO",
-      "Ultra-Flex": "OOO",
-      "Ultra-Fire Flex": "OOO",
-      "Machinable S4S": "OOO",
-      "Rigid Cast": "OOO"
+      "Flex Trim": "OOOO",
+      "Zzz Flex": "OOOO",
+      "Ultra-Flex": "OOOO",
+      "Ultra-Fire Flex": "OOOO",
+      "Machinable S4S": "OOOO"
     }
   },
   {
-    "attribute": "Insect Resistance",
+    "attribute": "Insect resistance",
     "values": {
-      "Flex Trim": "OOO",
-      "Zzz Flex": "OOO",
-      "Ultra-Flex": "OOO",
-      "Ultra-Fire Flex": "OOO",
-      "Machinable S4S": "OOO",
-      "Rigid Cast": "OOO"
+      "Flex Trim": "OOOO",
+      "Zzz Flex": "OOOO",
+      "Ultra-Flex": "OOOO",
+      "Ultra-Fire Flex": "OOOO",
+      "Machinable S4S": "OOOO"
     }
   },
   {
     "attribute": "Interior",
     "values": {
-      "Flex Trim": "OOO",
-      "Zzz Flex": "OOO",
-      "Ultra-Flex": "OOO",
-      "Ultra-Fire Flex": "OOO",
-      "Machinable S4S": "OOO",
-      "Rigid Cast": "OOO"
+      "Flex Trim": "OOOO",
+      "Zzz Flex": "OOOO",
+      "Ultra-Flex": "OOOO",
+      "Ultra-Fire Flex": "OOOO",
+      "Machinable S4S": "OOOO"
     }
   },
   {
     "attribute": "Exterior",
     "values": {
-      "Flex Trim": "OOO",
-      "Zzz Flex": "OOO",
-      "Ultra-Flex": "OOO",
-      "Ultra-Fire Flex": "OOO",
-      "Machinable S4S": "OOO",
-      "Rigid Cast": "OOO"
+      "Flex Trim": "OOOO",
+      "Zzz Flex": "OOOO",
+      "Ultra-Flex": "OOOO",
+      "Ultra-Fire Flex": "OOOO",
+      "Machinable S4S": "OOOO"
     }
   },
   {
-    "attribute": "Extended Lengths",
+    "attribute": "Available as extended lengths",
     "values": {
-      "Flex Trim": "O",
-      "Zzz Flex": "O",
+      "Flex Trim": "X",
+      "Zzz Flex": "X",
       "Ultra-Flex": "N/A",
       "Ultra-Fire Flex": "N/A",
-      "Machinable S4S": "N/A",
-      "Rigid Cast": "N/A"
+      "Machinable S4S": "N/A"
     }
   },
   {
-    "attribute": "Manufacturing Location",
+    "attribute": "Manufacturing location",
     "values": {
       "Flex Trim": "NC & UT",
       "Zzz Flex": "NC & UT",
       "Ultra-Flex": "UT",
       "Ultra-Fire Flex": "UT",
-      "Machinable S4S": "UT",
-      "Rigid Cast": "UT"
+      "Machinable S4S": "UT"
     }
   },
   {
@@ -143,10 +131,9 @@ export const MATERIAL_COMPARISON_ROWS: MaterialComparisonRow[] = [
     "values": {
       "Flex Trim": "Lifetime",
       "Zzz Flex": "Lifetime",
-      "Ultra-Flex": "1 Year",
-      "Ultra-Fire Flex": "1 Year",
-      "Machinable S4S": "1 Year",
-      "Rigid Cast": "1 Year"
+      "Ultra-Flex": "Lifetime",
+      "Ultra-Fire Flex": "Lifetime",
+      "Machinable S4S": "Lifetime"
     }
   }
 ];

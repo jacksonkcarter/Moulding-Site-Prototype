@@ -12,6 +12,24 @@ type FilterSectionProps = {
   children: ReactNode;
 };
 
+export function FilterResetAllButton({
+  onClick,
+  className = "",
+}: {
+  onClick: () => void;
+  className?: string;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`w-full rounded border border-neutral-300 bg-white px-3 py-1.5 text-xs font-medium text-neutral-600 transition-colors hover:border-[#9f1b20] hover:text-[#9f1b20] ${className}`}
+    >
+      Reset all
+    </button>
+  );
+}
+
 export function FilterSection({
   title,
   open,

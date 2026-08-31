@@ -17,7 +17,7 @@ export const FACILITY_CONTACTS: Record<FacilityRegion, FacilityContact> = {
     addressLines: ["117 Cedar Lane Drive, Lexington, NC 27292"],
     phoneDisplay: "(800) 861-0734",
     phoneTel: "8008610734",
-    email: "sales@flextrim.com",
+    email: "orders@carterflex.com",
   },
   west: {
     region: "west",

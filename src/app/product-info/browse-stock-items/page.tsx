@@ -62,11 +62,11 @@ export default function BrowseStockItemsPage() {
                 >
                   <TileImage
                     src={thumb}
-                    alt=""
+                    alt={`${category} flexible moulding`}
                     unoptimized
                     sizes="(max-width: 640px) 50vw, (max-width: 768px) 25vw, (max-width: 1024px) 20vw, 10vw"
                   />
-                  <span className="border-t border-neutral-100 px-2 py-2 text-center text-xs font-medium text-neutral-800 group-hover:text-primary sm:text-sm">
+                  <span className="border-t border-neutral-100 px-2 py-2 text-center text-sm font-medium text-neutral-800 group-hover:text-primary sm:text-base">
                     {category}
                   </span>
                 </Link>

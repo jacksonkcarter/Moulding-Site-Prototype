@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { parseInchesInput } from "@/lib/format-inches";
 
 type BoundNumberInputProps = {
   value: number;
@@ -26,8 +27,8 @@ export function BoundNumberInput({
   const display = draft ?? String(value);
 
   const commit = (raw: string) => {
-    const parsed = parseFloat(raw);
-    if (!Number.isNaN(parsed)) {
+    const parsed = parseInchesInput(raw);
+    if (parsed != null) {
       onCommit(Math.min(Math.max(parsed, min), max));
     }
     setDraft(null);

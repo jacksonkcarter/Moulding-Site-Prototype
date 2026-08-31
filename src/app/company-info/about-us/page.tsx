@@ -17,8 +17,7 @@ const TIMELINE: { date: string; text: ReactNode }[] = [
     date: "1985",
     text: (
       <>
-        <strong>Flex Trim™</strong>, later to be acquired by Carter Millwork, is founded by Allen
-        Jones and headquartered in Rancho Cucamonga, CA, as well as Garner, NC.
+        <strong>Flex Trim™</strong>, later to be acquired by Carter Millwork, is established in Rancho Cucamonga, CA, as well as Garner, NC.
       </>
     ),
   },

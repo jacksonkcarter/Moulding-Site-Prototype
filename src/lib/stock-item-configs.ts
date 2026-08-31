@@ -13,6 +13,19 @@ export type StockConfigGroup = {
   options: string[];
 };
 
+export const STOCK_CONFIG_STYLE_INFO: Partial<
+  Record<StockConfigGroup["label"], { src: string; alt: string }>
+> = {
+  "Half Round": {
+    src: "/order-form-images/Arch Style Half Round.png",
+    alt: "Half-round arch with radius and diameter measurements",
+  },
+  Arc: {
+    src: "/order-form-images/Arc Style Eyebrow.png",
+    alt: "Arc or eyebrow arch with width and rise measurements",
+  },
+};
+
 export function groupConfigs(configs: string[]): {
   straight: string[];
   halfRound: string[];

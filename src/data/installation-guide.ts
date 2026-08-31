@@ -62,11 +62,11 @@ export const INSTALLING_STEPS: InstallationStep[] = [
   },
   {
     title: "Select and apply the proper adhesive",
-    body: "Use an adhesive compatible with polyurethane and non-porous materials, such as PL Premium Max, never standard wood glue. Apply adhesive to the moulding ends so joints stay tight through seasonal movement, and to the back face where the moulding meets the wall or substrate.",
+    body: "Use an adhesive compatible with polyurethane and non-porous materials, such as PL Premium Max. Never standard wood glue. Apply adhesive to the moulding ends so joints stay tight through seasonal movement, and to the back face where the moulding meets the wall or substrate.",
   },
   {
     title: "Fasten the material",
-    body: "Although pin nails are the best as they recess cleanly into the piece, screws, framing nails, finish nails, and brad nails are all acceptable fasteners depending on the moulding size. To reduce the chance of dimpling, lower the pressure on mechanical nail guns, set nails by hand, and pre-countersink screw holes. never use staples as they will create linear dimples.",
+    body: "Although pin nails are the best as they recess cleanly into the piece, trim screws, finish nails, and brad nails are all acceptable fasteners depending on the moulding size. To reduce the chance of dimpling, lower the pressure on mechanical nail guns, set nails by hand, and pre-drill and pre-countersink trim screw holes. Never use staples as they will create linear dimples.",
   },
   {
     title: "Minimize nailing",
@@ -81,7 +81,7 @@ export const INSTALLING_STEPS: InstallationStep[] = [
 export const FINISHING_STEPS: InstallationStep[] = [
   {
     title: "Fill and caulk freely",
-    body: "We recommend Bondo for nail holes and your favorite caulk for seams. Standard products work perfectly with Flex Trim™.",
+    body: "We recommend bondo-like fillers that are compatible with nonporous resin-based products for nail holes and your favorite caulk for seams. Standard products work perfectly with Flex Trim™.",
   },
   {
     title: "Clean and install first",
@@ -99,7 +99,7 @@ export const FINISHING_STEPS: InstallationStep[] = [
 
 export const ADDITIONAL_STAINING_TIPS = {
   title: "Additional staining tips",
-  body: "To achieve a darker color, apply the stain generously and work the pigment down into the recesses of the embossed grain. Dry brush or wipe the excess stain, then let it cure completely. Gel stain on resin takes longer to dry than on wood and it must be completely dry to the touch, without any tackiness, before you move on. If the first coat isn't dark enough, apply a second, very thin coat of gel stain. Because the first coat sealed the surface, this second layer will glide over the top, deepening the color without disturbing the layer underneath. Repeat if needed. You can also play with 2 different pigments: darker then lighter vs lighter then darker.",
+  body: "To achieve a darker color, apply the stain generously and work the pigment down into the recesses of the embossed grain. Wipe the excess stain with a soft cloth. Use a dry, soft brush to feather or remove any cloth marks for a blemish free finish, then let it cure completely. Gel stain on resin takes longer to dry than on wood and it must be completely dry to the touch, without any tackiness, before you move on. If the first coat isn't dark enough, apply a second, very thin coat of gel stain using the same process as the first coat. Because the first coat sealed the surface, this second layer will glide over the top, deepening the color without disturbing the layer underneath. Repeat if needed. You can also play with 2 different pigments: darker then lighter vs lighter then darker.",
 };
 
 export const INSTALLATION_GUIDE_SECTIONS = [

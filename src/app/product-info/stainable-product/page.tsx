@@ -22,7 +22,7 @@ const FINISHING_STEPS = [
   {
     title: "Additional staining tips",
     description:
-      "To achieve a darker color, apply the stain generously and work the pigment down into the recesses of the embossed grain. Dry brush or wipe the excess stain, then let it cure completely. Gel stain on resin takes longer to dry than on wood and it must be completely dry to the touch, without any tackiness, before you move on. If the first coat isn't dark enough, apply a second, very thin coat of gel stain. Because the first coat sealed the surface, this second layer will glide over the top, deepening the color without disturbing the layer underneath. Repeat if needed. You can also play with 2 different pigments: darker then lighter vs lighter then darker.",
+      "To achieve a darker color, apply the stain generously and work the pigment down into the recesses of the embossed grain. Wipe the excess stain with a soft cloth. Use a dry, soft brush to feather or remove any cloth marks for a blemish free finish, then let it cure completely. Gel stain on resin takes longer to dry than on wood and it must be completely dry to the touch, without any tackiness, before you move on. If the first coat isn't dark enough, apply a second, very thin coat of gel stain using the same process as the first coat. Because the first coat sealed the surface, this second layer will glide over the top, deepening the color without disturbing the layer underneath. Repeat if needed. You can also play with 2 different pigments: darker then lighter vs lighter then darker.",
   },
 ] as const;
 

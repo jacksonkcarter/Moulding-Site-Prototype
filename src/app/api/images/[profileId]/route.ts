@@ -1,9 +1,7 @@
-import { getImageFileName } from "@/lib/profiles";
+import { getImageFileName, PROFILE_GIFS_DIR } from "@/lib/profiles";
 import fs from "fs";
 import path from "path";
 import { NextRequest, NextResponse } from "next/server";
-
-const IMAGES_DIR = path.join(process.cwd(), "Project_Info", "Website-Images");
 
 export async function GET(
   _request: NextRequest,
@@ -14,7 +12,7 @@ export async function GET(
   if (!fileName) {
     return NextResponse.json({ error: "Image not found" }, { status: 404 });
   }
-  const filePath = path.join(IMAGES_DIR, fileName);
+  const filePath = path.join(PROFILE_GIFS_DIR, fileName);
   if (!fs.existsSync(filePath)) {
     return NextResponse.json({ error: "File not found" }, { status: 404 });
   }

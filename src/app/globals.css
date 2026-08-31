@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @import "leaflet/dist/leaflet.css";
 
+/* Keep Leaflet panes below site chrome (header menus use z-50+). */
+.leaflet-container {
+  z-index: 0;
+}
+
 @theme {
   --color-primary: #9f1b20;
   --color-primary-hover: #8a171b;

@@ -29,3 +29,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Oversized source archives (exceed GitHub 100MB limit)
+Project_Info/Profile-Browser/PDFs/*.zip
+
+
+# Excel lock / temp files
+~$*.xlsx
+**/~$*.xlsx

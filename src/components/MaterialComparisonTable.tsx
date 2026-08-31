@@ -7,20 +7,25 @@ import {
 
 import flexTrimLogo from "../../Project_Info/Website-Logos/Flex-Trim.jpg";
 import machinableS4SLogo from "../../Project_Info/Website-Logos/Machinable-S4S.png";
-import rigidCastLogo from "../../Project_Info/Website-Logos/Rigid-Cast.png";
-import ultraFlexLogo from "../../Project_Info/Website-Logos/Ultra-Flex.png";
 import ultraFireFlexLogo from "../../Project_Info/Website-Logos/Ultra-Fire-Flex.png";
+import ultraFlexLogo from "../../Project_Info/Website-Logos/Ultra-Flex.png";
 import zzzFlexLogo from "../../Project_Info/Website-Logos/ZZZ-Flex.png";
 
 const RATING_LEVELS = [
-  { symbol: "O", label: "Good", count: 1 },
-  { symbol: "OO", label: "Better", count: 2 },
-  { symbol: "OOO", label: "Best", count: 3 },
+  { symbol: "O", label: "Basic", count: 1 },
+  { symbol: "OO", label: "Standard", count: 2 },
+  { symbol: "OOO", label: "Premium", count: 3 },
+  { symbol: "OOOO", label: "Elite", count: 4 },
 ] as const;
 
 const LEARN_MORE_LINKS: Partial<Record<(typeof MATERIAL_COMPARISON_COLUMNS)[number], string>> = {
-  "Machinable S4S": "/product-info/machinable-s4s",
   "Ultra-Fire Flex": "/product-info/ultra-fire-flex",
+  "Machinable S4S": "/product-info/machinable-s4s",
+};
+
+const ROW_LINKS: Record<string, string> = {
+  "Available as extended lengths": "/product-info/xtrulinear",
+  Warranty: "/company-info/warranty",
 };
 
 const MATERIAL_COLUMN_LOGOS: Partial<
@@ -32,9 +37,8 @@ const MATERIAL_COLUMN_LOGOS: Partial<
   "Flex Trim": { src: flexTrimLogo, alt: "Flex Trim™ logo" },
   "Zzz Flex": { src: zzzFlexLogo, alt: "Zzz Flex logo", width: "6.25rem" },
   "Ultra-Flex": { src: ultraFlexLogo, alt: "Ultra-Flex logo" },
-  "Ultra-Fire Flex": { src: ultraFireFlexLogo, alt: "Ultra-Fire Flex logo" },
+  "Ultra-Fire Flex": { src: ultraFireFlexLogo, alt: "Ultra-Fire Flex logo", width: "5.75rem" },
   "Machinable S4S": { src: machinableS4SLogo, alt: "Machinable S4S logo", width: "4.75rem" },
-  "Rigid Cast": { src: rigidCastLogo, alt: "Rigid Cast logo", width: "5.75rem" },
 };
 
 const LOGO_DISPLAY_WIDTH = "6.75rem";
@@ -99,6 +103,20 @@ function RatingDots({ value }: { value: string }) {
     );
   }
 
+  if (value === "X" || value === "x") {
+    return (
+      <span className="inline-flex items-center justify-center text-primary" aria-label="Yes">
+        <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+          <path
+            fillRule="evenodd"
+            d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+            clipRule="evenodd"
+          />
+        </svg>
+      </span>
+    );
+  }
+
   if (value === "N/A") {
     return <span className="text-sm text-neutral-400">N/A</span>;
   }
@@ -155,7 +173,16 @@ export function MaterialComparisonTable() {
                     scope="row"
                     className="sticky left-0 z-10 border-r border-neutral-200 bg-inherit px-2 py-3 text-left text-xs font-medium text-neutral-900 sm:px-3 sm:text-sm"
                   >
-                    {row.attribute}
+                    {ROW_LINKS[row.attribute] ? (
+                      <Link
+                        href={ROW_LINKS[row.attribute]}
+                        className="text-primary transition-colors hover:underline"
+                      >
+                        {row.attribute}
+                      </Link>
+                    ) : (
+                      row.attribute
+                    )}
                   </th>
                   {MATERIAL_COMPARISON_COLUMNS.map((column) => (
                     <td key={`${row.attribute}-${column}`} className="px-1.5 py-3 text-center sm:px-2">

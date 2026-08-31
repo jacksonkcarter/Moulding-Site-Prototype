@@ -1,13 +1,7 @@
 import Link from "next/link";
 import { OrderingTips } from "@/components/OrderingTips";
 import { PageContent } from "@/components/PageContent";
-
-const ONLINE_RETAILERS = [
-  { label: "Flexible Millwork", href: "https://flexiblemillwork.com/" },
-  { label: "Lowe’s", href: "https://www.lowes.com/" },
-  { label: "The Home Depot", href: "https://www.homedepot.com/" },
-  { label: "Amazon", href: "https://www.amazon.com/" },
-] as const;
+import { ONLINE_DEALERS } from "@/data/online-dealers";
 
 export default function HomeownersPage() {
   return (
@@ -39,8 +33,8 @@ export default function HomeownersPage() {
               Flex Trim™ products are available through several online retailers. Choose the option that works best
               for you:
             </p>
-            <ul className="mt-5 space-y-2 text-sm md:text-base">
-              {ONLINE_RETAILERS.map((retailer) => (
+            <ul className="mt-5 space-y-4 text-sm md:text-base">
+              {ONLINE_DEALERS.map((retailer) => (
                 <li key={retailer.href}>
                   <a
                     href={retailer.href}
@@ -50,6 +44,7 @@ export default function HomeownersPage() {
                   >
                     {retailer.label}
                   </a>
+                  <p className="mt-0.5 text-sm text-neutral-600">{retailer.details}</p>
                 </li>
               ))}
             </ul>

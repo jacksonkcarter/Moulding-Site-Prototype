@@ -2,11 +2,18 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import Link from "next/link";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { BoundNumberInput } from "@/components/BoundNumberInput";
 import { ContactLink } from "@/components/ContactLink";
-import { FilterSection } from "@/components/FilterSection";
+import { FilterSection, FilterResetAllButton } from "@/components/FilterSection";
+import { dimensionFilterBounds, toFractionalInches } from "@/lib/format-inches";
+import {
+  buildProfileSearchParams,
+  parseProfileSearchParams,
+  profileSearchHref,
+} from "@/lib/profile-search-params";
 import type { ProfileRegion, ProfileRow } from "@/lib/profiles";
 
 type ProfileSearchProps = {
@@ -21,21 +28,6 @@ function useDebounce<T>(value: T, delay: number): T {
     return () => clearTimeout(t);
   }, [value, delay]);
   return debounced;
-}
-
-/** Format decimal inches as fraction string, e.g. 0.5 → "1/2", 4.1875 → "4-3/16" */
-function toFractionalInches(decimal: number): string {
-  const sixteenths = Math.round(decimal * 16);
-  const whole = Math.floor(sixteenths / 16);
-  const num = sixteenths % 16;
-  if (num === 0) return `${whole}"`;
-  const denom = 16;
-  const g = (a: number, b: number): number => (b ? g(b, a % b) : a);
-  const gcd = g(num, denom);
-  const n = num / gcd;
-  const d = denom / gcd;
-  if (whole > 0) return `${whole}-${n}/${d}"`;
-  return `${n}/${d}"`;
 }
 
 function getDimensionBounds(
@@ -295,47 +287,67 @@ function PaginationControls({
 
 export function ProfileSearch({ initialProfiles, mouldingTypes }: ProfileSearchProps) {
   const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
   const [profiles] = useState<ProfileRow[]>(initialProfiles);
-  const [selectedTypes, setSelectedTypes] = useState<Set<string>>(() => {
-    const t = searchParams.get("types");
-    if (!t) return new Set();
-    return new Set(
-      t.split(",")
-        .map((s) => decodeURIComponent(s.trim()))
-        .filter(Boolean)
-    );
-  });
+
+  const initialFilters = useMemo(() => parseProfileSearchParams(searchParams), [searchParams]);
+  const widthBoundsInitial = useMemo(
+    () => getDimensionBounds(initialProfiles, "width", 12),
+    [initialProfiles]
+  );
+  const thicknessBoundsInitial = useMemo(
+    () => getDimensionBounds(initialProfiles, "thickness", 2),
+    [initialProfiles]
+  );
+
+  const [selectedTypes, setSelectedTypes] = useState<Set<string>>(
+    () => new Set(initialFilters.types)
+  );
 
   useEffect(() => {
-    const t = searchParams.get("types");
-    if (!t) return;
-    setSelectedTypes(
-      new Set(
-        t.split(",")
-          .map((s) => decodeURIComponent(s.trim()))
-          .filter(Boolean)
-      )
-    );
+    const parsed = parseProfileSearchParams(searchParams);
+    if (parsed.types.length === 0) return;
+    setSelectedTypes((prev) => {
+      const next = new Set(parsed.types);
+      if (prev.size === next.size && [...prev].every((t) => next.has(t))) return prev;
+      return next;
+    });
+  }, [searchParams]);
+
+  useEffect(() => {
+    const parsed = parseProfileSearchParams(searchParams);
+    setPage((prev) => (prev !== parsed.page ? parsed.page : prev));
   }, [searchParams]);
 
   const mouldingFilterOptions = mouldingTypes;
-  const [widthRange, setWidthRange] = useState<[number, number]>(() =>
-    getDimensionBounds(initialProfiles, "width", 12)
-  );
-  const [thicknessRange, setThicknessRange] = useState<[number, number]>(() =>
-    getDimensionBounds(initialProfiles, "thickness", 2)
-  );
-  const [profileQuery, setProfileQuery] = useState("");
-  const [profileFilterType, setProfileFilterType] = useState<ProfileFilterType>("contains");
+  const [widthRange, setWidthRange] = useState<[number, number]>(() => [
+    initialFilters.wmin ?? widthBoundsInitial[0],
+    initialFilters.wmax ?? widthBoundsInitial[1],
+  ]);
+  const [thicknessRange, setThicknessRange] = useState<[number, number]>(() => [
+    initialFilters.tmin ?? thicknessBoundsInitial[0],
+    initialFilters.tmax ?? thicknessBoundsInitial[1],
+  ]);
+  const [profileQuery, setProfileQuery] = useState(() => initialFilters.q);
+  const [profileFilterType, setProfileFilterType] = useState<ProfileFilterType>(() => {
+    const match = initialFilters.match;
+    return PROFILE_FILTER_OPTIONS.some((o) => o.value === match)
+      ? (match as ProfileFilterType)
+      : "contains";
+  });
   const [profileOpen, setProfileOpen] = useState(true);
   const [typesOpen, setTypesOpen] = useState(true);
   const [widthOpen, setWidthOpen] = useState(true);
   const [thicknessOpen, setThicknessOpen] = useState(true);
   const [regionOpen, setRegionOpen] = useState(true);
-  const [selectedRegions, setSelectedRegions] = useState<Set<ProfileRegion>>(new Set(["east"]));
+  const [selectedRegions, setSelectedRegions] = useState<Set<ProfileRegion>>(
+    () => new Set(initialFilters.regions.length > 0 ? initialFilters.regions : ["east"])
+  );
   const [detectedRegionLabel, setDetectedRegionLabel] = useState<string | null>(null);
-  const regionUserTouched = useRef(false);
-  const [page, setPage] = useState(1);
+  const regionUserTouched = useRef(searchParams.toString().length > 0);
+  const filterSnapshotRef = useRef<string | null>(null);
+  const [page, setPage] = useState(() => initialFilters.page);
 
   const widthMinDebounced = useDebounce(widthRange[0], 150);
   const widthMaxDebounced = useDebounce(widthRange[1], 150);
@@ -343,6 +355,8 @@ export function ProfileSearch({ initialProfiles, mouldingTypes }: ProfileSearchP
   const thicknessMaxDebounced = useDebounce(thicknessRange[1], 150);
 
   useEffect(() => {
+    if (regionUserTouched.current) return;
+
     let cancelled = false;
 
     (async () => {
@@ -415,14 +429,24 @@ export function ProfileSearch({ initialProfiles, mouldingTypes }: ProfileSearchP
     [profiles]
   );
 
+  const resetAllFilters = useCallback(() => {
+    setProfileQuery("");
+    setProfileFilterType("contains");
+    setSelectedTypes(new Set());
+    setThicknessRange(thicknessBounds);
+    setWidthRange(widthBounds);
+    setPage(1);
+  }, [thicknessBounds, widthBounds]);
+
   const profileQueryDebounced = useDebounce(profileQuery, 200);
 
   const filtered = useMemo(() => {
+    const [widthMin, widthMax] = dimensionFilterBounds(widthMinDebounced, widthMaxDebounced);
     return profiles.filter((p) => {
       if (!profileMatchesFilter(p, profileQueryDebounced, profileFilterType)) return false;
       if (!profileMatchesMouldingFilter(p, selectedTypes)) return false;
       if (!profileMatchesRegionFilter(p, selectedRegions)) return false;
-      if (p.width < widthMinDebounced || p.width > widthMaxDebounced) return false;
+      if (p.width < widthMin || p.width > widthMax) return false;
       if (p.thickness < thicknessMinDebounced || p.thickness > thicknessMaxDebounced)
         return false;
       return true;
@@ -440,7 +464,24 @@ export function ProfileSearch({ initialProfiles, mouldingTypes }: ProfileSearchP
   ]);
 
   useEffect(() => {
-    setPage(1);
+    const snapshot = JSON.stringify({
+      profileQueryDebounced,
+      profileFilterType,
+      types: [...selectedTypes].sort(),
+      regions: [...selectedRegions].sort(),
+      widthMinDebounced,
+      widthMaxDebounced,
+      thicknessMinDebounced,
+      thicknessMaxDebounced,
+    });
+    if (filterSnapshotRef.current === null) {
+      filterSnapshotRef.current = snapshot;
+      return;
+    }
+    if (filterSnapshotRef.current !== snapshot) {
+      filterSnapshotRef.current = snapshot;
+      setPage(1);
+    }
   }, [
     profileQueryDebounced,
     profileFilterType,
@@ -465,6 +506,67 @@ export function ProfileSearch({ initialProfiles, mouldingTypes }: ProfileSearchP
     [totalPages]
   );
 
+  // Keep the URL in sync so refresh / back from a profile restores filters.
+  useEffect(() => {
+    const params = buildProfileSearchParams({
+      types: selectedTypes,
+      q: profileQueryDebounced,
+      match: profileFilterType,
+      page: currentPage,
+      widthRange: [widthMinDebounced, widthMaxDebounced],
+      thicknessRange: [thicknessMinDebounced, thicknessMaxDebounced],
+      widthBounds,
+      thicknessBounds,
+      regions: selectedRegions,
+    });
+    const next = params.toString();
+    const current = searchParams.toString();
+    if (next === current) return;
+    router.replace(next ? `${pathname}?${next}` : pathname, { scroll: false });
+  }, [
+    selectedTypes,
+    profileQueryDebounced,
+    profileFilterType,
+    currentPage,
+    widthMinDebounced,
+    widthMaxDebounced,
+    thicknessMinDebounced,
+    thicknessMaxDebounced,
+    widthBounds,
+    thicknessBounds,
+    selectedRegions,
+    pathname,
+    router,
+    searchParams,
+  ]);
+
+  const browseReturnHref = useMemo(() => {
+    const params = buildProfileSearchParams({
+      types: selectedTypes,
+      q: profileQueryDebounced,
+      match: profileFilterType,
+      page: currentPage,
+      widthRange: [widthMinDebounced, widthMaxDebounced],
+      thicknessRange: [thicknessMinDebounced, thicknessMaxDebounced],
+      widthBounds,
+      thicknessBounds,
+      regions: selectedRegions,
+    });
+    return profileSearchHref(params);
+  }, [
+    selectedTypes,
+    profileQueryDebounced,
+    profileFilterType,
+    currentPage,
+    widthMinDebounced,
+    widthMaxDebounced,
+    thicknessMinDebounced,
+    thicknessMaxDebounced,
+    widthBounds,
+    thicknessBounds,
+    selectedRegions,
+  ]);
+
   const imageUrl = (profileId: string) => `/api/images/${encodeURIComponent(profileId)}`;
 
   return (
@@ -481,6 +583,7 @@ export function ProfileSearch({ initialProfiles, mouldingTypes }: ProfileSearchP
 
         <div className="mt-[calc(2rem-0.1875in)] flex flex-col gap-8 lg:flex-row">
           <aside className="w-full shrink-0 min-w-0 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 p-4 lg:w-72">
+            <FilterResetAllButton onClick={resetAllFilters} className="mb-3" />
             <div className="space-y-0">
               <FilterSection
                 title="Item"
@@ -711,18 +814,25 @@ export function ProfileSearch({ initialProfiles, mouldingTypes }: ProfileSearchP
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: Math.min(i * 0.02, 0.3) }}
-                  className="overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm"
                 >
-                  <ProfileTileImage src={imageUrl(p.profileId)} alt={p.profileId} />
-                  <div className="p-1.5 text-center">
-                    <p className="truncate text-xs font-medium text-neutral-800">
-                      {p.profileId}
-                    </p>
-                    <p className="text-xs text-neutral-500">{p.mouldingType}</p>
-                    <p className="text-xs text-neutral-500">
-                      {toFractionalInches(p.thickness)} x {toFractionalInches(p.width)}
-                    </p>
-                  </div>
+                  <Link
+                    href={`/product-info/select-profiles/${encodeURIComponent(p.profileId)}?return=${encodeURIComponent(browseReturnHref)}`}
+                    className="block overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm transition-shadow hover:border-primary/30 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  >
+                    <ProfileTileImage
+                      src={imageUrl(p.profileId)}
+                      alt={`${p.profileId} flexible moulding`}
+                    />
+                    <div className="p-1.5 text-center">
+                      <p className="truncate text-xs font-medium text-neutral-800">
+                        {p.profileId}
+                      </p>
+                      <p className="text-xs text-neutral-500">{p.mouldingType}</p>
+                      <p className="text-xs text-neutral-500">
+                        {toFractionalInches(p.thickness)} x {toFractionalInches(p.width)}
+                      </p>
+                    </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>

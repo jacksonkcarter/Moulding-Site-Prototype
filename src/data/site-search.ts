@@ -123,6 +123,14 @@ const STATIC_PAGES: SiteSearchEntry[] = [
     keywords: ["corbels", "appliques", "blocks"],
   },
   {
+    id: "tight-radii-bullnose-corners",
+    title: "Tight radii & bullnose corners",
+    description: "Flexible moulding solutions for tight radiuses and bullnose corner applications.",
+    href: "/product-info/tight-radii-bullnose-corners",
+    category: "Products",
+    keywords: ["tight radius", "bullnose", "corners", "small radius", "zzz flex"],
+  },
+  {
     id: "stainable",
     title: "Stainable trim",
     description: "Stain-grade flexible moulding that replicates real wood grain.",
@@ -132,11 +140,22 @@ const STATIC_PAGES: SiteSearchEntry[] = [
   },
   {
     id: "xtrulinear",
-    title: "Xtrulinear",
-    description: "Extended-length Flex Trim™ profiles available on spools.",
+    title: "Xtrulinear® extended lengths",
+    description:
+      "Continuous Flex Trim™ or Zzz Flex moulding from 12' to 500' on a spool—cut to length with fewer joints and less waste.",
     href: "/product-info/xtrulinear",
     category: "Products",
-    keywords: ["spool", "extended length", "coil"],
+    keywords: [
+      "xtrulinear",
+      "spool",
+      "extended length",
+      "coil",
+      "500 foot",
+      "cut to length",
+      "zzz flex",
+      "north carolina",
+      "utah",
+    ],
   },
   {
     id: "machinable-s4s",
@@ -203,12 +222,12 @@ const STATIC_PAGES: SiteSearchEntry[] = [
     keywords: ["distributor", "local dealer", "zip code"],
   },
   {
-    id: "radius-calculator",
-    title: "Radius calculator",
-    description: "Calculate arc radius and moulding length from width and rise.",
-    href: "/ordering-installation/radius-calculator",
+    id: "flex-trim-toolbox",
+    title: "Flex Trim Toolbox",
+    description: "Estimate Flex Trim™ length for half rounds, arcs, ellipses, ovals, and custom shapes.",
+    href: "/ordering-installation/flex-trim-toolbox",
     category: "Pages",
-    keywords: ["arc", "curve", "length", "rise", "math"],
+    keywords: ["radius", "calculator", "arc", "curve", "length", "rise", "oval", "elliptical", "half round", "toolbox"],
   },
   {
     id: "installation-guide",
@@ -307,20 +326,21 @@ const STATIC_PAGES: SiteSearchEntry[] = [
     keywords: ["rma", "restocking", "refund", "return policy"],
   },
   {
+    id: "warranty",
+    title: "Limited lifetime warranty",
+    description:
+      "Warranty coverage, exclusions, remedies, and how to make a claim for Flex Trim™ flexible moulding.",
+    href: "/company-info/warranty",
+    category: "Pages",
+    keywords: ["warranty", "lifetime", "defects", "claim", "guarantee"],
+  },
+  {
     id: "order-status",
     title: "Check order status",
     description: "Look up your Flex Trim™ order with your order number and billing zip code.",
     href: "/order-status",
     category: "Pages",
     keywords: ["order status", "tracking", "zip", "shipment"],
-  },
-  {
-    id: "portal-login",
-    title: "Customer portal",
-    description: "Log in to the Flex Trim™ customer portal.",
-    href: "/portal/login",
-    category: "Pages",
-    keywords: ["login", "account", "portal"],
   },
 ];
 
@@ -390,14 +410,17 @@ function buildFaqEntries(): SiteSearchEntry[] {
 }
 
 function buildMaterialEntries(): SiteSearchEntry[] {
-  return MATERIAL_UPGRADES.map((upgrade) => ({
-    id: `material-${upgrade.product ?? upgrade.title}`,
-    title: upgrade.product ?? upgrade.title,
-    description: upgrade.description,
-    href: upgrade.learnMoreHref ?? "/product-info/material-details",
-    category: "Products" as const,
-    keywords: [upgrade.title, upgrade.product ?? "", "material", "upgrade"],
-  }));
+  return MATERIAL_UPGRADES.map((upgrade) => {
+    const productLabel = upgrade.products?.join(" & ") || upgrade.title;
+    return {
+      id: `material-${upgrade.products?.[0] ?? upgrade.title}`,
+      title: productLabel,
+      description: upgrade.description,
+      href: upgrade.learnMoreHref ?? "/product-info/material-details",
+      category: "Products" as const,
+      keywords: [upgrade.title, ...(upgrade.products ?? []), "material", "upgrade"],
+    };
+  });
 }
 
 function buildGalleryEntries(): SiteSearchEntry[] {
