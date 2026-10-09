@@ -62,6 +62,18 @@ const BENEFITS = [
 
 type BenefitId = (typeof BENEFITS)[number]["id"];
 
+const BENEFIT_LIST_TITLE_LINES: Record<BenefitId, readonly [string, string]> = {
+  "trusted-expertise": ["Decades of", "trusted expertise"],
+  "value-engineered": ["Value-engineered with a", "lifetime warranty"],
+  "interior-exterior": ["Interior & exterior", "compatible"],
+  "impact-resistant": ["Impact-resistant &", "chip-proof"],
+  "moisture-rot-proof": ["Moisture & rot", "proof"],
+  "insect-proof": ["Insect", "proof"],
+  "easy-to-install": ["Easy to", "install"],
+  "stainable-paintable": ["Stainable &", "paintable"],
+  "pfas-voc-free": ["PFAS &", "VOC free"],
+};
+
 function BenefitEmblem({ id }: { id: BenefitId }) {
   const common = "h-6 w-6";
   return (
@@ -184,49 +196,103 @@ function BenefitEmblem({ id }: { id: BenefitId }) {
   );
 }
 
-export function HomeBenefitTiles() {
-  return (
-    <section id="benefits-tiles" className="scroll-mt-24 border-t border-neutral-200 bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:py-14">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-primary text-sm font-medium tracking-wide">Benefits of Flex Trim™</p>
-          <h2 className="mt-3 text-3xl font-sans tracking-tight text-neutral-900 md:text-4xl">
-            Why choose Carter Millwork flexible moulding?
-          </h2>
-        </div>
+type FlexTrimBenefitTilesProps = {
+  title: string;
+  headingId?: string;
+  layout?: "grid" | "list";
+};
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {BENEFITS.map((benefit, index) => (
-            <motion.article
-              key={benefit.id}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10% 0px" }}
-              transition={{ duration: 0.4, delay: index * 0.03 }}
-              className="h-full rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
-            >
-              <div className="flex items-center gap-3">
-                <BenefitEmblem id={benefit.id} />
-                <h3 className="text-base font-semibold leading-snug text-neutral-900">
-                  {benefit.id === "value-engineered" ? (
-                    <>
-                      Value-engineered with a{" "}
+export function FlexTrimBenefitTiles({
+  title,
+  headingId,
+  layout = "grid",
+}: FlexTrimBenefitTilesProps) {
+  return (
+    <>
+      <div className="mx-auto max-w-3xl text-center">
+        <h2
+          id={headingId}
+          className="text-3xl font-sans tracking-tight text-neutral-900 md:text-4xl"
+        >
+          {title}
+        </h2>
+      </div>
+
+      <div
+        className={`mt-8 grid ${
+          layout === "grid" ? "gap-4 sm:grid-cols-2 lg:grid-cols-3" : "grid-cols-1 gap-5"
+        }`}
+      >
+        {BENEFITS.map((benefit, index) => (
+          <motion.article
+            key={benefit.id}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-10% 0px" }}
+            transition={{ duration: 0.4, delay: index * 0.03 }}
+            className={
+              layout === "list"
+                ? "grid items-center gap-x-4 gap-y-3 sm:grid-cols-[minmax(0,17rem)_2.5rem_minmax(0,1fr)] sm:gap-x-6"
+                : "h-full rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+            }
+          >
+            {layout === "list" ? (
+              <>
+                <h3 className="text-right text-base font-semibold leading-snug text-neutral-900">
+                  <span className="block">{BENEFIT_LIST_TITLE_LINES[benefit.id][0]}</span>
+                  <span className="block">
+                    {benefit.id === "value-engineered" ? (
                       <Link
                         href="/company-info/warranty"
                         className="text-primary underline-offset-2 hover:underline"
                       >
-                        lifetime warranty
+                        {BENEFIT_LIST_TITLE_LINES[benefit.id][1]}
                       </Link>
-                    </>
-                  ) : (
-                    benefit.title
-                  )}
+                    ) : (
+                      BENEFIT_LIST_TITLE_LINES[benefit.id][1]
+                    )}
+                  </span>
                 </h3>
-              </div>
-              <p className="mt-3 text-sm leading-relaxed text-neutral-600">{benefit.description}</p>
-            </motion.article>
-          ))}
-        </div>
+                <div className="justify-self-center">
+                  <BenefitEmblem id={benefit.id} />
+                </div>
+                <p className="text-sm leading-relaxed text-neutral-600">{benefit.description}</p>
+              </>
+            ) : (
+              <>
+                <div className="flex items-center gap-3">
+                  <BenefitEmblem id={benefit.id} />
+                  <h3 className="text-base font-semibold leading-snug text-neutral-900">
+                    {benefit.id === "value-engineered" ? (
+                      <>
+                        Value-engineered with a{" "}
+                        <Link
+                          href="/company-info/warranty"
+                          className="text-primary underline-offset-2 hover:underline"
+                        >
+                          lifetime warranty
+                        </Link>
+                      </>
+                    ) : (
+                      benefit.title
+                    )}
+                  </h3>
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-neutral-600">{benefit.description}</p>
+              </>
+            )}
+          </motion.article>
+        ))}
+      </div>
+    </>
+  );
+}
+
+export function HomeBenefitTiles() {
+  return (
+    <section id="benefits-tiles" className="scroll-mt-24 border-t border-neutral-200 bg-white">
+      <div className="mx-auto max-w-7xl px-4 pb-10 pt-5 sm:px-6 sm:pb-12 sm:pt-6 lg:pb-14 lg:pt-8">
+        <FlexTrimBenefitTiles title="Why choose Flex Trim™?" />
       </div>
     </section>
   );

@@ -81,7 +81,7 @@ export default function StainableProductPage() {
           </h1>
           <p className="text-sm leading-relaxed text-neutral-700 md:text-base">
             Carter Millwork stain-grade flexible moulding, corbels, and appliques are built to replicate the look of
-            real wood—not just the profile, but the grain. Our mold technology captures species-specific characteristics
+            real wood, not just the profile, but the grain. Our mold technology captures species-specific characteristics
             so your finished trim reads like wood on the wall.
           </p>
         </div>
@@ -103,7 +103,7 @@ export default function StainableProductPage() {
           <p>
             Our mold manufacturing process lets us reproduce stain-grade wood mouldings with remarkable accuracy,
             regardless of wood species. Every grain pattern and species detail from your sample becomes part of the
-            mold—and that detail carries through to the flexible finished product.
+            mold, and that detail carries through to the flexible finished product.
           </p>
           <p className="mt-6">
             When a heavy-bodied gel stain is applied according to the manufacturer&apos;s specifications, the results

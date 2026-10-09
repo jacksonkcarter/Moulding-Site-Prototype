@@ -36,7 +36,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         id: "what-is-flex-trim",
         question: "What is Flex Trim™?",
         answer: [
-          "Flex Trim™ is Carter Millwork’s original polymer resin blend—durable, consistent, and cost-effective, and the ideal choice for most applications. Carter Millwork flexible moulding is crafted from strong, long-lasting polyurethane that replicates complex profiles, architectural accessories, and wood grain patterns.",
+          "Flex Trim™ is Carter Millwork’s original polymer resin blend. It is durable, consistent, and cost-effective, and the ideal choice for most applications. Carter Millwork flexible moulding is crafted from strong, long-lasting polyurethane that replicates complex profiles, decorative architectural accessories, and wood grain patterns.",
         ],
         links: [{ label: "Material details", href: "/product-info/material-details" }],
       },
@@ -59,7 +59,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         id: "material-options",
         question: "What material options are available?",
         answer: [
-          "Flex Trim™ is the standard choice for most jobs. Specialized upgrades include Zzz Flex® for tight radiuses, intricate patterns, and cold-weather climates; Ultra-Flex (lighter, pre-primed; Utah plant); Ultra-Fire Flex for commercial fire-rated applications (Utah); and Machinable S4S for short, straight-run stock milled with conventional woodworking equipment (Utah).",
+          "Flex Trim™ is the standard choice for most jobs. Specialized upgrades include Zzz Flex® for tight radiuses, intricate patterns, and cold-weather climates, Ultra-Flex (lighter and pre-primed, Utah plant), Ultra-Fire Flex for commercial fire-rated applications (Utah), and Machinable S4S for short, straight-run stock milled with conventional woodworking equipment (Utah).",
         ],
         links: [{ label: "Compare materials", href: "/product-info/material-details" }],
       },
@@ -67,7 +67,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         id: "stainable",
         question: "Do you offer stainable moulding?",
         answer: [
-          "Yes. All Carter Millwork products are paint-grade, and many offer stainable finishes. Stain-grade flexible moulding, corbels, and appliques replicate real wood grain—such as Knotty Alder, Mahogany, and Maple—so you can stain after installation. Use gel stain only, and never sand stain-grade material (that permanently removes the surface grain). We cannot create or change grain from a provided sample.",
+          "Yes. All Carter Millwork products are paint-grade, and many offer stainable finishes. Stain-grade flexible moulding, corbels, and appliques replicate real wood grain such as Knotty Alder, Mahogany, and Maple, so you can stain after installation. Use gel stain only, and never sand stain-grade material (that permanently removes the surface grain). We cannot create or change grain from a provided sample.",
         ],
         links: [{ label: "Stainable trim", href: "/product-info/stainable-product" }],
       },
@@ -75,11 +75,11 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         id: "stock-vs-custom",
         question: "What’s the difference between stock and custom profiles?",
         answer: [
-          "We carry 250+ stock items ready for immediate shipping. We also have 40,000+ profiles already tooled for custom applications—our online catalog is only a fraction of what we can produce. If you need a profile that isn’t listed, send a tracing or use our Made-to-Match process.",
+          "We carry 250+ stock items ready for immediate shipping. We also have 40,000+ profiles already tooled for custom applications, and our online catalog is only a fraction of what we can produce. If you need a profile that isn’t listed, send a tracing or use our Made-to-Match process.",
         ],
         links: [
-          { label: "Browse stock items", href: "/product-info/browse-stock-items" },
-          { label: "Browse select profiles", href: "/product-info/browse-select-profiles" },
+          { label: "Quick-ship stock items", href: "/product-info/browse-stock-items" },
+          { label: "Select custom profiles", href: "/product-info/browse-select-profiles" },
         ],
       },
       {
@@ -108,7 +108,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         links: [
           { label: "Get started", href: "/ordering-installation/how-to-order" },
           { label: "Quote request", href: "/quote-request" },
-          { label: "Dealer search", href: "/ordering-installation/dealer-search" },
+          { label: "Find a dealer", href: "/ordering-installation/dealer-search" },
           { label: "Order forms", href: "/forms-literature/forms" },
         ],
       },
@@ -118,13 +118,13 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         answer: [
           "In-stock products usually ship within 24 hours of receiving your order. Most custom orders that use an existing mold ship within 2 weeks or less. Most new-mold orders ship within 3 weeks or less.",
         ],
-        links: [{ label: "Replicate custom profiles", href: "/product-info/replicate-custom-profiles" }],
+        links: [{ label: "Replicate new custom profiles", href: "/product-info/replicate-custom-profiles" }],
       },
       {
         id: "made-to-match",
         question: "Can you match an existing or historic profile?",
         answer: [
-          "Yes. Send a tracing and include the original manufacturer or supplier plus the profile’s thickness and width. If we don’t already have the style, our Made-to-Match process uses two 7′ pieces of your existing moulding to reproduce both shape and wood grain—from simple profiles to intricate designs.",
+          "Yes. Send a tracing and include the original manufacturer or supplier plus the profile’s thickness and width. If we don’t already have the style, our Made-to-Match process uses two 7′ pieces of your existing moulding to reproduce both shape and wood grain, from simple profiles to intricate designs.",
         ],
         links: [
           { label: "Made-to-Match", href: "/product-info/replicate-custom-profiles" },
@@ -135,17 +135,17 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         id: "find-dealer",
         question: "How do I find a dealer?",
         answer: [
-          "Use our dealer search to look up dealers by zip code and radius (10, 25, 50, or 100 miles).",
+          "Contact us and we’ll help you find your nearest Flex Trim™ dealer or distributor. You can also shop through our listed online retailers.",
         ],
-        links: [{ label: "Dealer search", href: "/ordering-installation/dealer-search" }],
+        links: [{ label: "Find a dealer", href: "/ordering-installation/dealer-search" }],
       },
       {
         id: "radius-length",
         question: "How do I figure out moulding length for a radius?",
         answer: [
-          "Use the Flex Trim Toolbox: choose a shape (half round, arc/eyebrow, elliptical, oval, or custom), then enter dimensions or a measured length. It computes the geometric length and the required moulding length, rounding up to the next foot plus manufacturing allowance.",
+          "Use the Length and radius calculator: choose a shape (half round, arc/eyebrow, elliptical, oval, or custom), then enter dimensions or a measured length. It computes the geometric length and the required moulding length, rounding up to the next foot plus manufacturing allowance.",
         ],
-        links: [{ label: "Flex Trim Toolbox", href: "/ordering-installation/flex-trim-toolbox" }],
+        links: [{ label: "Length and radius calculator", href: "/ordering-installation/flex-trim-toolbox" }],
       },
       {
         id: "pre-bent",
@@ -165,7 +165,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         id: "prepare",
         question: "How should I prepare flexible moulding before installing?",
         answer: [
-          "Unroll it so it returns to its original shape and verify the profile and application. Warm it to about 80°F for maximum flexibility—never use an open flame. Wipe with mineral spirits or soap and water, and make sure the mounting surface is completely flat. Always paint or stain after installation; a pre-applied finish will crack when the moulding flexes.",
+          "Unroll it so it returns to its original shape and verify the profile and application. Warm it to about 80°F for maximum flexibility, and never use an open flame. Wipe with mineral spirits or soap and water, and make sure the mounting surface is completely flat. Always paint or stain after installation. A pre-applied finish will crack when the moulding flexes.",
         ],
         links: [{ label: "Installation guide", href: "/ordering-installation/installation-guide" }],
       },
@@ -173,7 +173,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         id: "cut-machine",
         question: "Can I cut and machine it like wood?",
         answer: [
-          "Yes—treat it nearly the same as wood. Cut, sand, and shape with typical shop equipment. Hold firmly when cutting, take shallow passes when shaping, and use slower blade speeds. Never sand or shape stain-grade moulding.",
+          "Yes. Treat it nearly the same as wood. Cut, sand, and shape with typical shop equipment. Hold firmly when cutting, take shallow passes when shaping, and use slower blade speeds. Never sand or shape stain-grade moulding.",
         ],
         links: [
           { label: "Machining tips", href: "/ordering-installation/installation-guide#machining" },
@@ -183,7 +183,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         id: "adhesive-fasteners",
         question: "What adhesive and fasteners should I use?",
         answer: [
-          "Use adhesive compatible with polyurethane and non-porous materials, such as PL Premium Max—standard wood glue will not bond. Pin nails are best; trim screws, finish nails, and brad nails are also acceptable depending on size. Never use staples. Lower nail-gun pressure, set nails by hand when needed, and let adhesive do most of the holding work.",
+          "Use adhesive compatible with polyurethane and non-porous materials, such as PL Premium Max. Standard wood glue will not bond. Pin nails are best. Trim screws, finish nails, and brad nails are also acceptable depending on size. Never use staples. Lower nail-gun pressure, set nails by hand when needed, and let adhesive do most of the holding work.",
         ],
         links: [
           { label: "Installing tips", href: "/ordering-installation/installation-guide#installing" },
@@ -203,7 +203,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         id: "stain-how",
         question: "How do I stain Flex Trim™?",
         answer: [
-          "Use gel stain only—the grain is surface-level. Never sand stain-grade material. Apply clearcoat after staining. Gel stain on resin dries slower than on wood and must be fully dry before recoating. For darker color, work pigment into embossed grain recesses and apply thin second coats as needed.",
+          "Use gel stain only. The grain is surface-level. Never sand stain-grade material. Apply clearcoat after staining. Gel stain on resin dries slower than on wood and must be fully dry before recoating. For darker color, work pigment into embossed grain recesses and apply thin second coats as needed.",
         ],
         links: [
           { label: "Stainable trim", href: "/product-info/stainable-product" },
@@ -236,7 +236,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         id: "which-facility",
         question: "Which facility serves my area?",
         answer: [
-          "Service coverage varies by state—some areas are served by the NC facility, some by UT, and some by both. Our locations page map shows coverage by state, and contact pages highlight the facility that typically serves your area.",
+          "Service coverage varies by state. Some areas are served by the NC facility, some by UT, and some by both. Our locations page map shows coverage by state, and contact pages highlight the facility that typically serves your area.",
         ],
         links: [
           { label: "Locations map", href: "/company-info/locations" },
@@ -247,7 +247,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         id: "returns",
         question: "What is your return policy?",
         answer: [
-          "Contact us before shipping anything back—an RMA is required for all returns. Stock items may be returned when unused and resellable; the customer pays return freight plus a 25% restocking fee. Custom items are generally not returnable; exceptions for commonly sold items are evaluated case by case, and if approved the customer pays return freight plus a 30–50% restocking fee.",
+          "Contact us before shipping anything back. An RMA is required for all returns. Stock items may be returned when unused and resellable, and the customer pays return freight plus a 25% restocking fee. Custom items are generally not returnable. Exceptions for commonly sold items are evaluated case by case, and if approved the customer pays return freight plus a 30–50% restocking fee.",
         ],
         links: [{ label: "Returns", href: "/company-info/returns" }],
       },
@@ -272,7 +272,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
     items: [
       {
         id: "create-curved-moulding",
-        question: "How to Create Curved Moulding for Archways and Radius Walls",
+        question: "How to create curved moulding for archways and radius walls",
         answer: [
           "Creating curved moulding can be done using traditional wood-bending techniques, such as steam bending and kerf cutting, or by utilizing flexible polymer alternatives. Because traditional wood bending is labor-intensive and prone to splitting, the most efficient method for modern construction is installing a flexible polyurethane composite trim that bends to the exact radius of the wall.",
         ],
@@ -300,15 +300,15 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
           },
         ],
         links: [
-          { label: "Flex Trim Toolbox", href: "/ordering-installation/flex-trim-toolbox" },
+          { label: "Length and radius calculator", href: "/ordering-installation/flex-trim-toolbox" },
           { label: "Installation guide", href: "/ordering-installation/installation-guide" },
         ],
       },
       {
         id: "flexible-vs-wood-radius",
-        question: "Flexible Moulding vs. Wood for Arched Doorways and Radius Trim",
+        question: "Flexible moulding vs. wood for arched doorways and radius trim",
         answer: [
-          "Wood moulding can be shaped for curves with steam bending or kerf cutting, but those methods are time-consuming, require specialized skill, and often risk splitting or spring-back. Flexible moulding is a polyurethane composite trim manufactured to match wood profiles and bend to the radius of an archway, half-circle window, or curved wall—so installers can cut, fasten, and finish it much like straight wood trim without bending the lumber itself.",
+          "Wood moulding can be shaped for curves with steam bending or kerf cutting, but those methods are time-consuming, require specialized skill, and often risk splitting or spring-back. Flexible moulding is a polyurethane composite trim manufactured to match wood profiles and bend to the radius of an archway, half-circle window, or curved wall, so installers can cut, fasten, and finish it much like straight wood trim without bending the lumber itself.",
           "Flex Trim™ by Carter Millwork is a flexible polyurethane moulding designed for radius and curved applications indoors and outdoors. It can match stock or custom wood profiles, ships from facilities in North Carolina and Utah, and is typically finished with paint or gel stain after installation so it blends with surrounding straight millwork.",
         ],
         stepsHeading: "When flexible moulding is the better choice:",

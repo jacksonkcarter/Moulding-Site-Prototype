@@ -9,12 +9,13 @@ import {
   useState,
   type PointerEvent as ReactPointerEvent,
 } from "react";
-import { destroyPdfDocument, loadPdfJs, type PDFDocumentProxy } from "@/lib/pdfjs-client";
+import { destroyPdfDocument, openPdfDocument, type PDFDocumentProxy } from "@/lib/pdfjs-client";
 import {
   selectionPixelsToPdfPoints,
   type PdfCropExport,
   type PdfSelectionRect,
 } from "@/lib/pdf-selection";
+import { LoadingState } from "@/components/LoadingSpinner";
 
 export type PdfPageSelectorHandle = {
   exportCrop: () => PdfCropExport | null;
@@ -231,9 +232,8 @@ export const PdfPageSelector = forwardRef<PdfPageSelectorHandle, PdfPageSelector
         destroyPdfDocument(previous);
 
         try {
-          const pdfjs = await loadPdfJs();
           const data = new Uint8Array(await file.arrayBuffer());
-          loadingTask = pdfjs.getDocument({ data });
+          loadingTask = await openPdfDocument(data);
           const pdf = await loadingTask.promise;
           loadedDoc = pdf;
 
@@ -335,7 +335,7 @@ export const PdfPageSelector = forwardRef<PdfPageSelectorHandle, PdfPageSelector
           className="flex min-h-0 flex-1 items-center justify-center p-2"
         >
           {loading ? (
-            <p className="text-sm text-neutral-500">Loading PDF…</p>
+            <LoadingState size="md" className="py-8" />
           ) : error ? (
             <p className="px-4 text-center text-sm text-primary">{error}</p>
           ) : (

@@ -14,7 +14,7 @@ export const FACILITY_CONTACTS: Record<FacilityRegion, FacilityContact> = {
   east: {
     region: "east",
     label: "Flex Trim East",
-    addressLines: ["117 Cedar Lane Drive, Lexington, NC 27292"],
+    addressLines: ["117 Cedar Lane Drive", "Lexington, NC 27292"],
     phoneDisplay: "(800) 861-0734",
     phoneTel: "8008610734",
     email: "orders@carterflex.com",
@@ -22,7 +22,7 @@ export const FACILITY_CONTACTS: Record<FacilityRegion, FacilityContact> = {
   west: {
     region: "west",
     label: "Flex Trim West",
-    addressLines: ["533 South 500 West, Provo, UT 84601"],
+    addressLines: ["533 South 500 West", "Provo, UT 84601"],
     phoneDisplay: "(877) 877-4595",
     phoneTel: "8778774595",
     email: "orders@flextrim.com",

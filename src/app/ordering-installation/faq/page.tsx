@@ -15,7 +15,7 @@ export default function FAQPage() {
               <h2 className="text-lg font-semibold tracking-tight text-neutral-900">Still have a question?</h2>
               <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed md:text-base">
                 Call a product specialist at <ContactPhoneLink className="font-medium text-primary hover:underline" />{" "}
-                or <ContactLink className="font-medium text-primary hover:underline">contact us</ContactLink>—we’re
+                or <ContactLink className="font-medium text-primary hover:underline">contact us</ContactLink>. We&apos;re
                 happy to help with profiles, materials, and installation.
               </p>
             </section>

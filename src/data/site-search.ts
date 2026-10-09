@@ -37,7 +37,7 @@ const STATIC_PAGES: SiteSearchEntry[] = [
   {
     id: "home",
     title: "Home",
-    description: "Curved trim made easy — Flex Trim™ flexible moulding by Carter Millwork.",
+    description: "Curved trim made easy. Flex Trim™ flexible moulding by Carter Millwork.",
     href: "/",
     category: "Pages",
     keywords: ["flex trim", "carter millwork", "flexible moulding", "home"],
@@ -51,12 +51,20 @@ const STATIC_PAGES: SiteSearchEntry[] = [
     keywords: ["phone", "email", "sales", "support", "facility"],
   },
   {
+    id: "existing-customers",
+    title: "Existing customers",
+    description: "Request a quote or check order status for your Flex Trim™ account.",
+    href: "/ordering-installation/existing-customers",
+    category: "Pages",
+    keywords: ["existing customer", "reorder", "account"],
+  },
+  {
     id: "quote-request",
     title: "Quote request",
     description: "Tell us about your project for pricing and lead times.",
     href: "/quote-request",
     category: "Pages",
-    keywords: ["pricing", "estimate", "custom quote"],
+    keywords: ["pricing", "estimate", "custom quote", "quote request"],
   },
   {
     id: "product-overview",
@@ -76,7 +84,7 @@ const STATIC_PAGES: SiteSearchEntry[] = [
   },
   {
     id: "stock-items",
-    title: "Browse stock items",
+    title: "Quick-ship stock items",
     description: "Browse ready-to-ship stock moulding by category, or view the full stock list.",
     href: "/product-info/browse-stock-items",
     category: "Stock items",
@@ -92,7 +100,7 @@ const STATIC_PAGES: SiteSearchEntry[] = [
   },
   {
     id: "profile-search",
-    title: "Browse select profiles",
+    title: "Select custom profiles",
     description: "Browse tooled profiles by moulding type, or search the full library.",
     href: "/product-info/browse-select-profiles",
     category: "Profiles",
@@ -108,7 +116,7 @@ const STATIC_PAGES: SiteSearchEntry[] = [
   },
   {
     id: "replicate",
-    title: "Replicate custom profiles",
+    title: "Replicate new custom profiles",
     description: "Made-to-Match process to recreate existing or historic moulding profiles.",
     href: "/product-info/replicate-custom-profiles",
     category: "Products",
@@ -116,8 +124,8 @@ const STATIC_PAGES: SiteSearchEntry[] = [
   },
   {
     id: "accessories",
-    title: "Accessories",
-    description: "Architectural accessories for Flex Trim™ projects.",
+    title: "Decorative architectural accessories",
+    description: "Decorative architectural accessories for Flex Trim™ projects.",
     href: "/product-info/accessories",
     category: "Products",
     keywords: ["corbels", "appliques", "blocks"],
@@ -142,7 +150,7 @@ const STATIC_PAGES: SiteSearchEntry[] = [
     id: "xtrulinear",
     title: "Xtrulinear® extended lengths",
     description:
-      "Continuous Flex Trim™ or Zzz Flex moulding from 12' to 500' on a spool—cut to length with fewer joints and less waste.",
+      "Continuous Flex Trim™ or Zzz Flex moulding from 12' to 500' on a spool, cut to length with fewer joints and less waste.",
     href: "/product-info/xtrulinear",
     category: "Products",
     keywords: [
@@ -199,7 +207,7 @@ const STATIC_PAGES: SiteSearchEntry[] = [
   },
   {
     id: "homeowners",
-    title: "Homeowners",
+    title: "Homeowners & end users",
     description: "Learn about Flex Trim™ and how to order for your home.",
     href: "/ordering-installation/homeowners",
     category: "Pages",
@@ -208,26 +216,35 @@ const STATIC_PAGES: SiteSearchEntry[] = [
   {
     id: "how-to-order",
     title: "Get started",
-    description: "Guidance for ordering Flex Trim™ stock and custom products.",
+    description:
+      "Choose your path as an architect, contractor, dealer, homeowner, or existing customer to order Flex Trim™.",
     href: "/ordering-installation/how-to-order",
     category: "Pages",
     keywords: ["ordering", "minimums", "dealers", "how to order", "get started"],
   },
   {
     id: "dealer-search",
-    title: "Dealer search",
-    description: "Find Flex Trim™ dealers by zip code and radius.",
+    title: "Find a dealer",
+    description: "Contact us to find your nearest Flex Trim™ dealer or distributor.",
     href: "/ordering-installation/dealer-search",
     category: "Pages",
-    keywords: ["distributor", "local dealer", "zip code"],
+    keywords: ["distributor", "local dealer", "dealer", "where to buy"],
   },
   {
     id: "flex-trim-toolbox",
-    title: "Flex Trim Toolbox",
+    title: "Length and radius calculator",
     description: "Estimate Flex Trim™ length for half rounds, arcs, ellipses, ovals, and custom shapes.",
     href: "/ordering-installation/flex-trim-toolbox",
     category: "Pages",
     keywords: ["radius", "calculator", "arc", "curve", "length", "rise", "oval", "elliptical", "half round", "toolbox"],
+  },
+  {
+    id: "ordering-tips",
+    title: "What you need to know to order",
+    description: "Guidelines for specifying Flex Trim™ profiles, bending styles, and how to order correctly.",
+    href: "/ordering-installation/ordering-tips",
+    category: "Pages",
+    keywords: ["tips", "bending", "style 1", "style 2", "order"],
   },
   {
     id: "installation-guide",
@@ -308,6 +325,15 @@ const STATIC_PAGES: SiteSearchEntry[] = [
     href: "/company-info/about-us",
     category: "Pages",
     keywords: ["about", "history", "family", "lexington"],
+  },
+  {
+    id: "management-philosophy",
+    title: "Management philosophy",
+    description:
+      "How Flex Trim™ operates as a second-generation family business focused on customer service, reliability, and doing what we say.",
+    href: "/company-info/management-philosophy",
+    category: "Pages",
+    keywords: ["values", "customer service", "family", "philosophy", "principles"],
   },
   {
     id: "locations",

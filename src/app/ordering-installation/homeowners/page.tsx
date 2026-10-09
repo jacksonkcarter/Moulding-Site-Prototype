@@ -61,14 +61,14 @@ export default function HomeownersPage() {
               Find a dealer nearby
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-neutral-700 md:text-base">
-              Use our{" "}
+              Visit{" "}
               <Link
                 href="/ordering-installation/dealer-search"
                 className="font-medium text-primary hover:underline"
               >
-                dealer search
+                Find a dealer
               </Link>{" "}
-              to locate Flex Trim™ dealers by zip code and driving radius.
+              and contact us to find your nearest Flex Trim™ dealer or distributor.
             </p>
           </section>
         </div>

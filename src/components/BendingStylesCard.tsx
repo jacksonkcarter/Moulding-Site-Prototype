@@ -47,7 +47,7 @@ export function BendingStylesCard({ className = "", flush = false }: BendingStyl
       <div
         className={`${
           flush
-            ? "overflow-hidden bg-white"
+            ? "overflow-hidden border-b border-neutral-200 bg-white"
             : "overflow-hidden rounded-lg border border-neutral-200 bg-white"
         } ${className}`}
       >
@@ -112,10 +112,7 @@ export function BendingStylesCard({ className = "", flush = false }: BendingStyl
               id={titleId}
               className="mt-4 min-h-0 shrink space-y-3 text-xs leading-relaxed text-neutral-700 sm:text-sm"
             >
-              <div
-                className="grid gap-2"
-                style={{ gridTemplateColumns: "calc(50% - 0.5in) calc(50% + 0.5in)" }}
-              >
+              <div className="grid grid-cols-[3fr_4fr] gap-2">
                 <div>
                   <p>
                     Straight pieces of Flex Trim™ <span className="underline">are not</span> warrantied

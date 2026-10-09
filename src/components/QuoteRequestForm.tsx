@@ -709,7 +709,7 @@ export function QuoteRequestForm() {
   const optionBtn =
     "w-full rounded border-2 border-neutral-300 px-4 py-3 text-left text-sm font-medium text-neutral-800 hover:border-[#9f1b20] hover:bg-red-50/50 focus:border-[#9f1b20]";
 
-  // ——— List view ———
+  // List view
   if (view.step === "list") {
     return (
       <div className="space-y-6">
@@ -742,7 +742,7 @@ export function QuoteRequestForm() {
     );
   }
 
-  // ——— Step 1: Application ———
+  // Step 1: Application
   if (view.step === "application" && currentItem) {
     return (
       <div className="space-y-6">
@@ -793,7 +793,7 @@ export function QuoteRequestForm() {
     );
   }
 
-  // ——— Crown: curvature ———
+  // Crown: curvature
   if (view.step === "crown-curvature" && currentItem) {
     const crownOptions: { value: CrownCurvature; img: { src: string } }[] = [
       { value: "ISR (Concave)", img: crownIsrImg },
@@ -842,7 +842,7 @@ export function QuoteRequestForm() {
     );
   }
 
-  // ——— Crown: OSR tight radii (when OSR selected) ———
+  // Crown: OSR tight radii (when OSR selected)
   if (view.step === "crown-osr-tight-radii" && currentItem) {
     const osrTightRadiiOptions: { value: CrownOsrTightRadiiOption; img: { src: string }; labelLines: string[] }[] = [
       { value: "Column Wrap", img: crownColumnWrapImg, labelLines: ["Column Wrap"] },
@@ -897,7 +897,7 @@ export function QuoteRequestForm() {
     );
   }
 
-  // ——— Doorway: Arch style ———
+  // Doorway: Arch style
   if (view.step === "doorway-arch" && currentItem?.doorway) {
     const archStyleImages: Partial<Record<string, { src: string }>> = {
       "Half Round": archStyleHalfRoundImg,
@@ -999,7 +999,7 @@ export function QuoteRequestForm() {
     );
   }
 
-  // ——— Doorway: Curved wall (after arch style) ———
+  // Doorway: Curved wall (after arch style)
   if (view.step === "doorway-curved-wall" && currentItem?.doorway) {
     return (
       <div className="space-y-6">
@@ -1058,8 +1058,8 @@ export function QuoteRequestForm() {
           <div className="flex flex-col items-center gap-4">
             <div className="relative flex w-full max-w-2xl justify-center">
               <img src={eyebrowWidthRiseImg.src} alt="Eyebrow width and rise" className="max-h-80 w-auto object-contain sm:max-h-96" />
-              {/* Width at bottom center — moved down 3/16" */}
-              <div className="absolute left-1/2 flex -translate-x-1/2 items-center gap-1" style={{ bottom: "calc(1rem - 0.1875in)" }}>
+              {/* Width at bottom center - moved down 3/16" */}
+              <div className="absolute left-1/2 flex -translate-x-1/2 items-center gap-1" style={{ bottom: "-2px" }}>
                 <input
                   type="text"
                   inputMode="decimal"
@@ -1070,7 +1070,7 @@ export function QuoteRequestForm() {
                 />
                 <span className="text-sm text-neutral-500">in</span>
               </div>
-              {/* Height (Rise) in the middle — moved up 0.2" */}
+              {/* Height (Rise) in the middle - moved up 0.2" */}
               <div className="absolute left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-1" style={{ top: "calc(50% - 0.2in)" }}>
                 <input
                   type="text"
@@ -1116,7 +1116,7 @@ export function QuoteRequestForm() {
           <div className="flex flex-col items-center gap-4">
             <div className="relative flex w-full max-w-2xl justify-center">
               <img src={eyebrowRadiusLengthImg.src} alt="Eyebrow radius and length" className="max-h-80 w-auto object-contain sm:max-h-96" />
-              {/* Radius at middle bottom — moved down 3/16" */}
+              {/* Radius at middle bottom - moved down 3/16" */}
               <div className="absolute left-1/2 flex -translate-x-1/2 items-center gap-1" style={{ bottom: "calc(25% - 0.1875in)" }}>
                 <input
                   type="text"
@@ -1128,7 +1128,7 @@ export function QuoteRequestForm() {
                 />
                 <span className="text-sm text-neutral-500">in</span>
               </div>
-              {/* Length at middle top — moved up 7/16" */}
+              {/* Length at middle top - moved up 7/16" */}
               <div className="absolute left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-1" style={{ top: "calc(30% - 0.4375in)" }}>
                 <input
                   type="text"

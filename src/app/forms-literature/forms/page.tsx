@@ -21,7 +21,7 @@ export default function FormsPage() {
         {ORDER_FORMS.map((form) => (
           <section key={form.pdfSrc} aria-label={form.title}>
             <p className="mb-2 text-center text-sm font-semibold text-neutral-700">{form.label}</p>
-            <PdfViewerFrame title={form.title} pdfSrc={form.pdfSrc} heightExtra="0in" />
+            <PdfViewerFrame title={form.title} pdfSrc={form.pdfSrc} compact />
           </section>
         ))}
       </div>

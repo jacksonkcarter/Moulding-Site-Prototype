@@ -5,8 +5,8 @@ import { PageContent } from "@/components/PageContent";
 
 const PRODUCT_PATHS = [
   {
-    title: "Stock items",
-    body: "250+ ready-to-ship profiles for common radius and curved applications.",
+    title: "Quick-ship stock items",
+    body: "250+ ready-to-ship items for common radius and curved applications.",
     href: "/product-info/browse-stock-items",
     cta: "Browse stock",
   },
@@ -18,7 +18,7 @@ const PRODUCT_PATHS = [
   },
   {
     title: "Made-to-Match",
-    body: "Send a tracing or sample—we can replicate virtually any wood profile.",
+    body: "Send a tracing or sample and we can replicate virtually any wood profile.",
     href: "/product-info/replicate-custom-profiles",
     cta: "Learn about matching",
   },
@@ -34,7 +34,7 @@ export default function ArchitectsDesignersPage() {
           </h1>
           <p className="text-sm leading-relaxed text-neutral-700 md:text-base">
             Flex Trim™ by Carter Millwork delivers the look of custom wood millwork for arches, radius walls, and
-            complex transitions—typically at about 70% less than traditional machined wood millwork, with shorter lead
+            complex transitions, typically at about 70% less than traditional machined wood millwork, with shorter lead
             times than bent wood. Paint-grade or stainable, interior or exterior, with the consistency your drawings
             demand.
           </p>

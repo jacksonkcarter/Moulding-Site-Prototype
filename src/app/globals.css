@@ -1,10 +1,4 @@
 @import "tailwindcss";
-@import "leaflet/dist/leaflet.css";
-
-/* Keep Leaflet panes below site chrome (header menus use z-50+). */
-.leaflet-container {
-  z-index: 0;
-}
 
 @theme {
   --color-primary: #9f1b20;
@@ -27,6 +21,54 @@ input[type="search"]::-webkit-search-decoration {
 /* All headings use Quicksand (--font-heading from layout). */
 h1, h2, h3 {
   font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+}
+
+/*
+  In-element navigation spinner on the clicked control.
+  CSS-only (::after) so React re-renders do not wipe the indicator.
+*/
+.is-action-loading {
+  position: relative !important;
+  pointer-events: none !important;
+  color: transparent !important;
+}
+
+.is-action-loading > * {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+.is-action-loading::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 1rem;
+  margin: -0.5rem 0 0 -0.5rem;
+  border: 2px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: action-loading-spin 0.7s linear infinite;
+}
+
+.bg-primary.is-action-loading::after,
+.text-white.is-action-loading::after {
+  border-color: rgb(255 255 255 / 0.25);
+  border-top-color: #fff;
+}
+
+@keyframes action-loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Native wait cursor for plain in-page link navigations. */
+html.nav-cursor-loading,
+html.nav-cursor-loading * {
+  cursor: wait !important;
 }
 
 /* Report-style print: content only, no site chrome. */

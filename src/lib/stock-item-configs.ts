@@ -52,6 +52,22 @@ export function getStockConfigGroups(configs: string[]): StockConfigGroup[] {
   return groups.filter((g) => g.options.length > 0);
 }
 
-export function configToFolder(name: string): string {
-  return name.replace(/\//g, "");
+/** Half-round size label → public range diagram (e.g. "2/0" → `/stock-items/20 HR Range.png`). */
+export function halfRoundRangeImageSrc(config: string): string | null {
+  if (!(HALF_ROUND_CONFIGS as readonly string[]).includes(config)) return null;
+  const slug = config.replace(/\//g, "");
+  return `/stock-items/${encodeURIComponent(`${slug} HR Range.png`)}`;
+}
+
+/** Arc size label → public range diagram (e.g. `7' @ 48"R` → `/stock-items/7 48 Arc Range.png`). */
+export function arcRangeImageSrc(config: string): string | null {
+  if (!(ARC_CONFIGS as readonly string[]).includes(config)) return null;
+  const match = config.match(/^([\d.]+)'\s*@\s*(\d+)"R$/);
+  if (!match) return null;
+  return `/stock-items/${encodeURIComponent(`${match[1]} ${match[2]} Arc Range.png`)}`;
+}
+
+/** Range diagram for a half-round or arc config, if one exists. */
+export function stockConfigRangeImageSrc(config: string): string | null {
+  return halfRoundRangeImageSrc(config) ?? arcRangeImageSrc(config);
 }

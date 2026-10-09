@@ -2,7 +2,7 @@
  * Moulding types for the profile browser nav/filters.
  * Generated from All-Profiles.xlsx Key sheet, limited to types with drawings,
  * sorted alphabetically.
- * Regenerate with: npm run generate-profile-moulding-types
+ * Regenerate with: npm run generate-profiles
  */
 export const PROFILE_MOULDING_TYPES = [
   "Apron",

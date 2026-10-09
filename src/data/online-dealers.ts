@@ -5,7 +5,7 @@ export const ONLINE_DEALERS = [
     details: "Stock items, existing molds, new molds",
   },
   {
-    label: "Flexible Moulding Solutions",
+    label: "Trimster",
     href: "https://www.trimster.com/",
     details: "Stock items, existing molds, new molds",
   },
@@ -16,7 +16,7 @@ export const ONLINE_DEALERS = [
   },
   {
     label: "The Home Depot",
-    href: "https://www.homedepot.com/",
+    href: "https://www.homedepot.com/b/Flex-Trim/N-5yc1vZfgf",
     details: "Stock items (online), existing molds (in-store only)",
   },
   {
@@ -36,7 +36,7 @@ export const ONLINE_DEALERS = [
   },
   {
     label: "Amazon",
-    href: "https://www.amazon.com/",
+    href: "https://www.amazon.com/s?srs=20051896011&rh=p_89%3AFLEXTRIM",
     details: "Stock items",
   },
 ] as const;

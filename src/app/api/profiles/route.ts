@@ -1,6 +1,8 @@
 import { getMouldingTypesWithDrawings, loadProfilesWithImages } from "@/lib/profiles";
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-static";
+
 export async function GET() {
   try {
     const profiles = loadProfilesWithImages();
@@ -8,9 +10,6 @@ export async function GET() {
     return NextResponse.json({ profiles, mouldingTypes });
   } catch (e) {
     console.error(e);
-    return NextResponse.json(
-      { error: "Failed to load profiles" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to load profiles" }, { status: 500 });
   }
 }

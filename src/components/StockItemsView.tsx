@@ -244,14 +244,58 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
     return canvases;
   }, [items]);
 
+  useEffect(() => {
+    let scrollFrame: number | null = null;
+
+    const scheduleCategoryScroll = (hash: string) => {
+      if (!hash) return;
+
+      let categoryId: string;
+      try {
+        categoryId = decodeURIComponent(hash.slice(1));
+      } catch {
+        return;
+      }
+
+      if (!categoryId || !document.getElementById(categoryId)) return;
+      if (scrollFrame !== null) cancelAnimationFrame(scrollFrame);
+
+      scrollFrame = requestAnimationFrame(() => {
+        scrollFrame = requestAnimationFrame(() => {
+          document.getElementById(categoryId)?.scrollIntoView({ block: "start" });
+          scrollFrame = null;
+        });
+      });
+    };
+
+    const handleHashChange = () => scheduleCategoryScroll(window.location.hash);
+    const handleSamePageCategoryClick = (event: MouseEvent) => {
+      if (!(event.target instanceof Element)) return;
+      const link = event.target.closest<HTMLAnchorElement>("a[href]");
+      if (!link) return;
+
+      const destination = new URL(link.href, window.location.href);
+      if (destination.pathname !== window.location.pathname || !destination.hash) return;
+      scheduleCategoryScroll(destination.hash);
+    };
+
+    scheduleCategoryScroll(window.location.hash);
+    window.addEventListener("hashchange", handleHashChange);
+    document.addEventListener("click", handleSamePageCategoryClick);
+
+    return () => {
+      if (scrollFrame !== null) cancelAnimationFrame(scrollFrame);
+      window.removeEventListener("hashchange", handleHashChange);
+      document.removeEventListener("click", handleSamePageCategoryClick);
+    };
+  }, []);
+
   return (
     <section id="stock-items" className="scroll-mt-20 border-t border-neutral-200 bg-white pb-20 pt-5">
       <div className="w-full px-4 sm:px-6">
-        <h2 className="text-3xl font-medium tracking-tight text-neutral-900 text-center">
-          Browse stock items
-        </h2>
-        <p className="mt-2 text-neutral-600 text-center">
-          View custom profiles in our{" "}
+        <p className="text-neutral-600 text-center">
+          The below profiles and configurations are kept on the shelf for quick shipping. For more
+          options, view some of our currently tooled profiles in our{" "}
           <Link href="/product-info/profile-search" className="font-medium text-primary hover:underline">
             browser
           </Link>{" "}
@@ -262,8 +306,8 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
           , or{" "}
           <ContactLink action="popover" className="font-medium text-primary hover:underline">
             contact us
-          </ContactLink>{" "}
-          for even more options
+          </ContactLink>
+          .
         </p>
 
         <div className="mt-8 flex flex-col gap-8 lg:flex-row">
@@ -454,7 +498,7 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
                 const categoryItems = itemsByCategory.get(id) ?? [];
                 if (categoryItems.length === 0) return null;
                 return (
-                  <section key={id} id={id} className="scroll-mt-24">
+                  <section key={id} id={id} className="scroll-mt-28">
                     <h3 className="border-b border-neutral-300 pb-1.5 text-xl font-medium text-primary">
                       {label}
                     </h3>

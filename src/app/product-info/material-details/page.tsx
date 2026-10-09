@@ -25,7 +25,7 @@ export default function MaterialDetailsPage() {
               />
             </div>
           </figure>
-          <div className="sm:pr-[calc(35%+0.25rem)]">
+          <div className="sm:pr-[36%]">
             <p>
               Curved walls, arched windows, and winding staircases create stunning spaces, but executing them in
               traditional curved wood is notoriously difficult and costly. Polyurethane molding delivers the exact same
@@ -50,7 +50,7 @@ export default function MaterialDetailsPage() {
 
         <MaterialUpgradeCards />
 
-        <div className="mt-[calc(1rem-0.5in)] grid items-center gap-6 sm:grid-cols-[11.5rem_1fr] sm:gap-8 lg:grid-cols-[13.8rem_1fr] lg:gap-10">
+        <div className="-mt-8 grid items-center gap-6 sm:grid-cols-[11.5rem_1fr] sm:gap-8 lg:grid-cols-[13.8rem_1fr] lg:gap-10">
           <div className="relative mx-auto aspect-square w-[10.35rem] sm:mx-0 sm:w-full">
             <Image
               src="/product-info/coils/EC127-COIL.jpg"

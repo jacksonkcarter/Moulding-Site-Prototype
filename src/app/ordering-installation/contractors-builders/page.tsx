@@ -6,11 +6,11 @@ import { PageContent } from "@/components/PageContent";
 const JOBSITE_POINTS = [
   {
     title: "Installs like wood",
-    body: "Cut, nail, and glue with standard tools. Pin nails and polyurethane-compatible adhesive (such as PL Premium Max) hold best—skip staples and wood glue.",
+    body: "Cut, nail, and glue with standard tools. Pin nails and polyurethane-compatible adhesive (such as PL Premium Max) hold best. Skip staples and wood glue.",
   },
   {
     title: "Built for the field",
-    body: "Flexible enough for on-site adjustments when the radius or fit needs a tweak—without sending the piece back to the shop.",
+    body: "Flexible enough for on-site adjustments when the radius or fit needs a tweak, without sending the piece back to the shop.",
   },
   {
     title: "Finish after install",
@@ -20,17 +20,17 @@ const JOBSITE_POINTS = [
 
 const PRODUCT_PATHS = [
   {
-    label: "Shop stock items",
+    label: "Quick-ship stock items",
     href: "/product-info/browse-stock-items",
     detail: "250+ profiles ready to ship",
   },
   {
-    label: "Browse select profiles",
+    label: "Select custom profiles",
     href: "/product-info/browse-select-profiles",
     detail: "40,000+ tooled shapes",
   },
   {
-    label: "Replicate a profile",
+    label: "Replicate new custom profiles",
     href: "/product-info/replicate-custom-profiles",
     detail: "Match existing or historic trim",
   },
@@ -46,7 +46,7 @@ export default function ContractorsBuildersPage() {
           </h1>
           <p className="text-sm leading-relaxed text-neutral-700 md:text-base">
             Flex Trim™ replaces steam-bending and kerf-cutting with flexible polyurethane moulding that follows the
-            arch or curve—putting your crew ahead of schedule when it matters most, and typically saving about 70%
+            arch or curve, putting your crew ahead of schedule when it matters most, and typically saving about 70%
             versus traditional machined wood millwork. Stock when you need speed, custom when you need an exact match.
           </p>
         </header>
@@ -106,14 +106,15 @@ export default function ContractorsBuildersPage() {
             Where to buy
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-neutral-700 md:text-base">
-            Purchase through a Flex Trim™ dealer near you. Use our{" "}
+            Purchase through a Flex Trim™ dealer near you. Visit{" "}
             <Link
               href="/ordering-installation/dealer-search"
               className="font-medium text-primary hover:underline"
             >
-              dealer search
+              Find a dealer
             </Link>{" "}
-            to find locations by zip code. You&apos;re also welcome to{" "}
+            to contact us for a referral, or shop through our online retailers. You&apos;re also
+            welcome to{" "}
             <ContactLink action="popover" className="font-medium text-primary hover:underline">
               reach out to our team
             </ContactLink>{" "}

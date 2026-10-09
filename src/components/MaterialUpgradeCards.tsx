@@ -110,7 +110,7 @@ export function MaterialUpgradeCards() {
         return (
           <li key={item.title} className="min-w-0">
             <div
-              className={`rounded-2xl border shadow-sm transition-all duration-300 ${
+              className={`cursor-pointer rounded-2xl border shadow-sm transition-all duration-300 ${
                 isOpen
                   ? "border-primary/40 bg-white shadow-md ring-1 ring-primary/10"
                   : "border-neutral-200 bg-gradient-to-br from-white via-white to-neutral-50 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-md"
@@ -120,7 +120,7 @@ export function MaterialUpgradeCards() {
                 type="button"
                 onClick={() => setExpanded(isOpen ? null : item.title)}
                 aria-expanded={isOpen}
-                className="group relative flex w-full flex-col p-5 text-left"
+                className="group relative flex w-full cursor-pointer flex-col p-5 text-left"
               >
                 <span className="absolute top-5 right-5">
                   <ChevronIcon open={isOpen} />
@@ -138,6 +138,39 @@ export function MaterialUpgradeCards() {
                   <p className="whitespace-nowrap text-sm font-semibold leading-tight text-neutral-900 sm:text-[15px]">
                     {item.title}
                   </p>
+                  {item.products?.length ? (
+                    item.learnMoreHref ? (
+                      <Link
+                        href={item.learnMoreHref}
+                        onClick={(e) => e.stopPropagation()}
+                        className="-mt-1 space-y-0.5 text-sm font-semibold text-primary hover:underline sm:text-[15px]"
+                      >
+                        {item.products.map((name, index) => {
+                          const total = item.products!.length;
+                          const label =
+                            total > 1 && index < total - 1 ? `${name},` : name;
+                          return (
+                            <span key={name} className="block whitespace-nowrap">
+                              {label}
+                            </span>
+                          );
+                        })}
+                      </Link>
+                    ) : (
+                      <div className="-mt-1 space-y-0.5 text-sm font-semibold text-primary sm:text-[15px]">
+                        {item.products.map((name, index) => {
+                          const total = item.products!.length;
+                          const label =
+                            total > 1 && index < total - 1 ? `${name},` : name;
+                          return (
+                            <p key={name} className="whitespace-nowrap">
+                              {label}
+                            </p>
+                          );
+                        })}
+                      </div>
+                    )
+                  ) : null}
                 </div>
               </button>
 
@@ -152,41 +185,7 @@ export function MaterialUpgradeCards() {
                     className="overflow-hidden"
                   >
                     <div className="border-t border-neutral-200 px-5 pb-5 pt-4">
-                      {item.products?.length ? (
-                        item.learnMoreHref ? (
-                          <Link
-                            href={item.learnMoreHref}
-                            className="block space-y-0.5 text-sm font-semibold text-primary hover:underline md:text-base"
-                          >
-                            {item.products.map((name, index) => {
-                              const total = item.products!.length;
-                              const label =
-                                total > 1 && index < total - 1 ? `${name},` : name;
-                              return (
-                                <span key={name} className="block">
-                                  {label}
-                                </span>
-                              );
-                            })}
-                          </Link>
-                        ) : (
-                          <div className="space-y-0.5 text-sm font-semibold text-primary md:text-base">
-                            {item.products.map((name, index) => {
-                              const total = item.products!.length;
-                              const label =
-                                total > 1 && index < total - 1 ? `${name},` : name;
-                              return (
-                                <p key={name}>{label}</p>
-                              );
-                            })}
-                          </div>
-                        )
-                      ) : null}
-                      <p
-                        className={`text-sm leading-relaxed text-neutral-600 ${
-                          item.products?.length ? "mt-2" : ""
-                        }`}
-                      >
+                      <p className="text-sm leading-relaxed text-neutral-600">
                         {item.description}
                       </p>
                       {item.footnotes?.length ? (

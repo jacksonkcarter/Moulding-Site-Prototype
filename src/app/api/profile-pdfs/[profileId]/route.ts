@@ -14,21 +14,19 @@ async function wrapOutlineOnLetter(
   output.setTitle(title);
   output.setAuthor("Carter Millwork");
   const pageCount = source.getPageCount();
-  const marginPt = 36; // 0.5"
+  const [letterW, letterH] = PageSizes.Letter;
 
   for (let i = 0; i < pageCount; i++) {
     const [embedded] = await output.embedPdf(source, [i]);
     const page = output.addPage(PageSizes.Letter);
-    const { width: pageW, height: pageH } = page.getSize();
-    const maxW = pageW - marginPt * 2;
-    const maxH = pageH - marginPt * 2;
-    // Keep native scale; only shrink if the crop is larger than the printable area.
-    const scale = Math.min(1, maxW / embedded.width, maxH / embedded.height);
+    // Fit to the full letter page - do not inset with margins or letter-sized
+    // sources (already 8.5×11) get scaled down.
+    const scale = Math.min(1, letterW / embedded.width, letterH / embedded.height);
     const drawW = embedded.width * scale;
     const drawH = embedded.height * scale;
     page.drawPage(embedded, {
-      x: (pageW - drawW) / 2,
-      y: (pageH - drawH) / 2,
+      x: (letterW - drawW) / 2,
+      y: (letterH - drawH) / 2,
       width: drawW,
       height: drawH,
     });

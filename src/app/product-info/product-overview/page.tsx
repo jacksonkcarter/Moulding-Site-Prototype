@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PageContent } from "@/components/PageContent";
+import { FlexTrimBenefitTiles } from "@/components/HomeBenefitTiles";
 import { ProductApplicationShowcase } from "@/components/ProductApplicationShowcase";
 
 const NEXT_STEPS = [
@@ -10,19 +11,19 @@ const NEXT_STEPS = [
     cta: "Explore materials",
   },
   {
-    title: "Browse stock items",
+    title: "Quick-ship stock items",
     body: "Shop 250+ ready-to-ship profiles when you need common shapes without custom tooling.",
     href: "/product-info/browse-stock-items",
     cta: "Shop stock",
   },
   {
-    title: "Browse select profiles",
+    title: "Select custom profiles",
     body: "Search our growing library of 40,000+ tooled profiles for custom applications.",
     href: "/product-info/browse-select-profiles",
     cta: "Browse profiles",
   },
   {
-    title: "Replicate custom profiles",
+    title: "Replicate new custom profiles",
     body: "Match an existing or historic moulding with our Made-to-Match process.",
     href: "/product-info/replicate-custom-profiles",
     cta: "Learn about matching",
@@ -37,6 +38,19 @@ export default function ProductOverviewPage() {
 
         <section
           className="mt-20 border-t border-neutral-200 pt-12 sm:mt-24 sm:pt-14"
+          aria-labelledby="flex-trim-advantage-heading"
+        >
+          <div className="w-full">
+            <FlexTrimBenefitTiles
+              title="The Flex Trim™ advantage"
+              headingId="flex-trim-advantage-heading"
+              layout="list"
+            />
+          </div>
+        </section>
+
+        <section
+          className="mt-20 border-t border-neutral-200 pt-12 sm:mt-24 sm:pt-14"
           aria-labelledby="continue-exploring-heading"
         >
           <div className="mx-auto max-w-2xl text-center">
@@ -44,11 +58,8 @@ export default function ProductOverviewPage() {
               id="continue-exploring-heading"
               className="text-xl font-semibold tracking-tight text-neutral-900 md:text-2xl"
             >
-              Continue exploring products
+              Continue exploring
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-neutral-600 md:text-base">
-              From materials to stock, tooled profiles, and custom matching—here&apos;s where to go next.
-            </p>
           </div>
 
           <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

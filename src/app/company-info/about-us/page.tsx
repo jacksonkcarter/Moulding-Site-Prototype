@@ -151,11 +151,11 @@ export default function AboutUsPage() {
           </div>
         </section>
 
-        <section className="mx-[calc(0.5rem+0.5in)] sm:mx-[calc(1rem+0.75in)] md:mx-[calc(1.5rem+1in)] pt-2 pb-8 sm:pt-3 sm:pb-10">
+        <section className="mx-14 sm:mx-[5.5rem] md:mx-[7.5rem] pt-2 pb-8 sm:pt-3 sm:pb-10">
           <h2 className="text-center text-xl font-medium text-neutral-900">Our legacy of innovation</h2>
           <div className="relative mt-10">
             <div
-              className="absolute top-3 bottom-3 left-[calc(9rem+1rem+0.625rem-0.5px)] w-px bg-neutral-200 sm:left-[calc(10rem+1.25rem+0.75rem-0.5px)]"
+              className="absolute top-3 bottom-3 left-[10.625rem] w-px -translate-x-1/2 bg-neutral-200 sm:left-[12rem]"
               aria-hidden
             />
             <ul className="relative list-none space-y-0 pl-0">

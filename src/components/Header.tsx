@@ -3,21 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { STOCK_ITEM_SECTIONS } from "@/data/stock-items";
+import { ACCESSORY_CATEGORIES } from "@/data/accessories";
 import { PROFILE_MOULDING_TYPES } from "@/data/profile-moulding-types";
-import { navItems } from "@/lib/nav";
+import { navItems, TOOLS_AND_INFORMATION_LINKS, type NavLink } from "@/lib/nav";
 import { ContactLink } from "@/components/ContactLink";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
 
 const PROFILE_NAV_MOULDING_OPTIONS = [...PROFILE_MOULDING_TYPES];
 
-const ORDERING_PRODUCT_PROFILE_LINKS = [
-  { label: "Browse stock items", href: "/product-info/browse-stock-items" },
-  { label: "Browse select profiles", href: "/product-info/browse-select-profiles" },
-  { label: "Replicate custom profiles", href: "/product-info/replicate-custom-profiles" },
-  { label: "Accessories", href: "/product-info/accessories" },
-  { label: "Tight radii & bullnose corners", href: "/product-info/tight-radii-bullnose-corners" },
-] as const;
+type NavChild = { label: string; href: string };
 
 export function Header() {
   const pathname = usePathname();
@@ -27,22 +23,602 @@ export function Header() {
   const stockItemsSubmenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [profilesSubmenuOpen, setProfilesSubmenuOpen] = useState(false);
   const profilesSubmenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [productsAndProfilesOpen, setProductsAndProfilesOpen] = useState(false);
-  const productsAndProfilesCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [accessoriesSubmenuOpen, setAccessoriesSubmenuOpen] = useState(false);
+  const accessoriesSubmenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [toolsSubmenuOpen, setToolsSubmenuOpen] = useState(false);
+  const toolsSubmenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
-  const [mobileNestedExpanded, setMobileNestedExpanded] = useState<string | null>(null);
   const [mobileDeepExpanded, setMobileDeepExpanded] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchPending, setSearchPending] = useState(false);
+
+  useEffect(() => {
+    setSearchPending(false);
+    setOpenDropdown(null);
+    setStockItemsSubmenuOpen(false);
+    setProfilesSubmenuOpen(false);
+    setAccessoriesSubmenuOpen(false);
+    setToolsSubmenuOpen(false);
+    setMobileOpen(false);
+    setMobileExpanded(null);
+    setMobileDeepExpanded(null);
+  }, [pathname]);
+
+  function menusPinned() {
+    return typeof document !== "undefined" && document.documentElement.classList.contains("nav-inplace-busy");
+  }
 
   function submitSiteSearch() {
     const q = searchQuery.trim();
+    setSearchPending(true);
     if (!q) {
       router.push("/search");
       return;
     }
     router.push(`/search?q=${encodeURIComponent(q)}`);
-    setMobileOpen(false);
+  }
+
+  function closeDesktopDropdown() {
+    if (menusPinned()) return;
+    setOpenDropdown(null);
+    setStockItemsSubmenuOpen(false);
+    setProfilesSubmenuOpen(false);
+    setAccessoriesSubmenuOpen(false);
+    setToolsSubmenuOpen(false);
+  }
+
+  function renderDesktopNavChild(child: NavChild, keyPrefix: string) {
+    if (child.label === "Tools and information") {
+      const toolsActive = TOOLS_AND_INFORMATION_LINKS.some((link) => pathname === link.href);
+      return (
+        <div
+          key={`${keyPrefix}-${child.label}`}
+          className="relative"
+          onMouseEnter={() => {
+            if (toolsSubmenuCloseTimer.current) {
+              clearTimeout(toolsSubmenuCloseTimer.current);
+              toolsSubmenuCloseTimer.current = null;
+            }
+            setStockItemsSubmenuOpen(false);
+            setProfilesSubmenuOpen(false);
+            setAccessoriesSubmenuOpen(false);
+            setToolsSubmenuOpen(true);
+          }}
+          onMouseLeave={() => {
+            if (menusPinned()) return;
+            toolsSubmenuCloseTimer.current = setTimeout(() => setToolsSubmenuOpen(false), 150);
+          }}
+        >
+          <Link
+            href={child.href}
+            className={`flex items-center justify-between gap-3 whitespace-nowrap px-4 py-2 text-sm ${
+              toolsActive
+                ? "bg-red-50 font-medium text-[#9f1b20]"
+                : "text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
+            }`}
+          >
+            {child.label}
+            <svg className="h-3.5 w-3.5 shrink-0 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+          {toolsSubmenuOpen && (
+            <div
+              className="absolute left-full -top-2 z-[101] min-w-[240px] -ml-px pt-1"
+              onMouseEnter={() => {
+                if (toolsSubmenuCloseTimer.current) {
+                  clearTimeout(toolsSubmenuCloseTimer.current);
+                  toolsSubmenuCloseTimer.current = null;
+                }
+                setToolsSubmenuOpen(true);
+              }}
+              onMouseLeave={() => {
+                if (menusPinned()) return;
+                toolsSubmenuCloseTimer.current = setTimeout(() => setToolsSubmenuOpen(false), 150);
+              }}
+            >
+              <div
+                data-nav-menu
+                className="rounded-r-md rounded-bl-md border border-neutral-200 border-l-0 bg-white py-1 shadow-lg"
+              >
+                {TOOLS_AND_INFORMATION_LINKS.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`block whitespace-nowrap px-4 py-2 text-sm ${
+                      pathname === link.href
+                        ? "bg-red-50 font-medium text-[#9f1b20]"
+                        : "text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    if (child.label === "Quick-ship stock items") {
+      return (
+        <div
+          key={`${keyPrefix}-${child.label}`}
+          className="relative"
+          onMouseEnter={() => {
+            if (stockItemsSubmenuCloseTimer.current) {
+              clearTimeout(stockItemsSubmenuCloseTimer.current);
+              stockItemsSubmenuCloseTimer.current = null;
+            }
+            setProfilesSubmenuOpen(false);
+            setAccessoriesSubmenuOpen(false);
+            setToolsSubmenuOpen(false);
+            setStockItemsSubmenuOpen(true);
+          }}
+          onMouseLeave={() => {
+            if (menusPinned()) return;
+            stockItemsSubmenuCloseTimer.current = setTimeout(() => setStockItemsSubmenuOpen(false), 150);
+          }}
+        >
+          <Link
+            href={child.href}
+            className={`flex items-center justify-between px-4 py-2 text-sm ${
+              pathname === child.href
+                ? "bg-red-50 font-medium text-[#9f1b20]"
+                : "text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
+            }`}
+          >
+            {child.label}
+            <svg className="h-3.5 w-3.5 shrink-0 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+          {stockItemsSubmenuOpen && (
+            <div
+              className="absolute left-full -top-2 z-[101] min-w-[200px] -ml-px pt-1"
+              onMouseEnter={() => {
+                if (stockItemsSubmenuCloseTimer.current) {
+                  clearTimeout(stockItemsSubmenuCloseTimer.current);
+                  stockItemsSubmenuCloseTimer.current = null;
+                }
+                setStockItemsSubmenuOpen(true);
+              }}
+              onMouseLeave={() => {
+                if (menusPinned()) return;
+                stockItemsSubmenuCloseTimer.current = setTimeout(() => setStockItemsSubmenuOpen(false), 150);
+              }}
+            >
+              <div
+                data-nav-menu
+                className="rounded-r-md rounded-bl-md border border-neutral-200 border-l-0 bg-white py-1 shadow-lg"
+              >
+                <div className="mx-2 mt-1 mb-1 space-y-1">
+                  <Link
+                    href="/product-info/browse-stock-items"
+                    className="block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
+                  >
+                    See all categories
+                  </Link>
+                  <Link
+                    href="/product-info/stock-items"
+                    className="block rounded-md border-2 border-primary bg-white px-3 py-2 text-center text-sm font-semibold text-primary hover:bg-primary hover:text-white"
+                  >
+                    See all profiles
+                  </Link>
+                </div>
+                <div className="border-t border-neutral-100 pt-1">
+                  {STOCK_ITEM_SECTIONS.map((section) => (
+                    <Link
+                      key={section.id}
+                      href={`/product-info/stock-items#${section.id}`}
+                      className="block px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
+                    >
+                      {section.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    if (child.label === "Select custom profiles") {
+      return (
+        <div
+          key={`${keyPrefix}-${child.label}`}
+          className="relative"
+          onMouseEnter={() => {
+            if (profilesSubmenuCloseTimer.current) {
+              clearTimeout(profilesSubmenuCloseTimer.current);
+              profilesSubmenuCloseTimer.current = null;
+            }
+            setStockItemsSubmenuOpen(false);
+            setAccessoriesSubmenuOpen(false);
+            setToolsSubmenuOpen(false);
+            setProfilesSubmenuOpen(true);
+          }}
+          onMouseLeave={() => {
+            if (menusPinned()) return;
+            profilesSubmenuCloseTimer.current = setTimeout(() => setProfilesSubmenuOpen(false), 150);
+          }}
+        >
+          <Link
+            href={child.href}
+            className={`flex items-center justify-between gap-3 whitespace-nowrap px-4 py-2 text-sm ${
+              pathname === child.href
+                ? "bg-red-50 font-medium text-[#9f1b20]"
+                : "text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
+            }`}
+          >
+            {child.label}
+            <svg className="h-3.5 w-3.5 shrink-0 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+          {profilesSubmenuOpen && (
+            <div
+              className="absolute left-full -top-2 z-[101] w-max max-w-[calc(100vw-3rem)] -ml-px pt-1"
+              onMouseEnter={() => {
+                if (profilesSubmenuCloseTimer.current) {
+                  clearTimeout(profilesSubmenuCloseTimer.current);
+                  profilesSubmenuCloseTimer.current = null;
+                }
+                setProfilesSubmenuOpen(true);
+              }}
+              onMouseLeave={() => {
+                if (menusPinned()) return;
+                profilesSubmenuCloseTimer.current = setTimeout(() => setProfilesSubmenuOpen(false), 150);
+              }}
+            >
+              <div
+                data-nav-menu
+                className="overflow-hidden rounded-r-md rounded-bl-md border border-neutral-200 border-l-0 bg-white shadow-lg"
+              >
+                <div className="mx-2 mt-1 mb-1 space-y-1">
+                  <Link
+                    href="/product-info/browse-select-profiles"
+                    className="block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
+                  >
+                    See all categories
+                  </Link>
+                  <Link
+                    href="/product-info/profile-search"
+                    className="block rounded-md border-2 border-primary bg-white px-3 py-2 text-center text-sm font-semibold text-primary hover:bg-primary hover:text-white"
+                  >
+                    See all profiles
+                  </Link>
+                </div>
+                <div className="grid grid-cols-3 gap-x-1 gap-y-0 border-t border-neutral-100 px-2 py-1.5">
+                  {PROFILE_NAV_MOULDING_OPTIONS.map((type) => (
+                    <Link
+                      key={type}
+                      href={`/product-info/profile-search?types=${encodeURIComponent(type)}`}
+                      className="block whitespace-nowrap rounded px-1.5 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
+                    >
+                      {type}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    if (child.label === "Architectural accessories") {
+      return (
+        <div
+          key={`${keyPrefix}-${child.label}`}
+          className="relative"
+          onMouseEnter={() => {
+            if (accessoriesSubmenuCloseTimer.current) {
+              clearTimeout(accessoriesSubmenuCloseTimer.current);
+              accessoriesSubmenuCloseTimer.current = null;
+            }
+            setStockItemsSubmenuOpen(false);
+            setProfilesSubmenuOpen(false);
+            setToolsSubmenuOpen(false);
+            setAccessoriesSubmenuOpen(true);
+          }}
+          onMouseLeave={() => {
+            if (menusPinned()) return;
+            accessoriesSubmenuCloseTimer.current = setTimeout(() => setAccessoriesSubmenuOpen(false), 150);
+          }}
+        >
+          <Link
+            href={child.href}
+            className={`flex items-center justify-between px-4 py-2 text-sm ${
+              pathname === child.href || pathname.startsWith(`${child.href}/`)
+                ? "bg-red-50 font-medium text-[#9f1b20]"
+                : "text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
+            }`}
+          >
+            {child.label}
+            <svg className="h-3.5 w-3.5 shrink-0 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+          {accessoriesSubmenuOpen && (
+            <div
+              className="absolute left-full -top-2 z-[101] min-w-[200px] -ml-px pt-1"
+              onMouseEnter={() => {
+                if (accessoriesSubmenuCloseTimer.current) {
+                  clearTimeout(accessoriesSubmenuCloseTimer.current);
+                  accessoriesSubmenuCloseTimer.current = null;
+                }
+                setAccessoriesSubmenuOpen(true);
+              }}
+              onMouseLeave={() => {
+                if (menusPinned()) return;
+                accessoriesSubmenuCloseTimer.current = setTimeout(() => setAccessoriesSubmenuOpen(false), 150);
+              }}
+            >
+              <div
+                data-nav-menu
+                className="rounded-r-md rounded-bl-md border border-neutral-200 border-l-0 bg-white py-1 shadow-lg"
+              >
+                <div className="mx-2 mt-1 mb-1 space-y-1">
+                  <Link
+                    href="/product-info/accessories"
+                    className="block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
+                  >
+                    See all categories
+                  </Link>
+                  <Link
+                    href="/product-info/accessories/all"
+                    className="block rounded-md border-2 border-primary bg-white px-3 py-2 text-center text-sm font-semibold text-primary hover:bg-primary hover:text-white"
+                  >
+                    See all accessories
+                  </Link>
+                </div>
+                <div className="border-t border-neutral-100 pt-1">
+                  {ACCESSORY_CATEGORIES.map((category) => (
+                    <Link
+                      key={category.slug}
+                      href={`/product-info/accessories/${category.slug}`}
+                      className={`block px-4 py-2 text-sm ${
+                        pathname === `/product-info/accessories/${category.slug}`
+                          ? "bg-red-50 font-medium text-[#9f1b20]"
+                          : "text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
+                      }`}
+                    >
+                      {category.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    return (
+      <Link
+        key={`${keyPrefix}-${child.label}`}
+        href={child.href}
+        className={`block whitespace-nowrap px-4 py-2 text-sm ${
+          pathname === child.href
+            ? "bg-red-50 font-medium text-[#9f1b20]"
+            : "text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
+        }`}
+      >
+        {child.label}
+      </Link>
+    );
+  }
+
+  function mobileDeepKey(itemLabel: string, childLabel: string) {
+    return `${itemLabel}::${childLabel}`;
+  }
+
+  function renderMobileNavChild(child: NavChild, itemLabel: string) {
+    if (child.label === "Tools and information") {
+      const deepKey = mobileDeepKey(itemLabel, child.label);
+      return (
+        <div key={`${itemLabel}-${child.label}`}>
+          <button
+            type="button"
+            className="flex w-full items-center justify-between rounded-full px-4 py-2 text-left text-sm text-neutral-600"
+            onClick={() =>
+              setMobileDeepExpanded((c) => (c === deepKey ? null : deepKey))
+            }
+          >
+            {child.label}
+            <svg
+              className={`h-4 w-4 transition-transform ${mobileDeepExpanded === deepKey ? "rotate-180" : ""}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          {mobileDeepExpanded === deepKey && (
+            <div className="pl-4" data-nav-menu>
+              {TOOLS_AND_INFORMATION_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block rounded-full px-4 py-2 text-sm ${
+                    pathname === link.href ? "font-medium text-[#9f1b20]" : "text-neutral-600"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    if (child.label === "Quick-ship stock items") {
+      const deepKey = mobileDeepKey(itemLabel, child.label);
+      return (
+        <div key={`${itemLabel}-${child.label}`}>
+          <button
+            type="button"
+            className="flex w-full items-center justify-between rounded-full px-4 py-2 text-left text-sm text-neutral-600"
+            onClick={() =>
+              setMobileDeepExpanded((c) => (c === deepKey ? null : deepKey))
+            }
+          >
+            {child.label}
+            <svg
+              className={`h-4 w-4 transition-transform ${mobileDeepExpanded === deepKey ? "rotate-180" : ""}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          {mobileDeepExpanded === deepKey && (
+            <div className="pl-4" data-nav-menu>
+              <Link
+                href="/product-info/browse-stock-items"
+                className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
+              >
+                See all categories
+              </Link>
+              <Link
+                href="/product-info/stock-items"
+                className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
+              >
+                See all profiles
+              </Link>
+              {STOCK_ITEM_SECTIONS.map((section) => (
+                <Link
+                  key={section.id}
+                  href={`/product-info/stock-items#${section.id}`}
+                  className="block rounded-full px-4 py-2 text-sm text-neutral-600"
+                >
+                  {section.label}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    if (child.label === "Select custom profiles") {
+      const deepKey = mobileDeepKey(itemLabel, child.label);
+      return (
+        <div key={`${itemLabel}-${child.label}`}>
+          <button
+            type="button"
+            className="flex w-full items-center justify-between rounded-full px-4 py-2 text-left text-sm text-neutral-600"
+            onClick={() =>
+              setMobileDeepExpanded((c) => (c === deepKey ? null : deepKey))
+            }
+          >
+            {child.label}
+            <svg
+              className={`h-4 w-4 transition-transform ${mobileDeepExpanded === deepKey ? "rotate-180" : ""}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          {mobileDeepExpanded === deepKey && (
+            <div className="pl-4" data-nav-menu>
+              <Link
+                href="/product-info/browse-select-profiles"
+                className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
+              >
+                See all categories
+              </Link>
+              <Link
+                href="/product-info/profile-search"
+                className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
+              >
+                See all profiles
+              </Link>
+              {PROFILE_NAV_MOULDING_OPTIONS.map((type) => (
+                <Link
+                  key={type}
+                  href={`/product-info/profile-search?types=${encodeURIComponent(type)}`}
+                  className="block rounded-full px-4 py-2 text-sm text-neutral-600"
+                >
+                  {type}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    if (child.label === "Architectural accessories") {
+      const deepKey = mobileDeepKey(itemLabel, child.label);
+      return (
+        <div key={`${itemLabel}-${child.label}`}>
+          <button
+            type="button"
+            className="flex w-full items-center justify-between rounded-full px-4 py-2 text-left text-sm text-neutral-600"
+            onClick={() =>
+              setMobileDeepExpanded((c) => (c === deepKey ? null : deepKey))
+            }
+          >
+            {child.label}
+            <svg
+              className={`h-4 w-4 transition-transform ${mobileDeepExpanded === deepKey ? "rotate-180" : ""}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          {mobileDeepExpanded === deepKey && (
+            <div className="pl-4" data-nav-menu>
+              <Link
+                href="/product-info/accessories"
+                className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
+              >
+                See all categories
+              </Link>
+              <Link
+                href="/product-info/accessories/all"
+                className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
+              >
+                See all accessories
+              </Link>
+              {ACCESSORY_CATEGORIES.map((category) => (
+                <Link
+                  key={category.slug}
+                  href={`/product-info/accessories/${category.slug}`}
+                  className="block rounded-full px-4 py-2 text-sm text-neutral-600"
+                >
+                  {category.label}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    return (
+      <Link
+        key={`${itemLabel}-${child.label}`}
+        href={child.href}
+        className={`block rounded-full px-4 py-2 text-sm ${
+          pathname === child.href ? "font-medium text-[#9f1b20]" : "text-neutral-600"
+        }`}
+      >
+        {child.label}
+      </Link>
+    );
   }
 
   return (
@@ -109,27 +685,15 @@ export function Header() {
             Home
           </Link>
           {navItems.map((item) =>
-            "href" in item ? (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`rounded-full px-3 py-2 text-base ${
-                  pathname === item.href
-                    ? "text-[#9f1b20]"
-                    : "text-neutral-600 hover:bg-neutral-100 hover:text-[#9f1b20]"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ) : (
+            "landingHref" in item ? (
               <div
                 key={item.label}
                 className="relative"
                 onMouseEnter={() => setOpenDropdown(item.label)}
-                onMouseLeave={() => setOpenDropdown(null)}
+                onMouseLeave={closeDesktopDropdown}
               >
                 <Link
-                  href={"landingHref" in item ? item.landingHref : "#"}
+                  href={item.landingHref}
                   className={`flex items-center gap-1 rounded-full px-3 py-2 text-base ${
                     openDropdown === item.label
                       ? "bg-neutral-100 text-[#9f1b20]"
@@ -142,9 +706,42 @@ export function Header() {
                   </svg>
                 </Link>
                 {openDropdown === item.label && (
-                  <div className={`absolute left-0 top-full z-[100] pt-1 ${item.label === "Installation" ? "w-[240px]" : "w-[220px]"}`}>
-                    <div className="rounded-md border border-neutral-200 bg-white py-1 shadow-lg">
-                      {item.label === "Installation" ? (
+                  <div
+                    className={`absolute left-0 top-full z-[100] pt-1 ${
+                      "columns" in item
+                        ? "min-w-[720px]"
+                        : item.label === "Installation" || item.label === "Resources"
+                          ? "w-[240px]"
+                          : "w-[220px]"
+                    }`}
+                  >
+                    <div data-nav-menu className="rounded-md border border-neutral-200 bg-white py-1 shadow-lg">
+                      {"columns" in item ? (
+                        <div className="grid grid-cols-3 gap-0 py-2">
+                          {item.columns.map((column, colIndex) => (
+                            <div
+                              key={column.title}
+                              className={`py-1 ${colIndex > 0 ? "border-l border-neutral-200" : ""}`}
+                            >
+                              {"href" in column && column.href ? (
+                                <Link
+                                  href={column.href}
+                                  className={`block px-4 pb-1 pt-1 text-sm font-bold hover:text-[#9f1b20] ${
+                                    pathname === column.href ? "text-[#9f1b20]" : "text-neutral-900"
+                                  }`}
+                                >
+                                  {column.title}
+                                </Link>
+                              ) : (
+                                <p className="px-4 pb-1 pt-1 text-sm font-bold text-neutral-900">{column.title}</p>
+                              )}
+                              {column.links.map((link) =>
+                                renderDesktopNavChild(link, `${item.label}-${column.title}`)
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      ) : item.label === "Installation" && "children" in item ? (
                         <>
                           {(() => {
                             const overview = item.children.find((c) => c.label === "Overview");
@@ -159,7 +756,6 @@ export function Header() {
                                         ? "bg-red-50 text-[#9f1b20]"
                                         : "bg-neutral-50 text-neutral-900 hover:bg-neutral-100 hover:text-[#9f1b20]"
                                     }`}
-                                    onClick={() => setOpenDropdown(null)}
                                   >
                                     {overview.label}
                                   </Link>
@@ -174,7 +770,6 @@ export function Header() {
                                           ? "bg-red-50 font-medium text-[#9f1b20]"
                                           : "text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
                                       }`}
-                                      onClick={() => setOpenDropdown(null)}
                                     >
                                       {child.label}
                                     </Link>
@@ -184,416 +779,30 @@ export function Header() {
                             );
                           })()}
                         </>
-                      ) : (
-                      item.children.map((child) =>
-                        child.label === "Products and profiles" ? (
-                          <div
-                            key={`${item.label}-${child.label}`}
-                            className="relative"
-                            onMouseEnter={() => {
-                              if (productsAndProfilesCloseTimer.current) {
-                                clearTimeout(productsAndProfilesCloseTimer.current);
-                                productsAndProfilesCloseTimer.current = null;
-                              }
-                              setStockItemsSubmenuOpen(false);
-                              setProfilesSubmenuOpen(false);
-                              setProductsAndProfilesOpen(true);
-                            }}
-                            onMouseLeave={() => {
-                              productsAndProfilesCloseTimer.current = setTimeout(() => {
-                                setProductsAndProfilesOpen(false);
-                                setStockItemsSubmenuOpen(false);
-                                setProfilesSubmenuOpen(false);
-                              }, 150);
-                            }}
-                          >
-                            <Link
-                              href={child.href}
-                              className={`flex items-center justify-between px-4 py-2 text-sm ${
-                                ORDERING_PRODUCT_PROFILE_LINKS.some((l) => pathname === l.href)
-                                  ? "bg-red-50 font-medium text-[#9f1b20]"
-                                  : "text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
-                              }`}
-                              onClick={() => setOpenDropdown(null)}
-                            >
-                              {child.label}
-                              <svg className="h-3.5 w-3.5 shrink-0 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
-                            </Link>
-                            {productsAndProfilesOpen && (
-                              <div
-                                className="absolute left-full -top-2 z-[101] min-w-[220px] -ml-px pt-1"
-                                onMouseEnter={() => {
-                                  if (productsAndProfilesCloseTimer.current) {
-                                    clearTimeout(productsAndProfilesCloseTimer.current);
-                                    productsAndProfilesCloseTimer.current = null;
-                                  }
-                                  setProductsAndProfilesOpen(true);
-                                }}
-                                onMouseLeave={() => {
-                                  productsAndProfilesCloseTimer.current = setTimeout(() => {
-                                    setProductsAndProfilesOpen(false);
-                                    setStockItemsSubmenuOpen(false);
-                                    setProfilesSubmenuOpen(false);
-                                  }, 150);
-                                }}
-                              >
-                                <div className="rounded-r-md rounded-bl-md border border-neutral-200 border-l-0 bg-white py-1 shadow-lg">
-                                  {ORDERING_PRODUCT_PROFILE_LINKS.map((link) =>
-                                    link.label === "Browse stock items" ? (
-                                      <div
-                                        key={link.label}
-                                        className="relative"
-                                        onMouseEnter={() => {
-                                          if (stockItemsSubmenuCloseTimer.current) {
-                                            clearTimeout(stockItemsSubmenuCloseTimer.current);
-                                            stockItemsSubmenuCloseTimer.current = null;
-                                          }
-                                          setProfilesSubmenuOpen(false);
-                                          setStockItemsSubmenuOpen(true);
-                                        }}
-                                        onMouseLeave={() => {
-                                          stockItemsSubmenuCloseTimer.current = setTimeout(
-                                            () => setStockItemsSubmenuOpen(false),
-                                            150
-                                          );
-                                        }}
-                                      >
-                                        <Link
-                                          href={link.href}
-                                          className={`flex items-center justify-between px-4 py-2 text-sm ${
-                                            pathname === link.href
-                                              ? "bg-red-50 font-medium text-[#9f1b20]"
-                                              : "text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
-                                          }`}
-                                          onClick={() => setOpenDropdown(null)}
-                                        >
-                                          {link.label}
-                                          <svg className="h-3.5 w-3.5 shrink-0 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                          </svg>
-                                        </Link>
-                                        {stockItemsSubmenuOpen && (
-                                          <div
-                                            className="absolute left-full -top-2 z-[102] min-w-[200px] -ml-px pt-1"
-                                            onMouseEnter={() => {
-                                              if (stockItemsSubmenuCloseTimer.current) {
-                                                clearTimeout(stockItemsSubmenuCloseTimer.current);
-                                                stockItemsSubmenuCloseTimer.current = null;
-                                              }
-                                              setStockItemsSubmenuOpen(true);
-                                            }}
-                                            onMouseLeave={() => {
-                                              stockItemsSubmenuCloseTimer.current = setTimeout(
-                                                () => setStockItemsSubmenuOpen(false),
-                                                150
-                                              );
-                                            }}
-                                          >
-                                            <div className="rounded-r-md rounded-bl-md border border-neutral-200 border-l-0 bg-white py-1 shadow-lg">
-                                              <Link
-                                                href="/product-info/browse-stock-items"
-                                                className="mx-2 mt-1 mb-1 block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
-                                                onClick={() => {
-                                                  setOpenDropdown(null);
-                                                  setStockItemsSubmenuOpen(false);
-                                                  setProductsAndProfilesOpen(false);
-                                                }}
-                                              >
-                                                See all categories
-                                              </Link>
-                                              <div className="border-t border-neutral-100 pt-1">
-                                                {STOCK_ITEM_SECTIONS.map((section) => (
-                                                  <Link
-                                                    key={section.id}
-                                                    href={`/product-info/stock-items#${section.id}`}
-                                                    className="block px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
-                                                    onClick={() => {
-                                                      setOpenDropdown(null);
-                                                      setStockItemsSubmenuOpen(false);
-                                                      setProductsAndProfilesOpen(false);
-                                                    }}
-                                                  >
-                                                    {section.label}
-                                                  </Link>
-                                                ))}
-                                              </div>
-                                            </div>
-                                          </div>
-                                        )}
-                                      </div>
-                                    ) : link.label === "Browse select profiles" ? (
-                                      <div
-                                        key={link.label}
-                                        className="relative"
-                                        onMouseEnter={() => {
-                                          if (profilesSubmenuCloseTimer.current) {
-                                            clearTimeout(profilesSubmenuCloseTimer.current);
-                                            profilesSubmenuCloseTimer.current = null;
-                                          }
-                                          setStockItemsSubmenuOpen(false);
-                                          setProfilesSubmenuOpen(true);
-                                        }}
-                                        onMouseLeave={() => {
-                                          profilesSubmenuCloseTimer.current = setTimeout(
-                                            () => setProfilesSubmenuOpen(false),
-                                            150
-                                          );
-                                        }}
-                                      >
-                                        <Link
-                                          href={link.href}
-                                          className={`flex items-center justify-between px-4 py-2 text-sm ${
-                                            pathname === link.href
-                                              ? "bg-red-50 font-medium text-[#9f1b20]"
-                                              : "text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
-                                          }`}
-                                          onClick={() => setOpenDropdown(null)}
-                                        >
-                                          {link.label}
-                                          <svg className="h-3.5 w-3.5 shrink-0 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                          </svg>
-                                        </Link>
-                                        {profilesSubmenuOpen && (
-                                          <div
-                                            className="absolute left-full -top-2 z-[102] w-max max-w-[calc(100vw-3rem)] -ml-px pt-1"
-                                            onMouseEnter={() => {
-                                              if (profilesSubmenuCloseTimer.current) {
-                                                clearTimeout(profilesSubmenuCloseTimer.current);
-                                                profilesSubmenuCloseTimer.current = null;
-                                              }
-                                              setProfilesSubmenuOpen(true);
-                                            }}
-                                            onMouseLeave={() => {
-                                              profilesSubmenuCloseTimer.current = setTimeout(
-                                                () => setProfilesSubmenuOpen(false),
-                                                150
-                                              );
-                                            }}
-                                          >
-                                            <div className="overflow-hidden rounded-r-md rounded-bl-md border border-neutral-200 border-l-0 bg-white shadow-lg">
-                                              <Link
-                                                href="/product-info/browse-select-profiles"
-                                                className="mx-2 mt-1 mb-1 block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
-                                                onClick={() => {
-                                                  setOpenDropdown(null);
-                                                  setProfilesSubmenuOpen(false);
-                                                  setProductsAndProfilesOpen(false);
-                                                }}
-                                              >
-                                                See all categories
-                                              </Link>
-                                              <div className="grid grid-cols-3 gap-x-1 gap-y-0 border-t border-neutral-100 px-2 py-1.5">
-                                                {PROFILE_NAV_MOULDING_OPTIONS.map((type) => (
-                                                  <Link
-                                                    key={type}
-                                                    href={`/product-info/profile-search?types=${encodeURIComponent(type)}`}
-                                                    className="block whitespace-nowrap rounded px-1.5 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
-                                                    onClick={() => {
-                                                      setOpenDropdown(null);
-                                                      setProfilesSubmenuOpen(false);
-                                                      setProductsAndProfilesOpen(false);
-                                                    }}
-                                                  >
-                                                    {type}
-                                                  </Link>
-                                                ))}
-                                              </div>
-                                            </div>
-                                          </div>
-                                        )}
-                                      </div>
-                                    ) : (
-                                      <Link
-                                        key={link.label}
-                                        href={link.href}
-                                        className={`block px-4 py-2 text-sm ${
-                                          pathname === link.href
-                                            ? "bg-red-50 font-medium text-[#9f1b20]"
-                                            : "text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
-                                        }`}
-                                        onClick={() => setOpenDropdown(null)}
-                                      >
-                                        {link.label}
-                                      </Link>
-                                    )
-                                  )}
-                                </div>
-                              </div>
-                            )}
-                          </div>
-                        ) : child.label === "Browse stock items" ? (
-                          <div
-                            key={`${item.label}-${child.label}`}
-                            className="relative"
-                            onMouseEnter={() => {
-                              if (stockItemsSubmenuCloseTimer.current) {
-                                clearTimeout(stockItemsSubmenuCloseTimer.current);
-                                stockItemsSubmenuCloseTimer.current = null;
-                              }
-                              setProfilesSubmenuOpen(false);
-                              setProductsAndProfilesOpen(false);
-                              setStockItemsSubmenuOpen(true);
-                            }}
-                            onMouseLeave={() => {
-                              stockItemsSubmenuCloseTimer.current = setTimeout(() => setStockItemsSubmenuOpen(false), 150);
-                            }}
-                          >
-                            <Link
-                              href={child.href}
-                              className={`flex items-center justify-between px-4 py-2 text-sm ${
-                                pathname === child.href
-                                  ? "bg-red-50 font-medium text-[#9f1b20]"
-                                  : "text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
-                              }`}
-                              onClick={() => setOpenDropdown(null)}
-                            >
-                              {child.label}
-                              <svg className="h-3.5 w-3.5 shrink-0 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
-                            </Link>
-                            {stockItemsSubmenuOpen && (
-                              <div
-                                className="absolute left-full -top-2 z-[101] min-w-[200px] -ml-px pt-1"
-                                onMouseEnter={() => {
-                                  if (stockItemsSubmenuCloseTimer.current) {
-                                    clearTimeout(stockItemsSubmenuCloseTimer.current);
-                                    stockItemsSubmenuCloseTimer.current = null;
-                                  }
-                                  setStockItemsSubmenuOpen(true);
-                                }}
-                                onMouseLeave={() => {
-                                  stockItemsSubmenuCloseTimer.current = setTimeout(() => setStockItemsSubmenuOpen(false), 150);
-                                }}
-                              >
-                                <div className="rounded-r-md rounded-bl-md border border-neutral-200 border-l-0 bg-white py-1 shadow-lg">
-                                  <Link
-                                    href="/product-info/browse-stock-items"
-                                    className="mx-2 mt-1 mb-1 block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
-                                    onClick={() => {
-                                      setOpenDropdown(null);
-                                      setStockItemsSubmenuOpen(false);
-                                    }}
-                                  >
-                                    See all categories
-                                  </Link>
-                                  <div className="border-t border-neutral-100 pt-1">
-                                    {STOCK_ITEM_SECTIONS.map((section) => (
-                                    <Link
-                                      key={section.id}
-                                      href={`/product-info/stock-items#${section.id}`}
-                                      className="block px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
-                                      onClick={() => {
-                                        setOpenDropdown(null);
-                                        setStockItemsSubmenuOpen(false);
-                                      }}
-                                    >
-                                      {section.label}
-                                    </Link>
-                                  ))}
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-                          </div>
-                        ) : child.label === "Browse select profiles" ? (
-                          <div
-                            key={`${item.label}-${child.label}`}
-                            className="relative"
-                            onMouseEnter={() => {
-                              if (profilesSubmenuCloseTimer.current) {
-                                clearTimeout(profilesSubmenuCloseTimer.current);
-                                profilesSubmenuCloseTimer.current = null;
-                              }
-                              setStockItemsSubmenuOpen(false);
-                              setProductsAndProfilesOpen(false);
-                              setProfilesSubmenuOpen(true);
-                            }}
-                            onMouseLeave={() => {
-                              profilesSubmenuCloseTimer.current = setTimeout(() => setProfilesSubmenuOpen(false), 150);
-                            }}
-                          >
-                            <Link
-                              href={child.href}
-                              className={`flex items-center justify-between px-4 py-2 text-sm ${
-                                pathname === child.href
-                                  ? "bg-red-50 font-medium text-[#9f1b20]"
-                                  : "text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
-                              }`}
-                              onClick={() => setOpenDropdown(null)}
-                            >
-                              {child.label}
-                              <svg className="h-3.5 w-3.5 shrink-0 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
-                            </Link>
-                            {profilesSubmenuOpen && (
-                              <div
-                                className="absolute left-full -top-2 z-[101] w-max max-w-[calc(100vw-3rem)] -ml-px pt-1"
-                                onMouseEnter={() => {
-                                  if (profilesSubmenuCloseTimer.current) {
-                                    clearTimeout(profilesSubmenuCloseTimer.current);
-                                    profilesSubmenuCloseTimer.current = null;
-                                  }
-                                  setProfilesSubmenuOpen(true);
-                                }}
-                                onMouseLeave={() => {
-                                  profilesSubmenuCloseTimer.current = setTimeout(() => setProfilesSubmenuOpen(false), 150);
-                                }}
-                              >
-                                <div className="overflow-hidden rounded-r-md rounded-bl-md border border-neutral-200 border-l-0 bg-white shadow-lg">
-                                  <Link
-                                    href="/product-info/browse-select-profiles"
-                                    className="mx-2 mt-1 mb-1 block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
-                                    onClick={() => {
-                                      setOpenDropdown(null);
-                                      setProfilesSubmenuOpen(false);
-                                    }}
-                                  >
-                                    See all categories
-                                  </Link>
-                                  <div className="grid grid-cols-3 gap-x-1 gap-y-0 border-t border-neutral-100 px-2 py-1.5">
-                                    {PROFILE_NAV_MOULDING_OPTIONS.map((type) => (
-                                      <Link
-                                        key={type}
-                                        href={`/product-info/profile-search?types=${encodeURIComponent(type)}`}
-                                        className="block whitespace-nowrap rounded px-1.5 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
-                                        onClick={() => {
-                                          setOpenDropdown(null);
-                                          setProfilesSubmenuOpen(false);
-                                        }}
-                                      >
-                                        {type}
-                                      </Link>
-                                    ))}
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-                          </div>
-                        ) : (
-                            <Link
-                              key={`${item.label}-${child.label}`}
-                              href={child.href}
-                              className={`block px-4 py-2 text-sm ${
-                                pathname === child.href
-                                  ? "bg-red-50 font-medium text-[#9f1b20]"
-                                  : "text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
-                              }`}
-                              onClick={() => setOpenDropdown(null)}
-                            >
-                              {child.label}
-                            </Link>
-                          )
-                        )
-                      )}
+                      ) : "children" in item ? (
+                        item.children.map((child) => renderDesktopNavChild(child, item.label))
+                      ) : null}
                     </div>
                   </div>
                 )}
               </div>
+            ) : (
+              (() => {
+                const link = item as NavLink;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`rounded-full px-3 py-2 text-base ${
+                      pathname === link.href
+                        ? "text-[#9f1b20]"
+                        : "text-neutral-600 hover:bg-neutral-100 hover:text-[#9f1b20]"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })()
             )
           )}
         </nav>
@@ -603,6 +812,7 @@ export function Header() {
           </ContactLink>
           <form
             className="relative mt-[12px] hidden items-center md:flex"
+            data-busy-managed
             onSubmit={(event) => {
               event.preventDefault();
               submitSiteSearch();
@@ -614,22 +824,29 @@ export function Header() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={(e) => e.key === "Escape" && setSearchQuery("")}
-              className="w-48 rounded-full border border-neutral-300 bg-white py-[7.5px] pl-3 pr-9 text-sm outline-none focus:border-primary sm:w-56"
+              disabled={searchPending}
+              className="w-48 rounded-full border border-neutral-300 bg-white py-[7.5px] pl-3 pr-9 text-sm outline-none focus:border-primary disabled:cursor-wait disabled:opacity-70 sm:w-56"
               aria-label="Search the site"
             />
-            <button
-              type="button"
-              onClick={() => setSearchQuery("")}
-              className={`absolute right-2 text-neutral-500 hover:text-neutral-700 ${
-                searchQuery ? "" : "invisible"
-              }`}
-              aria-label="Clear search"
-              tabIndex={searchQuery ? 0 : -1}
-            >
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+            {searchPending ? (
+              <span className="absolute right-2 text-primary" aria-hidden>
+                <LoadingSpinner size="sm" />
+              </span>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setSearchQuery("")}
+                className={`absolute right-2 text-neutral-500 hover:text-neutral-700 ${
+                  searchQuery ? "" : "invisible"
+                }`}
+                aria-label="Clear search"
+                tabIndex={searchQuery ? 0 : -1}
+              >
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            )}
           </form>
           <button
             type="button"
@@ -651,10 +868,11 @@ export function Header() {
       </div>
       </div>
       {mobileOpen && (
-        <div className="border-t border-neutral-200 bg-white md:hidden">
+        <div className="border-t border-neutral-200 bg-white md:hidden" data-mobile-nav>
           <div className="mx-auto max-w-7xl space-y-1 px-4 py-4">
             <form
-              className="mb-3"
+              className="relative mb-3"
+              data-busy-managed
               onSubmit={(event) => {
                 event.preventDefault();
                 submitSiteSearch();
@@ -669,12 +887,20 @@ export function Header() {
                 placeholder="Search…"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-full border border-neutral-300 bg-white px-4 py-2.5 text-sm outline-none focus:border-primary"
+                disabled={searchPending}
+                className="w-full rounded-full border border-neutral-300 bg-white px-4 py-2.5 pr-10 text-sm outline-none focus:border-primary disabled:cursor-wait disabled:opacity-70"
               />
+              {searchPending ? (
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-primary" aria-hidden>
+                  <LoadingSpinner size="sm" />
+                </span>
+              ) : null}
             </form>
             <ContactLink
               className="mb-2 flex w-full items-center justify-center rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-hover"
-              onClick={() => setMobileOpen(false)}
+              onClick={() => {
+                if (!menusPinned()) setMobileOpen(false);
+              }}
             >
               Contact us
             </ContactLink>
@@ -683,30 +909,17 @@ export function Header() {
               className={`block rounded-full px-4 py-2 text-base ${
                 pathname === "/" ? "text-[#9f1b20]" : "text-neutral-600"
               }`}
-              onClick={() => setMobileOpen(false)}
             >
               Home
             </Link>
             {navItems.map((item) =>
-              "href" in item ? (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`block rounded-full px-4 py-2 text-base ${
-                    pathname === item.href ? "text-[#9f1b20]" : "text-neutral-600"
-                  }`}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ) : (
+              "landingHref" in item ? (
                 <div key={item.label}>
                   <button
                     type="button"
                     className="flex w-full items-center justify-between rounded-full px-4 py-2 text-left text-base text-neutral-600"
                     onClick={() => {
                       setMobileExpanded((c) => (c === item.label ? null : item.label));
-                      setMobileNestedExpanded(null);
                       setMobileDeepExpanded(null);
                     }}
                   >
@@ -721,158 +934,48 @@ export function Header() {
                     </svg>
                   </button>
                   {mobileExpanded === item.label && (
-                    <div className="pl-4">
-                      {item.children.map((child) =>
-                        child.label === "Products and profiles" ? (
-                          <div key={`${item.label}-${child.label}`}>
-                            <button
-                              type="button"
-                              className="flex w-full items-center justify-between rounded-full px-4 py-2 text-left text-sm text-neutral-600"
-                              onClick={() =>
-                                setMobileNestedExpanded((c) => {
-                                  const next = c === "Products and profiles" ? null : "Products and profiles";
-                                  if (next !== "Products and profiles") setMobileDeepExpanded(null);
-                                  return next;
-                                })
-                              }
-                            >
-                              {child.label}
-                              <svg
-                                className={`h-4 w-4 transition-transform ${
-                                  mobileNestedExpanded === "Products and profiles" ? "rotate-180" : ""
-                                }`}
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                              </svg>
-                            </button>
-                            {mobileNestedExpanded === "Products and profiles" && (
+                    <div className="pl-4" data-nav-menu>
+                      {"columns" in item
+                        ? item.columns.map((column) => (
+                            <div key={column.title} className="mb-1">
+                              {"href" in column && column.href ? (
+                                <Link
+                                  href={column.href}
+                                  className={`block px-4 py-2 text-sm font-bold hover:text-[#9f1b20] ${
+                                    pathname === column.href ? "text-[#9f1b20]" : "text-neutral-900"
+                                  }`}
+                                >
+                                  {column.title}
+                                </Link>
+                              ) : (
+                                <p className="px-4 py-2 text-sm font-bold text-neutral-900">{column.title}</p>
+                              )}
                               <div className="pl-4">
-                                {ORDERING_PRODUCT_PROFILE_LINKS.map((link) =>
-                                  link.label === "Browse stock items" ? (
-                                    <div key={link.label}>
-                                      <button
-                                        type="button"
-                                        className="flex w-full items-center justify-between rounded-full px-4 py-2 text-left text-sm text-neutral-600"
-                                        onClick={() =>
-                                          setMobileDeepExpanded((c) =>
-                                            c === "Browse stock items" ? null : "Browse stock items"
-                                          )
-                                        }
-                                      >
-                                        {link.label}
-                                        <svg
-                                          className={`h-4 w-4 transition-transform ${
-                                            mobileDeepExpanded === "Browse stock items" ? "rotate-180" : ""
-                                          }`}
-                                          fill="none"
-                                          stroke="currentColor"
-                                          viewBox="0 0 24 24"
-                                        >
-                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                        </svg>
-                                      </button>
-                                      {mobileDeepExpanded === "Browse stock items" && (
-                                        <div className="pl-4">
-                                          <Link
-                                            href="/product-info/browse-stock-items"
-                                            className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
-                                            onClick={() => setMobileOpen(false)}
-                                          >
-                                            See all categories
-                                          </Link>
-                                          {STOCK_ITEM_SECTIONS.map((section) => (
-                                            <Link
-                                              key={section.id}
-                                              href={`/product-info/stock-items#${section.id}`}
-                                              className="block rounded-full px-4 py-2 text-sm text-neutral-600"
-                                              onClick={() => setMobileOpen(false)}
-                                            >
-                                              {section.label}
-                                            </Link>
-                                          ))}
-                                        </div>
-                                      )}
-                                    </div>
-                                  ) : link.label === "Browse select profiles" ? (
-                                    <div key={link.label}>
-                                      <button
-                                        type="button"
-                                        className="flex w-full items-center justify-between rounded-full px-4 py-2 text-left text-sm text-neutral-600"
-                                        onClick={() =>
-                                          setMobileDeepExpanded((c) =>
-                                            c === "Browse select profiles" ? null : "Browse select profiles"
-                                          )
-                                        }
-                                      >
-                                        {link.label}
-                                        <svg
-                                          className={`h-4 w-4 transition-transform ${
-                                            mobileDeepExpanded === "Browse select profiles" ? "rotate-180" : ""
-                                          }`}
-                                          fill="none"
-                                          stroke="currentColor"
-                                          viewBox="0 0 24 24"
-                                        >
-                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                        </svg>
-                                      </button>
-                                      {mobileDeepExpanded === "Browse select profiles" && (
-                                        <div className="pl-4">
-                                          <Link
-                                            href="/product-info/browse-select-profiles"
-                                            className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
-                                            onClick={() => setMobileOpen(false)}
-                                          >
-                                            See all categories
-                                          </Link>
-                                          {PROFILE_NAV_MOULDING_OPTIONS.map((type) => (
-                                            <Link
-                                              key={type}
-                                              href={`/product-info/profile-search?types=${encodeURIComponent(type)}`}
-                                              className="block rounded-full px-4 py-2 text-sm text-neutral-600"
-                                              onClick={() => setMobileOpen(false)}
-                                            >
-                                              {type}
-                                            </Link>
-                                          ))}
-                                        </div>
-                                      )}
-                                    </div>
-                                  ) : (
-                                    <Link
-                                      key={link.label}
-                                      href={link.href}
-                                      className={`block rounded-full px-4 py-2 text-sm ${
-                                        pathname === link.href ? "font-medium text-[#9f1b20]" : "text-neutral-600"
-                                      }`}
-                                      onClick={() => setMobileOpen(false)}
-                                    >
-                                      {link.label}
-                                    </Link>
-                                  )
-                                )}
+                                {column.links.map((link) => renderMobileNavChild(link, item.label))}
                               </div>
-                            )}
-                          </div>
-                        ) : (
-                          <Link
-                            key={`${item.label}-${child.label}`}
-                            href={child.href}
-                            className={`block rounded-full px-4 py-2 text-sm ${
-                              pathname === child.href ? "font-medium text-[#9f1b20]" : "text-neutral-600"
-                            }`}
-                            onClick={() => setMobileOpen(false)}
-                          >
-                            {child.label}
-                          </Link>
-                        )
-                      )}
+                            </div>
+                          ))
+                        : "children" in item
+                          ? item.children.map((child) => renderMobileNavChild(child, item.label))
+                          : null}
                     </div>
                   )}
                 </div>
+              ) : (
+                (() => {
+                  const link = item as NavLink;
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`block rounded-full px-4 py-2 text-base ${
+                        pathname === link.href ? "text-[#9f1b20]" : "text-neutral-600"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })()
               )
             )}
           </div>

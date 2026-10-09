@@ -20,14 +20,18 @@ const LEAD_TIMES = [
   },
 ] as const;
 
-const MADE_TO_MATCH_STEPS = ["Rigid Moulding", "Flexible Mold", "Flex Moulding"] as const;
+const MADE_TO_MATCH_STEPS = [
+  "Send us your rigid moulding in any material",
+  "We'll create a custom mold with our precision tooling process",
+  "Then we'll ship you the perfect match flexible moulding parts",
+] as const;
 
 export default function ReplicateCustomProfilesPage() {
   return (
     <PageContent fullWidth>
       <div className="mx-auto w-full max-w-4xl">
         <h1 className="text-3xl font-sans tracking-tight text-neutral-900 md:text-4xl lg:text-5xl lg:leading-[1.1]">
-          Replicate custom profiles
+          Replicate new custom profiles
         </h1>
 
         <div className="mt-8 space-y-6 text-sm leading-relaxed text-neutral-700 md:text-base">
@@ -48,14 +52,14 @@ export default function ReplicateCustomProfilesPage() {
             our Made-to-Match process:
           </p>
 
-          <div className="grid items-center gap-8 sm:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] sm:gap-10">
-            <div className="relative ml-[2in] aspect-[2472/1728] w-1/2 overflow-hidden rounded-lg bg-neutral-100">
+          <div className="mx-auto grid w-fit items-center gap-8 sm:grid-cols-[auto_auto] sm:gap-8">
+            <div className="relative mx-auto aspect-[2472/1728] w-[12.5rem] shrink-0 overflow-hidden rounded-lg bg-neutral-100 sm:mx-0 sm:w-[13.75rem]">
               <Image
                 src="/product-info/made-to-match.png"
                 alt="Made-to-Match process showing a rigid model, flexible mold, and finished Flex Trim moulding"
                 fill
                 className="object-contain"
-                sizes="(max-width: 640px) 100vw, 36rem"
+                sizes="13.75rem"
               />
             </div>
             <ol className="flex list-none flex-col p-0">
@@ -98,25 +102,38 @@ export default function ReplicateCustomProfilesPage() {
                       </div>
                     ) : null}
                   </div>
-                  <p className="pt-1.5 text-lg font-medium tracking-tight text-neutral-900">{step}</p>
+                  <p className="pt-1.5 text-base font-medium leading-snug tracking-tight text-neutral-900 sm:text-lg">
+                    {step}
+                  </p>
                 </li>
               ))}
             </ol>
           </div>
 
-          <ul className="list-disc space-y-3 pl-10">
-            <li>
-              We are essentially in the copy business meaning we do not have a way to create a new profile using a
-              drawing of the profile, unless it is something simple like flat stock.
-            </li>
-            <li>
-              Our customers send us the actual wood (or PVC, plaster, etc.) models so we can make our molds. Our
-              maximum part length is dictated by the length of the mold. The length of the mold is dictated by the
-              length of the original models that we receive. Although a 12 ft mold is our standard, we can make shorter
-              or longer molds with prior approval. Use the calculator below for the required sample length to send by flex
-              finish grade.
-            </li>
-          </ul>
+          <div className="grid items-center gap-6 md:grid-cols-[1fr_minmax(12rem,18rem)] md:gap-8">
+            <ul className="list-disc space-y-3 pl-10">
+              <li>
+                We are essentially in the copy business meaning we do not have a way to create a new profile using a
+                drawing of the profile, unless it is something simple like flat stock.
+              </li>
+              <li>
+                Our customers send us the actual wood (or PVC, plaster, etc.) models so we can make our molds. Our
+                maximum part length is dictated by the length of the mold. The length of the mold is dictated by the
+                length of the original models that we receive. Although a 12 ft mold is our standard, we can make shorter
+                or longer molds with prior approval. Use the calculator below for the required sample length to send by flex
+                finish grade.
+              </li>
+            </ul>
+            <div className="relative mx-auto aspect-[4/3] w-full max-w-sm overflow-hidden rounded-lg bg-neutral-100 md:mx-0 md:max-w-none">
+              <Image
+                src="/product-info/Made To Match Installed.jpg"
+                alt="Made-to-Match Flex Trim™ moulding installed in a finished interior"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 24rem, 18rem"
+              />
+            </div>
+          </div>
 
           <p className="text-sm leading-relaxed text-neutral-700 md:text-base">
             <span className="font-medium text-neutral-900">Note:</span> UPS & FedEx charge oversized fees for packages
@@ -131,7 +148,7 @@ export default function ReplicateCustomProfilesPage() {
           <ul className="list-disc space-y-3 pl-10">
             <li>
               Our negative cavity molds capture a reverse image of the original profile and will pick up every detail
-              from the model—from simple profiles to highly intricate designs, even down to the actual wood grain.
+              from the model, from simple profiles to highly intricate designs, even down to the actual wood grain.
             </li>
           </ul>
 
@@ -139,7 +156,7 @@ export default function ReplicateCustomProfilesPage() {
             More than just linear moulding
           </h2>
           <p>
-            We can also easily copy accessories like corbels, wood carvings, etc. – no matter how detailed the original
+            We can also easily copy decorative architectural accessories like corbels, wood carvings, and more, no matter how detailed the original
             item is. That precision is why Flex Trim™ was chosen to replicate intricate 100+ year-old mouldings and
             accents for the Turkish Embassy in Washington, D.C. that were no longer available, as well as countless other
             restoration projects.

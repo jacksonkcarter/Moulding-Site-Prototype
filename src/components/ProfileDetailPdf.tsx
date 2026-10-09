@@ -21,7 +21,7 @@ const GAP = 16;
 /** Estimated height reserved for the info block when stacked below the drawing. */
 const INFO_BELOW_HEIGHT = 100;
 
-// Native SVG viewBox aspect ratios (width / height) — same as installation guide
+// Native SVG viewBox aspect ratios (width / height) - same as installation guide
 const FLEX_TRIM_ASPECT = 561.74664 / 118.44;
 const CARTER_ASPECT = 492.57333 / 100.61333;
 const LOGO_GAP = 8;

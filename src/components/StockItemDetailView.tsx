@@ -5,25 +5,21 @@ import { Fragment, useEffect, useState, type ReactNode } from "react";
 import { BendingStylesCard } from "@/components/BendingStylesCard";
 import { ContactLink } from "@/components/ContactLink";
 import { DownloadProfilePdfButton } from "@/components/DownloadProfilePdfButton";
-import { GlbViewer } from "@/components/GlbViewer";
 import type { StockItem } from "@/data/stock-items";
-import {
-  getStockItemDisplayName,
-  getStockItemPhotoFolder,
-  STOCK_ITEM_CONFIG_ASSETS,
-  STOCK_ITEM_IMAGES,
-} from "@/data/stock-items";
+import { getStockItemDisplayName, STOCK_ITEM_IMAGES } from "@/data/stock-items";
 import { ProfileMatchPrompt } from "@/components/ProfileMatchPrompt";
 import { StockConfigStyleInfoIcon } from "@/components/StockConfigStyleInfoIcon";
 import { getStockBendingLimitationContent } from "@/lib/stock-item-bending";
 import {
-  configToFolder,
+  ARC_CONFIGS,
   getStockConfigGroups,
+  HALF_ROUND_CONFIGS,
   STOCK_CONFIG_STYLE_INFO,
+  stockConfigRangeImageSrc,
 } from "@/lib/stock-item-configs";
 import type { ProfileRow } from "@/lib/profiles";
 
-/** Same max as select-profile detail — never upscale past this. */
+/** Same max as select-profile detail - never upscale past this. */
 const MAX_IMAGE_PX = 400;
 
 /** Underline "radius", "radii", and "diameter" in bending-limitation copy. */
@@ -56,24 +52,35 @@ export function StockItemDetailView({
   outlineId,
 }: StockItemDetailViewProps) {
   const [selectedConfig, setSelectedConfig] = useState<string | null>(initialConfig);
+  /** 0 = range diagram, 1 = profile image (when both available). */
   const [imageIndex, setImageIndex] = useState(0);
 
   const hasMultipleConfigs = item.configs.length > 1;
-  const configFolder = selectedConfig ? configToFolder(selectedConfig) : null;
-  const configAssets = configFolder
-    ? STOCK_ITEM_CONFIG_ASSETS[item.item]?.[configFolder]
-    : undefined;
-  const configImages = configAssets?.images ?? [];
-  const configGlb = configAssets?.glb ?? null;
-  const totalViews = configGlb ? configImages.length + 1 : configImages.length;
-  const canCycleImages = Boolean(hasMultipleConfigs && selectedConfig && totalViews > 1);
+  const isHalfRoundSelected = Boolean(
+    selectedConfig && (HALF_ROUND_CONFIGS as readonly string[]).includes(selectedConfig),
+  );
+  const isArcSelected = Boolean(
+    selectedConfig && (ARC_CONFIGS as readonly string[]).includes(selectedConfig),
+  );
+  const isRangeConfigSelected = isHalfRoundSelected || isArcSelected;
+  const mainImage = STOCK_ITEM_IMAGES[item.item] ?? null;
+  const rangeImage =
+    selectedConfig && isRangeConfigSelected ? stockConfigRangeImageSrc(selectedConfig) : null;
+  const rangeViews = [rangeImage, mainImage].filter((url): url is string => Boolean(url));
+  const canCycleImages = isRangeConfigSelected && rangeViews.length > 1;
+  const displayImageUrl = canCycleImages
+    ? rangeViews[imageIndex] ?? rangeViews[0]
+    : rangeImage ?? mainImage;
+  const showingRangeDiagram = Boolean(
+    canCycleImages ? displayImageUrl === rangeImage : rangeImage && displayImageUrl === rangeImage,
+  );
 
   useEffect(() => {
     setSelectedConfig(initialConfig);
   }, [initialConfig]);
 
   useEffect(() => {
-    if (selectedConfig) setImageIndex(0);
+    setImageIndex(0);
   }, [selectedConfig]);
 
   useEffect(() => {
@@ -81,41 +88,27 @@ export function StockItemDetailView({
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") {
         e.preventDefault();
-        setImageIndex((i) => (i - 1 + totalViews) % totalViews);
+        setImageIndex((i) => (i - 1 + rangeViews.length) % rangeViews.length);
       } else if (e.key === "ArrowRight") {
         e.preventDefault();
-        setImageIndex((i) => (i + 1) % totalViews);
+        setImageIndex((i) => (i + 1) % rangeViews.length);
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [canCycleImages, totalViews]);
+  }, [canCycleImages, rangeViews.length]);
 
   const sizeGroups = getStockConfigGroups(item.configs);
   const singleConfigLabel = item.configs.length === 1 ? item.configs[0] : null;
   const bendingContent = getStockBendingLimitationContent(item, selectedConfig);
-  const mainImage = STOCK_ITEM_IMAGES[item.item] ?? null;
-  const photoFolder = getStockItemPhotoFolder(item.item);
-  const hasConfigMedia = configImages.length > 0 || configGlb;
-  const show3D = Boolean(
-    selectedConfig && configGlb && totalViews > 0 && imageIndex === configImages.length
-  );
-  const displayImageUrl =
-    selectedConfig && hasConfigMedia
-      ? show3D
-        ? null
-        : configImages[imageIndex]
-          ? `/stock-items/${photoFolder}/${configFolder}/${configImages[imageIndex]}`
-          : mainImage
-      : mainImage;
 
   const goPrev = () => {
     if (!canCycleImages) return;
-    setImageIndex((i) => (i - 1 + totalViews) % totalViews);
+    setImageIndex((i) => (i - 1 + rangeViews.length) % rangeViews.length);
   };
   const goNext = () => {
     if (!canCycleImages) return;
-    setImageIndex((i) => (i + 1) % totalViews);
+    setImageIndex((i) => (i + 1) % rangeViews.length);
   };
 
   const pdfProfile: ProfileRow = {
@@ -139,8 +132,12 @@ export function StockItemDetailView({
         </Link>
 
         <div className="mt-8 grid grid-cols-1 items-start gap-8 lg:grid-cols-2">
-          <div className="flex items-center justify-center gap-2 lg:justify-end">
-            {canCycleImages && (
+          <div
+            className={`flex items-center gap-2 ${
+              canCycleImages ? "w-full justify-center" : "justify-center lg:justify-end"
+            }`}
+          >
+            {canCycleImages ? (
               <button
                 type="button"
                 onClick={goPrev}
@@ -151,26 +148,29 @@ export function StockItemDetailView({
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
-            )}
+            ) : null}
 
-            {show3D && configGlb ? (
-              <div className="h-[400px] w-[400px] max-w-full overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm">
-                <GlbViewer
-                  url={`/stock-items/${photoFolder}/${configFolder}/${configGlb}`}
-                  className="h-full w-full"
-                  {...(item.item === "CM180" && selectedConfig === "2/0"
-                    ? { targetOffset: [0, 0.06, 0] as [number, number, number] }
-                    : {})}
-                />
-              </div>
-            ) : displayImageUrl ? (
-              <div className="inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
+            {displayImageUrl ? (
+              <div
+                className={`inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white shadow-sm ${
+                  showingRangeDiagram ? "box-border p-[0.125in]" : "p-6"
+                } ${canCycleImages ? "min-h-[400px] w-full max-w-[400px]" : ""}`}
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element -- native size, no upscale */}
                 <img
                   src={displayImageUrl}
-                  alt={`${getStockItemDisplayName(item)} flexible moulding`}
+                  alt={
+                    showingRangeDiagram && selectedConfig
+                      ? isArcSelected
+                        ? `${selectedConfig} arc size range diagram`
+                        : `${selectedConfig} half-round size range diagram`
+                      : `${getStockItemDisplayName(item)} flexible moulding`
+                  }
                   className="h-auto w-auto object-contain"
-                  style={{ maxWidth: MAX_IMAGE_PX, maxHeight: MAX_IMAGE_PX }}
+                  style={{
+                    maxWidth: showingRangeDiagram ? MAX_IMAGE_PX - 24 : MAX_IMAGE_PX,
+                    maxHeight: showingRangeDiagram ? MAX_IMAGE_PX - 24 : MAX_IMAGE_PX,
+                  }}
                 />
               </div>
             ) : (
@@ -179,7 +179,7 @@ export function StockItemDetailView({
               </div>
             )}
 
-            {canCycleImages && (
+            {canCycleImages ? (
               <button
                 type="button"
                 onClick={goNext}
@@ -190,7 +190,7 @@ export function StockItemDetailView({
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
-            )}
+            ) : null}
           </div>
 
           <div className="min-w-0 space-y-6 text-center lg:text-left">
@@ -210,32 +210,32 @@ export function StockItemDetailView({
                 {sizeGroups.map(({ label, options }) => {
                   const styleInfo = STOCK_CONFIG_STYLE_INFO[label];
                   return (
-                  <div key={label}>
-                    <div className="flex items-center justify-center gap-1.5 lg:justify-start">
-                      <h3 className="text-sm font-semibold tracking-wide text-neutral-500">
-                        {label}
-                      </h3>
-                      {styleInfo ? (
-                        <StockConfigStyleInfoIcon label={label} {...styleInfo} />
-                      ) : null}
+                    <div key={label}>
+                      <div className="flex items-center justify-center gap-1.5 lg:justify-start">
+                        <h3 className="text-sm font-semibold tracking-wide text-neutral-500">
+                          {label}
+                        </h3>
+                        {styleInfo ? (
+                          <StockConfigStyleInfoIcon label={label} {...styleInfo} />
+                        ) : null}
+                      </div>
+                      <div className="mt-1 flex flex-wrap justify-center gap-2 lg:justify-start">
+                        {options.map((opt) => (
+                          <button
+                            key={opt}
+                            type="button"
+                            onClick={() => setSelectedConfig(opt)}
+                            className={`rounded-lg border px-4 py-2 text-sm font-medium transition-colors ${
+                              selectedConfig === opt
+                                ? "border-primary bg-red-50 text-primary"
+                                : "border-neutral-300 bg-white text-neutral-700 hover:border-primary hover:bg-red-50/50 hover:text-primary"
+                            }`}
+                          >
+                            {opt}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                    <div className="mt-1 flex flex-wrap justify-center gap-2 lg:justify-start">
-                      {options.map((opt) => (
-                        <button
-                          key={opt}
-                          type="button"
-                          onClick={() => setSelectedConfig(opt)}
-                          className={`rounded-lg border px-4 py-2 text-sm font-medium transition-colors ${
-                            selectedConfig === opt
-                              ? "border-primary bg-red-50 text-primary"
-                              : "border-neutral-300 bg-white text-neutral-700 hover:border-primary hover:bg-red-50/50 hover:text-primary"
-                          }`}
-                        >
-                          {opt}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
                   );
                 })}
               </div>
@@ -348,8 +348,8 @@ export function StockItemDetailView({
                       Contact us
                     </ContactLink>{" "}
                     with your project details for custom options including ellipticals, ovals,
-                    bullnose corners, and any shape/size that falls outside the stock item
-                    limitations.
+                    half rounds with straight legs, bullnose corners, and any shape/size that falls
+                    outside the stock item limitations.
                   </p>
                 </div>
               </div>

@@ -17,11 +17,11 @@ export default function ReturnsPage() {
           <p className="font-medium text-neutral-900">Our policy:</p>
           <ul className="list-disc space-y-3 pl-5 leading-relaxed">
             <li>
-              <span className="font-medium text-neutral-900">Stock items</span> — eligible for return when in unused
+              <span className="font-medium text-neutral-900">Stock items</span> are eligible for return when in unused
               and resellable condition. The customer is responsible for the return freight plus a 25% restocking fee.
             </li>
             <li>
-              <span className="font-medium text-neutral-900">Custom items</span> — not eligible for return. Exceptions
+              <span className="font-medium text-neutral-900">Custom items</span> are not eligible for return. Exceptions
               may be made for items that we commonly sell, evaluated on a case-by-case basis. If approved, the customer
               is also responsible for the return freight plus a 30–50% restocking fee.
             </li>

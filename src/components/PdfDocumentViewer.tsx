@@ -5,18 +5,20 @@ type PdfDocumentViewerProps = {
   minimal?: boolean;
 };
 
-function pdfViewerHeight(extra = "0.5in") {
-  return `calc(100vh - var(--header-offset) - var(--content-top-buffer) - 5rem + ${extra})`;
-}
+/** Default (+0.5in baked in as −2rem). Compact uses −5rem (no extra). */
+const PDF_VIEWER_HEIGHT =
+  "calc(100vh - var(--header-offset) - var(--content-top-buffer) - 2rem)";
+const PDF_VIEWER_HEIGHT_COMPACT =
+  "calc(100vh - var(--header-offset) - var(--content-top-buffer) - 5rem)";
 
 export function PdfViewerFrame({
   title,
   pdfSrc,
-  heightExtra = "0.5in",
+  compact = false,
 }: {
   title: string;
   pdfSrc: string;
-  heightExtra?: string;
+  compact?: boolean;
 }) {
   return (
     <div className="overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-100 shadow-sm">
@@ -24,7 +26,7 @@ export function PdfViewerFrame({
         src={pdfSrc}
         title={title}
         className="w-full bg-white"
-        style={{ height: pdfViewerHeight(heightExtra) }}
+        style={{ height: compact ? PDF_VIEWER_HEIGHT_COMPACT : PDF_VIEWER_HEIGHT }}
       />
     </div>
   );

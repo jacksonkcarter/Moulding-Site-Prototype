@@ -91,13 +91,16 @@ function FaqItemRow({ item, open, onToggle }: { item: FaqItem; open: boolean; on
 }
 
 export function FaqAccordion({ categories, footer }: FaqAccordionProps) {
+  const navCategories = categories.filter((category) => category.showInNav !== false);
   const [query, setQuery] = useState("");
+  const [activeTab, setActiveTab] = useState<string | null>(null);
   const [openId, setOpenId] = useState<string | null>(categories[0]?.items[0]?.id ?? null);
 
   const normalizedQuery = query.trim().toLowerCase();
   const isSearching = normalizedQuery.length > 0;
+  const tabs = navCategories.map((category) => ({ id: category.id, label: category.title }));
 
-  const visibleCategories = !isSearching
+  const searchedCategories = !isSearching
     ? categories
     : categories
         .filter((category) => !category.excludeFromSearch)
@@ -107,9 +110,11 @@ export function FaqAccordion({ categories, footer }: FaqAccordionProps) {
         }))
         .filter((category) => category.items.length > 0);
 
-  const navCategories = isSearching
-    ? visibleCategories.filter((category) => category.showInNav !== false)
-    : categories.filter((category) => category.showInNav !== false);
+  const visibleCategories = isSearching
+    ? searchedCategories
+    : activeTab
+      ? categories.filter((category) => category.id === activeTab)
+      : categories;
 
   return (
     <div className="space-y-10 not-prose">
@@ -159,18 +164,45 @@ export function FaqAccordion({ categories, footer }: FaqAccordionProps) {
         </div>
       </div>
 
-      {navCategories.length > 0 ? (
-        <nav aria-label="FAQ categories" className="flex flex-wrap justify-center gap-2 sm:gap-3">
-          {navCategories.map((category) => (
-            <a
-              key={category.id}
-              href={`#${category.id}`}
-              className="rounded-full border border-neutral-300 px-3.5 py-1.5 text-sm font-medium text-neutral-700 transition-colors hover:border-primary hover:text-primary"
-            >
-              {category.title}
-            </a>
-          ))}
-        </nav>
+      {!isSearching && tabs.length > 1 ? (
+        <div className="flex justify-center">
+          <div
+            role="tablist"
+            aria-label="FAQ categories"
+            className="inline-grid max-w-full overflow-hidden rounded-md border-2 border-primary divide-x-2 divide-primary"
+            style={{ gridTemplateColumns: `repeat(${tabs.length}, minmax(0, 1fr))` }}
+          >
+            {tabs.map((tab) => {
+              const selected = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={selected}
+                  onClick={() => {
+                    if (selected) {
+                      setActiveTab(null);
+                      setOpenId(categories[0]?.items[0]?.id ?? null);
+                      return;
+                    }
+                    setActiveTab(tab.id);
+                    const firstItem = categories.find((category) => category.id === tab.id)
+                      ?.items[0]?.id;
+                    setOpenId(firstItem ?? null);
+                  }}
+                  className={`min-w-0 px-1.5 py-1.5 text-center text-xs font-medium transition-colors sm:px-2.5 sm:text-sm sm:whitespace-nowrap ${
+                    selected
+                      ? "bg-primary text-white"
+                      : "bg-white text-primary hover:bg-primary/5"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
       ) : null}
 
       {isSearching && visibleCategories.length === 0 ? (

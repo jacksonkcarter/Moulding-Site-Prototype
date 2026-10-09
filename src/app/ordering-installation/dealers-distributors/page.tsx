@@ -13,7 +13,7 @@ const EASY_POINTS = [
   },
   {
     title: "Same quality, two coasts",
-    body: "Flex Trim East and West keep lead times practical nationwide—with local support when your customers need answers.",
+    body: "Flex Trim East and West keep lead times practical nationwide, with local support when your customers need answers.",
   },
 ] as const;
 

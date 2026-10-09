@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BusyLabel } from "@/components/LoadingSpinner";
 import type { ProfileRow } from "@/lib/profiles";
 import { downloadProfilePdf } from "@/components/ProfileDetailPdf";
 
@@ -12,7 +13,7 @@ type DownloadProfilePdfButtonProps = {
   className?: string;
   /** Outline style: filled primary vs outlined secondary. */
   variant?: "primary" | "secondary";
-  /** Used for generated PDFs — old drawings get a less-than-1:1 scale notice. */
+  /** Used for generated PDFs - old drawings get a less-than-1:1 scale notice. */
   isNewDrawing?: boolean;
   /** Override image URL for generated PDFs (e.g. stock-item public path). */
   imageUrl?: string;
@@ -76,8 +77,9 @@ export function DownloadProfilePdfButton({
         onClick={handleDownload}
         disabled={busy}
         className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-colors disabled:cursor-wait disabled:opacity-70 ${variantClass} ${className}`}
+        data-busy-managed
       >
-        {busy ? "Preparing PDF…" : label}
+        <BusyLabel busy={busy} idle={label} busyText="Preparing PDF…" />
       </button>
       {error ? <p className="text-xs text-primary">{error}</p> : null}
     </div>

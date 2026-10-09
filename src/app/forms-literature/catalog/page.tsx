@@ -18,7 +18,7 @@ export default function CatalogPage() {
         <PdfViewerFrame
           title="Carter Millwork catalog"
           pdfSrc={CATALOG_PDF}
-          heightExtra="0in"
+          compact
         />
       </div>
     </PageContent>

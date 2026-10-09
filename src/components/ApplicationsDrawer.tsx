@@ -147,7 +147,7 @@ export function ApplicationsDrawer({ categories }: ApplicationsDrawerProps) {
   return (
     <div
       ref={containerRef}
-      className="relative flex w-full flex-col overflow-hidden bg-neutral-900"
+      className="relative flex w-full flex-col overflow-hidden bg-white"
       style={{
         height: "calc(100vh - var(--header-offset))",
         paddingTop: "var(--content-top-buffer)",
@@ -179,7 +179,7 @@ export function ApplicationsDrawer({ categories }: ApplicationsDrawerProps) {
               y: { duration: SLIDE_DURATION, ease: EASE_SMOOTH },
               height: { duration: SLIDE_DURATION, ease: EASE_SMOOTH },
             }}
-            className="relative min-h-0 w-full shrink-0 overflow-hidden bg-neutral-900"
+            className="relative min-h-0 w-full shrink-0 overflow-hidden bg-white"
             style={{
               minHeight: isOpen ? undefined : undefined,
               flex: "0 0 auto",
@@ -189,7 +189,7 @@ export function ApplicationsDrawer({ categories }: ApplicationsDrawerProps) {
               type="button"
               layout={false}
               onClick={() => handleStripClick(cat, isOpen)}
-              className="relative flex w-full shrink-0 cursor-pointer items-center justify-center bg-cover bg-center bg-no-repeat text-center transition focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white/50"
+              className="relative flex w-full shrink-0 cursor-pointer items-center justify-center bg-cover bg-center bg-no-repeat text-center transition focus:outline-none focus:ring-2 focus:ring-inset focus:ring-neutral-900/30"
               style={{
                 minHeight: slidePx.oneStrip > 0 ? undefined : STRIP_HEIGHT,
                 backgroundImage: stripImage ? `url(${stripImage})` : undefined,
@@ -212,12 +212,12 @@ export function ApplicationsDrawer({ categories }: ApplicationsDrawerProps) {
               aria-controls={isOpen ? `drawer-${cat.id}` : undefined}
             >
               <motion.span
-                className="absolute inset-0 bg-neutral-900"
+                className="absolute inset-0 bg-white"
                 aria-hidden
-                animate={{ opacity: isOpen ? 1 : 0.55 }}
+                animate={{ opacity: isOpen ? 1 : 0.8 }}
                 transition={{ duration: SLIDE_DURATION, ease: EASE_SMOOTH }}
               />
-              <h2 className="relative z-10 font-sans font-medium tracking-wide text-white text-3xl sm:text-4xl">
+              <h2 className="relative z-10 font-sans font-medium tracking-wide text-neutral-900 text-3xl sm:text-4xl [text-shadow:0_1px_0_rgba(255,255,255,0.95),0_0_18px_rgba(255,255,255,0.85)]">
                 {cat.title}
               </h2>
             </motion.button>
@@ -229,7 +229,7 @@ export function ApplicationsDrawer({ categories }: ApplicationsDrawerProps) {
       {gridCat && contentTopPx > 0 && gridOpenIndex >= 0 && (
         <motion.div
           key={gridCat.id}
-          className="absolute left-0 right-0 bottom-0 z-10 flex w-full flex-col overflow-y-auto overflow-x-hidden bg-neutral-900"
+          className="absolute left-0 right-0 bottom-0 z-10 flex w-full flex-col overflow-y-auto overflow-x-hidden bg-white"
           style={{ top: contentTopPx }}
           initial={{ opacity: 0, y: gridInitialY }}
           animate={{ opacity: closingCategory ? 0 : 1, y: 0 }}
@@ -265,7 +265,7 @@ export function ApplicationsDrawer({ categories }: ApplicationsDrawerProps) {
                   key={`${gridCat.id}-${src}-${i}`}
                   role="button"
                   tabIndex={0}
-                  className="relative min-h-[280px] cursor-pointer overflow-hidden rounded-[0.25in] bg-neutral-800"
+                  className="relative min-h-[280px] cursor-pointer overflow-hidden rounded-[0.25in] bg-neutral-100"
                   style={{
                     gridRow: `span ${rowSpan}`,
                     gridColumn: `span ${colSpan}`,

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { BoundNumberInput } from "@/components/BoundNumberInput";
+import { BendingStylesCard } from "@/components/BendingStylesCard";
 import { ContactLink } from "@/components/ContactLink";
 import { FilterSection, FilterResetAllButton } from "@/components/FilterSection";
 import { dimensionFilterBounds, toFractionalInches } from "@/lib/format-inches";
@@ -15,10 +16,13 @@ import {
   profileSearchHref,
 } from "@/lib/profile-search-params";
 import type { ProfileRegion, ProfileRow } from "@/lib/profiles";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { PROFILE_MOULDING_TYPES } from "@/data/profile-moulding-types";
 
 type ProfileSearchProps = {
-  initialProfiles: ProfileRow[];
-  mouldingTypes: string[];
+  /** Optional preloaded data; when omitted the page shell paints first then fetches. */
+  initialProfiles?: ProfileRow[];
+  mouldingTypes?: string[];
 };
 
 function useDebounce<T>(value: T, delay: number): T {
@@ -285,20 +289,64 @@ function PaginationControls({
   );
 }
 
-export function ProfileSearch({ initialProfiles, mouldingTypes }: ProfileSearchProps) {
+export function ProfileSearch({
+  initialProfiles,
+  mouldingTypes: mouldingTypesProp,
+}: ProfileSearchProps = {}) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-  const [profiles] = useState<ProfileRow[]>(initialProfiles);
+  const [profiles, setProfiles] = useState<ProfileRow[] | null>(initialProfiles ?? null);
+  const [mouldingTypes, setMouldingTypes] = useState<string[]>(
+    () => mouldingTypesProp ?? [...PROFILE_MOULDING_TYPES],
+  );
+  const [catalogLoading, setCatalogLoading] = useState(!initialProfiles);
+  const [catalogError, setCatalogError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (initialProfiles) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const response = await fetch("/api/profiles");
+        if (!response.ok) throw new Error("Failed to load profiles");
+        const data = (await response.json()) as {
+          profiles?: ProfileRow[];
+          mouldingTypes?: string[];
+        };
+        if (cancelled) return;
+        setProfiles(data.profiles ?? []);
+        if (data.mouldingTypes?.length) setMouldingTypes(data.mouldingTypes);
+        setCatalogError(null);
+      } catch {
+        if (!cancelled) setCatalogError("Could not load profiles. Please try again.");
+      } finally {
+        if (!cancelled) setCatalogLoading(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [initialProfiles]);
+
+  const profileList = profiles ?? [];
 
   const initialFilters = useMemo(() => parseProfileSearchParams(searchParams), [searchParams]);
   const widthBoundsInitial = useMemo(
-    () => getDimensionBounds(initialProfiles, "width", 12),
-    [initialProfiles]
+    () => getDimensionBounds(profileList.length ? profileList : [{ width: 0, thickness: 0 } as ProfileRow], "width", 12),
+    // Only seed bounds once catalog arrives; avoid thrashing while empty.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [profiles],
   );
   const thicknessBoundsInitial = useMemo(
-    () => getDimensionBounds(initialProfiles, "thickness", 2),
-    [initialProfiles]
+    () =>
+      getDimensionBounds(
+        profileList.length ? profileList : [{ width: 0, thickness: 0 } as ProfileRow],
+        "thickness",
+        2,
+      ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [profiles],
   );
 
   const [selectedTypes, setSelectedTypes] = useState<Set<string>>(
@@ -322,13 +370,37 @@ export function ProfileSearch({ initialProfiles, mouldingTypes }: ProfileSearchP
 
   const mouldingFilterOptions = mouldingTypes;
   const [widthRange, setWidthRange] = useState<[number, number]>(() => [
-    initialFilters.wmin ?? widthBoundsInitial[0],
-    initialFilters.wmax ?? widthBoundsInitial[1],
+    initialFilters.wmin ?? 0,
+    initialFilters.wmax ?? 12,
   ]);
   const [thicknessRange, setThicknessRange] = useState<[number, number]>(() => [
-    initialFilters.tmin ?? thicknessBoundsInitial[0],
-    initialFilters.tmax ?? thicknessBoundsInitial[1],
+    initialFilters.tmin ?? 0,
+    initialFilters.tmax ?? 2,
   ]);
+  const [boundsReady, setBoundsReady] = useState(false);
+
+  useEffect(() => {
+    if (!profiles || boundsReady) return;
+    setWidthRange([
+      initialFilters.wmin ?? widthBoundsInitial[0],
+      initialFilters.wmax ?? widthBoundsInitial[1],
+    ]);
+    setThicknessRange([
+      initialFilters.tmin ?? thicknessBoundsInitial[0],
+      initialFilters.tmax ?? thicknessBoundsInitial[1],
+    ]);
+    setBoundsReady(true);
+  }, [
+    profiles,
+    boundsReady,
+    initialFilters.wmin,
+    initialFilters.wmax,
+    initialFilters.tmin,
+    initialFilters.tmax,
+    widthBoundsInitial,
+    thicknessBoundsInitial,
+  ]);
+
   const [profileQuery, setProfileQuery] = useState(() => initialFilters.q);
   const [profileFilterType, setProfileFilterType] = useState<ProfileFilterType>(() => {
     const match = initialFilters.match;
@@ -420,13 +492,19 @@ export function ProfileSearch({ initialProfiles, mouldingTypes }: ProfileSearchP
   }, []);
 
   const widthBounds = useMemo(
-    () => getDimensionBounds(profiles, "width", 12),
-    [profiles]
+    () =>
+      profileList.length > 0
+        ? getDimensionBounds(profileList, "width", 12)
+        : ([0, 12] as [number, number]),
+    [profileList],
   );
 
   const thicknessBounds = useMemo(
-    () => getDimensionBounds(profiles, "thickness", 2),
-    [profiles]
+    () =>
+      profileList.length > 0
+        ? getDimensionBounds(profileList, "thickness", 2)
+        : ([0, 2] as [number, number]),
+    [profileList],
   );
 
   const resetAllFilters = useCallback(() => {
@@ -442,7 +520,7 @@ export function ProfileSearch({ initialProfiles, mouldingTypes }: ProfileSearchP
 
   const filtered = useMemo(() => {
     const [widthMin, widthMax] = dimensionFilterBounds(widthMinDebounced, widthMaxDebounced);
-    return profiles.filter((p) => {
+    return profileList.filter((p) => {
       if (!profileMatchesFilter(p, profileQueryDebounced, profileFilterType)) return false;
       if (!profileMatchesMouldingFilter(p, selectedTypes)) return false;
       if (!profileMatchesRegionFilter(p, selectedRegions)) return false;
@@ -452,7 +530,7 @@ export function ProfileSearch({ initialProfiles, mouldingTypes }: ProfileSearchP
       return true;
     });
   }, [
-    profiles,
+    profileList,
     profileQueryDebounced,
     profileFilterType,
     selectedTypes,
@@ -581,10 +659,13 @@ export function ProfileSearch({ initialProfiles, mouldingTypes }: ProfileSearchP
           , and one of our sales specialists will explore the thousands of additional shapes not listed online.
         </p>
 
-        <div className="mt-[calc(2rem-0.1875in)] flex flex-col gap-8 lg:flex-row">
-          <aside className="w-full shrink-0 min-w-0 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 p-4 lg:w-72">
-            <FilterResetAllButton onClick={resetAllFilters} className="mb-3" />
-            <div className="space-y-0">
+        <div className="mt-3.5 flex flex-col gap-8 lg:flex-row">
+          <aside className="w-full shrink-0 self-start min-w-0 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 lg:w-72">
+            <BendingStylesCard flush />
+            <div className="border-b border-neutral-200 px-4 pb-3 pt-3">
+              <FilterResetAllButton onClick={resetAllFilters} />
+            </div>
+            <div className="space-y-0 p-4">
               <FilterSection
                 title="Item"
                 open={profileOpen}
@@ -795,6 +876,16 @@ export function ProfileSearch({ initialProfiles, mouldingTypes }: ProfileSearchP
           </aside>
 
           <div className="min-w-0 flex-1">
+            {catalogLoading ? (
+              <div className="flex min-h-[24rem] items-center justify-center">
+                <LoadingSpinner size="lg" className="text-primary" />
+              </div>
+            ) : catalogError ? (
+              <div className="flex min-h-[24rem] items-center justify-center px-4 text-center text-sm text-primary">
+                {catalogError}
+              </div>
+            ) : (
+              <>
             <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm text-neutral-600">
                 {filtered.length} profile{filtered.length !== 1 ? "s" : ""} found
@@ -839,6 +930,8 @@ export function ProfileSearch({ initialProfiles, mouldingTypes }: ProfileSearchP
             <div className="mt-6">
               <PaginationControls page={currentPage} totalPages={totalPages} onPageChange={goToPage} />
             </div>
+              </>
+            )}
           </div>
         </div>
       </div>

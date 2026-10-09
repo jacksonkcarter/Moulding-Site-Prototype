@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { BusyLabel } from "@/components/LoadingSpinner";
 
 /** Sales orders are stored as 7 digits; pad a 6-digit entry with a leading zero. */
 function normalizeSalesOrder(value: string): string {
@@ -17,6 +18,7 @@ export default function CheckOrderStatusPage() {
   const [purchaseOrder, setPurchaseOrder] = useState("");
   const [billingZip, setBillingZip] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [pending, setPending] = useState(false);
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -43,6 +45,7 @@ export default function CheckOrderStatusPage() {
     params.set("zip", zip.slice(0, 5));
     if (so) params.set("so", normalizeSalesOrder(so));
     if (po) params.set("po", po);
+    setPending(true);
     router.push(`/order-status/results?${params.toString()}`);
   }
 
@@ -76,7 +79,8 @@ export default function CheckOrderStatusPage() {
                   setBillingZip(e.target.value);
                   setError(null);
                 }}
-                className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-neutral-900 placeholder:text-neutral-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                disabled={pending}
+                className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-neutral-900 placeholder:text-neutral-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:cursor-wait disabled:opacity-70"
                 placeholder="Zip code"
                 autoComplete="postal-code"
               />
@@ -102,7 +106,8 @@ export default function CheckOrderStatusPage() {
                     setSalesOrder(e.target.value);
                     setError(null);
                   }}
-                  className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-neutral-900 placeholder:text-neutral-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  disabled={pending}
+                  className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-neutral-900 placeholder:text-neutral-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:cursor-wait disabled:opacity-70"
                   placeholder="Sales order number"
                   autoComplete="off"
                 />
@@ -125,7 +130,8 @@ export default function CheckOrderStatusPage() {
                     setPurchaseOrder(e.target.value);
                     setError(null);
                   }}
-                  className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-neutral-900 placeholder:text-neutral-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  disabled={pending}
+                  className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-neutral-900 placeholder:text-neutral-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:cursor-wait disabled:opacity-70"
                   placeholder="Purchase order number"
                   autoComplete="off"
                 />
@@ -137,9 +143,11 @@ export default function CheckOrderStatusPage() {
 
           <button
             type="submit"
-            className="mt-5 w-full rounded-lg bg-primary py-2.5 text-sm font-semibold text-white hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            disabled={pending}
+            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-2.5 text-sm font-semibold text-white hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:cursor-wait disabled:opacity-70"
+            data-busy-managed
           >
-            Check status
+            <BusyLabel busy={pending} idle="Check status" busyText="Checking…" />
           </button>
         </form>
 

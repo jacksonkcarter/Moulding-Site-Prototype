@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { BendingStylesCard } from "@/components/BendingStylesCard";
 import { DownloadProfilePdfButton } from "@/components/DownloadProfilePdfButton";
 import { ProfileMatchPrompt } from "@/components/ProfileMatchPrompt";
 import type { ProfileRow } from "@/lib/profiles";
@@ -96,6 +97,16 @@ export function ProfileDetailView({
             </div>
           </div>
         </div>
+
+        <section className="mx-auto mt-12 max-w-[30rem]" aria-labelledby="bending-guidelines-heading">
+          <h2
+            id="bending-guidelines-heading"
+            className="mb-4 text-center text-lg font-semibold tracking-tight text-neutral-900"
+          >
+            Please review our bending guidelines and limitations:
+          </h2>
+          <BendingStylesCard />
+        </section>
       </div>
     </main>
   );

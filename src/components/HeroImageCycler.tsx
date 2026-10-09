@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { HOME_PAGE_HERO_IMAGES } from "@/data/home-page-images";
 
-const ROTATE_MS = 5000;
+const ROTATE_MS = 3500;
 const FADE_MS = 1200;
 
 export function HeroImageCycler() {

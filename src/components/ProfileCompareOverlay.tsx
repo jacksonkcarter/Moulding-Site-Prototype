@@ -1,21 +1,24 @@
 "use client";
 
 import {
+  forwardRef,
   useCallback,
   useEffect,
+  useImperativeHandle,
   useRef,
   useState,
   type PointerEvent as ReactPointerEvent,
 } from "react";
-import { destroyPdfDocument, loadPdfJs, type PDFDocumentProxy } from "@/lib/pdfjs-client";
+import { PDFDocument } from "pdf-lib";
+import { destroyPdfDocument, openPdfDocument, type PDFDocumentProxy } from "@/lib/pdfjs-client";
 import { pdfPointsToDisplayPixels } from "@/lib/pdf-selection";
+import { LoadingState } from "@/components/LoadingSpinner";
 
 type OverlayState = {
   centerX: number;
   centerY: number;
   width: number;
   height: number;
-  rotation: number;
 };
 
 type ProfileCompareOverlayProps = {
@@ -25,7 +28,15 @@ type ProfileCompareOverlayProps = {
   cropHeightPts: number;
   flipH: boolean;
   flipV: boolean;
+  rotation: number;
+  onRotationChange: (rotation: number) => void;
+  hideBoundingBox?: boolean;
   className?: string;
+};
+
+export type ProfileCompareOverlayHandle = {
+  saveCompositePdf: (filename?: string) => Promise<boolean>;
+  printComposite: () => Promise<boolean>;
 };
 
 type DragState = {
@@ -34,34 +45,84 @@ type DragState = {
   startX: number;
   startY: number;
   startAngle: number;
+  startRotation: number;
   startOverlay: OverlayState;
 };
 
 const ROTATION_HANDLE_OFFSET = 32;
+const EXPORT_TARGET_WIDTH = 2000;
 
 function angleFromCenter(centerX: number, centerY: number, x: number, y: number) {
   return (Math.atan2(y - centerY, x - centerX) * 180) / Math.PI;
 }
 
-export function ProfileCompareOverlay({
-  referenceOutlinePdfUrl,
-  cropImageUrl,
-  cropWidthPts,
-  cropHeightPts,
-  flipH,
-  flipV,
-  className = "",
-}: ProfileCompareOverlayProps) {
+function loadImage(src: string): Promise<HTMLImageElement> {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => resolve(image);
+    image.onerror = () => reject(new Error("image load failed"));
+    image.src = src;
+  });
+}
+
+function canvasToPngBlob(canvas: HTMLCanvasElement): Promise<Blob> {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob((blob) => {
+      if (blob) resolve(blob);
+      else reject(new Error("png encode failed"));
+    }, "image/png");
+  });
+}
+
+export const ProfileCompareOverlay = forwardRef<
+  ProfileCompareOverlayHandle,
+  ProfileCompareOverlayProps
+>(function ProfileCompareOverlay(
+  {
+    referenceOutlinePdfUrl,
+    cropImageUrl,
+    cropWidthPts,
+    cropHeightPts,
+    flipH,
+    flipV,
+    rotation,
+    onRotationChange,
+    hideBoundingBox = false,
+    className = "",
+  },
+  ref,
+) {
   const containerRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pdfRef = useRef<PDFDocumentProxy | null>(null);
   const dragRef = useRef<DragState | null>(null);
+  const overlayRef = useRef<OverlayState | null>(null);
+  const displayScaleRef = useRef(1);
+  const flipHRef = useRef(flipH);
+  const flipVRef = useRef(flipV);
+  const rotationRef = useRef(rotation);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [overlay, setOverlay] = useState<OverlayState | null>(null);
   const [outlineReady, setOutlineReady] = useState(false);
+
+  useEffect(() => {
+    overlayRef.current = overlay;
+  }, [overlay]);
+
+  useEffect(() => {
+    flipHRef.current = flipH;
+  }, [flipH]);
+
+  useEffect(() => {
+    flipVRef.current = flipV;
+  }, [flipV]);
+
+  useEffect(() => {
+    rotationRef.current = rotation;
+  }, [rotation]);
 
   const renderOutline = useCallback(async () => {
     const pdf = pdfRef.current;
@@ -92,6 +153,7 @@ export function ProfileCompareOverlay({
     canvas.style.height = `${displayHeight}px`;
 
     await page.render({ canvas, canvasContext: context, viewport }).promise;
+    displayScaleRef.current = scale;
     setOutlineReady(true);
     return { width: displayWidth, height: displayHeight, displayScale: scale };
   }, []);
@@ -115,7 +177,6 @@ export function ProfileCompareOverlay({
           centerY: canvasHeight / 2,
           width,
           height,
-          rotation: 0,
         };
       }
 
@@ -131,7 +192,6 @@ export function ProfileCompareOverlay({
         centerY,
         width,
         height,
-        rotation: previous.rotation,
       };
     },
     [cropHeightPts, cropWidthPts],
@@ -151,6 +211,132 @@ export function ProfileCompareOverlay({
     [cropImageUrl, layoutOverlay],
   );
 
+  const buildCompositeCanvas = useCallback(async () => {
+    const pdf = pdfRef.current;
+    const overlayState = overlayRef.current;
+    const displayScale = displayScaleRef.current;
+    if (!pdf || !overlayState || !(displayScale > 0)) return null;
+
+    const page = await pdf.getPage(1);
+    const baseViewport = page.getViewport({ scale: 1 });
+    const exportScale = Math.max(EXPORT_TARGET_WIDTH / baseViewport.width, displayScale);
+    const viewport = page.getViewport({ scale: exportScale });
+
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.floor(viewport.width);
+    canvas.height = Math.floor(viewport.height);
+    const context = canvas.getContext("2d");
+    if (!context) return null;
+
+    await page.render({ canvas, canvasContext: context, viewport }).promise;
+
+    const scaleRatio = exportScale / displayScale;
+    const centerX = overlayState.centerX * scaleRatio;
+    const centerY = overlayState.centerY * scaleRatio;
+    const width = overlayState.width * scaleRatio;
+    const height = overlayState.height * scaleRatio;
+
+    const cropImage = await loadImage(cropImageUrl);
+    context.save();
+    context.translate(centerX, centerY);
+    context.rotate((rotationRef.current * Math.PI) / 180);
+    context.scale(flipHRef.current ? -1 : 1, flipVRef.current ? -1 : 1);
+    context.globalAlpha = 0.5;
+    context.drawImage(cropImage, -width / 2, -height / 2, width, height);
+    context.restore();
+
+    return canvas;
+  }, [cropImageUrl]);
+
+  const buildCompositePdfBytes = useCallback(async () => {
+    const composite = await buildCompositeCanvas();
+    if (!composite) return null;
+
+    const pngBlob = await canvasToPngBlob(composite);
+    const pngBytes = new Uint8Array(await pngBlob.arrayBuffer());
+
+    const outlineBytes = new Uint8Array(await (await fetch(referenceOutlinePdfUrl)).arrayBuffer());
+    const outlinePdf = await PDFDocument.load(outlineBytes);
+    const [outlinePage] = outlinePdf.getPages();
+    const { width, height } = outlinePage.getSize();
+
+    const pdf = await PDFDocument.create();
+    const page = pdf.addPage([width, height]);
+    const embedded = await pdf.embedPng(pngBytes);
+    page.drawImage(embedded, { x: 0, y: 0, width, height });
+    return pdf.save();
+  }, [buildCompositeCanvas, referenceOutlinePdfUrl]);
+
+  useImperativeHandle(
+    ref,
+    () => ({
+      async saveCompositePdf(filename = "profile-match-compare.pdf") {
+        const bytes = await buildCompositePdfBytes();
+        if (!bytes) return false;
+        const blob = new Blob([bytes], { type: "application/pdf" });
+        const url = URL.createObjectURL(blob);
+        const anchor = document.createElement("a");
+        anchor.href = url;
+        anchor.download = filename;
+        anchor.click();
+        URL.revokeObjectURL(url);
+        return true;
+      },
+      async printComposite() {
+        const printWindow = window.open("", "_blank");
+        if (!printWindow) return false;
+        printWindow.document.write(`<!DOCTYPE html>
+<html>
+  <head><title>Profile match compare</title></head>
+  <body style="font-family: sans-serif; padding: 1.5rem; color: #444;">Preparing print…</body>
+</html>`);
+        printWindow.document.close();
+
+        try {
+          const composite = await buildCompositeCanvas();
+          if (!composite) {
+            printWindow.close();
+            return false;
+          }
+          const dataUrl = composite.toDataURL("image/png");
+          printWindow.document.open();
+          printWindow.document.write(`<!DOCTYPE html>
+<html>
+  <head>
+    <title>Profile match compare</title>
+    <style>
+      html, body { margin: 0; padding: 0; background: #fff; }
+      img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+      @media print {
+        img { max-width: 100%; width: 100%; page-break-inside: avoid; }
+      }
+    </style>
+  </head>
+  <body>
+    <img src="${dataUrl}" alt="Profile match compare" />
+  </body>
+</html>`);
+          printWindow.document.close();
+          const img = printWindow.document.querySelector("img");
+          const triggerPrint = () => {
+            printWindow.focus();
+            printWindow.print();
+          };
+          if (img && !img.complete) {
+            img.onload = triggerPrint;
+          } else {
+            triggerPrint();
+          }
+          return true;
+        } catch {
+          printWindow.close();
+          return false;
+        }
+      },
+    }),
+    [buildCompositeCanvas, buildCompositePdfBytes],
+  );
+
   useEffect(() => {
     let cancelled = false;
     let loadingTask: { destroy: () => Promise<void> } | null = null;
@@ -167,11 +353,10 @@ export function ProfileCompareOverlay({
       destroyPdfDocument(previous);
 
       try {
-        const pdfjs = await loadPdfJs();
         const response = await fetch(referenceOutlinePdfUrl);
         if (!response.ok) throw new Error("fetch failed");
         const data = new Uint8Array(await response.arrayBuffer());
-        loadingTask = pdfjs.getDocument({ data });
+        loadingTask = await openPdfDocument(data);
         const pdf = await loadingTask.promise;
         loadedDoc = pdf;
 
@@ -283,10 +468,7 @@ export function ProfileCompareOverlay({
       point.y,
     );
     const delta = currentAngle - drag.startAngle;
-    setOverlay({
-      ...drag.startOverlay,
-      rotation: drag.startOverlay.rotation + delta,
-    });
+    onRotationChange(drag.startRotation + delta);
   }
 
   function startDrag(mode: DragState["mode"], e: ReactPointerEvent, startAngle = 0) {
@@ -301,6 +483,7 @@ export function ProfileCompareOverlay({
       startX: point.x,
       startY: point.y,
       startAngle,
+      startRotation: rotation,
       startOverlay: overlay,
     };
 
@@ -329,16 +512,16 @@ export function ProfileCompareOverlay({
         className="flex min-h-0 flex-1 items-center justify-center p-2"
       >
         {loading ? (
-          <p className="text-sm text-neutral-500">Loading outline…</p>
+          <LoadingState size="md" className="py-8" />
         ) : error ? (
           <p className="px-4 text-center text-sm text-primary">{error}</p>
         ) : (
           <div ref={frameRef} className="relative inline-block max-h-full max-w-full">
             <canvas ref={canvasRef} className="block max-h-full max-w-full" />
             {!outlineReady ? (
-              <p className="absolute inset-0 flex items-center justify-center text-sm text-neutral-500">
-                Preparing comparison…
-              </p>
+              <div className="absolute inset-0 flex items-center justify-center bg-neutral-50/80">
+                <LoadingState size="md" />
+              </div>
             ) : null}
             {overlay ? (
               <div className="absolute inset-0">
@@ -349,7 +532,7 @@ export function ProfileCompareOverlay({
                     top: overlay.centerY,
                     width: overlay.width,
                     height: overlay.height,
-                    transform: `translate(-50%, -50%) rotate(${overlay.rotation}deg) scaleX(${flipH ? -1 : 1}) scaleY(${flipV ? -1 : 1})`,
+                    transform: `translate(-50%, -50%) rotate(${rotation}deg) scaleX(${flipH ? -1 : 1}) scaleY(${flipV ? -1 : 1})`,
                     transformOrigin: "center center",
                   }}
                   onPointerDown={onMovePointerDown}
@@ -360,23 +543,27 @@ export function ProfileCompareOverlay({
                     className="h-full w-full object-fill opacity-50"
                     draggable={false}
                   />
-                  <div className="pointer-events-none absolute inset-0 border-2 border-dashed border-primary" />
+                  {!hideBoundingBox ? (
+                    <>
+                      <div className="pointer-events-none absolute inset-0 border-2 border-dashed border-primary" />
 
-                  <div
-                    className="pointer-events-none absolute left-1/2 w-px bg-primary"
-                    style={{
-                      top: -(ROTATION_HANDLE_OFFSET - 8),
-                      height: ROTATION_HANDLE_OFFSET - 8,
-                      marginLeft: -0.5,
-                    }}
-                  />
-                  <button
-                    type="button"
-                    aria-label="Rotate selection"
-                    className="absolute left-1/2 h-4 w-4 -translate-x-1/2 cursor-grab rounded-full border-2 border-primary bg-white active:cursor-grabbing"
-                    style={{ top: -(ROTATION_HANDLE_OFFSET + 8) }}
-                    onPointerDown={onRotatePointerDown}
-                  />
+                      <div
+                        className="pointer-events-none absolute left-1/2 w-px bg-primary"
+                        style={{
+                          top: -(ROTATION_HANDLE_OFFSET - 8),
+                          height: ROTATION_HANDLE_OFFSET - 8,
+                          marginLeft: -0.5,
+                        }}
+                      />
+                      <button
+                        type="button"
+                        aria-label="Rotate selection"
+                        className="absolute left-1/2 h-4 w-4 -translate-x-1/2 cursor-grab rounded-full border-2 border-primary bg-white active:cursor-grabbing"
+                        style={{ top: -(ROTATION_HANDLE_OFFSET + 8) }}
+                        onPointerDown={onRotatePointerDown}
+                      />
+                    </>
+                  ) : null}
                 </div>
               </div>
             ) : null}
@@ -385,4 +572,4 @@ export function ProfileCompareOverlay({
       </div>
     </div>
   );
-}
+});

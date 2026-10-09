@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { PageSpinner } from "@/components/LoadingSpinner";
 import { StockItemsView } from "@/components/StockItemsView";
 import {
   STOCK_ITEM_SECTIONS,
@@ -9,13 +10,7 @@ import {
 export default function StockItemsPage() {
   return (
     <main className="min-h-screen">
-      <Suspense
-        fallback={
-          <div className="flex min-h-[40vh] items-center justify-center text-neutral-500">
-            Loading stock items…
-          </div>
-        }
-      >
+      <Suspense fallback={<PageSpinner />}>
         <StockItemsView
           sections={STOCK_ITEM_SECTIONS}
           items={STOCK_ITEMS}

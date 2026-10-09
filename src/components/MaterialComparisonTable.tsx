@@ -37,7 +37,7 @@ const MATERIAL_COLUMN_LOGOS: Partial<
   "Flex Trim": { src: flexTrimLogo, alt: "Flex Trim™ logo" },
   "Zzz Flex": { src: zzzFlexLogo, alt: "Zzz Flex logo", width: "6.25rem" },
   "Ultra-Flex": { src: ultraFlexLogo, alt: "Ultra-Flex logo" },
-  "Ultra-Fire Flex": { src: ultraFireFlexLogo, alt: "Ultra-Fire Flex logo", width: "5.75rem" },
+  "Ultra-Fire Flex": { src: ultraFireFlexLogo, alt: "Ultra-Fire Flex logo", width: "8rem" },
   "Machinable S4S": { src: machinableS4SLogo, alt: "Machinable S4S logo", width: "4.75rem" },
 };
 
@@ -126,7 +126,7 @@ function RatingDots({ value }: { value: string }) {
 
 export function MaterialComparisonTable() {
   return (
-    <section className="mt-[calc(1rem-0.5in)]" aria-labelledby="material-comparison-heading">
+    <section className="-mt-8" aria-labelledby="material-comparison-heading">
       <div className="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
         <div className="border-b border-neutral-200 bg-neutral-50 px-4 py-3 sm:px-5">
           <h2

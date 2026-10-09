@@ -57,8 +57,8 @@ export default function LocationsPage() {
       <div className="mx-auto w-full max-w-6xl space-y-10 text-neutral-600 not-prose">
         <section>
           <p className="text-sm leading-relaxed md:text-base">
-            Flex Trim™ operates facilities on both coasts—Flex Trim East in Lexington, North Carolina, and Flex Trim
-            West in Provo, Utah—so we can serve customers across the country with shorter lead times, local support,
+            Flex Trim™ operates facilities on both coasts: Flex Trim East in Lexington, North Carolina, and Flex Trim
+            West in Provo, Utah. That lets us serve customers across the country with shorter lead times, local support,
             and the same high-quality flexible moulding wherever you build.
           </p>
         </section>
@@ -89,7 +89,7 @@ export default function LocationsPage() {
                 <MapPin label={pin.label} />
               </div>
             ))}
-            <ul className="absolute top-1/2 right-[calc(2%-3in)] z-10 flex w-[min(42%,14rem)] -translate-y-1/2 flex-col gap-3 sm:right-[calc(4%-3in)] sm:w-[min(38%,16rem)] sm:gap-4 md:right-[calc(6%-3in)] md:w-64">
+            <ul className="absolute top-1/2 right-[-16.875rem] z-10 flex w-[min(42%,14rem)] -translate-y-1/2 flex-col gap-3 sm:right-[-15.8125rem] sm:w-[min(38%,16rem)] sm:gap-4 md:right-[-14.6875rem] md:w-64">
               {MAP_LEGEND.map((item) => (
                 <li key={item.label} className="flex items-start gap-3 text-neutral-800">
                   <span
@@ -116,7 +116,7 @@ export default function LocationsPage() {
             Facility details
           </h2>
           <div className="mt-6">
-            <RegionalContacts />
+            <RegionalContacts sideBySide />
           </div>
         </section>
       </div>

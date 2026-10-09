@@ -5,7 +5,7 @@ export const APPLICATION_OPTIONS = [
   "Baseboard",
   "Crown",
   "Panel/Chair Rail",
-  "Accessory",
+  "Decorative architectural accessory",
   "Other",
 ] as const;
 export type ApplicationOption = (typeof APPLICATION_OPTIONS)[number];

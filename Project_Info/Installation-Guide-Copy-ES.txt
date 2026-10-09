@@ -1,0 +1,200 @@
+TRANSLATOR NOTES
+- Keep brand names as-is unless told otherwise: Flex Trim™, Carter Millwork, PL Premium Max, Finish Carpentry TV
+- Keep the same section order and step numbers
+- Return translated text with the same labels (PAGE TITLE, SECTION, STEP, etc.) so it can be wired back into the site
+
+------------------------------------------------------------
+PAGE TITLE
+------------------------------------------------------------
+Guía de instalación de Flex Trim™
+
+------------------------------------------------------------
+WEB INTRO (on-page only)
+------------------------------------------------------------
+Antes de instalar, revise la guía de instalación de referencia rápida a continuación. Para obtener más consejos útiles, vea algunos videos de instalaciones reales.
+
+------------------------------------------------------------
+PDF INTRO
+------------------------------------------------------------
+Para obtener más ayuda, llame a un especialista de productos al [phone].
+
+PDF variant (with East / West numbers):
+Para obtener más ayuda, llámenos al Este: [east phone] u Oeste: [west phone].
+
+------------------------------------------------------------
+UI LABELS
+------------------------------------------------------------
+Ir a
+Preparación
+Mecanizado
+Instalación
+Acabado
+Descargar PDF
+Preparando PDF…
+Videos por Finish Carpentry TV
+
+------------------------------------------------------------
+VIDEO TITLES
+------------------------------------------------------------
+Instalación de moldura de corona Flex Trim™
+Instalación de marco ovalado Flex Trim™
+
+------------------------------------------------------------
+IMAGE ALT TEXT (optional / accessibility)
+------------------------------------------------------------
+Preparando la moldura flexible
+Mecanizando la moldura flexible
+Instalando la moldura flexible
+Acabando la moldura flexible
+
+------------------------------------------------------------
+SECTION: Preparación
+------------------------------------------------------------
+
+STEP 1 — TITLE
+Permita que el material se relaje
+
+STEP 1 — BODY
+Desenrolle la moldura para que pueda volver a su forma original. Este es un buen momento para verificar su perfil y aplicación.
+
+STEP 2 — TITLE
+Optimice la flexibilidad
+
+STEP 2 — BODY
+Caliente el material a 80 °F para obtener la máxima flexibilidad. Para evitar daños, nunca use una llama abierta para calentar la moldura.
+
+STEP 3 — TITLE
+Limpie la moldura
+
+STEP 3 — BODY
+Limpie el material con alcohol mineral o agua y jabón para eliminar cualquier polvo antes de la instalación.
+
+STEP 4 — TITLE
+Prepare una superficie lisa
+
+STEP 4 — BODY
+Asegúrese de que su área de montaje esté completamente plana. Debido a que la moldura es flexible, reflejará cualquier protuberancia o hundimiento subyacente.
+
+STEP 5 — TITLE
+Espere para aplicar acabados
+
+STEP 5 — BODY
+Siempre pinte o tiña después de la instalación. Flexionar la moldura durante la instalación agrietará y fracturará un acabado aplicado previamente.
+
+------------------------------------------------------------
+SECTION: Mecanizado
+------------------------------------------------------------
+
+STEP 1 — TITLE
+Use herramientas de carpintería estándar
+
+STEP 1 — BODY
+Trate la moldura flexible casi igual que la madera. Se puede cortar, lijar y moldear fácilmente usando el equipo típico de su taller.
+
+STEP 2 — TITLE
+Asegure el material
+
+STEP 2 — BODY
+Sostenga la moldura firmemente contra su mesa o guía al cortar para mantener el control y asegurar una línea limpia y precisa.
+
+STEP 3 — TITLE
+Haga pasadas superficiales con herramientas de moldeo
+
+STEP 3 — BODY
+Si da forma al perfil con una rebajadora, haga varias pasadas superficiales en lugar de intentar un corte profundo para lograr el resultado más suave.
+
+STEP 4 — TITLE
+Reduzca la velocidad de su cuchilla cuando sea posible
+
+STEP 4 — BODY
+Opere las sierras y rebajadoras a velocidades de cuchilla más lentas, lo ideal para cortar materiales limpiamente sin una acumulación excesiva de calor.
+
+STEP 5 — TITLE
+Proteja los acabados aptos para teñir
+
+STEP 5 — BODY
+Nunca lije ni dé forma a las molduras aptas para teñir, ya que esto eliminará permanentemente el patrón de la veta de la madera a nivel de la superficie.
+
+------------------------------------------------------------
+SECTION: Instalación
+------------------------------------------------------------
+
+STEP 1 — TITLE
+Planifique su diseño
+
+STEP 1 — BODY
+Predetermine la colocación exacta del material y el diseño antes de aplicar cualquier adhesivo o sujetadores.
+
+STEP 2 — TITLE
+Instale bloques triangulares para corona flotante
+
+STEP 2 — BODY
+Cuando la corona se monte solo en la pared, sin soporte en el techo, instale bloques triangulares de madera detrás de la moldura cada 4 a 8 pulgadas para un respaldo continuo y una instalación segura.
+
+STEP 3 — TITLE
+Seleccione y aplique el adhesivo adecuado
+
+STEP 3 — BODY
+Use un adhesivo compatible con poliuretano y materiales no porosos, como PL Premium Max. Nunca use pegamento para madera estándar. Aplique adhesivo a los extremos de la moldura para que las juntas se mantengan apretadas a través del movimiento estacional, y a la cara posterior donde la moldura se encuentra con la pared o el sustrato.
+
+STEP 4 — TITLE
+Fije el material
+
+STEP 4 — BODY
+Aunque los clavos sin cabeza son los mejores ya que se hunden limpiamente en la pieza, los tornillos para molduras, los clavos de acabado y las puntas también son sujetadores aceptables. Los clavos sin cabeza deben usarse siempre en perfiles pequeños, o cuando clavar cerca del borde sea absolutamente necesario. Para reducir la posibilidad de que se formen hoyuelos, reduzca la presión en las pistolas de clavos mecánicas, fije los clavos a mano y perfore/avellane previamente los orificios para los tornillos de las molduras. Nunca use grapas, ya que crearán hoyuelos lineales.
+
+STEP 5 — TITLE
+Minimice el clavado
+
+STEP 5 — BODY
+Coloque los sujetadores lejos de los bordes para evitar que el material se golpee o se desgarre, y deje que el adhesivo haga el trabajo.
+
+STEP 6 — TITLE
+Evite la fuerza excesiva
+
+STEP 6 — BODY
+Nunca fuerce la moldura para colocarla en su lugar. El material que se pide con las especificaciones correctas debe instalarse fácil y naturalmente.
+
+------------------------------------------------------------
+SECTION: Acabado
+------------------------------------------------------------
+
+STEP 1 — TITLE
+Rellene y selle libremente
+
+STEP 1 — BODY
+Recomendamos masillas tipo Bondo que sean compatibles con productos no porosos a base de resina para los orificios de los clavos y su sellador favorito para las uniones. Los productos estándar funcionan perfectamente con Flex Trim™.
+
+STEP 2 — TITLE
+Limpie e instale primero
+
+STEP 2 — BODY
+Siempre instale la moldura y limpie a fondo la superficie antes de aplicar cualquier pintura o tinte para garantizar un acabado impecable.
+
+STEP 3 — TITLE
+Pintar Flex Trim™
+
+STEP 3 — BODY
+Se recomienda una capa de imprimación, pero no es obligatoria. Cualquier pintura para interiores/exteriores (que no sea epoxi precatalizado) funciona de maravilla.
+
+STEP 4 — TITLE
+Teñir Flex Trim™ (solo gel)
+
+STEP 4 — BODY
+Dado que la veta está solo en la superficie, nuestro producto requiere un tinte en gel. Recuerde nunca lijar el material apto para teñir, ya que esto eliminará permanentemente la veta de madera de la superficie. Aplique una capa de barniz transparente después de teñir.
+
+STEP 5 — TITLE
+Consejos adicionales para teñir
+
+STEP 5 — BODY
+Para lograr un color más oscuro, aplique el tinte generosamente y trabaje el pigmento hacia el fondo de los huecos de la veta en relieve. Limpie el exceso de tinte con un paño suave. Use un cepillo seco y suave para difuminar o eliminar cualquier marca del paño para obtener un acabado sin imperfecciones, luego déjelo curar por completo. El tinte en gel sobre resina tarda más en secarse que sobre madera y debe estar completamente seco al tacto, sin pegajosidad, antes de que pueda continuar. Si la primera capa no es lo suficientemente oscura, aplique una segunda capa muy fina de tinte en gel utilizando el mismo proceso que la primera capa. Debido a que la primera capa selló la superficie, esta segunda capa se deslizará por encima, profundizando el color sin alterar la capa debajo. Repita si es necesario. También puede jugar con 2 pigmentos diferentes: oscuro y luego claro vs claro y luego oscuro.
+
+------------------------------------------------------------
+PDF FOOTER
+------------------------------------------------------------
+Flex Trim™ / Carter Millwork, Inc.
+
+------------------------------------------------------------
+PDF DOWNLOAD FILENAME (optional)
+------------------------------------------------------------
+Flex-Trim-Guía-de-Instalación.pdf

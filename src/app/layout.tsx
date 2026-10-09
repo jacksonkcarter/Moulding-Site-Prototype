@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import { FooterSwitch } from "@/components/FooterSwitch";
 import { Header } from "@/components/Header";
+import { NavigationProgress } from "@/components/NavigationProgress";
 import "./globals.css";
 
 const quicksand = Quicksand({
@@ -24,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={quicksand.variable}>
       <body className="antialiased font-sans bg-white text-neutral-800">
+        <NavigationProgress />
         <Header />
         {children}
         <FooterSwitch />

@@ -2,12 +2,36 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useLayoutEffect } from "react";
 import { motion } from "framer-motion";
 import { PRODUCT_APPLICATIONS } from "@/data/product-applications";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-function Reveal({
+/** Page-load fade shared by the intro copy and application images. */
+function IntroFade({
+  children,
+  className = "",
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay, ease: EASE }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/** Scroll-triggered reveal for application text only. */
+function TextReveal({
   children,
   className = "",
   delay = 0,
@@ -32,27 +56,30 @@ function Reveal({
 }
 
 export function ProductApplicationShowcase() {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section className="pt-5" aria-labelledby="product-overview-heading">
-      <Reveal className="mx-auto max-w-3xl text-center">
+      <IntroFade>
         <h1
           id="product-overview-heading"
-          className="text-3xl font-sans tracking-tight text-neutral-900 md:text-4xl lg:text-5xl lg:leading-[1.1]"
+          className="text-center text-3xl font-sans tracking-tight text-neutral-900 md:text-4xl lg:text-5xl lg:leading-[1.1]"
         >
           Built for every curve in your design
         </h1>
-        <p className="mt-6 text-sm leading-relaxed text-neutral-700 md:text-base">
+        <p className="mt-6 text-left text-sm leading-relaxed text-neutral-700 md:text-base">
           Crafted from strong, long-lasting polyurethane, Carter Millwork flexible moulding adapts where rigid wood
           cannot. It outperforms traditional wood alternatives such as polyester, foam, rubber, and PVC across all curved
-          applications. Our precise process perfectly replicates the most complex profiles, architectural accessories,
+          applications. Our precise process perfectly replicates the most complex profiles, decorative architectural accessories,
           and wood grain patterns to achieve a flawless end-result.
         </p>
-      </Reveal>
+      </IntroFade>
 
       <div className="mt-14 space-y-20 sm:mt-16 sm:space-y-24 lg:space-y-28">
         {PRODUCT_APPLICATIONS.map((application, index) => {
           const imageFirst = index % 2 === 0;
-          const imageRevealX = imageFirst ? -40 : 40;
           const textRevealX = imageFirst ? 40 : -40;
 
           return (
@@ -62,27 +89,25 @@ export function ProductApplicationShowcase() {
                 imageFirst ? "lg:flex-row" : "lg:flex-row-reverse"
               }`}
             >
-              <Reveal x={imageRevealX} delay={0.05} className="w-full lg:w-2/3">
+              <IntroFade delay={0.08 + index * 0.04} className="w-full lg:w-2/3 [overflow-anchor:none]">
                 <div className="group relative overflow-hidden rounded-2xl bg-neutral-100 shadow-sm ring-1 ring-neutral-200/80">
-                  <div className="relative aspect-[4/3] w-full">
+                  <div className="relative aspect-[2/1] w-full">
                     <Image
                       src={application.image}
                       alt={application.imageAlt}
                       fill
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                       sizes="(max-width: 1024px) 100vw, 66vw"
+                      priority={index === 0}
                     />
                   </div>
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-neutral-900/20 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 </div>
-              </Reveal>
+              </IntroFade>
 
-              <Reveal x={textRevealX} delay={0.12} className="w-full lg:w-1/3">
+              <TextReveal x={textRevealX} delay={0.12} className="w-full lg:w-1/3">
                 <div>
-                  <p className="text-xs font-semibold tracking-[0.2em] text-neutral-400">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="mt-3 text-xl font-semibold tracking-tight text-neutral-900 md:text-2xl">
+                  <h3 className="text-xl font-semibold tracking-tight text-neutral-900 md:text-2xl">
                     {application.title}
                   </h3>
                   <div className="mt-4 h-1 w-10 rounded-full bg-primary transition-all duration-500" />
@@ -102,7 +127,7 @@ export function ProductApplicationShowcase() {
                     </span>
                   </Link>
                 </div>
-              </Reveal>
+              </TextReveal>
             </article>
           );
         })}

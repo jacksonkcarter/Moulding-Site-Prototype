@@ -1,0 +1,575 @@
+﻿ARCHIVED: Dealer zip-code + map search
+Archived: 2026-09-25
+
+Purpose: Preserve the zip/radius Leaflet map dealer search removed from the live site.
+Restore: Copy each FILE section below back to its path, restore src/data/dealers.ts from
+         Project_Info/Archived-dealers-data.ts (or run npm run generate-dealers),
+         re-add leaflet/react-leaflet/zipcodes deps, leaflet CSS in globals.css,
+         and wire DealerMapWrapper back into the dealer-search page.
+
+Related data: Project_Info/Archived-dealers-data.ts (generated dealer coordinates)
+Source spreadsheet: Project_Info/Dealer-List.xlsx
+
+================================================================================
+FILE: src\components\DealerMap.tsx
+================================================================================
+"use client";
+
+import { getDealers, zipToCoords } from "@/lib/dealers";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMap,
+} from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+
+// Fix default marker icon in Next/SSR
+const icon = L.icon({
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+});
+
+const MILE_OPTIONS = [10, 25, 50, 100];
+const DEFAULT_CENTER: [number, number] = [39.5, -98.35];
+const MAP_SHRINK_MS = 700;
+
+function distanceMi(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const R = 3959; // Earth radius miles
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLon = ((lng2 - lng1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos((lat1 * Math.PI) / 180) *
+      Math.cos((lat2 * Math.PI) / 180) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
+
+function MapCenter({ center, zoom }: { center: [number, number]; zoom: number }) {
+  const map = useMap();
+  map.setView(center, zoom);
+  return null;
+}
+
+function MapInvalidate({ trigger }: { trigger: string }) {
+  const map = useMap();
+  useEffect(() => {
+    const times = [0, 100, 250, 400, 550, 700, 800];
+    const ids = times.map((ms) => window.setTimeout(() => map.invalidateSize(), ms));
+    return () => ids.forEach((id) => window.clearTimeout(id));
+  }, [map, trigger]);
+  return null;
+}
+
+export function DealerMap() {
+  const dealers = useMemo(() => getDealers(), []);
+  const [zip, setZip] = useState("");
+  const [radiusMi, setRadiusMi] = useState(25);
+  const [searchedZip, setSearchedZip] = useState("");
+  const [center, setCenter] = useState<[number, number]>(DEFAULT_CENTER);
+  const [zoom, setZoom] = useState(4);
+  const [zipError, setZipError] = useState<string | null>(null);
+  const [resultsVisible, setResultsVisible] = useState(false);
+
+  const filtered = useMemo(() => {
+    if (!searchedZip) return [];
+    const coords = zipToCoords(searchedZip);
+    if (!coords) return [];
+    return dealers
+      .map((d) => ({
+        dealer: d,
+        distance: distanceMi(coords.lat, coords.lng, d.lat, d.lng),
+      }))
+      .filter((entry) => entry.distance <= radiusMi)
+      .sort((a, b) => a.distance - b.distance)
+      .map((entry) => entry.dealer);
+  }, [dealers, searchedZip, radiusMi]);
+
+  const handleZipSearch = useCallback(() => {
+    const cleaned = zip.replace(/\D/g, "").slice(0, 5);
+    if (cleaned.length !== 5) {
+      setZipError("Enter a valid 5-digit zip code.");
+      setSearchedZip("");
+      setCenter(DEFAULT_CENTER);
+      setZoom(4);
+      return;
+    }
+    const coords = zipToCoords(cleaned);
+    if (!coords) {
+      setZipError("Zip code not found. Try another nearby zip.");
+      setSearchedZip("");
+      setCenter(DEFAULT_CENTER);
+      setZoom(4);
+      return;
+    }
+    setZipError(null);
+    setSearchedZip(cleaned);
+    setCenter([coords.lat, coords.lng]);
+    setZoom(radiusMi <= 25 ? 10 : radiusMi <= 50 ? 9 : 8);
+  }, [zip, radiusMi]);
+
+  const showResults = Boolean(searchedZip);
+
+  useEffect(() => {
+    if (!searchedZip) {
+      setResultsVisible(false);
+      return;
+    }
+    if (typeof window !== "undefined" && !window.matchMedia("(min-width: 1024px)").matches) {
+      setResultsVisible(true);
+      return;
+    }
+    if (resultsVisible) return;
+    const fallback = window.setTimeout(() => setResultsVisible(true), MAP_SHRINK_MS);
+    return () => window.clearTimeout(fallback);
+  }, [searchedZip, resultsVisible]);
+
+  return (
+    <div id="dealers" className="scroll-mt-20 min-w-0 lg:col-span-2">
+      <div
+        className={`grid grid-cols-1 items-stretch transition-[grid-template-columns,gap] duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          showResults
+            ? "gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]"
+            : "gap-8 lg:gap-0 lg:grid-cols-[minmax(0,1fr)_0fr]"
+        }`}
+        onTransitionEnd={(event) => {
+          if (event.target !== event.currentTarget) return;
+          if (event.propertyName !== "grid-template-columns") return;
+          if (searchedZip) setResultsVisible(true);
+        }}
+      >
+        <div className="min-w-0">
+          <p className="text-neutral-600">
+            Search by zip code and radius to find dealers near you.
+          </p>
+          <form
+            className="mt-3 flex flex-wrap items-end gap-4"
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleZipSearch();
+            }}
+          >
+            <div>
+              <label className="block text-sm font-medium text-neutral-700">Zip code</label>
+              <input
+                type="text"
+                value={zip}
+                onChange={(e) => setZip(e.target.value.replace(/\D/g, "").slice(0, 5))}
+                placeholder="e.g. 27292"
+                inputMode="numeric"
+                className="mt-1 w-32 rounded border border-neutral-300 bg-white px-3 py-2 text-neutral-800 placeholder-neutral-400 focus:border-primary focus:outline-none"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-neutral-700">Mile radius</label>
+              <select
+                value={radiusMi}
+                onChange={(e) => setRadiusMi(Number(e.target.value))}
+                className="mt-1 rounded border border-neutral-300 bg-white px-3 py-2 text-neutral-800 focus:border-primary focus:outline-none"
+              >
+                {MILE_OPTIONS.map((m) => (
+                  <option key={m} value={m}>
+                    {m} miles
+                  </option>
+                ))}
+              </select>
+            </div>
+            <button
+              type="submit"
+              className="rounded-full bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover"
+            >
+              Search
+            </button>
+          </form>
+          {zipError ? <p className="mt-2 text-sm text-red-700">{zipError}</p> : null}
+
+          <div className="relative z-0 isolate mt-4 h-[min(560px,70vh)] min-w-0 overflow-hidden rounded-lg border border-neutral-200 shadow-sm">
+            <MapContainer center={center} zoom={zoom} className="h-full w-full" scrollWheelZoom>
+              <MapCenter center={center} zoom={zoom} />
+              <MapInvalidate trigger={showResults ? searchedZip : "full"} />
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              {filtered.map((d) => (
+                <Marker key={d.id} position={[d.lat, d.lng]} icon={icon}>
+                  <Popup>
+                    <strong>{d.name}</strong>
+                    <br />
+                    {d.address}
+                    {d.address ? <br /> : null}
+                    {d.city}, {d.state} {d.zip}
+                    {d.phone ? (
+                      <>
+                        <br />
+                        {d.phone}
+                      </>
+                    ) : null}
+                  </Popup>
+                </Marker>
+              ))}
+            </MapContainer>
+          </div>
+        </div>
+
+        <div
+          className={`flex min-h-0 min-w-0 flex-col overflow-hidden lg:h-0 lg:min-h-full ${
+            showResults ? "flex" : "hidden lg:flex lg:pointer-events-none lg:opacity-0"
+          }`}
+        >
+          {resultsVisible ? (
+            <>
+              <p className="shrink-0 text-sm text-neutral-600">
+                Showing {filtered.length} dealer{filtered.length !== 1 ? "s" : ""} within {radiusMi} miles of{" "}
+                {searchedZip}.
+              </p>
+              {filtered.length > 0 ? (
+                <ul className="mt-3 min-h-0 flex-1 divide-y divide-neutral-200 overflow-y-auto border-t border-neutral-200 pr-3 max-h-[min(560px,70vh)] lg:max-h-none">
+                  {filtered.map((d) => (
+                    <li
+                      key={d.id}
+                      className="flex flex-col gap-0.5 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
+                    >
+                      <div>
+                        <p className="font-medium text-neutral-900">{d.name}</p>
+                        <p className="text-sm text-neutral-600">
+                          {[d.address, `${d.city}, ${d.state} ${d.zip}`].filter(Boolean).join(" Â· ")}
+                        </p>
+                      </div>
+                      {d.phone ? (
+                        <a
+                          href={`tel:${d.phone.replace(/\D/g, "")}`}
+                          className="shrink-0 text-sm font-medium text-primary hover:underline"
+                        >
+                          {d.phone}
+                        </a>
+                      ) : null}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="mt-3 text-sm text-neutral-600">No dealers found in this radius.</p>
+              )}
+            </>
+          ) : null}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+================================================================================
+FILE: src\components\DealerMapWrapper.tsx
+================================================================================
+"use client";
+
+import dynamic from "next/dynamic";
+import { LoadingState } from "@/components/LoadingSpinner";
+
+const DealerMap = dynamic(
+  () => import("./DealerMap").then((m) => ({ default: m.DealerMap })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex min-h-[28rem] items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50">
+        <LoadingState />
+      </div>
+    ),
+  },
+);
+
+export function DealerMapWrapper() {
+  return <DealerMap />;
+}
+
+
+================================================================================
+FILE: src\lib\dealers.ts
+================================================================================
+import { DEALERS, type Dealer } from "@/data/dealers";
+import zipcodes from "zipcodes";
+
+export type { Dealer };
+
+export function getDealers(): Dealer[] {
+  return DEALERS;
+}
+
+export function zipToCoords(zip: string): { lat: number; lng: number } | null {
+  const cleaned = zip.replace(/\D/g, "").slice(0, 5).padStart(5, "0");
+  if (cleaned.length !== 5) return null;
+  const lookup = zipcodes.lookup(cleaned);
+  if (!lookup || lookup.latitude == null || lookup.longitude == null) return null;
+  return { lat: Number(lookup.latitude), lng: Number(lookup.longitude) };
+}
+
+
+================================================================================
+FILE: scripts\generate-dealers.js
+================================================================================
+const XLSX = require("xlsx");
+const path = require("path");
+const fs = require("fs");
+const zipcodes = require("zipcodes");
+
+const PROJECT_ROOT = path.join(__dirname, "..");
+const EXCEL_PATH = path.join(PROJECT_ROOT, "Project_Info", "Dealer-List.xlsx");
+const OUTPUT_PATH = path.join(PROJECT_ROOT, "src", "data", "dealers.ts");
+
+/** Known spreadsheet typos / missing ZIPs verified against business listings. */
+const ZIP_CORRECTIONS_BY_BAD_ZIP = {
+  "74915": "79415", // Gaydon Wholesale Lumber, Lubbock, TX
+  "03725": "03275", // Belletetes Inc, Pembroke, NH
+  "36986": "34986", // Crowder Millwork Supply, Port Saint Lucie, FL
+  "63208": "63028", // Hood's Discount - Festus, MO
+  "27471": "02747", // Dartmouth Building Supply, N. Dartmouth, MA
+  "39091": "03909", // Eldredge Lumber, York, ME
+  "26012": "02601", // Marine Lumber, Hyannis, MA
+  "28911": "02891", // Arnold Lumber, Westerly, RI
+  "23641": "02364", // National Lumber Kingston, Kingston, MA
+  "28095": "02809", // Arnold Lumber - Bristol, Bristol, RI
+  "12381": "01238", // Dresser Hull Co., Lee, MA
+  "46053": "04605", // Ellsworth Builders Supply, Ellsworth, ME
+  "32496": "03249", // Gilford Home Center, Gilford, NH
+  "83775": "63775", // Guyot Lumber, Perryville, MO
+  "40112": "04011", // Hammond Lumber, Brunswick, ME
+  "44015": "04401", // Hammond Lumber, Bangor, ME
+  "34313": "03431", // Hamshaw Lumber, Keene, NH
+  "40969": "04096", // Hancock Lumber, Yarmouth, ME
+  "40091": "04009", // Hancock Lumber, Bridgton, ME
+  "04229": "04429", // Viking Lumber-Holden, Holden, ME
+  "47563": "04756", // Central Building Supply, Madawaska, ME
+  "82320": "08232", // Peter Lumber, Pleasantville, NJ
+};
+
+/** Blank / missing ZIP keyed by normalized name|address1|state. */
+const ZIP_CORRECTIONS_BY_ADDRESS = {
+  "bfs|3661 west blue heron blvd|fl": "33404", // Builders FirstSource, Riviera Beach, FL
+};
+
+function trimCell(value) {
+  return String(value ?? "")
+    .replace(/\u00a0/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function normalizeZip(value) {
+  const digits = String(value ?? "").replace(/\D/g, "");
+  if (!digits) return "";
+  return digits.slice(0, 5).padStart(5, "0");
+}
+
+function addressKey(name, address1, state) {
+  return [name, address1, state]
+    .map((part) => trimCell(part).toLowerCase())
+    .join("|");
+}
+
+function resolveZip(row) {
+  const name = trimCell(row.STCustomer);
+  const address1 = trimCell(row.STAddress1);
+  const state = trimCell(row.STState).toUpperCase();
+  let zip = normalizeZip(row.STZip);
+
+  if (!zip) {
+    const fromAddress = ZIP_CORRECTIONS_BY_ADDRESS[addressKey(name, address1, state)];
+    if (fromAddress) return { zip: fromAddress, corrected: true };
+    return { zip: "", corrected: false };
+  }
+
+  const fromBad = ZIP_CORRECTIONS_BY_BAD_ZIP[zip];
+  if (fromBad) return { zip: fromBad, corrected: true };
+  return { zip, corrected: false };
+}
+
+function main() {
+  if (!fs.existsSync(EXCEL_PATH)) {
+    console.error(`Missing dealer list: ${EXCEL_PATH}`);
+    process.exit(1);
+  }
+
+  const wb = XLSX.readFile(EXCEL_PATH);
+  const sheetName = wb.SheetNames[0];
+  const sheet = wb.Sheets[sheetName];
+  const rows = XLSX.utils.sheet_to_json(sheet, { defval: "" });
+
+  const dealers = [];
+  let skippedNoZip = 0;
+  let skippedNoCoords = 0;
+  let corrected = 0;
+
+  for (let i = 0; i < rows.length; i++) {
+    const row = rows[i];
+    const name = trimCell(row.STCustomer);
+    const address1 = trimCell(row.STAddress1);
+    const address2 = trimCell(row.STAddress2);
+    const city = trimCell(row.STCity);
+    const state = trimCell(row.STState).toUpperCase();
+    const phone = trimCell(row.STPhone);
+    const resolved = resolveZip(row);
+    const zip = resolved.zip;
+
+    if (resolved.corrected) {
+      corrected += 1;
+    }
+
+    if (!name || !zip) {
+      skippedNoZip += 1;
+      continue;
+    }
+
+    const lookup = zipcodes.lookup(zip);
+    if (!lookup || lookup.latitude == null || lookup.longitude == null) {
+      skippedNoCoords += 1;
+      console.warn(`No coords for ${name} (${city}, ${state} ${zip})`);
+      continue;
+    }
+
+    const address = [address1, address2].filter(Boolean).join(", ");
+
+    dealers.push({
+      id: `d${i + 1}`,
+      name,
+      lat: Number(lookup.latitude),
+      lng: Number(lookup.longitude),
+      address,
+      city,
+      state,
+      zip,
+      phone,
+    });
+  }
+
+  if (corrected > 0) {
+    console.log(`Applied ${corrected} ZIP correction(s) in memory`);
+  }
+
+  const lines = [
+    "/** Auto-generated by scripts/generate-dealers.js - do not edit by hand. */",
+    "export type Dealer = {",
+    "  id: string;",
+    "  name: string;",
+    "  lat: number;",
+    "  lng: number;",
+    "  address: string;",
+    "  city: string;",
+    "  state: string;",
+    "  zip: string;",
+    "  phone: string;",
+    "};",
+    "",
+    `export const DEALERS: Dealer[] = ${JSON.stringify(dealers, null, 2)};`,
+    "",
+  ];
+
+  fs.writeFileSync(OUTPUT_PATH, lines.join("\n"), "utf8");
+  console.log(
+    `Wrote ${dealers.length} dealers to ${path.relative(PROJECT_ROOT, OUTPUT_PATH)}` +
+      ` (corrected zips: ${corrected}, skipped no zip: ${skippedNoZip}, skipped no coords: ${skippedNoCoords})`,
+  );
+}
+
+main();
+
+
+================================================================================
+FILE: src\app\ordering-installation\dealer-search\page.tsx
+================================================================================
+import { ContactLink } from "@/components/ContactLink";
+import { DealerMapWrapper } from "@/components/DealerMapWrapper";
+import { ONLINE_DEALERS } from "@/data/online-dealers";
+
+export default function DealerSearchPage() {
+  return (
+    <main className="min-h-screen bg-white">
+      <div className="mx-auto max-w-7xl px-4 pt-5 pb-16 sm:px-6">
+        <h1 className="font-sans text-3xl font-medium tracking-tight text-neutral-900 text-center">
+          Find a dealer
+        </h1>
+
+        <div className="mt-6 grid items-start gap-8 lg:grid-cols-3 lg:gap-8">
+          <DealerMapWrapper />
+
+          <aside className="flex min-w-0 flex-col gap-5 lg:col-span-1">
+            <section id="online-dealers" className="scroll-mt-20" aria-labelledby="online-dealers-heading">
+              <h2
+                id="online-dealers-heading"
+                className="font-sans text-lg font-medium tracking-tight text-neutral-900 md:text-xl"
+              >
+                Online dealers
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                Prefer to order online? Flex Trimâ„¢ is also available through these retailers:
+              </p>
+              <ul className="mt-3 space-y-2.5">
+                {ONLINE_DEALERS.map((dealer) => (
+                  <li key={dealer.href}>
+                    <a
+                      href={dealer.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium text-primary hover:underline"
+                    >
+                      {dealer.label}
+                    </a>
+                    <p className="text-xs leading-snug text-neutral-600 sm:text-sm">{dealer.details}</p>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section
+              id="international-dealers"
+              className="scroll-mt-20 border-t border-neutral-200 pt-5"
+              aria-labelledby="international-dealers-heading"
+            >
+              <h2
+                id="international-dealers-heading"
+                className="font-sans text-lg font-medium tracking-tight text-neutral-900 md:text-xl"
+              >
+                Outside the United States?
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                Looking for a dealer outside the U.S.?{" "}
+                <ContactLink action="popover" className="font-medium text-primary hover:underline">
+                  Contact us
+                </ContactLink>{" "}
+                and we&apos;ll help you find the right out-of-country dealer or ordering option.
+              </p>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+
+================================================================================
+FILE: src/app/globals.css (leaflet-related excerpt only)
+================================================================================
+@import "leaflet/dist/leaflet.css";
+
+/* Keep Leaflet panes below site chrome (header menus use z-50+). */
+.leaflet-container {
+  z-index: 0;
+}
+
+================================================================================
+FILE: package.json scripts/deps (excerpt)
+================================================================================
+"generate-dealers": "node scripts/generate-dealers.js",
+dependencies: leaflet, react-leaflet, zipcodes, @types/leaflet
+devDependencies: @types/zipcodes
+

@@ -44,13 +44,13 @@ export function Footer({ compact }: FooterProps) {
           </div>
           <div className="flex flex-wrap justify-center gap-6 text-sm text-neutral-600">
             <Link href="/product-info/browse-select-profiles" className="hover:text-[#9f1b20]">
-              Browse select profiles
+              Select custom profiles
             </Link>
             <Link href="/ordering-installation/flex-trim-toolbox" className="hover:text-[#9f1b20]">
-              Flex Trim Toolbox
+              Length and radius calculator
             </Link>
             <Link href="/ordering-installation/dealer-search" className="hover:text-[#9f1b20]">
-              Dealer search
+              Find a dealer
             </Link>
             <ContactLink className="hover:text-[#9f1b20]">Contact us</ContactLink>
           </div>

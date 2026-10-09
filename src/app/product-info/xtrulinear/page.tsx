@@ -12,7 +12,7 @@ const KEY_BENEFITS = [
   {
     title: "Spooled for cut-to-length dispensing",
     description:
-      "Material ships wound on a spool—ideal for retail, warehouse, or jobsite use. Cut only what you need and keep waste near zero.",
+      "Material ships wound on a spool, ideal for retail, warehouse, or jobsite use. Cut only what you need and keep waste near zero.",
   },
   {
     title: "Fewer joints on long runs",
@@ -37,7 +37,7 @@ const LIMITATIONS_NOTES = [
   {
     title: "Extra production",
     description:
-      "The Xtrulinear® manufacturing process requires more steps during manufacturing. For this reason, pricing is typically 25% higher than standard length pieces. Talk to a sales specialist to see if it's right for you.",
+      "The Xtrulinear® manufacturing process requires more steps during manufacturing. For this reason, pricing is typically 30% higher than standard length pieces. Talk to a sales specialist to see if it's right for you.",
   },
   {
     title: "Pallet shipping only",
@@ -61,7 +61,7 @@ export default function XtrulinearPage() {
           <div>
             <p className="text-sm leading-relaxed text-neutral-700 md:text-base">
               With Xtrulinear®, order Flex Trim™ or Zzz Flex in continuous lengths from 12' up to 500' in a single
-              piece—ready to dispense at retail, in the warehouse, or on the jobsite. Available from our North Carolina
+              piece, ready to dispense at retail, in the warehouse, or on the jobsite. Available from our North Carolina
               and Utah plants.
             </p>
             <div className="mt-5 mx-auto grid w-3/4 grid-cols-2 gap-8 sm:gap-10">

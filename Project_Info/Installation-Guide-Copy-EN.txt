@@ -1,0 +1,204 @@
+Flex Trim™ Installation Guide — English copy for translation
+============================================================
+Source page: /ordering-installation/installation-guide
+
+TRANSLATOR NOTES
+- Keep brand names as-is unless told otherwise: Flex Trim™, Carter Millwork, PL Premium Max, Finish Carpentry TV
+- Keep the same section order and step numbers
+- Return translated text with the same labels (PAGE TITLE, SECTION, STEP, etc.) so it can be wired back into the site
+
+------------------------------------------------------------
+PAGE TITLE
+------------------------------------------------------------
+Flex Trim™ Installation Guide
+
+------------------------------------------------------------
+WEB INTRO (on-page only)
+------------------------------------------------------------
+Before installing, please review the quick-reference installation guide below. For more helpful tips, watch some real-world installation videos.
+
+------------------------------------------------------------
+PDF INTRO
+------------------------------------------------------------
+For further assistance, please call a product specialist at [phone].
+
+PDF variant (with East / West numbers):
+For further assistance, call us at East: [east phone] or West: [west phone]
+
+------------------------------------------------------------
+UI LABELS
+------------------------------------------------------------
+Jump to
+Preparing
+Machining
+Installing
+Finishing
+Download PDF
+Preparing PDF…
+Videos by Finish Carpentry TV
+
+------------------------------------------------------------
+VIDEO TITLES
+------------------------------------------------------------
+Flex Trim™ crown installation
+Flex Trim™ oval casing installation
+
+------------------------------------------------------------
+IMAGE ALT TEXT (optional / accessibility)
+------------------------------------------------------------
+Preparing flexible moulding
+Machining flexible moulding
+Installing flexible moulding
+Finishing flexible moulding
+
+------------------------------------------------------------
+SECTION: Preparing
+------------------------------------------------------------
+
+STEP 1 — TITLE
+Allow the material to relax
+
+STEP 1 — BODY
+Unroll the molding so it can return to its original shape. This is a great time to verify your profile and application.
+
+STEP 2 — TITLE
+Optimize flexibility
+
+STEP 2 — BODY
+Warm the material to 80°F for maximum flexibility. To prevent damage, never use an open flame to heat the moulding.
+
+STEP 3 — TITLE
+Clean the moulding
+
+STEP 3 — BODY
+Wipe down the material with mineral spirits or soap and water to remove any dust prior to installation.
+
+STEP 4 — TITLE
+Prepare a smooth surface
+
+STEP 4 — BODY
+Ensure your mounting area is completely flat. Because the molding is flexible, it will mirror any underlying bumps or dips.
+
+STEP 5 — TITLE
+Wait to apply finishes
+
+STEP 5 — BODY
+Always paint or stain after installation. Flexing the molding while installing will crack and fracture a pre-applied finish.
+
+------------------------------------------------------------
+SECTION: Machining
+------------------------------------------------------------
+
+STEP 1 — TITLE
+Use standard woodworking tools
+
+STEP 1 — BODY
+Treat flexible moulding nearly the same as wood. It can be easily cut, sanded, and shaped using your typical shop equipment.
+
+STEP 2 — TITLE
+Secure the material
+
+STEP 2 — BODY
+Hold the moulding firmly against your table or fence when cutting to maintain control and ensure a clean, accurate line.
+
+STEP 3 — TITLE
+Make shallow passes with shaping tools
+
+STEP 3 — BODY
+If shaping the profile with a router, take several shallow passes rather than attempting one deep cut to achieve the smoothest result.
+
+STEP 4 — TITLE
+Lower your blade speeds when able
+
+STEP 4 — BODY
+Operate saws and routers at slower blade speeds, best for cutting materials cleanly without excessive heat buildup.
+
+STEP 5 — TITLE
+Protect stain-grade finishes
+
+STEP 5 — BODY
+Never sand or shape stain-grade moulding as this will permanently remove the surface-level wood grain pattern.
+
+------------------------------------------------------------
+SECTION: Installing
+------------------------------------------------------------
+
+STEP 1 — TITLE
+Plan your layout
+
+STEP 1 — BODY
+Pre-determine the exact material placement and layout before applying any adhesive or fasteners.
+
+STEP 2 — TITLE
+Install triangular blocking for floating crown
+
+STEP 2 — BODY
+When crown is mounted only to the wall, with no ceiling support, install wooden triangular blocking behind the moulding every 4-8 inches for continuous backing and a secure install.
+
+STEP 3 — TITLE
+Select and apply the proper adhesive
+
+STEP 3 — BODY
+Use an adhesive compatible with polyurethane and non-porous materials, such as PL Premium Max. Never standard wood glue. Apply adhesive to the moulding ends so joints stay tight through seasonal movement, and to the back face where the moulding meets the wall or substrate.
+
+STEP 4 — TITLE
+Fasten the material
+
+STEP 4 — BODY
+Although pin nails are the best as they recess cleanly into the piece, trim screws, finish nails, and brad nails are all acceptable fasteners. Pin nails should always be used on small profiles, or when nailing close to the edge is absolutely necessary. To reduce the chance of dimpling, lower the pressure on mechanical nail guns, set nails by hand, and pre-drill/pre-countersink trim screw holes. Never use staples as they will create linear dimples.
+
+STEP 5 — TITLE
+Minimize nailing
+
+STEP 5 — BODY
+Position fasteners away from the edges to prevent the material from bumping or tearing, and let the adhesive do the work.
+
+STEP 6 — TITLE
+Avoid excessive force
+
+STEP 6 — BODY
+Never stress the moulding into place. Material that is ordered to the correct specifications should install easily and naturally.
+
+------------------------------------------------------------
+SECTION: Finishing
+------------------------------------------------------------
+
+STEP 1 — TITLE
+Fill and caulk freely
+
+STEP 1 — BODY
+We recommend bondo-like fillers that are compatible with nonporous resin-based products for nail holes and your favorite caulk for seams. Standard products work perfectly with Flex Trim™.
+
+STEP 2 — TITLE
+Clean and install first
+
+STEP 2 — BODY
+Always install the moulding and thoroughly clean the surface before applying any paint or stain to ensure a flawless finish.
+
+STEP 3 — TITLE
+Painting Flex Trim™
+
+STEP 3 — BODY
+A primer coat is recommended, but not required. Any interior/exterior paint (other than pre-catalyzed epoxy) works great.
+
+STEP 4 — TITLE
+Staining Flex Trim™ (gel only)
+
+STEP 4 — BODY
+Since the grain is only on the surface, our product requires a gel stain. Remember to never sand stain-grade material, as it will permanently remove the surface wood grain. Apply clearcoat after staining.
+
+STEP 5 — TITLE
+Additional staining tips
+
+STEP 5 — BODY
+To achieve a darker color, apply the stain generously and work the pigment down into the recesses of the embossed grain. Wipe the excess stain with a soft cloth. Use a dry, soft brush to feather or remove any cloth marks for a blemish free finish, then let it cure completely. Gel stain on resin takes longer to dry than on wood and it must be completely dry to the touch, without any tackiness, before you move on. If the first coat isn't dark enough, apply a second, very thin coat of gel stain using the same process as the first coat. Because the first coat sealed the surface, this second layer will glide over the top, deepening the color without disturbing the layer underneath. Repeat if needed. You can also play with 2 different pigments: darker then lighter vs lighter then darker.
+
+------------------------------------------------------------
+PDF FOOTER
+------------------------------------------------------------
+Flex Trim™ / Carter Millwork, Inc.
+
+------------------------------------------------------------
+PDF DOWNLOAD FILENAME (optional)
+------------------------------------------------------------
+Flex-Trim-Installation-Guide.pdf

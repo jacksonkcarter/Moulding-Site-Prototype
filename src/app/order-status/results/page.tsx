@@ -100,14 +100,14 @@ export default async function OrderStatusResultsPage({ searchParams }: OrderStat
                     <dt className="text-xs font-medium uppercase tracking-wide text-neutral-500">
                       Sales order #
                     </dt>
-                    <dd className="mt-1 text-sm font-medium text-neutral-900">{order.salesOrderNo || "—"}</dd>
+                    <dd className="mt-1 text-sm font-medium text-neutral-900">{order.salesOrderNo || "-"}</dd>
                   </div>
                   <div>
                     <dt className="text-xs font-medium uppercase tracking-wide text-neutral-500">
                       Purchase order #
                     </dt>
                     <dd className="mt-1 text-sm font-medium text-neutral-900">
-                      {order.purchaseOrderNo || "—"}
+                      {order.purchaseOrderNo || "-"}
                     </dd>
                   </div>
                   <div>

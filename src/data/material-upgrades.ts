@@ -9,7 +9,7 @@ export type MaterialUpgrade = {
   title: string;
   description: string;
   emblem: MaterialUpgradeEmblem;
-  /** Product names shown in the expanded card (comma-separated across lines). */
+  /** Product names shown on the collapsed card header. */
   products?: string[];
   footnote?: string;
   footnotes?: string[];
@@ -22,7 +22,7 @@ export const MATERIAL_UPGRADES: MaterialUpgrade[] = [
     emblem: "flexibility",
     products: ["Zzz Flex®"],
     description:
-      "Our premium elastomer composite is highly pliable and unmatched in strength, durability, and stainability—making it the ultimate choice for small, intricate patterns, tight radiuses, and cold-weather climates.",
+      "Our premium elastomer composite is highly pliable and unmatched in strength, durability, and stainability, making it the ultimate choice for small, intricate patterns, tight radiuses, and cold-weather climates.",
   },
   {
     title: "Reduced weight",
@@ -46,7 +46,7 @@ export const MATERIAL_UPGRADES: MaterialUpgrade[] = [
     emblem: "tooling",
     products: ["Machinable S4S"],
     description:
-      "Engineered from our Ultra-Flex compound, this material can be milled with conventional woodworking machinery without dulling expensive carbide knives—perfect when you only need a small amount of straight, custom-tooled footage.",
+      "Engineered from our Ultra-Flex compound, this material can be milled with conventional woodworking machinery without dulling expensive carbide knives. It is perfect when you only need a small amount of straight, custom-tooled footage.",
     footnote: "Manufactured exclusively at our Utah plant.",
     learnMoreHref: "/product-info/machinable-s4s",
   },
@@ -55,7 +55,7 @@ export const MATERIAL_UPGRADES: MaterialUpgrade[] = [
     emblem: "spiral",
     products: ["Xtrulinear®"],
     description:
-      "Order Flex Trim™ or Zzz Flex in continuous lengths from 12' up to 500'—wound on a spool for easy cut-to-length dispensing with virtually no waste and fewer joints on long runs.",
+      "Order Flex Trim™ or Zzz Flex in continuous lengths from 12' up to 500', wound on a spool for easy cut-to-length dispensing with virtually no waste and fewer joints on long runs.",
     footnote: "Available from our North Carolina and Utah plants.",
     learnMoreHref: "/product-info/xtrulinear",
   },
