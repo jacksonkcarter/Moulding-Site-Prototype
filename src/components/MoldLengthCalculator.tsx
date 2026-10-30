@@ -49,17 +49,19 @@ type Requirement = {
   spliceExample?: boolean;
 };
 
+function singlePieceRequirement(moldFt: number): string {
+  return `Send 1 pc @ ${formatRange(moldFt + 0.5, moldFt + 1)} ft`;
+}
+
 function requirementsForMold(moldFt: number): Requirement[] {
-  const fullMin = moldFt + 1;
-  const fullMax = moldFt + 2;
-  const multiPc = multiPieceRequirement(moldFt);
+  // Molds ≤ 7 ft: one continuous piece covers all finish grades.
+  const sharedOnePc = moldFt <= 7 ? singlePieceRequirement(moldFt) : null;
+  const multiPc = sharedOnePc ?? multiPieceRequirement(moldFt);
+  const noSplice = sharedOnePc ?? singlePieceRequirement(moldFt);
   return [
     { grade: "Paint grade", requirement: multiPc },
     { grade: "Stain grade with center splice", requirement: multiPc, spliceExample: true },
-    {
-      grade: "Stain grade without center splice",
-      requirement: `Send 1 pc @ ${formatRange(fullMin, fullMax)} ft`,
-    },
+    { grade: "Stain grade without center splice", requirement: noSplice },
   ];
 }
 
@@ -84,10 +86,13 @@ export function MoldLengthCalculator() {
   const rows = requirementsForMold(moldFt);
 
   const commit = (raw: string) => {
-    const parsed = parseFloat(raw);
-    if (!Number.isNaN(parsed)) {
-      setMoldFt(Math.min(Math.max(parsed, MIN_MOLD_FT), MAX_MOLD_FT));
+    const trimmed = raw.trim();
+    if (!/^\d+$/.test(trimmed)) {
+      setDraft(null);
+      return;
     }
+    const parsed = Number.parseInt(trimmed, 10);
+    setMoldFt(Math.min(Math.max(parsed, MIN_MOLD_FT), MAX_MOLD_FT));
     setDraft(null);
   };
 
@@ -101,9 +106,13 @@ export function MoldLengthCalculator() {
           <input
             id="mold-length"
             type="text"
-            inputMode="decimal"
+            inputMode="numeric"
+            pattern="[0-9]*"
             value={display}
-            onChange={(e) => setDraft(e.target.value)}
+            onChange={(e) => {
+              const next = e.target.value;
+              if (next === "" || /^\d+$/.test(next)) setDraft(next);
+            }}
             onBlur={() => commit(display)}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
@@ -154,7 +163,7 @@ export function MoldLengthCalculator() {
                   <td className="px-4 py-2.5 text-neutral-800">
                     <GradeLabel grade={row.grade} spliceExample={row.spliceExample} />
                   </td>
-                  <td className="px-4 py-2.5 whitespace-nowrap font-semibold text-primary">
+                  <td className="px-4 py-2.5 whitespace-nowrap text-neutral-800">
                     {row.requirement}
                   </td>
                 </tr>

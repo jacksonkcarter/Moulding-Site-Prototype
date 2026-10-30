@@ -1,11 +1,12 @@
 /** Shape-based Flex Trim™ length math, ported from the internal Python calculator. */
 
 export const TOOLBOX_SHAPES = [
-  "Arc/Eyebrow",
-  "Half Round",
+  "Eyebrow arc & consistent radius curve",
+  "Half-round",
   "Elliptical",
-  "Full Circle",
+  "Full circle",
   "Oval",
+  "Radius only: crown & consistent radius curve",
 ] as const;
 
 export type ToolboxShape = (typeof TOOLBOX_SHAPES)[number];
@@ -55,13 +56,27 @@ export function dimensionFieldsFor(shape: ToolboxShape): ToolboxFieldName[] {
       return ["Width", "Height"];
     case "Elliptical":
       return ["Width", "Rise", "Straight Legs"];
-    case "Arc/Eyebrow":
+    case "Eyebrow arc & consistent radius curve":
       return ["Width", "Rise"];
-    case "Half Round":
+    case "Half-round":
       return ["Diameter", "Straight Legs"];
-    case "Full Circle":
+    case "Full circle":
       return ["Diameter"];
+    case "Radius only: crown & consistent radius curve":
+      return ["Width", "Rise"];
   }
+}
+
+/** Required fields for a result; Straight Legs is never required. */
+export function requiredFieldsFor(shape: ToolboxShape): ToolboxFieldName[] {
+  return dimensionFieldsFor(shape).filter((field) => field !== "Straight Legs");
+}
+
+export function hasRequiredToolboxInputs(
+  shape: ToolboxShape,
+  values: ToolboxValues,
+): boolean {
+  return requiredFieldsFor(shape).every((field) => val(values, field) > 0);
 }
 
 export function calculateToolboxLength(
@@ -89,39 +104,43 @@ export function calculateToolboxLength(
       const rawGeom = archLen + legs * 2;
       return { rawGeom, finalReq: ceilPlus(rawGeom, 2) };
     }
-  } else if (shape === "Arc/Eyebrow") {
+  } else if (shape === "Eyebrow arc & consistent radius curve") {
     const width = val(values, "Width");
     const rise = val(values, "Rise");
-    if (width > 0) {
-      let arcLen: number;
-      let radiusFt: number | undefined;
-      if (rise > 0) {
-        const radius = rise / 2 + width ** 2 / (8 * rise);
-        radiusFt = radius;
-        let ratio = width / (2 * radius);
-        if (ratio > 1) ratio = 1;
-        const theta = 2 * Math.asin(ratio);
-        arcLen = radius * theta;
-      } else {
-        arcLen = width;
-      }
-      return { rawGeom: arcLen, finalReq: ceilPlus(arcLen, 1), radiusFt };
+    if (width > 0 && rise > 0) {
+      const radius = rise / 2 + width ** 2 / (8 * rise);
+      let ratio = width / (2 * radius);
+      if (ratio > 1) ratio = 1;
+      const theta = 2 * Math.asin(ratio);
+      const arcLen = radius * theta;
+      return { rawGeom: arcLen, finalReq: ceilPlus(arcLen, 1), radiusFt: radius };
     }
-  } else if (shape === "Half Round") {
+  } else if (shape === "Half-round") {
     const diameter = val(values, "Diameter");
     const legs = val(values, "Straight Legs");
     if (diameter > 0) {
       const halfCirc = (Math.PI * diameter) / 2;
       const rawGeom = halfCirc + legs * 2;
-      return { rawGeom, finalReq: ceilPlus(rawGeom, 1) };
+      return { rawGeom, finalReq: ceilPlus(rawGeom, 1), radiusFt: diameter / 2 };
     }
-  } else if (shape === "Full Circle") {
-    // Two half rounds of the same diameter (no legs).
+  } else if (shape === "Full circle") {
+    // Two half-rounds of the same diameter (no legs).
     const diameter = val(values, "Diameter");
     if (diameter > 0) {
       const halfCirc = (Math.PI * diameter) / 2;
       const halfReq = ceilPlus(halfCirc, 1);
-      return { rawGeom: halfCirc * 2, finalReq: halfReq * 2 };
+      return { rawGeom: halfCirc * 2, finalReq: halfReq * 2, radiusFt: diameter / 2 };
+    }
+  } else if (shape === "Radius only: crown & consistent radius curve") {
+    const width = val(values, "Width");
+    const rise = val(values, "Rise");
+    if (width > 0 && rise > 0) {
+      const radius = rise / 2 + width ** 2 / (8 * rise);
+      let ratio = width / (2 * radius);
+      if (ratio > 1) ratio = 1;
+      const theta = 2 * Math.asin(ratio);
+      const arcLen = radius * theta;
+      return { rawGeom: arcLen, finalReq: ceilPlus(arcLen, 1), radiusFt: radius };
     }
   }
 

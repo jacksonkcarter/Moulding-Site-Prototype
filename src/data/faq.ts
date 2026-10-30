@@ -38,7 +38,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         answer: [
           "Flex Trim™ is Carter Millwork’s original polymer resin blend. It is durable, consistent, and cost-effective, and the ideal choice for most applications. Carter Millwork flexible moulding is crafted from strong, long-lasting polyurethane that replicates complex profiles, decorative architectural accessories, and wood grain patterns.",
         ],
-        links: [{ label: "Material details", href: "/product-info/material-details" }],
+        links: [{ label: "Material details", href: "/products/material-details" }],
       },
       {
         id: "indoor-outdoor",
@@ -46,7 +46,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         answer: [
           "Yes. Flexible moulding is highly durable and suited for both interior and exterior trim. It resists moisture and insects, and will not rot, swell, or deteriorate like wood.",
         ],
-        links: [{ label: "Indoor & outdoor gallery", href: "/gallery/indoor-outdoor" }],
+        links: [{ label: "Outdoor installations", href: "/gallery#outdoor-installations" }],
       },
       {
         id: "vs-wood",
@@ -61,7 +61,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         answer: [
           "Flex Trim™ is the standard choice for most jobs. Specialized upgrades include Zzz Flex® for tight radiuses, intricate patterns, and cold-weather climates, Ultra-Flex (lighter and pre-primed, Utah plant), Ultra-Fire Flex for commercial fire-rated applications (Utah), and Machinable S4S for short, straight-run stock milled with conventional woodworking equipment (Utah).",
         ],
-        links: [{ label: "Compare materials", href: "/product-info/material-details" }],
+        links: [{ label: "Compare materials", href: "/products/material-details" }],
       },
       {
         id: "stainable",
@@ -69,7 +69,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         answer: [
           "Yes. All Carter Millwork products are paint-grade, and many offer stainable finishes. Stain-grade flexible moulding, corbels, and appliques replicate real wood grain such as Knotty Alder, Mahogany, and Maple, so you can stain after installation. Use gel stain only, and never sand stain-grade material (that permanently removes the surface grain). We cannot create or change grain from a provided sample.",
         ],
-        links: [{ label: "Stainable trim", href: "/product-info/stainable-product" }],
+        links: [{ label: "Stainable trim", href: "/products/stainable-product" }],
       },
       {
         id: "stock-vs-custom",
@@ -78,8 +78,8 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
           "We carry 250+ stock items ready for immediate shipping. We also have 40,000+ profiles already tooled for custom applications, and our online catalog is only a fraction of what we can produce. If you need a profile that isn’t listed, send a tracing or use our Made-to-Match process.",
         ],
         links: [
-          { label: "Quick-ship stock items", href: "/product-info/browse-stock-items" },
-          { label: "Select custom profiles", href: "/product-info/browse-select-profiles" },
+          { label: "Quick-ship stock items", href: "/products/browse-stock-items" },
+          { label: "Production-ready profiles", href: "/products/browse-select-profiles" },
         ],
       },
       {
@@ -89,8 +89,8 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
           "Flex Trim™, Zzz Flex®, Ultra-Flex, Ultra-Fire Flex, and Machinable S4S carry a lifetime warranty. See the limited lifetime warranty for full terms, exclusions, and how to make a claim.",
         ],
         links: [
-          { label: "Limited lifetime warranty", href: "/company-info/warranty" },
-          { label: "Material details", href: "/product-info/material-details" },
+          { label: "Limited lifetime warranty", href: "/resources/warranty" },
+          { label: "Material details", href: "/products/material-details" },
         ],
       },
     ],
@@ -106,10 +106,10 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
           "You can browse stock items for ready-to-ship products, search our tooled profiles for custom applications, request a quote online, download arc/straight and crown order forms, find a dealer near you, or contact Flex Trim East or West directly.",
         ],
         links: [
-          { label: "Get started", href: "/ordering-installation/how-to-order" },
+          { label: "Get started", href: "/ordering/how-to-order" },
           { label: "Quote request", href: "/quote-request" },
-          { label: "Find a dealer", href: "/ordering-installation/dealer-search" },
-          { label: "Order forms", href: "/forms-literature/forms" },
+          { label: "Find a dealer", href: "/ordering/dealer-search" },
+          { label: "Order forms", href: "/resources/forms" },
         ],
       },
       {
@@ -118,7 +118,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         answer: [
           "In-stock products usually ship within 24 hours of receiving your order. Most custom orders that use an existing mold ship within 2 weeks or less. Most new-mold orders ship within 3 weeks or less.",
         ],
-        links: [{ label: "Replicate new custom profiles", href: "/product-info/replicate-custom-profiles" }],
+        links: [{ label: "Copy your unique profile in Flex Trim™", href: "/products/made-to-match" }],
       },
       {
         id: "made-to-match",
@@ -127,7 +127,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
           "Yes. Send a tracing and include the original manufacturer or supplier plus the profile’s thickness and width. If we don’t already have the style, our Made-to-Match process uses two 7′ pieces of your existing moulding to reproduce both shape and wood grain, from simple profiles to intricate designs.",
         ],
         links: [
-          { label: "Made-to-Match", href: "/product-info/replicate-custom-profiles" },
+          { label: "Made-to-Match", href: "/products/made-to-match" },
           { label: "Start a quote", href: "/quote-request" },
         ],
       },
@@ -137,15 +137,15 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         answer: [
           "Contact us and we’ll help you find your nearest Flex Trim™ dealer or distributor. You can also shop through our listed online retailers.",
         ],
-        links: [{ label: "Find a dealer", href: "/ordering-installation/dealer-search" }],
+        links: [{ label: "Find a dealer", href: "/ordering/dealer-search" }],
       },
       {
         id: "radius-length",
         question: "How do I figure out moulding length for a radius?",
         answer: [
-          "Use the Length and radius calculator: choose a shape (half round, arc/eyebrow, elliptical, oval, or custom), then enter dimensions or a measured length. It computes the geometric length and the required moulding length, rounding up to the next foot plus manufacturing allowance.",
+          "Use the Length and radius calculator: choose a shape (half-round, eyebrow arc, elliptical, oval, full circle, or radius-only crown), then enter dimensions or a measured length. It computes the geometric length and the required moulding length, rounding up to the next foot plus manufacturing allowance.",
         ],
-        links: [{ label: "Length and radius calculator", href: "/ordering-installation/flex-trim-toolbox" }],
+        links: [{ label: "Length and radius calculator", href: "/ordering/length-and-radius-calculator" }],
       },
       {
         id: "pre-bent",
@@ -153,7 +153,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         answer: [
           "Yes. Flexible casing can be pre-bent to your exact radius for arched doorways and round windows.",
         ],
-        links: [{ label: "Applications", href: "/gallery/applications" }],
+        links: [{ label: "Gallery", href: "/gallery" }],
       },
     ],
   },
@@ -167,7 +167,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         answer: [
           "Unroll it so it returns to its original shape and verify the profile and application. Warm it to about 80°F for maximum flexibility, and never use an open flame. Wipe with mineral spirits or soap and water, and make sure the mounting surface is completely flat. Always paint or stain after installation. A pre-applied finish will crack when the moulding flexes.",
         ],
-        links: [{ label: "Installation guide", href: "/ordering-installation/installation-guide" }],
+        links: [{ label: "Installation guide", href: "/installation" }],
       },
       {
         id: "cut-machine",
@@ -176,7 +176,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
           "Yes. Treat it nearly the same as wood. Cut, sand, and shape with typical shop equipment. Hold firmly when cutting, take shallow passes when shaping, and use slower blade speeds. Never sand or shape stain-grade moulding.",
         ],
         links: [
-          { label: "Machining tips", href: "/ordering-installation/installation-guide#machining" },
+          { label: "Machining tips", href: "/installation#machining" },
         ],
       },
       {
@@ -186,7 +186,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
           "Use adhesive compatible with polyurethane and non-porous materials, such as PL Premium Max. Standard wood glue will not bond. Pin nails are best. Trim screws, finish nails, and brad nails are also acceptable depending on size. Never use staples. Lower nail-gun pressure, set nails by hand when needed, and let adhesive do most of the holding work.",
         ],
         links: [
-          { label: "Installing tips", href: "/ordering-installation/installation-guide#installing" },
+          { label: "Installing tips", href: "/installation#installing" },
         ],
       },
       {
@@ -196,7 +196,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
           "Install and clean before finishing. Use Bondo for nail holes and standard caulk for seams. Primer is recommended but not required for paint. Any interior or exterior paint works except pre-catalyzed epoxy.",
         ],
         links: [
-          { label: "Finishing tips", href: "/ordering-installation/installation-guide#finishing" },
+          { label: "Finishing tips", href: "/installation#finishing" },
         ],
       },
       {
@@ -206,8 +206,8 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
           "Use gel stain only. The grain is surface-level. Never sand stain-grade material. Apply clearcoat after staining. Gel stain on resin dries slower than on wood and must be fully dry before recoating. For darker color, work pigment into embossed grain recesses and apply thin second coats as needed.",
         ],
         links: [
-          { label: "Stainable trim", href: "/product-info/stainable-product" },
-          { label: "Finishing tips", href: "/ordering-installation/installation-guide#finishing" },
+          { label: "Stainable trim", href: "/products/stainable-product" },
+          { label: "Finishing tips", href: "/installation#finishing" },
         ],
       },
       {
@@ -216,7 +216,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         answer: [
           "Yes. The installation guide includes videos for Flex Trim™ crown installation and oval casing installation.",
         ],
-        links: [{ label: "Installation guide", href: "/ordering-installation/installation-guide" }],
+        links: [{ label: "Installation guide", href: "/installation" }],
       },
     ],
   },
@@ -230,7 +230,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         answer: [
           "Flex Trim East is in Lexington, NC (117 Cedar Lane Drive, Lexington, NC 27292). Flex Trim West is in Provo, UT (533 South 500 West, Provo, UT 84601). Operating on both coasts helps us serve customers nationwide with shorter lead times and local support.",
         ],
-        links: [{ label: "Locations", href: "/company-info/locations" }],
+        links: [{ label: "Locations", href: "/about/locations" }],
       },
       {
         id: "which-facility",
@@ -239,7 +239,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
           "Service coverage varies by state. Some areas are served by the NC facility, some by UT, and some by both. Our locations page map shows coverage by state, and contact pages highlight the facility that typically serves your area.",
         ],
         links: [
-          { label: "Locations map", href: "/company-info/locations" },
+          { label: "Locations map", href: "/about/locations" },
           { label: "Contact us", href: "/contact-us" },
         ],
       },
@@ -249,7 +249,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         answer: [
           "Contact us before shipping anything back. An RMA is required for all returns. Stock items may be returned when unused and resellable, and the customer pays return freight plus a 25% restocking fee. Custom items are generally not returnable. Exceptions for commonly sold items are evaluated case by case, and if approved the customer pays return freight plus a 30–50% restocking fee.",
         ],
-        links: [{ label: "Returns", href: "/company-info/returns" }],
+        links: [{ label: "Returns", href: "/about/returns" }],
       },
       {
         id: "technical-docs",
@@ -258,8 +258,8 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
           "Download our catalog and brochure from Resources, or get product data sheets, MSDS, LEED information, and Prop 65 documents from Technical data.",
         ],
         links: [
-          { label: "Catalog", href: "/forms-literature/catalog" },
-          { label: "Technical data", href: "/forms-literature/technical-data" },
+          { label: "Catalog", href: "/resources/catalog" },
+          { label: "Technical data", href: "/resources/technical-data" },
         ],
       },
     ],
@@ -300,8 +300,8 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
           },
         ],
         links: [
-          { label: "Length and radius calculator", href: "/ordering-installation/flex-trim-toolbox" },
-          { label: "Installation guide", href: "/ordering-installation/installation-guide" },
+          { label: "Length and radius calculator", href: "/ordering/length-and-radius-calculator" },
+          { label: "Installation guide", href: "/installation" },
         ],
       },
       {
@@ -331,8 +331,8 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
           },
         ],
         links: [
-          { label: "Material details", href: "/product-info/material-details" },
-          { label: "Browse applications", href: "/gallery/applications" },
+          { label: "Material details", href: "/products/material-details" },
+          { label: "Browse gallery", href: "/gallery" },
           { label: "Request a quote", href: "/quote-request" },
         ],
       },

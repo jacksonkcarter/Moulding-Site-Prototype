@@ -62,6 +62,25 @@ function parseLimit(val) {
 }
 
 /**
+ * Style 1 may be a single radius or "X & Y" (cupping / no-cupping pair).
+ * Returns { style1, style1NoCupping }.
+ */
+function parseStraightStyle1(val) {
+  if (val === "" || val == null) return { style1: null, style1NoCupping: null };
+  if (typeof val === "string" && /^\s*n\/?a\s*$/i.test(val)) {
+    return { style1: null, style1NoCupping: null };
+  }
+  if (typeof val === "string" && /&/.test(val)) {
+    const parts = val.split(/\s*&\s*/).map((p) => parseLimit(p.trim()));
+    return {
+      style1: parts[0] ?? null,
+      style1NoCupping: parts[1] ?? null,
+    };
+  }
+  return { style1: parseLimit(val), style1NoCupping: null };
+}
+
+/**
  * Bending sheet columns (after Item):
  * Style 1 / Style 2 min radius;
  * half-round min/max diameter pairs for 2/0…6/0;
@@ -88,8 +107,10 @@ function parseBendingLimits(row) {
     }
   }
 
+  const { style1, style1NoCupping } = parseStraightStyle1(row[1]);
   return {
-    straightStyle1: parseLimit(row[1]),
+    straightStyle1: style1,
+    straightStyle1NoCupping: style1NoCupping,
     straightStyle2: parseLimit(row[2]),
     halfRound,
     arc,
@@ -99,6 +120,7 @@ function parseBendingLimits(row) {
 function emptyBendingLimits() {
   return {
     straightStyle1: null,
+    straightStyle1NoCupping: null,
     straightStyle2: null,
     halfRound: {},
     arc: {},
@@ -388,6 +410,8 @@ export type StockItemArcLimit = {
 /** Bending limits from the Bending Limitations sheet (inches). Null / missing = empty or N/A. */
 export type StockItemBendingLimits = {
   straightStyle1: number | null;
+  /** Second Style 1 radius when the sheet has "X & Y" (no-cupping). */
+  straightStyle1NoCupping: number | null;
   straightStyle2: number | null;
   /** Keyed by half-round size (e.g. "2/0"). */
   halfRound: Record<string, StockItemHalfRoundLimit>;

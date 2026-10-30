@@ -114,18 +114,20 @@ export function ProductApplicationShowcase() {
                   <p className="mt-5 text-sm leading-relaxed text-neutral-600 md:text-base">
                     {application.description}
                   </p>
-                  <Link
-                    href="/gallery/applications"
-                    className="group mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-neutral-500 transition-colors hover:text-primary"
-                  >
-                    See more
-                    <span
-                      className="transition-transform duration-200 group-hover:translate-x-0.5"
-                      aria-hidden
+                  {application.id !== "historical-reproductions" ? (
+                    <Link
+                      href="/gallery"
+                      className="group mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-neutral-500 transition-colors hover:text-primary"
                     >
-                      →
-                    </span>
-                  </Link>
+                      See more
+                      <span
+                        className="transition-transform duration-200 group-hover:translate-x-0.5"
+                        aria-hidden
+                      >
+                        →
+                      </span>
+                    </Link>
+                  ) : null}
                 </div>
               </TextReveal>
             </article>

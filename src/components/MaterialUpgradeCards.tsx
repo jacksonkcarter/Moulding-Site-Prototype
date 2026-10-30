@@ -139,37 +139,18 @@ export function MaterialUpgradeCards() {
                     {item.title}
                   </p>
                   {item.products?.length ? (
-                    item.learnMoreHref ? (
-                      <Link
-                        href={item.learnMoreHref}
-                        onClick={(e) => e.stopPropagation()}
-                        className="-mt-1 space-y-0.5 text-sm font-semibold text-primary hover:underline sm:text-[15px]"
-                      >
-                        {item.products.map((name, index) => {
-                          const total = item.products!.length;
-                          const label =
-                            total > 1 && index < total - 1 ? `${name},` : name;
-                          return (
-                            <span key={name} className="block whitespace-nowrap">
-                              {label}
-                            </span>
-                          );
-                        })}
-                      </Link>
-                    ) : (
-                      <div className="-mt-1 space-y-0.5 text-sm font-semibold text-primary sm:text-[15px]">
-                        {item.products.map((name, index) => {
-                          const total = item.products!.length;
-                          const label =
-                            total > 1 && index < total - 1 ? `${name},` : name;
-                          return (
-                            <p key={name} className="whitespace-nowrap">
-                              {label}
-                            </p>
-                          );
-                        })}
-                      </div>
-                    )
+                    <div className="-mt-1 space-y-0.5 text-sm font-semibold text-primary sm:text-[15px]">
+                      {item.products.map((name, index) => {
+                        const total = item.products!.length;
+                        const label =
+                          total > 1 && index < total - 1 ? `${name},` : name;
+                        return (
+                          <p key={name} className="whitespace-nowrap">
+                            {label}
+                          </p>
+                        );
+                      })}
+                    </div>
                   ) : null}
                 </div>
               </button>

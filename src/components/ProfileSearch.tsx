@@ -4,10 +4,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { BoundNumberInput } from "@/components/BoundNumberInput";
 import { BendingStylesCard } from "@/components/BendingStylesCard";
-import { ContactLink } from "@/components/ContactLink";
 import { FilterSection, FilterResetAllButton } from "@/components/FilterSection";
 import { dimensionFilterBounds, toFractionalInches } from "@/lib/format-inches";
 import {
@@ -202,6 +201,23 @@ function getVisiblePages(page: number, totalPages: number, siblingCount = 3): Pa
 const navButtonClass =
   "rounded-full border border-neutral-300 px-3 py-1.5 text-xs font-medium text-neutral-700 transition-colors hover:border-[#9f1b20] hover:text-[#9f1b20] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-neutral-300 disabled:hover:text-neutral-700";
 
+const iconNavButtonClass =
+  "inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-neutral-300 text-neutral-700 transition-colors hover:border-[#9f1b20] hover:text-[#9f1b20] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-neutral-300 disabled:hover:text-neutral-700";
+
+function PaginationChevron({ dir }: { dir: "first" | "prev" | "next" | "last" }) {
+  const paths = {
+    first: "M11 19l-7-7 7-7M18 19l-7-7 7-7",
+    prev: "M15 19l-7-7 7-7",
+    next: "M9 5l7 7-7 7",
+    last: "M13 5l7 7-7 7M6 5l7 7-7 7",
+  } as const;
+  return (
+    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={paths[dir]} />
+    </svg>
+  );
+}
+
 function PaginationControls({
   page,
   totalPages,
@@ -211,14 +227,33 @@ function PaginationControls({
   totalPages: number;
   onPageChange: (page: number) => void;
 }) {
-  if (totalPages <= 1) return null;
+  const hostRef = useRef<HTMLDivElement>(null);
+  const measureRef = useRef<HTMLElement>(null);
+  const [compact, setCompact] = useState(false);
 
   const canPrev = page > 1;
   const canNext = page < totalPages;
-  const visiblePages = getVisiblePages(page, totalPages);
+  const visiblePages = useMemo(() => getVisiblePages(page, totalPages), [page, totalPages]);
 
-  return (
-    <nav className="flex flex-wrap items-center justify-center gap-1.5" aria-label="Pagination">
+  useLayoutEffect(() => {
+    if (totalPages <= 1) return;
+    const host = hostRef.current;
+    const measure = measureRef.current;
+    if (!host || !measure) return;
+
+    const update = () => {
+      setCompact(measure.scrollWidth > host.clientWidth + 1);
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(host);
+    return () => ro.disconnect();
+  }, [page, totalPages, visiblePages]);
+
+  if (totalPages <= 1) return null;
+
+  const fullControls = (
+    <>
       <button
         type="button"
         onClick={() => onPageChange(1)}
@@ -285,7 +320,72 @@ function PaginationControls({
       >
         Last
       </button>
-    </nav>
+    </>
+  );
+
+  return (
+    <div ref={hostRef} className="relative mx-auto w-max max-w-full min-w-0 min-[40rem]:ml-auto min-[40rem]:mr-0">
+      <nav
+        ref={measureRef}
+        className="pointer-events-none absolute left-0 top-0 flex items-center gap-1.5 whitespace-nowrap opacity-0"
+        aria-hidden
+      >
+        {fullControls}
+      </nav>
+
+      {compact ? (
+        <nav className="flex items-center justify-center gap-1 min-[40rem]:justify-end" aria-label="Pagination">
+          <button
+            type="button"
+            onClick={() => onPageChange(1)}
+            disabled={!canPrev}
+            className={iconNavButtonClass}
+            aria-label="First page"
+          >
+            <PaginationChevron dir="first" />
+          </button>
+          <button
+            type="button"
+            onClick={() => onPageChange(page - 1)}
+            disabled={!canPrev}
+            className={iconNavButtonClass}
+            aria-label="Previous page"
+          >
+            <PaginationChevron dir="prev" />
+          </button>
+          <p className="min-w-[4.5rem] px-1.5 text-center text-xs font-medium tabular-nums text-neutral-700">
+            <span className="sr-only">
+              Page {page} of {totalPages}
+            </span>
+            <span aria-hidden>
+              {page} / {totalPages}
+            </span>
+          </p>
+          <button
+            type="button"
+            onClick={() => onPageChange(page + 1)}
+            disabled={!canNext}
+            className={iconNavButtonClass}
+            aria-label="Next page"
+          >
+            <PaginationChevron dir="next" />
+          </button>
+          <button
+            type="button"
+            onClick={() => onPageChange(totalPages)}
+            disabled={!canNext}
+            className={iconNavButtonClass}
+            aria-label="Last page"
+          >
+            <PaginationChevron dir="last" />
+          </button>
+        </nav>
+      ) : (
+        <nav className="flex items-center justify-center gap-1.5 whitespace-nowrap min-[40rem]:justify-end" aria-label="Pagination">
+          {fullControls}
+        </nav>
+      )}
+    </div>
   );
 }
 
@@ -296,6 +396,10 @@ export function ProfileSearch({
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
+  const filtersAsideRef = useRef<HTMLElement>(null);
+  const [filtersStickyTop, setFiltersStickyTop] = useState<number | null>(null);
+  /** Collapsed by default when filters stack above results (narrow / mobile). */
+  const [filtersPanelOpen, setFiltersPanelOpen] = useState(false);
   const [profiles, setProfiles] = useState<ProfileRow[] | null>(initialProfiles ?? null);
   const [mouldingTypes, setMouldingTypes] = useState<string[]>(
     () => mouldingTypesProp ?? [...PROFILE_MOULDING_TYPES],
@@ -647,20 +751,69 @@ export function ProfileSearch({
 
   const imageUrl = (profileId: string) => `/api/images/${encodeURIComponent(profileId)}`;
 
+  useEffect(() => {
+    const el = filtersAsideRef.current;
+    if (!el) return;
+
+    const captureRestingTop = () => {
+      if (window.scrollY > 1) return;
+      setFiltersStickyTop(el.getBoundingClientRect().top);
+    };
+
+    captureRestingTop();
+    window.addEventListener("resize", captureRestingTop);
+    return () => window.removeEventListener("resize", captureRestingTop);
+  }, []);
+
   return (
     <section id="profiles" className="scroll-mt-20 border-t border-neutral-200 bg-white pb-20 pt-5">
       <div className="w-full px-4 sm:px-6">
         <p className="text-neutral-600 text-center">
-          <strong className="font-semibold text-neutral-900">Can&apos;t find the exact match?</strong> Our
-          online browser only scratches the surface.{" "}
-          <ContactLink action="popover" className="font-medium text-primary hover:underline">
-            Send us your requirements
-          </ContactLink>
-          , and one of our sales specialists will explore the thousands of additional shapes not listed online.
+          <strong className="font-semibold text-neutral-900">Can&apos;t find an exact match?</strong> Our
+          browser only scratches the surface.{" "}
+          <Link href="/contact-us" className="font-medium text-primary hover:underline">
+            Send us the info
+          </Link>
+          , and one of our specialists will explore the thousands of profiles not listed online.
         </p>
 
-        <div className="mt-3.5 flex flex-col gap-8 lg:flex-row">
-          <aside className="w-full shrink-0 self-start min-w-0 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 lg:w-72">
+        <div className="@container mt-[3px]">
+        <div className="flex flex-col gap-8 @min-[28rem]:flex-row">
+          <aside
+            ref={filtersAsideRef}
+            className="w-full shrink-0 self-start min-w-0 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 @min-[28rem]:sticky @min-[28rem]:top-[var(--filters-sticky-top,var(--header-offset))] @min-[28rem]:max-h-[calc(100vh-var(--filters-sticky-top,var(--header-offset))-1.5rem)] @min-[28rem]:w-72 @min-[28rem]:overflow-y-auto"
+            style={
+              filtersStickyTop != null
+                ? { ["--filters-sticky-top"]: `${filtersStickyTop}px` }
+                : undefined
+            }
+          >
+            <button
+              type="button"
+              className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left @min-[28rem]:hidden"
+              onClick={() => setFiltersPanelOpen((open) => !open)}
+              aria-expanded={filtersPanelOpen}
+            >
+              <span className="text-sm font-semibold text-neutral-900">Filters</span>
+              <svg
+                className={`h-4 w-4 shrink-0 text-neutral-500 transition-transform ${
+                  filtersPanelOpen ? "rotate-180" : ""
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              className={
+                filtersPanelOpen
+                  ? "border-t border-neutral-200 @min-[28rem]:border-t-0"
+                  : "hidden @min-[28rem]:block"
+              }
+            >
             <BendingStylesCard flush />
             <div className="border-b border-neutral-200 px-4 pb-3 pt-3">
               <FilterResetAllButton onClick={resetAllFilters} />
@@ -873,9 +1026,10 @@ export function ProfileSearch({
                 ) : null}
               </FilterSection>
             </div>
+            </div>
           </aside>
 
-          <div className="min-w-0 flex-1">
+          <div className="min-w-0 flex-1 @min-[28rem]:mt-[11px]">
             {catalogLoading ? (
               <div className="flex min-h-[24rem] items-center justify-center">
                 <LoadingSpinner size="lg" className="text-primary" />
@@ -886,8 +1040,8 @@ export function ProfileSearch({
               </div>
             ) : (
               <>
-            <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm text-neutral-600">
+            <div className="mb-4 flex flex-col items-center gap-3 min-[40rem]:flex-row min-[40rem]:justify-between min-[40rem]:gap-4">
+              <p className="text-center text-sm text-neutral-600 min-[40rem]:text-left">
                 {filtered.length} profile{filtered.length !== 1 ? "s" : ""} found
                 {filtered.length > 0 ? (
                   <span className="text-neutral-500">
@@ -898,7 +1052,10 @@ export function ProfileSearch({
               </p>
               <PaginationControls page={currentPage} totalPages={totalPages} onPageChange={goToPage} />
             </div>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-10">
+            <div
+              className="grid gap-3"
+              style={{ gridTemplateColumns: "repeat(auto-fill, minmax(7.5rem, 1fr))" }}
+            >
               {pageItems.map((p, i) => (
                 <motion.div
                   key={`${p.profileId}-${p.mouldingType}-${p.width}-${p.thickness}-${pageStart + i}`}
@@ -907,7 +1064,7 @@ export function ProfileSearch({
                   transition={{ delay: Math.min(i * 0.02, 0.3) }}
                 >
                   <Link
-                    href={`/product-info/select-profiles/${encodeURIComponent(p.profileId)}?return=${encodeURIComponent(browseReturnHref)}`}
+                    href={`/products/select-profiles/${encodeURIComponent(p.profileId)}?return=${encodeURIComponent(browseReturnHref)}`}
                     className="block overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm transition-shadow hover:border-primary/30 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   >
                     <ProfileTileImage
@@ -933,6 +1090,7 @@ export function ProfileSearch({
               </>
             )}
           </div>
+        </div>
         </div>
       </div>
     </section>

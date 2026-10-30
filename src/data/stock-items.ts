@@ -14,6 +14,8 @@ export type StockItemArcLimit = {
 /** Bending limits from the Bending Limitations sheet (inches). Null / missing = empty or N/A. */
 export type StockItemBendingLimits = {
   straightStyle1: number | null;
+  /** Second Style 1 radius when the sheet has "X & Y" (no-cupping). */
+  straightStyle1NoCupping: number | null;
   straightStyle2: number | null;
   /** Keyed by half-round size (e.g. "2/0"). */
   halfRound: Record<string, StockItemHalfRoundLimit>;
@@ -125,8 +127,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 12,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 12,
       "halfRound": {},
       "arc": {}
     }
@@ -148,8 +151,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "This profile matches East Coast Mouldings (ECMD, Arndt & Herman). Do you have a similar panel mould from a different supplier? Contact us with the profile, thickness, width, and manufacturer and we'll check out inventory of over 40,000 molds to see if we have a custom match, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 24,
       "halfRound": {},
       "arc": {}
     }
@@ -171,8 +175,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "This profile matches East Coast Mouldings (ECMD, Arndt & Herman). Do you have a similar panel mould from a different supplier? Contact us with the profile, thickness, width, and manufacturer and we'll check out inventory of over 40,000 molds to see if we have a custom match, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 24,
       "halfRound": {},
       "arc": {}
     }
@@ -194,8 +199,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "This profile is only available in Flex Trim™. Do you have a similar back band from a particular supplier? Contact us with the profile, thickness, width, and manufacturer and we'll check out inventory of over 40,000 molds to see if we have a custom match, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 10,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 48,
       "halfRound": {},
       "arc": {}
     }
@@ -217,8 +223,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "This profile is only available in Flex Trim™. Do you have a similar panel mould from a particular supplier? Contact us with the profile, thickness, width, and manufacturer and we'll check out inventory of over 40,000 molds to see if we have a custom match, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 8,
       "halfRound": {},
       "arc": {}
     }
@@ -249,8 +256,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "This RB3-style profile siginificantly varies across different moulding manufacturers. Our stock version matches East Coast Mouldings (ECMD, Arndt & Herman). Using a different supplier? Contact us with the profile, thickness, width, and manufacturer and we'll check out inventory of over 40,000 molds to see if we have a custom match, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": 77,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 72,
       "halfRound": {
         "2/0": {
           "minDiameter": 22,
@@ -302,8 +310,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "See dimenions listed above. Need a different thickness or width? Contact us for details on any custom S4S and flat stock sizes.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": 47,
+      "straightStyle1": 10,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 48,
       "halfRound": {},
       "arc": {}
     }
@@ -333,8 +342,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "See dimenions listed above. Need a different thickness or width? Contact us for details on any custom S4S and flat stock sizes.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": 127,
+      "straightStyle1": 10,
+      "straightStyle1NoCupping": 20,
+      "straightStyle2": 120,
       "halfRound": {
         "2/0": {
           "minDiameter": 22,
@@ -383,8 +393,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "See dimenions listed above. Need a different thickness or width? Contact us for details on any custom S4S and flat stock sizes.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": 143,
+      "straightStyle1": 10,
+      "straightStyle1NoCupping": 24,
+      "straightStyle2": 144,
       "halfRound": {},
       "arc": {}
     }
@@ -406,8 +417,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "See dimenions listed above. Note that 1x8 is either manufactured as 7.25\" width or 7.5\" width depending on the supplier. We stock both options, so be sure to note which version you need. Need a different thickness or width? Contact us for details on any custom S4S and flat stock sizes.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 10,
+      "straightStyle1NoCupping": 26,
+      "straightStyle2": 192,
       "halfRound": {},
       "arc": {}
     }
@@ -430,8 +442,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "See dimenions listed above. Note that 1x8 is either manufactured as 7.25\" width or 7.5\" width depending on the supplier. We stock both options, so be sure to note which version you need. Need a different thickness or width? Contact us for details on any custom S4S and flat stock sizes.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": 188,
+      "straightStyle1": 10,
+      "straightStyle1NoCupping": 26,
+      "straightStyle2": 192,
       "halfRound": {},
       "arc": {}
     }
@@ -455,8 +468,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "See dimenions listed above. Need a different thickness or width? Contact us for details on any custom S4S and flat stock sizes.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": 433,
+      "straightStyle1": 10,
+      "straightStyle1NoCupping": 26,
+      "straightStyle2": 432,
       "halfRound": {},
       "arc": {}
     }
@@ -480,8 +494,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "See dimenions listed above. Need a different thickness or width? Contact us for details on any custom S4S and flat stock sizes.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": 971,
+      "straightStyle1": 10,
+      "straightStyle1NoCupping": 26,
+      "straightStyle2": 960,
       "halfRound": {},
       "arc": {}
     }
@@ -503,8 +518,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 60,
       "halfRound": {},
       "arc": {}
     }
@@ -526,8 +542,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 72,
       "halfRound": {},
       "arc": {}
     }
@@ -550,7 +567,8 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "This profile can vary across different moulding manufacturers. Our stock version matches East Coast Mouldings (ECMD, Arndt & Herman). Using a different supplier? Contact us with the profile, thickness, width, and manufacturer and we'll check out inventory of over 40,000 molds to see if we have a custom match, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 144,
       "halfRound": {},
       "arc": {}
     }
@@ -573,7 +591,8 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "This profile significantly varies across different moulding manufacturers. Our stock version matches East Coast Mouldings (ECMD, Arndt & Herman). Using a different supplier? Contact us with the profile, thickness, width, and manufacturer and we'll check out inventory of over 40,000 molds to see if we have a custom match, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": null,
-      "straightStyle2": 133,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 144,
       "halfRound": {},
       "arc": {}
     }
@@ -596,7 +615,8 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": null,
-      "straightStyle2": 147,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 132,
       "halfRound": {},
       "arc": {}
     }
@@ -619,6 +639,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": null,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 84,
       "halfRound": {},
       "arc": {}
@@ -642,7 +663,8 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 48,
       "halfRound": {},
       "arc": {}
     }
@@ -665,7 +687,8 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 36,
       "halfRound": {},
       "arc": {}
     }
@@ -688,6 +711,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 9,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 9,
       "halfRound": {},
       "arc": {}
@@ -711,6 +735,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 9,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 9,
       "halfRound": {},
       "arc": {}
@@ -734,6 +759,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 6,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 6,
       "halfRound": {},
       "arc": {}
@@ -757,6 +783,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 12,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 12,
       "halfRound": {},
       "arc": {}
@@ -776,10 +803,11 @@ export const STOCK_ITEMS: StockItem[] = [
     "miscellaneousLabel": "Quarter round",
     "categoryDescription": "Seamlessly bridge the gaps between baseboards and curved walls with our durable, flexible quarter round moulding.",
     "itemNote": null,
-    "finishGrade": "Stain grade with oak grain. Contact us for additional stain grade options.",
+    "finishGrade": "Stain grade - oak grain. Contact us for additional stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 12,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 12,
       "halfRound": {},
       "arc": {}
@@ -803,6 +831,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 9,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 9,
       "halfRound": {},
       "arc": {}
@@ -819,13 +848,14 @@ export const STOCK_ITEMS: StockItem[] = [
     "configs": [
       "12 FT"
     ],
-    "miscellaneousLabel": "Quarter round",
-    "categoryDescription": "Seamlessly bridge the gaps between baseboards and curved walls with our durable, flexible quarter round moulding.",
+    "miscellaneousLabel": "Shoe",
+    "categoryDescription": "Seamlessly bridge the gaps between baseboards and curved walls with our durable, flexible shoe moulding.",
     "itemNote": null,
     "finishGrade": "Paint grade. See CM126 OAK or contact us for additional stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 6,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 9,
       "halfRound": {},
       "arc": {}
@@ -842,13 +872,14 @@ export const STOCK_ITEMS: StockItem[] = [
     "configs": [
       "12 FT"
     ],
-    "miscellaneousLabel": "Quarter round",
-    "categoryDescription": "Seamlessly bridge the gaps between baseboards and curved walls with our durable, flexible quarter round moulding.",
+    "miscellaneousLabel": "Shoe",
+    "categoryDescription": "Seamlessly bridge the gaps between baseboards and curved walls with our durable, flexible shoe moulding.",
     "itemNote": null,
-    "finishGrade": "Stain grade with oak grain. Contact us for additional stain grade options.",
+    "finishGrade": "Stain grade - oak grain. Contact us for additional stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 6,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 9,
       "halfRound": {},
       "arc": {}
@@ -872,6 +903,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 4,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 9,
       "halfRound": {},
       "arc": {}
@@ -895,6 +927,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 4,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 12,
       "halfRound": {},
       "arc": {}
@@ -917,8 +950,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 4,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 12,
       "halfRound": {},
       "arc": {}
     }
@@ -942,6 +976,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 6,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 24,
       "halfRound": {},
       "arc": {}
@@ -964,8 +999,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": 20,
+      "straightStyle2": 144,
       "halfRound": {},
       "arc": {}
     }
@@ -988,6 +1024,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 6,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 24,
       "halfRound": {},
       "arc": {}
@@ -1011,6 +1048,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 6,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 24,
       "halfRound": {},
       "arc": {}
@@ -1034,6 +1072,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 6,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 24,
       "halfRound": {},
       "arc": {}
@@ -1063,7 +1102,8 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
+      "straightStyle1": 10,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 96,
       "halfRound": {
         "2/0": {
@@ -1112,6 +1152,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 4,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 15,
       "halfRound": {},
       "arc": {}
@@ -1135,6 +1176,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 6,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 24,
       "halfRound": {},
       "arc": {}
@@ -1157,8 +1199,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 6,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 60,
       "halfRound": {},
       "arc": {}
     }
@@ -1180,8 +1223,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 36,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 36,
       "halfRound": {},
       "arc": {}
     }
@@ -1191,9 +1235,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "alternateName": "WM210",
     "category": "Rake",
     "categorySlug": "rake",
-    "dimensions": "1-1/8\" x 1-1/8\"",
-    "thickness": 1.125,
-    "width": 1.125,
+    "dimensions": "11/16\" x 1-5/8\"",
+    "thickness": 0.6875,
+    "width": 1.625,
     "configs": [
       "12 FT"
     ],
@@ -1203,8 +1247,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 6,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 36,
       "halfRound": {},
       "arc": {}
     }
@@ -1226,8 +1271,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 36,
       "halfRound": {},
       "arc": {}
     }
@@ -1249,8 +1295,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 6,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 30,
       "halfRound": {},
       "arc": {}
     }
@@ -1272,8 +1319,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "This profile can vary across different moulding manufacturers. Our stock version matches East Coast Mouldings (ECMD, Arndt & Herman). Using a different supplier? Contact us with the profile, thickness, width, and manufacturer and we'll check out inventory of over 40,000 molds to see if we have a custom match, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 6,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 30,
       "halfRound": {},
       "arc": {}
     }
@@ -1295,8 +1343,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 96,
       "halfRound": {},
       "arc": {}
     }
@@ -1318,8 +1367,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 96,
       "halfRound": {},
       "arc": {}
     }
@@ -1341,8 +1391,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 84,
       "halfRound": {},
       "arc": {}
     }
@@ -1364,8 +1415,8 @@ export const STOCK_ITEMS: StockItem[] = [
       "3/0",
       "2/6",
       "2/0",
-      "7' @ 84\"R",
-      "12' @ 48\"R"
+      "12' @ 48\"R",
+      "8' @ 48\"R"
     ],
     "miscellaneousLabel": null,
     "categoryDescription": "Beautifully outline arched interior doorways and round windows on straight or curved walls with flexible casing. We carry this in multiple stock configurations, but please note that none of our stock sizes work for elliptical arches or ovals which must be ordered as custom with a template.",
@@ -1373,7 +1424,8 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 72,
       "halfRound": {
         "2/0": {
@@ -1436,7 +1488,8 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 144,
       "halfRound": {
         "2/0": {
@@ -1491,7 +1544,8 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 72,
       "halfRound": {
         "2/0": {
@@ -1545,7 +1599,8 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 96,
       "halfRound": {
         "2/0": {
@@ -1600,7 +1655,8 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 60,
       "halfRound": {
         "2/0": {
@@ -1654,7 +1710,8 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 96,
       "halfRound": {
         "2/0": {
@@ -1709,7 +1766,8 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 96,
       "halfRound": {
         "2/0": {
@@ -1769,7 +1827,8 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 120,
       "halfRound": {
         "2/0": {
@@ -1836,7 +1895,8 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 84,
       "halfRound": {
         "2/0": {
@@ -1885,7 +1945,8 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "See dimenions listed above. This jamb profile features slightly tapered sides and eased edges. Try our Made-to-Match profile checker to see if your trim matches this item. Need a different thickness or width? Contact us for details on any custom jamb size.",
     "bendingLimits": {
-      "straightStyle1": null,
+      "straightStyle1": 10,
+      "straightStyle1NoCupping": 22,
       "straightStyle2": 144,
       "halfRound": {},
       "arc": {}
@@ -1908,8 +1969,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": 20,
+      "straightStyle2": 144,
       "halfRound": {},
       "arc": {}
     }
@@ -1931,8 +1993,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": 24,
+      "straightStyle2": 180,
       "halfRound": {},
       "arc": {}
     }
@@ -1954,8 +2017,33 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": 22,
+      "straightStyle2": 144,
+      "halfRound": {},
+      "arc": {}
+    }
+  },
+  {
+    "item": "CM620",
+    "alternateName": "WM620",
+    "category": "Base",
+    "categorySlug": "base",
+    "dimensions": "9/16\" x 4-1/4\"",
+    "thickness": 0.5625,
+    "width": 4.25,
+    "configs": [
+      "12 FT"
+    ],
+    "miscellaneousLabel": null,
+    "categoryDescription": "Elegantly frame curved walls and architectural columns with our flexible base moulding.",
+    "itemNote": null,
+    "finishGrade": "Paint grade. Contact us for stain grade options.",
+    "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
+    "bendingLimits": {
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": 20,
+      "straightStyle2": 132,
       "halfRound": {},
       "arc": {}
     }
@@ -1977,8 +2065,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 84,
       "halfRound": {},
       "arc": {}
     }
@@ -2000,8 +2089,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 84,
       "halfRound": {},
       "arc": {}
     }
@@ -2023,8 +2113,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": 20,
+      "straightStyle2": 132,
       "halfRound": {},
       "arc": {}
     }
@@ -2046,8 +2137,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 84,
       "halfRound": {},
       "arc": {}
     }
@@ -2069,8 +2161,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 10,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 24,
       "halfRound": {},
       "arc": {}
     }
@@ -2092,8 +2185,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 4,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 20,
       "halfRound": {},
       "arc": {}
     }
@@ -2115,8 +2209,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 4,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 12,
       "halfRound": {},
       "arc": {}
     }
@@ -2138,8 +2233,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 4,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 9,
       "halfRound": {},
       "arc": {}
     }
@@ -2161,8 +2257,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "Most of the time, this profile is standard across different manufacturers. This means our flex trim should match any rigid moulding you have on site. We recommend double checking that your thickness, width, and overall shape match our listing to be sure, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 144,
       "halfRound": {},
       "arc": {}
     }
@@ -2184,8 +2281,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "See dimenions listed above. Need a different thickness or width? Contact us for details on any custom S4S and flat stock sizes.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 10,
+      "straightStyle1NoCupping": null,
+      "straightStyle2": 84,
       "halfRound": {},
       "arc": {}
     }
@@ -2207,8 +2305,9 @@ export const STOCK_ITEMS: StockItem[] = [
     "finishGrade": "Paint grade. Contact us for stain grade options.",
     "matchingWoodProfiles": "This profile matches East Coast Mouldings (ECMD, Arndt & Herman). Do you have a similar base from a different supplier? Contact us with the profile, thickness, width, and manufacturer and we'll check out inventory of over 40,000 molds to see if we have a custom match, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
-      "straightStyle1": null,
-      "straightStyle2": null,
+      "straightStyle1": 8,
+      "straightStyle1NoCupping": 24,
+      "straightStyle2": 240,
       "halfRound": {},
       "arc": {}
     }
@@ -2231,6 +2330,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "This profile is only available in Flex Trim™. Do you have a similar panel mould from a particular supplier? Contact us with the profile, thickness, width, and manufacturer and we'll check out inventory of over 40,000 molds to see if we have a custom match, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 6,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 36,
       "halfRound": {},
       "arc": {}
@@ -2254,6 +2354,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "This profile is only available in Flex Trim™. Do you have a similar panel mould from a particular supplier? Contact us with the profile, thickness, width, and manufacturer and we'll check out inventory of over 40,000 molds to see if we have a custom match, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 6,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 36,
       "halfRound": {},
       "arc": {}
@@ -2277,6 +2378,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "This profile is only available in Flex Trim™. Do you have a similar panel mould from a particular supplier? Contact us with the profile, thickness, width, and manufacturer and we'll check out inventory of over 40,000 molds to see if we have a custom match, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 12,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 36,
       "halfRound": {},
       "arc": {}
@@ -2300,6 +2402,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "This profile is only available in Flex Trim™. Do you have a similar panel mould from a particular supplier? Contact us with the profile, thickness, width, and manufacturer and we'll check out inventory of over 40,000 molds to see if we have a custom match, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 6,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 36,
       "halfRound": {},
       "arc": {}
@@ -2323,6 +2426,7 @@ export const STOCK_ITEMS: StockItem[] = [
     "matchingWoodProfiles": "This profile matches Cox Interior. Do you have a similar panel mould from a different supplier? Contact us with the profile, thickness, width, and manufacturer and we'll check out inventory of over 40,000 molds to see if we have a custom match, or try our Made-to-Match profile checker to see if your trim matches this item.",
     "bendingLimits": {
       "straightStyle1": 6,
+      "straightStyle1NoCupping": null,
       "straightStyle2": 36,
       "halfRound": {},
       "arc": {}
@@ -2394,6 +2498,7 @@ export const STOCK_ITEM_IMAGES: Record<string, string> = {
   "CM610": "/stock-items/CM610/CM610.gif",
   "CM616": "/stock-items/CM616/CM616.gif",
   "CM618": "/stock-items/CM618/CM618.gif",
+  "CM620": "/stock-items/CM620/CM620.gif",
   "CM623": "/stock-items/CM623/CM623.gif",
   "CM663": "/stock-items/CM663/CM663.gif",
   "CM750": "/stock-items/CM750/CM750.gif",
@@ -2661,6 +2766,10 @@ export const STOCK_ITEM_IMAGE_SIZES: Record<string, { width: number; height: num
   "CM618": {
     "width": 62,
     "height": 414
+  },
+  "CM620": {
+    "width": 62,
+    "height": 342
   },
   "CM623": {
     "width": 62,

@@ -12,7 +12,7 @@ export default function QuoteRequestPage() {
         <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-neutral-700 md:text-base">
           Tell us about your project and we&apos;ll help with pricing and lead times. Looking to match an existing
           profile? Learn about our{" "}
-          <Link href="/product-info/replicate-custom-profiles" className="font-medium text-primary hover:underline">
+          <Link href="/products/made-to-match" className="font-medium text-primary hover:underline">
             Made-to-Match process
           </Link>
           .

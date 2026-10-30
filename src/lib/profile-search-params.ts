@@ -1,6 +1,6 @@
 import type { ProfileRegion } from "@/lib/profiles";
 
-export const PROFILE_SEARCH_PATH = "/product-info/profile-search";
+export const PROFILE_SEARCH_PATH = "/products/profile-search";
 
 export type ProfileSearchFilterState = {
   types: string[];

@@ -28,7 +28,7 @@ export const PROFILE_MOULDING_TYPES = [
   "E2E",
   "Flat stock",
   "Frieze",
-  "Half round",
+  "Half-round",
   "Hand rail",
   "Mantle",
   "Miscellaneous",

@@ -93,7 +93,7 @@ function getSummaryEntries(view: FormView, currentItem: QuoteItem | null): Summa
   }
   if (view.step === "doorway-curved-wall") return entries;
 
-  const isHalfRound = d.archStyle === "Half Round" && d.halfRound;
+  const isHalfRound = d.archStyle === "Half-round" && d.halfRound;
   if (isHalfRound) {
     if (d.halfRound.diameterIn) {
       entries.push({ view: { step: "doorway-half-round-diameter", itemId }, label: `Diameter: ${d.halfRound.diameterIn} in` });
@@ -148,7 +148,7 @@ function getItemDetailLines(item: QuoteItem): string[] {
   if (d.curvedWall === true || d.curvedWall === false) {
     lines.push(`Curved wall: ${d.curvedWall ? "Yes" : "No"}`);
   }
-  const isHalfRound = d.archStyle === "Half Round" && d.halfRound;
+  const isHalfRound = d.archStyle === "Half-round" && d.halfRound;
   if (isHalfRound && d.halfRound) {
     if (d.halfRound.diameterIn) lines.push(`Diameter: ${d.halfRound.diameterIn} in`);
     lines.push(`Flex Trim™ legs: ${d.halfRound.flexTrimLegs ? "Yes" : "No"}`);
@@ -200,7 +200,7 @@ function getItemDetailEntries(item: QuoteItem, itemId: string, currentStep: Form
   if (d.curvedWall === true || d.curvedWall === false) {
     entries.push({ label: `Curved wall: ${d.curvedWall ? "Yes" : "No"}`, view: isCurrent ? { step: "doorway-curved-wall", itemId } : undefined });
   }
-  const isHalfRound = d.archStyle === "Half Round" && d.halfRound;
+  const isHalfRound = d.archStyle === "Half-round" && d.halfRound;
   if (isHalfRound && d.halfRound) {
     const showDiameter = currentStep !== "doorway-curved-wall";
     if (showDiameter && d.halfRound.diameterIn) entries.push({ label: `Diameter: ${d.halfRound.diameterIn} in`, view: isCurrent ? { step: "doorway-half-round-diameter", itemId } : undefined });
@@ -444,7 +444,7 @@ export function QuoteRequestForm() {
       archStyleOther: style === "Other" ? other : undefined,
     };
     updateCurrentItem({ doorway });
-    if (style === "Half Round") {
+    if (style === "Half-round") {
       setCurrentItem((prev) =>
         prev?.doorway
           ? {
@@ -468,7 +468,7 @@ export function QuoteRequestForm() {
     );
     setCurvedWallDraft(curvedWall);
     const style = currentItem.doorway.archStyle;
-    if (style === "Half Round" && currentItem.doorway.halfRound) {
+    if (style === "Half-round" && currentItem.doorway.halfRound) {
       setView({ step: "doorway-half-round-diameter", itemId: currentItem.id });
     } else if (style === "Eyebrow") {
       setView({ step: "doorway-eyebrow-dimensions-choice", itemId: currentItem.id });
@@ -670,8 +670,8 @@ export function QuoteRequestForm() {
   const getArchSummary = (): string => {
     if (!currentItem?.doorway) return "";
     const d = currentItem.doorway;
-    if (d.archStyle === "Half Round" && d.halfRound?.diameterIn) {
-      return `${d.halfRound.diameterIn}" D Half Round Doorway`;
+    if (d.archStyle === "Half-round" && d.halfRound?.diameterIn) {
+      return `${d.halfRound.diameterIn}" D Half-round Doorway`;
     }
     if (d.archStyle === "Eyebrow" && d.eyebrow) {
       const e = d.eyebrow;
@@ -846,7 +846,7 @@ export function QuoteRequestForm() {
   if (view.step === "crown-osr-tight-radii" && currentItem) {
     const osrTightRadiiOptions: { value: CrownOsrTightRadiiOption; img: { src: string }; labelLines: string[] }[] = [
       { value: "Column Wrap", img: crownColumnWrapImg, labelLines: ["Column Wrap"] },
-      { value: "Half Round Straight/Radius/Straight", img: crownHalfRoundStrRadStrOsrImg, labelLines: ["Half Round", "Straight/Radius/Straight"] },
+      { value: "Half-round Straight/Radius/Straight", img: crownHalfRoundStrRadStrOsrImg, labelLines: ["Half-round", "Straight/Radius/Straight"] },
       { value: "Quarter Round Straight/Radius/Straight", img: crownQuarterRoundStrRadStrOsrImg, labelLines: ["Quarter Round", "Straight/Radius/Straight"] },
     ];
     const onTightRadiiSelect = (opt: CrownOsrTightRadiiOption) => {
@@ -900,7 +900,7 @@ export function QuoteRequestForm() {
   // Doorway: Arch style
   if (view.step === "doorway-arch" && currentItem?.doorway) {
     const archStyleImages: Partial<Record<string, { src: string }>> = {
-      "Half Round": archStyleHalfRoundImg,
+      "Half-round": archStyleHalfRoundImg,
       Eyebrow: archStyleEyebrowImg,
       Elliptical: archStyleEllipticalImg,
       "Radius Corners": archStyleRadiusCornersImg,
@@ -908,7 +908,7 @@ export function QuoteRequestForm() {
       Straight: archStyleStraightImg,
     };
     const archGridOrder: ArchStyle[] = [
-      "Half Round",
+      "Half-round",
       "Eyebrow",
       "Elliptical",
       "Radius Corners",
@@ -1163,16 +1163,16 @@ export function QuoteRequestForm() {
     );
   }
 
-  // Half Round: diameter
+  // Half-round: diameter
   if (view.step === "doorway-half-round-diameter" && currentItem?.doorway?.halfRound) {
     return (
       <div className="space-y-6">
         {lines.length > 0 && <CollapsibleLinesList lines={lines} collapsedLines={collapsedLines} onToggle={toggleLine} currentItemId={currentItem?.id} currentStep={view.step} onEdit={setView} />}
       <FormStepLayout>
-        <h2 className="text-xl font-medium text-neutral-900">Enter half round diameter (in)</h2>
+        <h2 className="text-xl font-medium text-neutral-900">Enter half-round diameter (in)</h2>
         <div className="flex flex-col items-center gap-4">
           <div className="relative flex w-full max-w-2xl justify-center">
-            <img src={halfRoundDiagram.src} alt="Half round diameter" className="max-h-80 w-auto object-contain sm:max-h-96" />
+            <img src={halfRoundDiagram.src} alt="Half-round diameter" className="max-h-80 w-auto object-contain sm:max-h-96" />
             {/* Position diameter input between the dimension lines at bottom of diagram */}
             <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-1">
               <input
@@ -1280,7 +1280,7 @@ export function QuoteRequestForm() {
               setComponentSelections([]);
               setComponentOtherDraft("");
               const d = currentItem.doorway!;
-              if (d.archStyle === "Half Round" && d.halfRound) {
+              if (d.archStyle === "Half-round" && d.halfRound) {
                 if (d.halfRound.flexTrimLegs) setView({ step: "doorway-half-round-legs", itemId: currentItem.id });
                 else setView({ step: "doorway-half-round-flex", itemId: currentItem.id });
               } else if (d.archStyle === "Eyebrow" && d.eyebrow) {

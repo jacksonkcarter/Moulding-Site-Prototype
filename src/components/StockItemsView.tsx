@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useState, useMemo, useEffect, useCallback } from "react";
+import { useState, useMemo, useEffect, useCallback, useRef } from "react";
 import { BendingStylesCard } from "@/components/BendingStylesCard";
 import { BoundNumberInput } from "@/components/BoundNumberInput";
 import { ContactLink } from "@/components/ContactLink";
@@ -23,6 +23,8 @@ type StockItemsViewProps = {
   images: Record<string, string>;
 };
 
+const STOCK_LIST_PDF = `/resources/${encodeURIComponent("Carter Millwork Stock List.pdf")}`;
+
 const SEARCH_FILTER_OPTIONS = [
   { value: "contains", label: "Contains" },
   { value: "starts with", label: "Starts with" },
@@ -33,9 +35,36 @@ const SEARCH_FILTER_OPTIONS = [
 
 type SearchFilterType = (typeof SEARCH_FILTER_OPTIONS)[number]["value"];
 
+/** Optional per-category image that should fill the tile canvas (100% fit). */
+const CATEGORY_FIT_ITEMS: Record<string, string> = {
+  "flat-stock--s4s": "CM1 X 12",
+};
+
+/** Minimum track width before auto-fill drops a column (category density). */
+function stockGridMinColumn(categoryId: string): string {
+  if (
+    categoryId === "shoe-quarter-round" ||
+    categoryId === "stop" ||
+    categoryId === "corner-cove"
+  ) {
+    return "8rem";
+  }
+  if (categoryId === "casing") {
+    return "13rem";
+  }
+  // Base, S4S, and default categories: fluid up to ~6 across
+  return "11rem";
+}
+
 function categoryImageCanvas(
   categoryItems: StockItem[],
+  categoryId: string,
 ): { width: number; height: number } | null {
+  const fitName = CATEGORY_FIT_ITEMS[categoryId];
+  if (fitName) {
+    const fit = STOCK_ITEM_IMAGE_SIZES[fitName];
+    if (fit) return { width: fit.width, height: fit.height };
+  }
   let width = 0;
   let height = 0;
   for (const item of categoryItems) {
@@ -97,6 +126,10 @@ function getStockDimensionBounds(
 
 export function StockItemsView({ sections, items, images }: StockItemsViewProps) {
   const searchParams = useSearchParams();
+  const filtersAsideRef = useRef<HTMLElement>(null);
+  const [filtersStickyTop, setFiltersStickyTop] = useState<number | null>(null);
+  /** Collapsed by default when filters stack above results (mobile). */
+  const [filtersPanelOpen, setFiltersPanelOpen] = useState(false);
   const [selectedFilterOptions, setSelectedFilterOptions] = useState<Set<string>>(() => {
     const t = searchParams.get("types");
     if (!t) return new Set();
@@ -238,11 +271,25 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
     }
     const canvases = new Map<string, { width: number; height: number }>();
     for (const [slug, categoryItems] of bySlug) {
-      const canvas = categoryImageCanvas(categoryItems);
+      const canvas = categoryImageCanvas(categoryItems, slug);
       if (canvas) canvases.set(slug, canvas);
     }
     return canvases;
   }, [items]);
+
+  useEffect(() => {
+    const el = filtersAsideRef.current;
+    if (!el) return;
+
+    const captureRestingTop = () => {
+      if (window.scrollY > 1) return;
+      setFiltersStickyTop(el.getBoundingClientRect().top);
+    };
+
+    captureRestingTop();
+    window.addEventListener("resize", captureRestingTop);
+    return () => window.removeEventListener("resize", captureRestingTop);
+  }, []);
 
   useEffect(() => {
     let scrollFrame: number | null = null;
@@ -293,25 +340,68 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
   return (
     <section id="stock-items" className="scroll-mt-20 border-t border-neutral-200 bg-white pb-20 pt-5">
       <div className="w-full px-4 sm:px-6">
-        <p className="text-neutral-600 text-center">
-          The below profiles and configurations are kept on the shelf for quick shipping. For more
-          options, view some of our currently tooled profiles in our{" "}
-          <Link href="/product-info/profile-search" className="font-medium text-primary hover:underline">
-            browser
-          </Link>{" "}
-          or{" "}
-          <Link href="/forms-literature/catalog" className="font-medium text-primary hover:underline">
-            catalog
-          </Link>
-          , or{" "}
-          <ContactLink action="popover" className="font-medium text-primary hover:underline">
-            contact us
-          </ContactLink>
-          .
-        </p>
+        <div className="relative">
+          <p className="text-center text-neutral-600 sm:whitespace-nowrap">
+            The below profiles and configurations are kept on the shelf for quick shipping. For more
+            options, check out our{" "}
+            <Link href="/resources/catalog" className="font-medium text-primary hover:underline">
+              catalog
+            </Link>
+            ,{" "}
+            <Link href="/products/profile-search" className="font-medium text-primary hover:underline">
+              profile browser
+            </Link>
+            , or{" "}
+            <ContactLink action="popover" className="font-medium text-primary hover:underline">
+              contact us
+            </ContactLink>
+            .
+          </p>
+          <a
+            href={STOCK_LIST_PDF}
+            download="Carter Millwork Stock List.pdf"
+            className="mx-auto mt-4 flex w-fit items-center rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-hover sm:absolute sm:right-0 sm:top-1/2 sm:mx-0 sm:mt-[22px] sm:-translate-y-1/2"
+          >
+            Download stock list PDF
+          </a>
+        </div>
 
-        <div className="mt-8 flex flex-col gap-8 lg:flex-row">
-          <aside className="w-full shrink-0 self-start min-w-0 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 lg:w-72">
+        <div className="mt-6 flex flex-col gap-8 sm:mt-[3px] lg:flex-row">
+          <aside
+            ref={filtersAsideRef}
+            className="w-full shrink-0 self-start min-w-0 overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 lg:sticky lg:top-[var(--filters-sticky-top,var(--header-offset))] lg:max-h-[calc(100vh-var(--filters-sticky-top,var(--header-offset))-1.5rem)] lg:w-72 lg:overflow-y-auto"
+            style={
+              filtersStickyTop != null
+                ? { ["--filters-sticky-top"]: `${filtersStickyTop}px` }
+                : undefined
+            }
+          >
+            <button
+              type="button"
+              className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left lg:hidden"
+              onClick={() => setFiltersPanelOpen((open) => !open)}
+              aria-expanded={filtersPanelOpen}
+            >
+              <span className="text-sm font-semibold text-neutral-900">Filters</span>
+              <svg
+                className={`h-4 w-4 shrink-0 text-neutral-500 transition-transform ${
+                  filtersPanelOpen ? "rotate-180" : ""
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              className={
+                filtersPanelOpen
+                  ? "border-t border-neutral-200 lg:border-t-0"
+                  : "hidden lg:block"
+              }
+            >
             <BendingStylesCard flush />
             <div className="border-b border-neutral-200 px-4 pb-3 pt-3">
               <FilterResetAllButton onClick={resetAllFilters} />
@@ -490,9 +580,10 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
                 </div>
               </FilterSection>
             </div>
+            </div>
           </aside>
 
-          <div className="min-w-0 flex-1">
+          <div className="@container min-w-0 flex-1 lg:mt-[11px]">
             <div className="space-y-[65px]">
               {sectionsToShow.map(({ label, id }) => {
                 const categoryItems = itemsByCategory.get(id) ?? [];
@@ -503,33 +594,28 @@ export function StockItemsView({ sections, items, images }: StockItemsViewProps)
                       {label}
                     </h3>
                     <div
-                      className={`mt-3 grid gap-6 sm:grid-cols-2 md:grid-cols-3 ${
-                        id === "flat-stock"
-                          ? "lg:grid-cols-9"
-                          : id === "shoe-quarter-round" || id === "stop" || id === "corner-cove"
-                            ? "lg:grid-cols-8"
-                            : id === "casing"
-                              ? "lg:grid-cols-5"
-                              : "lg:grid-cols-6"
-                      }`}
+                      className="mt-3 grid gap-6"
+                      style={{
+                        gridTemplateColumns: `repeat(auto-fill, minmax(min(100%, ${stockGridMinColumn(id)}), 1fr))`,
+                      }}
                     >
                       {categoryItems.map((item) => {
                         const imageSrc = images[item.item];
-                        const href = `/product-info/stock-items/${item.categorySlug}/${encodeURIComponent(item.item)}`;
+                        const href = `/products/stock-items/${item.categorySlug}/${encodeURIComponent(item.item)}`;
                         const sizeGroups = getStockConfigGroups(item.configs);
                         const displayName = getStockItemDisplayName(item);
                         const canvas = id === "miscellaneous" ? null : canvasByCategory.get(id) ?? null;
                         const imageSize = STOCK_ITEM_IMAGE_SIZES[item.item] ?? null;
                         const scaleToCategory = Boolean(canvas && imageSize && imageSrc);
-                        // Flat stock 9-across @ 8/9; shoe/stop/corner 8-across @ 1 keep prior 6×(4/3) image height
+                        // Base & S4S 6-across @ 2/3. Shoe/stop/corner 8-across @ 1 keep prior 6×(4/3) image height.
                         const tileAspect =
-                          id === "base"
+                          id === "base" || id === "flat-stock--s4s"
                             ? "2/3"
                             : id === "casing"
                               ? "3/2"
                               : id === "shoe-quarter-round" || id === "stop" || id === "corner-cove"
                                 ? "1"
-                                : id === "chair-rail" || id === "flat-stock" || id === "crown" || id === "rake"
+                                : id === "chair-rail" || id === "crown" || id === "rake"
                                   ? "8/9"
                                   : "4/3";
                         return (

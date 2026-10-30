@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Select-profile catalog for the profile browser.
  * Generated from All-Profiles.xlsx + Profile-Browser/GIFs.
  * Do not edit by hand.
@@ -255,13 +255,13 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "1224-T",
-    "description": "3/8 X 3/4 Half Round",
-    "mouldingType": "Half round",
+    "description": "3/8 X 3/4 Half-round",
+    "mouldingType": "Half-round",
     "width": 0.75,
     "thickness": 0.375,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -2754,13 +2754,13 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "2448-HR",
-    "description": "3/4 X 1-1/2 Half Round",
-    "mouldingType": "Half round",
+    "description": "3/4 X 1-1/2 Half-round",
+    "mouldingType": "Half-round",
     "width": 1.5,
     "thickness": 0.75,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -13877,12 +13877,12 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   {
     "profileId": "AMM-2HRD",
     "description": "AMM-2HRD",
-    "mouldingType": "Half round",
+    "mouldingType": "Half-round",
     "width": 1,
     "thickness": 0.75,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -25319,13 +25319,13 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "EC122",
-    "description": "3/8 X 11/16 Half Round",
-    "mouldingType": "Half round",
+    "description": "3/8 X 11/16 Half-round",
+    "mouldingType": "Half-round",
     "width": 0.68,
     "thickness": 0.375,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -38490,13 +38490,13 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "GD150",
-    "description": "3/4 X 1-1/2 Half Round",
-    "mouldingType": "Half round",
+    "description": "3/4 X 1-1/2 Half-round",
+    "mouldingType": "Half-round",
     "width": 1.5,
     "thickness": 0.75,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -39267,37 +39267,37 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "GS8070",
-    "description": "1/4 X 1/2 Half Round",
-    "mouldingType": "Half round",
+    "description": "1/4 X 1/2 Half-round",
+    "mouldingType": "Half-round",
     "width": 0.5,
     "thickness": 0.25,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
   {
     "profileId": "GS8076",
-    "description": "5/16 X 5/8 Half Round",
-    "mouldingType": "Half round",
+    "description": "5/16 X 5/8 Half-round",
+    "mouldingType": "Half-round",
     "width": 0.62,
     "thickness": 0.3125,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
   {
     "profileId": "GS8077",
-    "description": "3/8 X 3/4 Half Round",
-    "mouldingType": "Half round",
+    "description": "3/8 X 3/4 Half-round",
+    "mouldingType": "Half-round",
     "width": 0.75,
     "thickness": 0.375,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -43029,25 +43029,25 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "HAL-001",
-    "description": "3/8 X 3/4 HALF ROUND",
-    "mouldingType": "Half round",
+    "description": "3/8 X 3/4 Half-round",
+    "mouldingType": "Half-round",
     "width": 0.75,
     "thickness": 0.375,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
   {
     "profileId": "HAL-101",
-    "description": "5/8 x 1-1/4 Half Round",
-    "mouldingType": "Half round",
+    "description": "5/8 x 1-1/4 Half-round",
+    "mouldingType": "Half-round",
     "width": 1.25,
     "thickness": 0.625,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -43354,13 +43354,13 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "HH155",
-    "description": "1 X 2 Half Round",
-    "mouldingType": "Half round",
+    "description": "1 X 2 Half-round",
+    "mouldingType": "Half-round",
     "width": 2,
     "thickness": 1,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -43819,25 +43819,25 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "HM054",
-    "description": "9/32 x 9/16 Half Round (Correc",
-    "mouldingType": "Half round",
+    "description": "9/32 x 9/16 Half-round (Correc",
+    "mouldingType": "Half-round",
     "width": 0.56,
     "thickness": 0.2812,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
   {
     "profileId": "HM058",
-    "description": "3/4 X 1-1/2 Half Round",
-    "mouldingType": "Half round",
+    "description": "3/4 X 1-1/2 Half-round",
+    "mouldingType": "Half-round",
     "width": 1.5,
     "thickness": 0.75,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -44421,12 +44421,12 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   {
     "profileId": "HR 112-6.5",
     "description": "Modify HR 112-7 to 6-1/2\"",
-    "mouldingType": "Half round",
+    "mouldingType": "Half-round",
     "width": 6.5,
     "thickness": 0.75,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -45555,25 +45555,25 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "HW608",
-    "description": "1/2 X 1 Half Round",
-    "mouldingType": "Half round",
+    "description": "1/2 X 1 Half-round",
+    "mouldingType": "Half-round",
     "width": 1,
     "thickness": 0.5,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
   {
     "profileId": "HW609",
-    "description": "3/4 X 1-1/2 Half Round",
-    "mouldingType": "Half round",
+    "description": "3/4 X 1-1/2 Half-round",
+    "mouldingType": "Half-round",
     "width": 1.5,
     "thickness": 0.75,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -50110,13 +50110,13 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "JPHALFROUND",
-    "description": "3/4 X 1-9/16 Half Round",
-    "mouldingType": "Half round",
+    "description": "3/4 X 1-9/16 Half-round",
+    "mouldingType": "Half-round",
     "width": 1.56,
     "thickness": 0.75,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -56391,37 +56391,37 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "KCP298",
-    "description": "1/4 X 1/2 Half Round",
-    "mouldingType": "Half round",
+    "description": "1/4 X 1/2 Half-round",
+    "mouldingType": "Half-round",
     "width": 0.5,
     "thickness": 0.25,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
   {
     "profileId": "KCP300",
-    "description": "5/16 X 5/8 HALF ROUND",
-    "mouldingType": "Half round",
+    "description": "5/16 X 5/8 Half-round",
+    "mouldingType": "Half-round",
     "width": 0.62,
     "thickness": 0.3125,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
   {
     "profileId": "KCP304",
-    "description": "1/2 X 1 Half Round",
-    "mouldingType": "Half round",
+    "description": "1/2 X 1 Half-round",
+    "mouldingType": "Half-round",
     "width": 1,
     "thickness": 0.5,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -64655,13 +64655,13 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "MC101",
-    "description": "1 x 2 Half Round",
-    "mouldingType": "Half round",
+    "description": "1 x 2 Half-round",
+    "mouldingType": "Half-round",
     "width": 2,
     "thickness": 1,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -80325,13 +80325,13 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "RA300",
-    "description": "1-1/2 X 3 Half Round",
-    "mouldingType": "Half round",
+    "description": "1-1/2 X 3 Half-round",
+    "mouldingType": "Half-round",
     "width": 3,
     "thickness": 1.5,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -80593,13 +80593,13 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "RB101",
-    "description": "3/4 X 1-1/2 Half Round",
-    "mouldingType": "Half round",
+    "description": "3/4 X 1-1/2 Half-round",
+    "mouldingType": "Half-round",
     "width": 1.5,
     "thickness": 0.75,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -80647,25 +80647,25 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "RB122",
-    "description": "3/8 X 3/4 Half Round",
-    "mouldingType": "Half round",
+    "description": "3/8 X 3/4 Half-round",
+    "mouldingType": "Half-round",
     "width": 0.75,
     "thickness": 0.375,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
   {
     "profileId": "RB124",
-    "description": "1/4 X 1/2 Half Round",
-    "mouldingType": "Half round",
+    "description": "1/4 X 1/2 Half-round",
+    "mouldingType": "Half-round",
     "width": 0.5,
     "thickness": 0.25,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -81945,13 +81945,13 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "RE250",
-    "description": "1-1/4 X 2-1/2 Half Round",
-    "mouldingType": "Half round",
+    "description": "1-1/4 X 2-1/2 Half-round",
+    "mouldingType": "Half-round",
     "width": 2.5,
     "thickness": 1.25,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -83052,13 +83052,13 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "SA6659",
-    "description": "1-3/4 X 3-1/2 Half Round",
-    "mouldingType": "Half round",
+    "description": "1-3/4 X 3-1/2 Half-round",
+    "mouldingType": "Half-round",
     "width": 3.5,
     "thickness": 1.75,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -84557,13 +84557,13 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "SL343",
-    "description": "3/4 X 1-1/2 Half Round",
-    "mouldingType": "Half round",
+    "description": "3/4 X 1-1/2 Half-round",
+    "mouldingType": "Half-round",
     "width": 1.5,
     "thickness": 0.75,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -85782,13 +85782,13 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "SR134",
-    "description": "3/4 X 1-1/2 Half Round",
-    "mouldingType": "Half round",
+    "description": "3/4 X 1-1/2 Half-round",
+    "mouldingType": "Half-round",
     "width": 1.5,
     "thickness": 0.75,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -87220,13 +87220,13 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "SWA112",
-    "description": "3/4 X 1-1/2 Half Round",
-    "mouldingType": "Half round",
+    "description": "3/4 X 1-1/2 Half-round",
+    "mouldingType": "Half-round",
     "width": 1.5,
     "thickness": 0.75,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -90863,13 +90863,13 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "VB256",
-    "description": "3/16 X 3/8 Half Round",
-    "mouldingType": "Half round",
+    "description": "3/16 X 3/8 Half-round",
+    "mouldingType": "Half-round",
     "width": 0.37,
     "thickness": 0.1875,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -99041,37 +99041,37 @@ export const GENERATED_PROFILES: GeneratedProfileRow[] = [
   },
   {
     "profileId": "WM120",
-    "description": "1/2 X 1 Half Round",
-    "mouldingType": "Half round",
+    "description": "1/2 X 1 Half-round",
+    "mouldingType": "Half-round",
     "width": 1,
     "thickness": 0.5,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
   {
     "profileId": "WM120 OAK",
-    "description": "1/2 X 1 Half Round",
-    "mouldingType": "Half round",
+    "description": "1/2 X 1 Half-round",
+    "mouldingType": "Half-round",
     "width": 1,
     "thickness": 0.5,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
   {
     "profileId": "WM122",
-    "description": "3/8 X 3/4 Half Round",
-    "mouldingType": "Half round",
+    "description": "3/8 X 3/4 Half-round",
+    "mouldingType": "Half-round",
     "width": 0.75,
     "thickness": 0.375,
     "region": "east",
     "searchTerms": [
-      "Half round",
+      "Half-round",
       "HR"
     ]
   },
@@ -104786,7 +104786,7 @@ export const GENERATED_PROFILE_MOULDING_TYPES: string[] = [
   "E2E",
   "Flat stock",
   "Frieze",
-  "Half round",
+  "Half-round",
   "Hand rail",
   "Mantle",
   "Miscellaneous",

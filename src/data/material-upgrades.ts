@@ -39,7 +39,7 @@ export const MATERIAL_UPGRADES: MaterialUpgrade[] = [
     description:
       "For commercial builds that require elevated fire performance, Ultra-Fire Flex delivers specialized fire-rated moulding. Our team can help you confirm it for your application and specification.",
     footnote: "Manufactured exclusively at our Utah plant.",
-    learnMoreHref: "/product-info/ultra-fire-flex",
+    learnMoreHref: "/products/ultra-fire-flex",
   },
   {
     title: "Enhanced machinability",
@@ -48,7 +48,7 @@ export const MATERIAL_UPGRADES: MaterialUpgrade[] = [
     description:
       "Engineered from our Ultra-Flex compound, this material can be milled with conventional woodworking machinery without dulling expensive carbide knives. It is perfect when you only need a small amount of straight, custom-tooled footage.",
     footnote: "Manufactured exclusively at our Utah plant.",
-    learnMoreHref: "/product-info/machinable-s4s",
+    learnMoreHref: "/products/machinable-s4s",
   },
   {
     title: "Extended lengths",
@@ -57,6 +57,6 @@ export const MATERIAL_UPGRADES: MaterialUpgrade[] = [
     description:
       "Order Flex Trim™ or Zzz Flex in continuous lengths from 12' up to 500', wound on a spool for easy cut-to-length dispensing with virtually no waste and fewer joints on long runs.",
     footnote: "Available from our North Carolina and Utah plants.",
-    learnMoreHref: "/product-info/xtrulinear",
+    learnMoreHref: "/products/xtrulinear",
   },
 ];

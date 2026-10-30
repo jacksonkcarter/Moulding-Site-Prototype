@@ -9,14 +9,14 @@ export const ARC_CONFIGS = [
 ] as const;
 
 export type StockConfigGroup = {
-  label: "Straight" | "Half Round" | "Arc";
+  label: "Straight" | "Half-round" | "Arc";
   options: string[];
 };
 
 export const STOCK_CONFIG_STYLE_INFO: Partial<
   Record<StockConfigGroup["label"], { src: string; alt: string }>
 > = {
-  "Half Round": {
+  "Half-round": {
     src: "/order-form-images/Arch Style Half Round.png",
     alt: "Half-round arch with radius and diameter measurements",
   },
@@ -46,7 +46,7 @@ export function getStockConfigGroups(configs: string[]): StockConfigGroup[] {
   const { straight, halfRound, arc } = groupConfigs(configs);
   const groups: StockConfigGroup[] = [
     { label: "Straight", options: straight },
-    { label: "Half Round", options: halfRound },
+    { label: "Half-round", options: halfRound },
     { label: "Arc", options: arc },
   ];
   return groups.filter((g) => g.options.length > 0);

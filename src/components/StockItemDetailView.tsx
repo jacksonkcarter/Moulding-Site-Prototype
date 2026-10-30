@@ -125,7 +125,7 @@ export function StockItemDetailView({
     <main className="min-h-screen">
       <div className="mx-auto max-w-5xl px-4 pt-5 pb-12 sm:px-6">
         <Link
-          href={`/product-info/stock-items#${categorySlug}`}
+          href={`/products/stock-items#${categorySlug}`}
           className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
         >
           ← Back to browse stock items
@@ -267,7 +267,7 @@ export function StockItemDetailView({
               </div>
               {item.matchingWoodProfiles ? (
                 <ProfileMatchPrompt
-                  checkerHref={`/product-info/profile-checker?item=${encodeURIComponent(item.item)}&category=${encodeURIComponent(categorySlug)}`}
+                  checkerHref={`/products/profile-checker?item=${encodeURIComponent(item.item)}&category=${encodeURIComponent(categorySlug)}`}
                   matchingWoodProfiles={item.matchingWoodProfiles}
                   className="mx-auto lg:mx-0"
                 />
@@ -275,7 +275,7 @@ export function StockItemDetailView({
             </div>
           </div>
 
-          <div className="space-y-8 text-center lg:col-span-2 lg:text-left">
+          <div className="space-y-8 text-left lg:col-span-2">
             <div>
               <h2 className="text-lg font-semibold tracking-tight text-neutral-900">Overview</h2>
               <div className="mt-2 space-y-2 text-sm text-neutral-600">
@@ -286,38 +286,66 @@ export function StockItemDetailView({
                     {item.itemNote}
                   </p>
                 ) : null}
-                <table className="w-full border-collapse text-left">
+                <table className="w-full border-collapse border border-neutral-300 text-left">
                   <tbody>
+                    <tr className="align-top">
+                      <th
+                        scope="row"
+                        className="w-[1%] whitespace-nowrap border border-neutral-300 bg-neutral-50 px-3 py-2 font-medium text-neutral-800"
+                      >
+                        Bending limitations
+                      </th>
+                      <td className="border border-neutral-300 px-3 py-2 text-neutral-600">
+                        {bendingContent?.kind === "select" ? (
+                          <p>Select a size configuration to see bending limits.</p>
+                        ) : bendingContent?.kind === "lines" ? (
+                          <div className="space-y-1">
+                            <p>{underlineRadiusDiameter(bendingContent.intro)}</p>
+                            <ul className="list-none space-y-0.5">
+                              {bendingContent.lines.map((line) => (
+                                <li key={line}>{line}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : null}
+                      </td>
+                    </tr>
                     {item.finishGrade ? (
                       <tr className="align-top">
                         <th
                           scope="row"
-                          className="w-[1%] whitespace-nowrap py-1 pr-4 font-medium text-neutral-800"
+                          className="w-[1%] whitespace-nowrap border border-neutral-300 bg-neutral-50 px-3 py-2 font-medium text-neutral-800"
                         >
                           Finish grade
                         </th>
-                        <td className="py-1 text-neutral-600">{item.finishGrade}</td>
+                        <td className="border border-neutral-300 px-3 py-2 text-neutral-600">
+                          {item.finishGrade}
+                        </td>
                       </tr>
                     ) : null}
                     {item.matchingWoodProfiles ? (
                       <tr className="align-top">
                         <th
                           scope="row"
-                          className="w-[1%] whitespace-nowrap py-1 pr-4 font-medium text-neutral-800"
+                          className="w-[1%] whitespace-nowrap border border-neutral-300 bg-neutral-50 px-3 py-2 font-medium text-neutral-800"
                         >
                           Matching wood profiles
                         </th>
-                        <td className="py-1 text-neutral-600">{item.matchingWoodProfiles}</td>
+                        <td className="border border-neutral-300 px-3 py-2 text-neutral-600">
+                          {item.matchingWoodProfiles}
+                        </td>
                       </tr>
                     ) : null}
                     <tr className="align-top">
                       <th
                         scope="row"
-                        className="w-[1%] whitespace-nowrap py-1 pr-4 font-medium text-neutral-800"
+                        className="w-[1%] whitespace-nowrap border border-neutral-300 bg-neutral-50 px-3 py-2 font-medium text-neutral-800"
                       >
                         Production facility
                       </th>
-                      <td className="py-1 text-neutral-600">North Carolina</td>
+                      <td className="border border-neutral-300 px-3 py-2 text-neutral-600">
+                        North Carolina
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -325,34 +353,15 @@ export function StockItemDetailView({
             </div>
 
             <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2 lg:gap-8">
-              <div className="space-y-4">
-                <h2 className="text-lg font-semibold tracking-tight text-neutral-900">
-                  Bending limitations & allowable installation range
-                </h2>
-                <div className="space-y-4 text-sm text-neutral-600">
-                  {bendingContent?.kind === "select" ? (
-                    <p>Select a size configuration to see bending limits.</p>
-                  ) : bendingContent?.kind === "lines" ? (
-                    <div className="space-y-1">
-                      <p>{underlineRadiusDiameter(bendingContent.intro)}</p>
-                      <ul className="list-none space-y-0.5">
-                        {bendingContent.lines.map((line) => (
-                          <li key={line}>{underlineRadiusDiameter(line)}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ) : null}
-                  <p>
-                    Don&apos;t see a stock item that will work?{" "}
-                    <ContactLink action="popover" className="font-medium text-primary hover:underline">
-                      Contact us
-                    </ContactLink>{" "}
-                    with your project details for custom options including ellipticals, ovals,
-                    half rounds with straight legs, bullnose corners, and any shape/size that falls
-                    outside the stock item limitations.
-                  </p>
-                </div>
-              </div>
+              <p className="text-sm text-neutral-600">
+                Don&apos;t see a stock item that will work?{" "}
+                <ContactLink action="popover" className="font-medium text-primary hover:underline">
+                  Contact us
+                </ContactLink>{" "}
+                with your project details for custom options including ellipticals, ovals,
+                half-rounds with straight legs, bullnose corners, and any shape/size that falls
+                outside the stock item limitations.
+              </p>
               <BendingStylesCard className="w-full max-w-sm lg:max-w-none lg:justify-self-end" />
             </div>
           </div>

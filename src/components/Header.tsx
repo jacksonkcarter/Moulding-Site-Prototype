@@ -45,6 +45,33 @@ export function Header() {
     setMobileDeepExpanded(null);
   }, [pathname]);
 
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const html = document.documentElement;
+    const body = document.body;
+    const scrollY = window.scrollY;
+    const prevHtmlOverflow = html.style.overflow;
+    const prevBodyOverflow = body.style.overflow;
+    const prevBodyPosition = body.style.position;
+    const prevBodyTop = body.style.top;
+    const prevBodyWidth = body.style.width;
+    // position:fixed locks iOS from scrolling the page under the menu; overflow
+    // alone is not enough and the leftover offset carries into the next route.
+    html.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.width = "100%";
+    return () => {
+      html.style.overflow = prevHtmlOverflow;
+      body.style.overflow = prevBodyOverflow;
+      body.style.position = prevBodyPosition;
+      body.style.top = prevBodyTop;
+      body.style.width = prevBodyWidth;
+      window.scrollTo(0, scrollY);
+    };
+  }, [mobileOpen]);
+
   function menusPinned() {
     return typeof document !== "undefined" && document.documentElement.classList.contains("nav-inplace-busy");
   }
@@ -194,30 +221,30 @@ export function Header() {
                 data-nav-menu
                 className="rounded-r-md rounded-bl-md border border-neutral-200 border-l-0 bg-white py-1 shadow-lg"
               >
-                <div className="mx-2 mt-1 mb-1 space-y-1">
-                  <Link
-                    href="/product-info/browse-stock-items"
-                    className="block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
-                  >
-                    See all categories
-                  </Link>
-                  <Link
-                    href="/product-info/stock-items"
-                    className="block rounded-md border-2 border-primary bg-white px-3 py-2 text-center text-sm font-semibold text-primary hover:bg-primary hover:text-white"
-                  >
-                    See all profiles
-                  </Link>
-                </div>
+                <Link
+                  href="/products/browse-stock-items"
+                  className="block px-4 py-2 text-sm font-medium text-[#9f1b20] hover:bg-neutral-50"
+                >
+                  Browse by category
+                </Link>
                 <div className="border-t border-neutral-100 pt-1">
                   {STOCK_ITEM_SECTIONS.map((section) => (
                     <Link
                       key={section.id}
-                      href={`/product-info/stock-items#${section.id}`}
+                      href={`/products/stock-items#${section.id}`}
                       className="block px-4 py-2 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
                     >
                       {section.label}
                     </Link>
                   ))}
+                </div>
+                <div className="border-t border-neutral-100 px-2 py-1.5">
+                  <Link
+                    href="/products/stock-items"
+                    className="block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
+                  >
+                    View all profiles
+                  </Link>
                 </div>
               </div>
             </div>
@@ -226,7 +253,7 @@ export function Header() {
       );
     }
 
-    if (child.label === "Select custom profiles") {
+    if (child.label === "Production-ready profiles") {
       return (
         <div
           key={`${keyPrefix}-${child.label}`}
@@ -278,30 +305,30 @@ export function Header() {
                 data-nav-menu
                 className="overflow-hidden rounded-r-md rounded-bl-md border border-neutral-200 border-l-0 bg-white shadow-lg"
               >
-                <div className="mx-2 mt-1 mb-1 space-y-1">
-                  <Link
-                    href="/product-info/browse-select-profiles"
-                    className="block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
-                  >
-                    See all categories
-                  </Link>
-                  <Link
-                    href="/product-info/profile-search"
-                    className="block rounded-md border-2 border-primary bg-white px-3 py-2 text-center text-sm font-semibold text-primary hover:bg-primary hover:text-white"
-                  >
-                    See all profiles
-                  </Link>
-                </div>
+                <Link
+                  href="/products/browse-select-profiles"
+                  className="block px-4 py-2 text-sm font-medium text-[#9f1b20] hover:bg-neutral-50"
+                >
+                  Browse by category
+                </Link>
                 <div className="grid grid-cols-3 gap-x-1 gap-y-0 border-t border-neutral-100 px-2 py-1.5">
                   {PROFILE_NAV_MOULDING_OPTIONS.map((type) => (
                     <Link
                       key={type}
-                      href={`/product-info/profile-search?types=${encodeURIComponent(type)}`}
+                      href={`/products/profile-search?types=${encodeURIComponent(type)}`}
                       className="block whitespace-nowrap rounded px-1.5 py-1.5 text-sm text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
                     >
                       {type}
                     </Link>
                   ))}
+                </div>
+                <div className="border-t border-neutral-100 px-2 py-1.5">
+                  <Link
+                    href="/products/profile-search"
+                    className="block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
+                  >
+                    View all profiles
+                  </Link>
                 </div>
               </div>
             </div>
@@ -362,27 +389,19 @@ export function Header() {
                 data-nav-menu
                 className="rounded-r-md rounded-bl-md border border-neutral-200 border-l-0 bg-white py-1 shadow-lg"
               >
-                <div className="mx-2 mt-1 mb-1 space-y-1">
-                  <Link
-                    href="/product-info/accessories"
-                    className="block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
-                  >
-                    See all categories
-                  </Link>
-                  <Link
-                    href="/product-info/accessories/all"
-                    className="block rounded-md border-2 border-primary bg-white px-3 py-2 text-center text-sm font-semibold text-primary hover:bg-primary hover:text-white"
-                  >
-                    See all accessories
-                  </Link>
-                </div>
+                <Link
+                  href="/products/accessories"
+                  className="block px-4 py-2 text-sm font-medium text-[#9f1b20] hover:bg-neutral-50"
+                >
+                  Browse by category
+                </Link>
                 <div className="border-t border-neutral-100 pt-1">
                   {ACCESSORY_CATEGORIES.map((category) => (
                     <Link
                       key={category.slug}
-                      href={`/product-info/accessories/${category.slug}`}
+                      href={`/products/accessories/${category.slug}`}
                       className={`block px-4 py-2 text-sm ${
-                        pathname === `/product-info/accessories/${category.slug}`
+                        pathname === `/products/accessories/${category.slug}`
                           ? "bg-red-50 font-medium text-[#9f1b20]"
                           : "text-neutral-600 hover:bg-neutral-50 hover:text-[#9f1b20]"
                       }`}
@@ -390,6 +409,14 @@ export function Header() {
                       {category.label}
                     </Link>
                   ))}
+                </div>
+                <div className="border-t border-neutral-100 px-2 py-1.5">
+                  <Link
+                    href="/products/accessories/all"
+                    className="block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
+                  >
+                    View all accessories
+                  </Link>
                 </div>
               </div>
             </div>
@@ -482,33 +509,33 @@ export function Header() {
           {mobileDeepExpanded === deepKey && (
             <div className="pl-4" data-nav-menu>
               <Link
-                href="/product-info/browse-stock-items"
+                href="/products/browse-stock-items"
                 className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
               >
-                See all categories
-              </Link>
-              <Link
-                href="/product-info/stock-items"
-                className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
-              >
-                See all profiles
+                Browse by category
               </Link>
               {STOCK_ITEM_SECTIONS.map((section) => (
                 <Link
                   key={section.id}
-                  href={`/product-info/stock-items#${section.id}`}
+                  href={`/products/stock-items#${section.id}`}
                   className="block rounded-full px-4 py-2 text-sm text-neutral-600"
                 >
                   {section.label}
                 </Link>
               ))}
+              <Link
+                href="/products/stock-items"
+                className="mx-4 my-1 block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
+              >
+                View all profiles
+              </Link>
             </div>
           )}
         </div>
       );
     }
 
-    if (child.label === "Select custom profiles") {
+    if (child.label === "Production-ready profiles") {
       const deepKey = mobileDeepKey(itemLabel, child.label);
       return (
         <div key={`${itemLabel}-${child.label}`}>
@@ -532,26 +559,26 @@ export function Header() {
           {mobileDeepExpanded === deepKey && (
             <div className="pl-4" data-nav-menu>
               <Link
-                href="/product-info/browse-select-profiles"
+                href="/products/browse-select-profiles"
                 className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
               >
-                See all categories
-              </Link>
-              <Link
-                href="/product-info/profile-search"
-                className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
-              >
-                See all profiles
+                Browse by category
               </Link>
               {PROFILE_NAV_MOULDING_OPTIONS.map((type) => (
                 <Link
                   key={type}
-                  href={`/product-info/profile-search?types=${encodeURIComponent(type)}`}
+                  href={`/products/profile-search?types=${encodeURIComponent(type)}`}
                   className="block rounded-full px-4 py-2 text-sm text-neutral-600"
                 >
                   {type}
                 </Link>
               ))}
+              <Link
+                href="/products/profile-search"
+                className="mx-4 my-1 block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
+              >
+                View all profiles
+              </Link>
             </div>
           )}
         </div>
@@ -582,26 +609,26 @@ export function Header() {
           {mobileDeepExpanded === deepKey && (
             <div className="pl-4" data-nav-menu>
               <Link
-                href="/product-info/accessories"
+                href="/products/accessories"
                 className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
               >
-                See all categories
-              </Link>
-              <Link
-                href="/product-info/accessories/all"
-                className="block rounded-full px-4 py-2 text-sm font-medium text-[#9f1b20]"
-              >
-                See all accessories
+                Browse by category
               </Link>
               {ACCESSORY_CATEGORIES.map((category) => (
                 <Link
                   key={category.slug}
-                  href={`/product-info/accessories/${category.slug}`}
+                  href={`/products/accessories/${category.slug}`}
                   className="block rounded-full px-4 py-2 text-sm text-neutral-600"
                 >
                   {category.label}
                 </Link>
               ))}
+              <Link
+                href="/products/accessories/all"
+                className="mx-4 my-1 block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-[#8a171b]"
+              >
+                View all accessories
+              </Link>
             </div>
           )}
         </div>
@@ -622,11 +649,11 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm print:hidden">
+    <header className="sticky top-0 z-50 shrink-0 bg-white/95 backdrop-blur-sm print:hidden">
       {/* Top ribbon: order status */}
       <div className="w-full border-b border-neutral-200 bg-neutral-100">
         <div className="flex h-10 w-full items-center justify-end gap-6 px-4 sm:px-6">
-          <Link href="/order-status" className="text-sm text-neutral-600 hover:text-primary">
+          <Link href="/ordering/order-status" className="text-sm text-neutral-600 hover:text-primary">
             Check order status
           </Link>
         </div>
@@ -655,28 +682,30 @@ export function Header() {
             vectorEffect="non-scaling-stroke"
           />
         </svg>
-        <div className="absolute inset-x-0 top-0 z-10 flex h-16 w-full items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="mt-[3px] flex min-w-0 items-center gap-2 md:gap-3">
+        <div className="absolute inset-x-0 top-0 z-10 flex h-16 w-full items-center justify-between gap-2 px-4 sm:gap-3 sm:px-6">
+        <Link href="/" className="relative z-20 mt-[3px] flex shrink-0 items-center gap-1.5 md:gap-2">
           <Image
-            src="/logos/flex-trim.svg"
+            src="/logos/flex-trim.jpg"
             alt="Flex Trim™"
-            width={120}
-            height={40}
-            className="h-6 w-auto md:h-9"
+            width={852}
+            height={181}
+            priority
+            unoptimized
+            className="h-6 w-auto shrink-0 object-contain md:h-8 xl:h-6 2xl:h-9"
           />
-          <span className="text-neutral-300">|</span>
+          <span className="shrink-0 text-neutral-300">|</span>
           <Image
             src="/logos/carter-millwork.svg"
             alt="Carter Millwork"
             width={160}
             height={40}
-            className="h-6 w-auto md:h-9"
+            className="h-6 w-auto shrink-0 object-contain md:h-8 xl:h-6 2xl:h-9"
           />
         </Link>
-        <nav className="hidden flex-1 items-center justify-evenly md:flex">
+        <nav className="hidden min-w-0 flex-1 items-center justify-evenly xl:flex">
           <Link
             href="/"
-            className={`rounded-full px-3 py-2 text-base ${
+            className={`shrink-0 rounded-full px-2 py-2 text-sm 2xl:px-3 2xl:text-base ${
               pathname === "/"
                 ? "text-[#9f1b20]"
                 : "text-neutral-600 hover:bg-neutral-100 hover:text-[#9f1b20]"
@@ -688,13 +717,13 @@ export function Header() {
             "landingHref" in item ? (
               <div
                 key={item.label}
-                className="relative"
+                className="relative shrink-0"
                 onMouseEnter={() => setOpenDropdown(item.label)}
                 onMouseLeave={closeDesktopDropdown}
               >
                 <Link
                   href={item.landingHref}
-                  className={`flex items-center gap-1 rounded-full px-3 py-2 text-base ${
+                  className={`flex items-center gap-0.5 rounded-full px-2 py-2 text-sm 2xl:gap-1 2xl:px-3 2xl:text-base ${
                     openDropdown === item.label
                       ? "bg-neutral-100 text-[#9f1b20]"
                       : "text-neutral-600 hover:bg-neutral-100 hover:text-[#9f1b20]"
@@ -710,9 +739,11 @@ export function Header() {
                     className={`absolute left-0 top-full z-[100] pt-1 ${
                       "columns" in item
                         ? "min-w-[720px]"
-                        : item.label === "Installation" || item.label === "Resources"
+                        : item.label === "Installation"
                           ? "w-[240px]"
-                          : "w-[220px]"
+                          : item.label === "Gallery"
+                            ? "w-[280px]"
+                            : "w-[220px]"
                     }`}
                   >
                     <div data-nav-menu className="rounded-md border border-neutral-200 bg-white py-1 shadow-lg">
@@ -744,8 +775,8 @@ export function Header() {
                       ) : item.label === "Installation" && "children" in item ? (
                         <>
                           {(() => {
-                            const overview = item.children.find((c) => c.label === "Overview");
-                            const rest = item.children.filter((c) => c.label !== "Overview");
+                            const overview = item.children.find((c) => c.label === "Full guide");
+                            const rest = item.children.filter((c) => c.label !== "Full guide");
                             return (
                               <>
                                 {overview && (
@@ -793,7 +824,7 @@ export function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`rounded-full px-3 py-2 text-base ${
+                    className={`shrink-0 rounded-full px-2 py-2 text-sm 2xl:px-3 2xl:text-base ${
                       pathname === link.href
                         ? "text-[#9f1b20]"
                         : "text-neutral-600 hover:bg-neutral-100 hover:text-[#9f1b20]"
@@ -806,12 +837,12 @@ export function Header() {
             )
           )}
         </nav>
-        <div className="flex items-center gap-2">
-          <ContactLink className="mt-[12px] hidden items-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary-hover md:inline-flex">
+        <div className="relative z-30 flex shrink-0 items-center gap-2">
+          <ContactLink className="mt-[12px] hidden items-center rounded-full bg-primary px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary-hover xl:inline-flex 2xl:px-4">
             Contact us
           </ContactLink>
           <form
-            className="relative mt-[12px] hidden items-center md:flex"
+            className="relative mt-[12px] hidden items-center xl:flex"
             data-busy-managed
             onSubmit={(event) => {
               event.preventDefault();
@@ -825,7 +856,7 @@ export function Header() {
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={(e) => e.key === "Escape" && setSearchQuery("")}
               disabled={searchPending}
-              className="w-48 rounded-full border border-neutral-300 bg-white py-[7.5px] pl-3 pr-9 text-sm outline-none focus:border-primary disabled:cursor-wait disabled:opacity-70 sm:w-56"
+              className="w-36 rounded-full border border-neutral-300 bg-white py-[7.5px] pl-3 pr-9 text-sm outline-none focus:border-primary disabled:cursor-wait disabled:opacity-70 2xl:w-56"
               aria-label="Search the site"
             />
             {searchPending ? (
@@ -850,7 +881,7 @@ export function Header() {
           </form>
           <button
             type="button"
-            className="rounded-full p-2 text-neutral-600 hover:bg-neutral-100 md:hidden"
+            className="rounded-full p-2 text-neutral-600 hover:bg-neutral-100 xl:hidden"
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Toggle menu"
           >
@@ -868,8 +899,11 @@ export function Header() {
       </div>
       </div>
       {mobileOpen && (
-        <div className="border-t border-neutral-200 bg-white md:hidden" data-mobile-nav>
-          <div className="mx-auto max-w-7xl space-y-1 px-4 py-4">
+        <div
+          className="max-h-[calc(100dvh-6.5rem)] overflow-y-auto overscroll-y-contain border-t border-neutral-200 bg-white xl:hidden"
+          data-mobile-nav
+        >
+          <div className="mx-auto max-w-7xl space-y-1 px-4 pt-6 pb-4">
             <form
               className="relative mb-3"
               data-busy-managed

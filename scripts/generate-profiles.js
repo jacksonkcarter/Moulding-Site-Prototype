@@ -29,6 +29,17 @@ function cellText(value) {
   return String(value ?? "").trim();
 }
 
+/** Site spelling for moulding-type / description display copy. */
+function siteSpelling(text) {
+  return String(text ?? "")
+    .replace(/\bHalf rounds\b/g, "Half-rounds")
+    .replace(/\bhalf rounds\b/g, "half-rounds")
+    .replace(/\bHalf round\b/g, "Half-round")
+    .replace(/\bhalf round\b/g, "half-round")
+    .replace(/\bHalf Round\b/g, "Half-round")
+    .replace(/\bHALF ROUND\b/g, "HALF-ROUND");
+}
+
 function main() {
   if (!fs.existsSync(XLSX_PATH)) {
     console.error(`Missing spreadsheet: ${XLSX_PATH}`);
@@ -58,7 +69,7 @@ function main() {
 
   for (let i = 1; i < keyRows.length; i++) {
     const row = keyRows[i] ?? [];
-    const type = cellText(row[0]);
+    const type = siteSpelling(cellText(row[0]));
     if (!type || seenKeyTypes.has(type)) continue;
     seenKeyTypes.add(type);
     keyTypes.push(type);
@@ -66,7 +77,7 @@ function main() {
     const terms = [];
     const termSeen = new Set();
     for (let col = 2; col < row.length; col++) {
-      const term = cellText(row[col]);
+      const term = siteSpelling(cellText(row[col]));
       if (!term) continue;
       const key = term.toLowerCase();
       if (termSeen.has(key)) continue;
@@ -84,10 +95,10 @@ function main() {
   for (let i = 1; i < inventoryRows.length; i++) {
     const row = inventoryRows[i] ?? [];
     const profileId = cellText(row[0]);
-    const description = cellText(row[1]);
+    const description = siteSpelling(cellText(row[1]));
     const thickness = parseNumber(row[2]);
     const width = parseNumber(row[3]);
-    const mouldingType = cellText(row[4]);
+    const mouldingType = siteSpelling(cellText(row[4]));
 
     if (!profileId || !mouldingType) continue;
     if (!imageMap.has(normalizeId(profileId))) continue;

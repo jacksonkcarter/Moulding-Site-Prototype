@@ -12,7 +12,7 @@ export type ApplicationOption = (typeof APPLICATION_OPTIONS)[number];
 
 /** Doorway arch styles */
 export const ARCH_STYLES = [
-  "Half Round",
+  "Half-round",
   "Eyebrow",
   "Elliptical",
   "Radius Corners",
@@ -85,7 +85,7 @@ export type CrownCurvature = (typeof CROWN_CURVATURES)[number];
 /** OSR tight radii scenario options (multi-select) */
 export const CROWN_OSR_TIGHT_RADII_OPTIONS = [
   "Column Wrap",
-  "Half Round Straight/Radius/Straight",
+  "Half-round Straight/Radius/Straight",
   "Quarter Round Straight/Radius/Straight",
 ] as const;
 export type CrownOsrTightRadiiOption = (typeof CROWN_OSR_TIGHT_RADII_OPTIONS)[number];

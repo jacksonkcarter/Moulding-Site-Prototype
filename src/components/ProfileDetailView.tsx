@@ -27,7 +27,7 @@ export function ProfileDetailView({
   hasOutlinePdf,
   backHref,
 }: ProfileDetailViewProps) {
-  const checkerHref = `/product-info/profile-checker?profile=${encodeURIComponent(profile.profileId)}`;
+  const checkerHref = `/products/profile-checker?profile=${encodeURIComponent(profile.profileId)}&return=${encodeURIComponent(backHref)}`;
 
   return (
     <main className="min-h-screen">

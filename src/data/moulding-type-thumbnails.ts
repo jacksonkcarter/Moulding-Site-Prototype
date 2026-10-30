@@ -26,7 +26,7 @@ export const MOULDING_TYPE_THUMBNAILS: Record<string, string> = {
   "E1E": "/moulding-type-thumbnails/e1e-71e72d70.gif",
   "E2E": "/moulding-type-thumbnails/e2e-f3e4b6f7.gif",
   "Flat stock": "/moulding-type-thumbnails/flat-stock-4829c242.gif",
-  "Half round": "/moulding-type-thumbnails/half-round-1cc3fba1.gif",
+  "Half-round": "/moulding-type-thumbnails/half-round-1cc3fba1.gif",
   "Hand rail": "/moulding-type-thumbnails/hand-rail-5f58cf4c.gif",
   "Mantle": "/moulding-type-thumbnails/mantle-a467b55c.gif",
   "Mullion": "/moulding-type-thumbnails/mullion-58b50dc4.gif",

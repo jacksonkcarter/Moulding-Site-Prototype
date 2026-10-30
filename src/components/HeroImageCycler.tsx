@@ -56,7 +56,10 @@ export function HeroImageCycler() {
               fill
               className="object-cover"
               sizes="100vw"
-              priority
+              quality={90}
+              priority={i === 0}
+              loading={i === 0 ? undefined : "eager"}
+              fetchPriority={i === 0 ? "high" : "low"}
             />
           </div>
         );

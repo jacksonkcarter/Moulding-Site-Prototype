@@ -44,8 +44,11 @@ function isArcConfig(config: string): boolean {
 function straightLines(
   limits: StockItemBendingLimits,
   isCrown: boolean,
+  isBackBand: boolean,
+  isBaseOrFlat: boolean,
 ): StockBendingLimitationContent | null {
   const style1 = limits.straightStyle1;
+  const style1NoCupping = limits.straightStyle1NoCupping;
   const style2 = limits.straightStyle2;
   const lines: string[] = [];
 
@@ -61,8 +64,20 @@ function straightLines(
     };
   }
 
-  if (style1 != null) lines.push(`Style 1 - ${formatInches(style1)}`);
-  if (style2 != null) lines.push(`Style 2 - ${formatInches(style2)}`);
+  const style1Label = isBackBand ? "Style 1 (curved wall)" : "Style 1";
+  const style2Label = isBackBand ? "Style 2 (over radiused casing)" : "Style 2";
+  if (
+    isBaseOrFlat &&
+    style1 != null &&
+    style1NoCupping != null
+  ) {
+    lines.push(
+      `Style 1 - ${formatInches(style1)} (cupping) or ${formatInches(style1NoCupping)} (no cupping). Learn more`,
+    );
+  } else if (style1 != null) {
+    lines.push(`${style1Label} - ${formatInches(style1)}`);
+  }
+  if (style2 != null) lines.push(`${style2Label} - ${formatInches(style2)}`);
   if (lines.length === 0) return null;
   return {
     kind: "lines",
@@ -91,7 +106,7 @@ function halfRoundLines(
 
   return {
     kind: "lines",
-    intro: `This item is manufactured to a ${formatInches(neutral)} neutral position diameter, but can flex in & out to the following diameter range:`,
+    intro: `This item is manufactured as pre-bent (style 2) to a ${formatInches(neutral)} neutral position diameter, but can flex in/out for installation:`,
     lines,
   };
 }
@@ -116,7 +131,7 @@ function arcLines(
 
   return {
     kind: "lines",
-    intro: `This item is manufactured to a ${formatInches(neutral)} neutral position radius, but can flex in & out to the following radius range:`,
+    intro: `This item is manufactured as pre-bent (style 2) to a ${formatInches(neutral)} neutral position radius, but can flex in/out for installation:`,
     lines,
   };
 }
@@ -145,8 +160,11 @@ export function getStockBendingLimitationContent(
   }
 
   const isCrown = item.category === "Crown";
+  const isBackBand = item.category === "Back band";
+  const isBaseOrFlat =
+    item.category === "Base" || item.category === "Flat stock / S4S";
   if (isStraightConfig(config)) {
-    return straightLines(item.bendingLimits, isCrown);
+    return straightLines(item.bendingLimits, isCrown, isBackBand, isBaseOrFlat);
   }
   if (isHalfRoundConfig(config)) {
     return halfRoundLines(item.bendingLimits, config);

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useLayoutEffect, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { DownloadInstallationGuidePdfButton } from "@/components/DownloadInstallationGuidePdfButton";
 import { InstallationVideo } from "@/components/InstallationVideo";
@@ -32,6 +32,7 @@ export function InstallationGuideView() {
   const searchParams = useSearchParams();
   const [locale, setLocale] = useState<InstallationLocale>(() => parseLocale(searchParams.get("lang")));
   const activeTab = parseSectionTab(searchParams.get("section"));
+  const prevTabRef = useRef<GuideTab>(activeTab);
 
   useEffect(() => {
     setLocale(parseLocale(searchParams.get("lang")));
@@ -59,6 +60,34 @@ export function InstallationGuideView() {
     window.addEventListener("hashchange", applyHash);
     return () => window.removeEventListener("hashchange", applyHash);
   }, [pathname, router, searchParams]);
+
+  // Full guide inserts sections above the fold; without a reset, mobile scroll
+  // anchoring (and same-path nav from ?section=) leaves the page mid-content.
+  useLayoutEffect(() => {
+    const prev = prevTabRef.current;
+    prevTabRef.current = activeTab;
+    if (activeTab !== "full" || prev === "full") return;
+    const hash = window.location.hash.replace(/^#/, "");
+    if (hash && hash !== "overview") return;
+    window.scrollTo(0, 0);
+  }, [activeTab]);
+
+  // Mobile menu can leave a leftover window scroll (iOS scrolls under overflow:hidden).
+  // Re-assert top after mount / menu unlock so Full guide doesn't open mid-Preparing.
+  useEffect(() => {
+    const hash = window.location.hash.replace(/^#/, "");
+    if (hash === "videos") return;
+    const reset = () => window.scrollTo(0, 0);
+    reset();
+    const raf = requestAnimationFrame(reset);
+    const t0 = window.setTimeout(reset, 0);
+    const t1 = window.setTimeout(reset, 50);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.clearTimeout(t0);
+      window.clearTimeout(t1);
+    };
+  }, [pathname]);
 
   const replaceQuery = useCallback(
     (mutate: (params: URLSearchParams) => void) => {
@@ -103,7 +132,7 @@ export function InstallationGuideView() {
     <main className="min-h-screen print:min-h-0" lang={locale}>
       <div
         id="overview"
-        className="mx-auto max-w-[84rem] scroll-mt-24 px-4 pt-5 pb-12 sm:px-6 print:max-w-none print:px-0 print:pt-0 print:pb-0"
+        className="mx-auto max-w-[84rem] px-4 pt-5 pb-12 sm:px-6 print:max-w-none print:px-0 print:pt-0 print:pb-0"
       >
         <div className="mb-4 hidden items-center justify-center gap-3 print:mb-8 print:flex">
           <Image
@@ -140,11 +169,16 @@ export function InstallationGuideView() {
         </p>
 
         <div className="mt-6 flex flex-col items-center gap-3 print:hidden lg:flex-row lg:justify-between">
-          <LanguageSwitch value={locale} onChange={setLanguage} />
+          <div className="flex w-full items-center justify-between gap-2 lg:contents">
+            <LanguageSwitch value={locale} onChange={setLanguage} />
+            <div className="lg:order-3">
+              <DownloadInstallationGuidePdfButton locale={locale} />
+            </div>
+          </div>
           <div
             role="tablist"
             aria-label={copy.title}
-            className="inline-grid grid-cols-5 overflow-hidden rounded-md border-2 border-primary divide-x-2 divide-primary"
+            className="inline-grid grid-cols-5 overflow-hidden rounded-md border-2 border-primary divide-x-2 divide-primary lg:order-2"
           >
             {tabs.map((tab) => {
               const selected = activeTab === tab.id;
@@ -154,6 +188,10 @@ export function InstallationGuideView() {
                   type="button"
                   role="tab"
                   aria-selected={selected}
+                  onMouseDown={(event) => {
+                    // Keep the page from scrolling the focused tab into view on mobile.
+                    if (event.button === 0) event.preventDefault();
+                  }}
                   onClick={() => setTab(tab.id)}
                   className={`whitespace-nowrap px-2 py-1.5 text-center text-xs font-medium transition-colors sm:px-2.5 ${
                     selected
@@ -166,7 +204,6 @@ export function InstallationGuideView() {
               );
             })}
           </div>
-          <DownloadInstallationGuidePdfButton locale={locale} />
         </div>
 
         <section

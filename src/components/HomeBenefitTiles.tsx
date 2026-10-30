@@ -8,13 +8,13 @@ const BENEFITS = [
     id: "trusted-expertise",
     title: "Decades of trusted expertise",
     description:
-      "Going back to 1963, we have consolidated the specialized knowledge of six different companies into a single, trusted brand built on decades of proven experience.",
+      "Going back to 1963, we have consolidated the knowledge of six different companies into a single, trusted brand built on decades of experience.",
   },
   {
     id: "value-engineered",
     title: "Value-engineered with a lifetime warranty",
     description:
-      "Compared to traditional radiused wood millwork, flexible moulding generally is faster to produce, costs up to 70% less, and allows for on-site adjustments to keep your project moving.",
+      "Compared to traditional radiused wood millwork, flexible moulding generally is faster to produce, costs up to 70% less, and allows for quick on-site adjustments.",
   },
   {
     id: "interior-exterior",
@@ -26,37 +26,37 @@ const BENEFITS = [
     id: "impact-resistant",
     title: "Impact-resistant & chip-proof",
     description:
-      "Built to maintain its perfect profile for years to come, this durable material resists dents and is entirely chip-proof, guaranteeing a pristine appearance long after installation.",
+      "Built to maintain its perfect profile for years to come, this hard polyurethane material resists dents and is entirely chip-proof.",
   },
   {
     id: "moisture-rot-proof",
     title: "Moisture & rot proof",
     description:
-      "Ideal for high-moisture environments like bathrooms, kitchens, and exterior trims, this material completely resists water absorption and will never warp, swell, or decay.",
+      "Ideal for high-moisture environments like bathrooms, kitchens, and exterior trims, our material completely resists water absorption and will never warp or decay.",
   },
   {
     id: "insect-proof",
     title: "Insect proof",
     description:
-      "Protect your investment with a highly durable material that naturally repels insects and prevents the decay commonly associated with standard wood millwork.",
+      "Protect your investment with a resin-based material that naturally repels insects and prevents the decay commonly seen in old wood.",
   },
   {
     id: "easy-to-install",
     title: "Easy to install",
     description:
-      "Forget specialized equipment: our flexible moulding cuts, nails, and glues using the same standard tools and techniques you already use for traditional wood millwork.",
+      "Forget specialized equipment: our flexible moulding cuts, nails, and glues using the same tools and techniques you use for traditional wood millwork.",
   },
   {
     id: "stainable-paintable",
     title: "Stainable & paintable",
     description:
-      "While all of our product is paintable, our stain-grade flexible trim perfectly reproduces the unique grain pattern of any wood species to ensure your finished product reads exactly like real wood.",
+      "While all of our product is paintable, our stain-grade flexible trim perfectly reproduces the unique grain pattern of any chosen wood species.",
   },
   {
     id: "pfas-voc-free",
     title: "PFAS & VOC free",
     description:
-      'Breathe easy knowing our moulding is manufactured without volatile organic compounds or "forever chemicals," ensuring safe, clean indoor air quality for your home.',
+      'Breathe easy knowing our moulding is manufactured without "forever chemicals" or volatile organic compounds, ensuring safe air quality for your home.',
   },
 ] as const;
 
@@ -243,7 +243,7 @@ export function FlexTrimBenefitTiles({
                   <span className="block">
                     {benefit.id === "value-engineered" ? (
                       <Link
-                        href="/company-info/warranty"
+                        href="/resources/warranty"
                         className="text-primary underline-offset-2 hover:underline"
                       >
                         {BENEFIT_LIST_TITLE_LINES[benefit.id][1]}
@@ -265,13 +265,15 @@ export function FlexTrimBenefitTiles({
                   <h3 className="text-base font-semibold leading-snug text-neutral-900">
                     {benefit.id === "value-engineered" ? (
                       <>
-                        Value-engineered with a{" "}
-                        <Link
-                          href="/company-info/warranty"
-                          className="text-primary underline-offset-2 hover:underline"
-                        >
-                          lifetime warranty
-                        </Link>
+                        <span className="block">Value-engineered with a</span>
+                        <span className="block">
+                          <Link
+                            href="/resources/warranty"
+                            className="text-primary underline-offset-2 hover:underline"
+                          >
+                            lifetime warranty
+                          </Link>
+                        </span>
                       </>
                     ) : (
                       benefit.title

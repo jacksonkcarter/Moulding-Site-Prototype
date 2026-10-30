@@ -45,17 +45,17 @@ function FacilityPopupCard({ contact }: { contact: FacilityContact }) {
         <p key={line}>{line}</p>
       ))}
       <p>
-        Phone:{" "}
         <a href={`tel:${contact.phoneTel}`} className="font-medium text-primary hover:underline">
           {contact.phoneDisplay}
         </a>
       </p>
-      <p>
-        Email:{" "}
-        <a href={`mailto:${contact.email}`} className="font-medium text-primary hover:underline">
-          {contact.email}
-        </a>
-      </p>
+      {contact.emails.map((email) => (
+        <p key={email}>
+          <a href={`mailto:${email}`} className="font-medium text-primary hover:underline">
+            {email}
+          </a>
+        </p>
+      ))}
     </div>
   );
 }

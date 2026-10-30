@@ -5,10 +5,26 @@
   --color-primary-hover: #8a171b;
 }
 
-/* Top of viewable area (site-wide). Content should start at (header + content-top-buffer). */
+/*
+  Sticky header clearance (site-wide): top ribbon (2.5rem) + nav (4rem) + arched
+  underside (~1.375rem). Used for scroll-mt and viewport-height calcs.
+*/
 :root {
-  --header-offset: 6rem;
+  --header-offset: 8rem;
   --content-top-buffer: 3px;
+  /* Compact gallery footer (matches Footer compact minHeight). */
+  --gallery-footer-offset: 0.5in;
+  /*
+    Home: space reserved below the hero so "Why choose Flex Trim™?" stays
+    in the first viewport (section padding + heading + a little air).
+  */
+  --home-benefits-title-peek: 5.5rem;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --home-benefits-title-peek: 6.25rem;
+  }
 }
 
 /* Hide native search clear so custom clear controls don't double up. */

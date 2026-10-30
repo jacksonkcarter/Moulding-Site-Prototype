@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ELEVATE_SECTION } from "@/data/home-sections";
-import casinoImage from "../../Project_Info/Customer Images/Curved Walls/Casino2.jpg";
+const casinoImage = "/gallery/curved-walls/FlexTrim-ec07d2.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -69,19 +69,19 @@ export function HomeScrollSections() {
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <Link
-                  href="/product-info/product-overview"
+                  href="/products/product-overview"
                   className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white"
                 >
                   Explore applications
                 </Link>
                 <Link
-                  href="/product-info/material-details"
+                  href="/products/material-details"
                   className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white"
                 >
                   Learn about our materials
                 </Link>
                 <Link
-                  href="/gallery/applications"
+                  href="/gallery"
                   className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-6 py-3 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white"
                 >
                   See it installed

@@ -67,7 +67,7 @@ export const MATERIAL_COMPARISON_ROWS: MaterialComparisonRow[] = [
     }
   },
   {
-    "attribute": "Moisture resistance",
+    "attribute": "Moisture & insect resistance",
     "values": {
       "Flex Trim": "OOOO",
       "Zzz Flex": "OOOO",
@@ -77,27 +77,7 @@ export const MATERIAL_COMPARISON_ROWS: MaterialComparisonRow[] = [
     }
   },
   {
-    "attribute": "Insect resistance",
-    "values": {
-      "Flex Trim": "OOOO",
-      "Zzz Flex": "OOOO",
-      "Ultra-Flex": "OOOO",
-      "Ultra-Fire Flex": "OOOO",
-      "Machinable S4S": "OOOO"
-    }
-  },
-  {
-    "attribute": "Interior",
-    "values": {
-      "Flex Trim": "OOOO",
-      "Zzz Flex": "OOOO",
-      "Ultra-Flex": "OOOO",
-      "Ultra-Fire Flex": "OOOO",
-      "Machinable S4S": "OOOO"
-    }
-  },
-  {
-    "attribute": "Exterior",
+    "attribute": "Interior & exterior rating",
     "values": {
       "Flex Trim": "OOOO",
       "Zzz Flex": "OOOO",

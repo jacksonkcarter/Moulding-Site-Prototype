@@ -19,13 +19,13 @@ const RATING_LEVELS = [
 ] as const;
 
 const LEARN_MORE_LINKS: Partial<Record<(typeof MATERIAL_COMPARISON_COLUMNS)[number], string>> = {
-  "Ultra-Fire Flex": "/product-info/ultra-fire-flex",
-  "Machinable S4S": "/product-info/machinable-s4s",
+  "Ultra-Fire Flex": "/products/ultra-fire-flex",
+  "Machinable S4S": "/products/machinable-s4s",
 };
 
 const ROW_LINKS: Record<string, string> = {
-  "Available as extended lengths": "/product-info/xtrulinear",
-  Warranty: "/company-info/warranty",
+  "Available as extended lengths": "/products/xtrulinear",
+  Warranty: "/resources/warranty",
 };
 
 const MATERIAL_COLUMN_LOGOS: Partial<
@@ -126,7 +126,7 @@ function RatingDots({ value }: { value: string }) {
 
 export function MaterialComparisonTable() {
   return (
-    <section className="-mt-8" aria-labelledby="material-comparison-heading">
+    <section className="mt-8 sm:-mt-8" aria-labelledby="material-comparison-heading">
       <div className="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
         <div className="border-b border-neutral-200 bg-neutral-50 px-4 py-3 sm:px-5">
           <h2
@@ -137,13 +137,13 @@ export function MaterialComparisonTable() {
           </h2>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full table-fixed border-collapse text-sm">
+        <div className="overflow-x-auto overscroll-x-contain">
+          <table className="w-max min-w-full border-collapse text-sm">
             <thead>
               <tr className="border-b border-neutral-200 bg-white">
                 <th
                   scope="col"
-                  className="sticky left-0 z-20 w-[8.5rem] border-r border-neutral-200 bg-white px-2 py-3 text-left sm:w-[9.5rem] sm:px-3"
+                  className="sticky left-0 z-20 w-[13rem] min-w-[13rem] border-r border-neutral-200 bg-white px-2 py-3 text-left shadow-[2px_0_4px_-2px_rgba(0,0,0,0.12)] sm:w-[14rem] sm:min-w-[14rem] sm:px-3"
                   aria-hidden
                 />
                 {MATERIAL_COMPARISON_COLUMNS.map((column) => {
@@ -153,7 +153,7 @@ export function MaterialComparisonTable() {
                     <th
                       key={column}
                       scope="col"
-                      className="px-1.5 py-3 text-center font-semibold text-neutral-900 sm:px-2"
+                      className="min-w-[6.75rem] px-1.5 py-3 text-center font-semibold text-neutral-900 sm:min-w-[7.5rem] sm:px-2"
                     >
                       <ColumnHeader column={column} href={href} />
                     </th>
@@ -162,16 +162,16 @@ export function MaterialComparisonTable() {
               </tr>
             </thead>
             <tbody>
-              {MATERIAL_COMPARISON_ROWS.map((row, index) => (
+              {MATERIAL_COMPARISON_ROWS.map((row, index) => {
+                const rowBg = index % 2 === 0 ? "bg-white" : "bg-neutral-50";
+                return (
                 <tr
                   key={row.attribute}
-                  className={`border-b border-neutral-100 transition-colors hover:bg-primary/[0.03] ${
-                    index % 2 === 0 ? "bg-white" : "bg-neutral-50/40"
-                  }`}
+                  className={`border-b border-neutral-100 transition-colors hover:bg-primary/[0.03] ${rowBg}`}
                 >
                   <th
                     scope="row"
-                    className="sticky left-0 z-10 border-r border-neutral-200 bg-inherit px-2 py-3 text-left text-xs font-medium text-neutral-900 sm:px-3 sm:text-sm"
+                    className={`sticky left-0 z-10 w-[13rem] min-w-[13rem] whitespace-nowrap border-r border-neutral-200 px-2 py-3 text-left text-xs font-medium text-neutral-900 shadow-[2px_0_4px_-2px_rgba(0,0,0,0.12)] sm:w-[14rem] sm:min-w-[14rem] sm:px-3 sm:text-sm ${rowBg}`}
                   >
                     {ROW_LINKS[row.attribute] ? (
                       <Link
@@ -185,20 +185,21 @@ export function MaterialComparisonTable() {
                     )}
                   </th>
                   {MATERIAL_COMPARISON_COLUMNS.map((column) => (
-                    <td key={`${row.attribute}-${column}`} className="px-1.5 py-3 text-center sm:px-2">
+                    <td key={`${row.attribute}-${column}`} className="min-w-[6.75rem] px-1.5 py-3 text-center sm:min-w-[7.5rem] sm:px-2">
                       <RatingDots value={row.values[column] ?? ""} />
                     </td>
                   ))}
                 </tr>
-              ))}
+                );
+              })}
               <tr className="border-b border-neutral-100 bg-white">
                 <th
                   scope="row"
-                  className="sticky left-0 z-10 border-r border-neutral-200 bg-inherit px-2 py-1.5 sm:px-3"
+                  className="sticky left-0 z-10 w-[13rem] min-w-[13rem] border-r border-neutral-200 bg-white px-2 py-1.5 shadow-[2px_0_4px_-2px_rgba(0,0,0,0.12)] sm:w-[14rem] sm:min-w-[14rem] sm:px-3"
                   aria-hidden
                 />
                 {MATERIAL_COMPARISON_COLUMNS.map((column) => (
-                  <td key={`learn-more-${column}`} className="px-1.5 py-1.5 text-center sm:px-2">
+                  <td key={`learn-more-${column}`} className="min-w-[6.75rem] px-1.5 py-1.5 text-center sm:min-w-[7.5rem] sm:px-2">
                     {LEARN_MORE_LINKS[column] ? (
                       <Link
                         href={LEARN_MORE_LINKS[column]}

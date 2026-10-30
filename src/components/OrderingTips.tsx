@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useId, useState, type ReactNode } from "react";
 
 function TipFigure({
@@ -132,6 +133,16 @@ const TIP_SECTIONS = [
 
 type TipSectionId = (typeof TIP_SECTIONS)[number]["id"];
 
+const HASH_SECTION_PARENT: Record<string, TipSectionId> = {
+  "bending-limitations": "bending-overview",
+  "irregular-radius": "casing-radius",
+  "standard-orientation": "casing-radius",
+  "standard-bending": "casing-radius",
+  "crown-assembly": "radius-crown",
+  "radius-corner": "radius-crown",
+  "barrel-dormer": "radius-crown",
+};
+
 function TipSection({
   id,
   title,
@@ -153,7 +164,11 @@ function TipSection({
   if (hidden) return null;
 
   return (
-    <section id={id} aria-labelledby={buttonId} className="scroll-mt-24 border-b border-neutral-300">
+    <section
+      id={id}
+      aria-labelledby={buttonId}
+      className="scroll-mt-[var(--header-offset)] border-b border-neutral-300"
+    >
       <h3 className="m-0">
         <button
           type="button"
@@ -280,6 +295,27 @@ export function OrderingTips({
     () => new Set(TIP_SECTIONS.map((section) => section.id)),
   );
 
+  useEffect(() => {
+    const applyHash = () => {
+      const hash = window.location.hash.replace(/^#/, "");
+      if (!hash) return;
+      const parent = HASH_SECTION_PARENT[hash];
+      if (parent) {
+        setActiveTab(null);
+        setOpenIds((prev) => new Set(prev).add(parent));
+      }
+      // Wait for section expand + layout before scrolling so we land under the arched header.
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+    };
+    applyHash();
+    window.addEventListener("hashchange", applyHash);
+    return () => window.removeEventListener("hashchange", applyHash);
+  }, []);
+
   const toggleSection = (id: TipSectionId) => {
     setOpenIds((prev) => {
       const next = new Set(prev);
@@ -310,7 +346,7 @@ export function OrderingTips({
     <section
       id="ordering-tips"
       aria-labelledby={hideHeading ? undefined : "ordering-tips-heading"}
-      className={`scroll-mt-24 ${hideHeading ? "" : "pt-10"} ${showTopBorder ? "border-t border-neutral-200" : ""}`}
+      className={`scroll-mt-[var(--header-offset)] ${hideHeading ? "" : "pt-10"} ${showTopBorder ? "border-t border-neutral-200" : ""}`}
     >
       {hideHeading ? null : (
         <h2
@@ -322,6 +358,11 @@ export function OrderingTips({
       )}
       <p className="mt-3 text-sm leading-relaxed text-neutral-600 md:text-base">
         Use these guidelines when specifying Flex Trim™ so we can match your profile and bend correctly the first time.
+        Be sure to check out our{" "}
+        <Link href="/ordering/how-to-measure" className="font-medium text-primary underline-offset-2 hover:underline">
+          How to measure
+        </Link>{" "}
+        page for help determining the measurements we need.
       </p>
 
       <div className="mt-6 flex justify-center">
@@ -355,12 +396,31 @@ export function OrderingTips({
 
       <div className="mt-8 border-t border-neutral-300">
         <TipSection {...sectionProps("moulding-profile", "Moulding profile")}>
-          <p>
-            Many moulding profiles look very similar, but small differences matter. To ensure an exact match, please
-            provide the moulding manufacturer&apos;s name, the profile name or number, and the wood species (for
-            example MDF, finger-joint pine, or oak). This is especially important for seamless mitering between wood
-            and flexible moulding.
-          </p>
+          <div className="space-y-4">
+            <p>
+              Our catalog and the profiles on our website represent only a tiny fraction of the 50,000+ profiles that we
+              have available as we add countless new profiles every single day. If you cannot find the profile you are
+              trying to match, please provide the following information and we can confirm whether we have an existing
+              match or not:
+            </p>
+            <ol className="list-decimal space-y-2 pl-10">
+              <li>A to-scale drawing or tracing of the profile</li>
+              <li>The thickness and width of the profile</li>
+              <li>The moulding supplier and their profile name</li>
+              <li>The moulding wood species or material</li>
+            </ol>
+            <p>
+              If we don&apos;t have the profile/style you need in our existing inventory, we can recreate it through our
+              Made-to-Match process.{" "}
+              <Link
+                href="/products/made-to-match"
+                className="font-medium text-primary underline-offset-2 hover:underline"
+              >
+                Learn more here
+              </Link>
+              .
+            </p>
+          </div>
         </TipSection>
 
         <TipSection {...sectionProps("bending-overview", "Bending overview")}>
@@ -409,7 +469,7 @@ export function OrderingTips({
               </p>
             </TextWithFigures>
 
-            <div id="bending-limitations" className="scroll-mt-24 space-y-2">
+            <div id="bending-limitations" className="scroll-mt-[var(--header-offset)] space-y-2">
               <p className="font-medium text-neutral-900">Bending limitations</p>
               <p>
                 As a general rule, the minimum radius for pre-bending flexible moulding (using our typical
@@ -447,13 +507,13 @@ export function OrderingTips({
             >
               <p className="font-medium text-neutral-900">Regular radius</p>
               <p>
-                When the radius stays consistent, like a section of a circle such as a half round or eyebrow arc, the
+                When the radius stays consistent, like a section of a circle such as a half-round or eyebrow arc, the
                 part does not require a template. We can produce it using either width &amp; rise or length &amp;
                 radius.
               </p>
             </TextWithFigures>
 
-            <div className="space-y-5">
+            <div id="irregular-radius" className="scroll-mt-[var(--header-offset)] space-y-5">
               <TextWithFigures
                 figures={[
                   <TipFigure
@@ -467,7 +527,7 @@ export function OrderingTips({
                     src="/ordering-tips/Oval.png"
                     alt="Oval arch diagram"
                     caption="Oval (template required)"
-                    // Scale so rendered height matches Half Round at the same column width.
+                    // Scale so rendered height matches Half-round at the same column width.
                     imageClassName="mx-auto w-[36.8%]"
                   />,
                 ]}
@@ -499,7 +559,7 @@ export function OrderingTips({
               </p>
             </div>
 
-            <div id="standard-orientation" className="scroll-mt-24">
+            <div id="standard-orientation" className="scroll-mt-[var(--header-offset)]">
               <TextWithFigures
                 figuresBelow
                 figures={[
@@ -523,8 +583,44 @@ export function OrderingTips({
                   thick edge to the outside of the radius. Pay attention to how your piece will be installed, and be sure
                   to let us know if it should be thick edge in. Note that on radius panel box corners, the orientation
                   should typically be switched to thick edge in, where the thick edge is on the inside of the radius, but
-                  the outside of the panel box. Our crown profiles are bent with the default orientation matching the
-                  image in the original moulding manufacturer&apos;s catalog.
+                  the outside of the panel box.
+                </p>
+                <p>
+                  Our crown profiles are bent with the default orientation matching the image in the original moulding
+                  manufacturer&apos;s catalog.
+                </p>
+                <p>Notched and beaded profiles have a default orientation of notch in and bead in.</p>
+              </TextWithFigures>
+            </div>
+
+            <div id="standard-bending" className="scroll-mt-[var(--header-offset)]">
+              <TextWithFigures
+                figuresBelow
+                figures={[
+                  <TipFigure
+                    key="standard-half-round"
+                    src="/ordering-tips/Standard half-round.png"
+                    alt="Half-round Flex Trim bent entirely to the specified radius"
+                    caption="Standard half-round"
+                  />,
+                  <TipFigure
+                    key="half-round-straight-legs"
+                    src="/ordering-tips/Half-round with straight legs.png"
+                    alt="Half-round Flex Trim with straight legs"
+                    caption="Half-round with straight legs"
+                  />,
+                ]}
+              >
+                <p className="font-medium text-neutral-900">Standard bending</p>
+                <p>
+                  By default, we bend the entire Flex Trim™ piece to the specified radius. This allows for easier
+                  adjustments on site when you need to flex a piece in or out. When installing, the part should be mitered
+                  where the straight trim begins and ends. Curved lengths should never be forced into a straight position.
+                </p>
+                <p>
+                  Straight legs can be added to almost any item, but it must be communicated when ordering. Note that all
+                  of our quick-ship stock half-rounds are configured without straight legs for the widest range of
+                  installation radii.
                 </p>
               </TextWithFigures>
             </div>
@@ -560,7 +656,7 @@ export function OrderingTips({
               </p>
             </TextWithFigures>
 
-            <div id="crown-assembly" className="scroll-mt-24">
+            <div id="crown-assembly" className="scroll-mt-[var(--header-offset)]">
               <TextWithFigures
                 equalSplit
                 figures={[
@@ -587,7 +683,7 @@ export function OrderingTips({
               </TextWithFigures>
             </div>
 
-            <div id="radius-corner" className="scroll-mt-24">
+            <div id="radius-corner" className="scroll-mt-[var(--header-offset)]">
               <TextWithFigures
                 figuresBelow
                 figures={[
@@ -617,7 +713,7 @@ export function OrderingTips({
               </TextWithFigures>
             </div>
 
-            <div id="barrel-dormer" className="scroll-mt-24">
+            <div id="barrel-dormer" className="scroll-mt-[var(--header-offset)]">
               <TextWithFigures
                 figuresBelow
                 figures={[

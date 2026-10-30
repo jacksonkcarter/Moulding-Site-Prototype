@@ -7,7 +7,7 @@ export type FacilityContact = {
   addressLines: string[];
   phoneDisplay: string;
   phoneTel: string;
-  email: string;
+  emails: string[];
 };
 
 export const FACILITY_CONTACTS: Record<FacilityRegion, FacilityContact> = {
@@ -17,7 +17,7 @@ export const FACILITY_CONTACTS: Record<FacilityRegion, FacilityContact> = {
     addressLines: ["117 Cedar Lane Drive", "Lexington, NC 27292"],
     phoneDisplay: "(800) 861-0734",
     phoneTel: "8008610734",
-    email: "orders@carterflex.com",
+    emails: ["orders@carterflex.com", "support@carterflex.com"],
   },
   west: {
     region: "west",
@@ -25,7 +25,7 @@ export const FACILITY_CONTACTS: Record<FacilityRegion, FacilityContact> = {
     addressLines: ["533 South 500 West", "Provo, UT 84601"],
     phoneDisplay: "(877) 877-4595",
     phoneTel: "8778774595",
-    email: "orders@flextrim.com",
+    emails: ["orders@flextrim.com"],
   },
 };
 

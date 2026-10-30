@@ -79,17 +79,17 @@ function FacilityContactBlock({
         ))
       )}
       <p className={`text-neutral-600 ${compactType ? "mt-1 text-sm leading-snug" : "mt-1"}`}>
-        Phone:{" "}
         <a href={`tel:${contact.phoneTel}`} className="text-primary hover:underline">
           {contact.phoneDisplay}
         </a>
       </p>
-      <p className={`text-neutral-600 ${compactType ? "text-sm leading-snug" : ""}`}>
-        Email:{" "}
-        <a href={`mailto:${contact.email}`} className="text-primary hover:underline">
-          {contact.email}
-        </a>
-      </p>
+      {contact.emails.map((email) => (
+        <p key={email} className={`text-neutral-600 ${compactType ? "text-sm leading-snug" : ""}`}>
+          <a href={`mailto:${email}`} className="text-primary hover:underline">
+            {email}
+          </a>
+        </p>
+      ))}
     </section>
   );
 }
@@ -101,28 +101,54 @@ function FooterFacilityLine({
   contact: FacilityContact;
   emphasized: boolean;
 }) {
+  const labelClass = emphasized ? "font-medium text-neutral-700" : "font-medium text-neutral-500";
+  const bodyClass = emphasized ? "text-neutral-600" : "text-neutral-400";
+  const linkClass = emphasized
+    ? "text-primary hover:underline"
+    : "hover:text-neutral-600 hover:underline";
+
   return (
-    <p className={emphasized ? "text-neutral-600" : "text-neutral-400"}>
-      <span className={emphasized ? "font-medium text-neutral-700" : "font-medium text-neutral-500"}>
-        {contact.label}
-      </span>
-      <span className="mx-1.5 text-neutral-300">·</span>
-      <span>{contact.addressLines.join(", ")}</span>
-      <span className="mx-1.5 text-neutral-300">·</span>
-      <a
-        href={`tel:${contact.phoneTel}`}
-        className={emphasized ? "text-primary hover:underline" : "hover:text-neutral-600 hover:underline"}
-      >
-        {contact.phoneDisplay}
-      </a>
-      <span className="mx-1.5 text-neutral-300">·</span>
-      <a
-        href={`mailto:${contact.email}`}
-        className={emphasized ? "text-primary hover:underline" : "hover:text-neutral-600 hover:underline"}
-      >
-        {contact.email}
-      </a>
-    </p>
+    <div className={bodyClass}>
+      {/* Mobile: label, address, phone, and emails each on their own line */}
+      <div className="flex flex-col gap-0.5 sm:hidden">
+        <p className={labelClass}>{contact.label}</p>
+        <p>{contact.addressLines.join(", ")}</p>
+        <p>
+          <a href={`tel:${contact.phoneTel}`} className={linkClass}>
+            {contact.phoneDisplay}
+          </a>
+        </p>
+        <p>
+          {contact.emails.map((email, index) => (
+            <span key={email}>
+              {index > 0 ? <span className="mx-1.5 text-neutral-300">·</span> : null}
+              <a href={`mailto:${email}`} className={linkClass}>
+                {email}
+              </a>
+            </span>
+          ))}
+        </p>
+      </div>
+
+      {/* Desktop: single compact line */}
+      <p className="hidden sm:block">
+        <span className={labelClass}>{contact.label}</span>
+        <span className="mx-1.5 text-neutral-300">·</span>
+        <span>{contact.addressLines.join(", ")}</span>
+        <span className="mx-1.5 text-neutral-300">·</span>
+        <a href={`tel:${contact.phoneTel}`} className={linkClass}>
+          {contact.phoneDisplay}
+        </a>
+        {contact.emails.map((email) => (
+          <span key={email}>
+            <span className="mx-1.5 text-neutral-300">·</span>
+            <a href={`mailto:${email}`} className={linkClass}>
+              {email}
+            </a>
+          </span>
+        ))}
+      </p>
+    </div>
   );
 }
 
